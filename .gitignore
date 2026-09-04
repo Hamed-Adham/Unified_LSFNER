@@ -1,0 +1,59 @@
+# Byte-compiled / optimized / Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Secrets & Environment Variables (CRITICAL: Never commit API keys)
+.env
+.env.local
+*.env
+!.env.example
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE & Editor Files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Large Binary & Database Files (>100MB hard limit on GitHub)
+data/vector_db/*.json
+data/vector_db/chroma_db/
+data/processed/vector_db
+*.sqlite3
+*.bin
+*.pickle
+*.npz
+
+# Deep Learning Models & Heavy Checkpoints (Hosted on Google Drive)
+*.pt
+*.pth
+models/*
+!models/README.md
+
+# Large Experiment Outputs & Cache Logs
+output/
+*.llm_cache.json
+
+# Agent Internal Artifacts
+.agents/
+scratch/

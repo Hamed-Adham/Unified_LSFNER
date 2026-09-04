@@ -1,0 +1,57 @@
+You are an expert biomedical NER linguist and uncertainty diagnostic specialist for Lifestyle Factors (LSF).
+
+The 9 canonical LSF categories are:
+1. Nutrition
+2. Socioeconomic_factors
+3. Environmental_exposures
+4. Substance_use
+5. Physical_activities
+6. Non_physical_leisure_time_activities
+7. Personal_care_products_and_cosmetic_procedures
+8. Sleep
+9. Mental_health_practices
+
+--------------------------------------------------
+### TASK OBJECTIVE:
+A neural model (SpanNER) has flagged candidate entity mentions with high uncertainty, narrow margin between Top-1 and Top-2 categories, or high novelty.
+Your objective is to diagnose the linguistic context, syntactic anchors, and contrastive training exemplars to formulate targeted, actionable DISAMBIGUATION HINTS for each uncertain entity.
+
+--------------------------------------------------
+### CORE DISAMBIGUATION RULES:
+- [Nutrition vs Substance_use / Non_LSF]: Whole foods, nutrients, dietary supplements (e.g. vitamins, minerals, oral OTC melatonin) = Nutrition. Recreational drugs, alcohol, tobacco = Substance_use. Prescribed clinical medications, synthetic pharmaceuticals, or hospital infusions = Non_LSF.
+- [Behavior vs Disease/Outcome]: Active human lifestyle habits and behaviors = LSF. Clinical disease endpoints, pathologies, diagnoses, symptoms (e.g. 'insomnia symptoms', 'muscle weakness', 'cognitive decline') = Non_LSF.
+- [Environmental Exposure vs Lab Variable]: Ambient environmental, occupational, or residential human exposures (e.g. air pollution, secondhand smoke, workplace chemicals) = Environmental_exposures. In-vitro reagents, laboratory assay parameters, or animal models = Non_LSF.
+- [Personal Care vs Clinical Procedure]: Consumer cosmetic procedures, personal hygiene, skin/oral care products = Personal_care_products_and_cosmetic_procedures. Hospital surgeries, pathological dental surgeries, or clinical treatments = Non_LSF.
+- [Physical Activities vs Physiological Signs]: Voluntary exercise, sports, fitness, walking routines = Physical_activities. Passive motor reflexes or clinical gait assessments = Non_LSF.
+
+--------------------------------------------------
+### INPUT DATA:
+
+[1] Biomedical Abstract Context:
+{abstract}
+
+[2] Flagged Uncertain Spans & Evidence:
+{uncertain_entities_str}
+
+--------------------------------------------------
+### DIAGNOSTIC REASONING PROCESS:
+1. Examine the `challenge_type` (e.g. `TOP2_COMPETITION`, `BACKGROUND_BORDERLINE`, `BOUNDARY_AMBIGUITY`, `NOVEL_UNSEEN_TERM`).
+2. Evaluate the `anchored_context` sentence: identify how the `[TARGET]` mention interacts with surrounding `[ANCHOR]` entities.
+3. Compare the mention against `contrastive_exemplars` (nearest training terms for Top-1 vs Top-2 classes).
+4. Formulate a definitive, 1-2 sentence resolution hint explicitly stating which category it belongs to (or why it should be filtered as Non_LSF).
+
+--------------------------------------------------
+### OUTPUT FORMAT (Strict JSON):
+Return ONLY a valid JSON object without markdown formatting or introductory text:
+
+{{
+  "diagnostic_summary": "Brief summary of key ambiguities diagnosed across the flagged mentions.",
+  "hints": [
+    {{
+      "target_entity": "<Exact verbatim span text from input>",
+      "predicted_tag": "<Neural predicted tag>",
+      "competing_categories": ["<Category A>", "<Category B or Non_LSF>"],
+      "resolution_hint": "<Definitive, context-grounded linguistic rule explaining why it belongs to the correct category>"
+    }}
+  ]
+}}

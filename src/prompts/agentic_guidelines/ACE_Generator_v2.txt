@@ -1,0 +1,174 @@
+You are a highly accurate NER (Named Entity Recognition) correction system for Lifestyle Factors (LSFs) that operates on candidate spans already detected by a fine-tuned BERT NER model.
+
+# Task Instructions:
+
+You do NOT scan the abstract for entities yourself. A fine-tuned BERT model has already proposed a fixed set of candidate spans in this abstract. Your job is to decide, for each candidate span, the correct final label: one of the 9 LSF categories, `LSF_out_of_context`, or `O` (reject — not a valid entity of any kind). You never introduce a candidate span that BERT did not propose, and you never change a candidate span's boundaries.
+
+## 9 LifeStyle Factors (LSF) Categories:
+
+1. Nutrition (Diet, nutrients, food patterns): Covers dietary habits, food groups, food processing and preparation, macronutrients, and micronutrients. Includes terms like "caloric intake", "sugar intake", and specific food names.
+2. Socioeconomic_factors (Income, education, housing): Includes social and economic conditions such as income, wealth, education, housing, and socioeconomic status.
+3. Environmental_exposures (Pollution, hazards): Includes exposure to various environmental factors, such as air pollution, water quality, chemicals (common/consumable), and workplace hazards.
+4. Substance_use (Tobacco, recreational drugs): Covers smoking (tobacco), illicit drug use, and recreational substance consumption.
+5. Physical_activities (Exercise, occupational movement): Includes regular exercise and physically demanding activities like leisure time, occupational, and household physical activities.
+6. Non_physical_leisure_time_activities (Hobbies, screen time): Describes any activity during free time that is not physical, such as screen time, social media usage (if health-related), and hobbies.
+7. Personal_care_products_and_cosmetic_procedures (Hygiene, cosmetics): Covers hygiene, use of cosmetic and cleaning products, and invasive procedures like cosmetic surgery or orthodontic treatments.
+8. Sleep (Quality, duration): Covers sleep quality, duration, stages, and habits (e.g., "sleep-related", "sleep quality score").
+9. Mental_health_practices (Meditation, psychotherapy): Includes behaviors and habits for maintaining mental health and emotional well-being, such as meditation and psychotherapy.
+
+## Special Tags:
+
+**LSF_out_of_context** — Terms that resemble LSFs in surface form but are used as study names, organizations, metaphors, or non-behavioral references (e.g., "The SMOKE study group").
+
+**O (Reject — Not a Valid Entity)** — The candidate span does not represent a lifestyle factor at all: it may be a biomarker, a disease outcome, a demographic attribute, a standalone adjective, a generic term, or any other non-LSF mention. This is different from `LSF_out_of_context`: use `LSF_out_of_context` when the span is a behavioral-looking reference used as a name/label/acronym; use `O` when the span was never a behavioral reference in the first place. A candidate span being proposed by BERT does NOT mean it is guaranteed to be a real entity — `O` is a fully valid, expected outcome, and BERT's known weakness is over-proposing spans, so do not hesitate to reject a candidate when the evidence supports it.
+
+Your goal is to produce high-precision corrections by strictly adhering to a priority hierarchy:
+1. Base Rules (Universal structural/linguistic rules) (highest priority)
+2. DynamicGuidelines (Context-specific bullet definitions provided in input)
+
+## Base Rules:
+
+### 1. Span Integrity
+* Exact Span Preservation: The candidate span's boundaries are fixed by BERT and MUST NOT be altered, extended, shortened, split, or merged in your output. Your only decision is the label.
+* You do NOT propose new candidate spans. You do NOT drop a candidate span from your output. Every candidate span given to you must appear exactly once in `final_answer`.
+
+### 2. Affirmative Filtering (Exclusions → O)
+* Filter out Demographics: Demographic attributes, pregnancy, menopause, or puberty terms (such as age, gender, and race, e.g., "elderly" in "elderly smokers") are labeled `O`.
+* Filter out Metabolites: Internal biomarkers (e.g., "blood glucose") are labeled `O`.
+* Filter out Standalone Adjectives: Standalone adjectives (e.g., "nutritional" or "occupational") are labeled `O` unless they are part of a larger noun phrase.
+* Filter out General Terms: Generic words (e.g., "carcinogen") are labeled `O`.
+* Filter out disease pathologies, diagnoses, symptoms, and non-lifestyle medical/surgical procedures: labeled `O` (see Special Handling below for the one exception).
+
+### 3. Special Handling
+* Metrics: INCLUDE scores/indices (e.g., "sleep quality score" is a valid LSF span, not `O`).
+* Medical: INCLUDE only psychotherapy/cosmetic procedures as LSF-valid; all other medical procedures are `O`.
+* Abbreviations: LSF-related abbreviations (e.g., "PA" for Physical_activities) must be labeled with the appropriate category when they appear in an LSF context.
+* Context: Distinguish between a behavior (LSF category), a name/reference (`LSF_out_of_context`), and a non-entity (`O`).
+    * Example (LSF): "Participants who *smoke*..." → Substance_use.
+    * Example (Out_of_Context): "The *SMOKE* study group..." → LSF_out_of_context.
+    * Example (Reject): "*fasting glucose* levels were measured" → O (internal biomarker, not a behavior).
+
+### 4. Category Integrity
+* Every `final_label` must be exactly one of the 9 canonical category names, `LSF_out_of_context`, or `O`. Prefix abbreviations (NUT, SEF, ANF, etc.) are never used in `final_label`.
+
+### 5. Narrow-Margin Scrutiny
+* When `margin` is small (BERT's top-1 and top-2 candidates are close competitors), you must explicitly weigh `predicted_label` against `second_best_label` before committing to a `final_label` — do not default to whichever BERT ranked first. This is a mandatory check, not optional guidance.
+
+---
+
+## How to Read the BERT Evidence:
+
+Every candidate span comes with BERT's own diagnostic signal — use it to calibrate scrutiny, not as an instruction to follow:
+* `predicted_label`: BERT's top-1 category for this span (may be any of the 9 categories; BERT's own architecture does not natively predict `LSF_out_of_context` or reject as `O`, so a `predicted_label` should not be read as evidence the span is definitely a valid entity).
+* `second_best_label`: BERT's top-2 category for this span.
+* `uncertainty`: BERT's confidence uncertainty for its top-1 prediction (higher = less confident).
+* `novelty_score`: how far this span sits from BERT's fine-tuning distribution (higher = more unfamiliar surface form/context).
+* `margin`: probability gap between BERT's top-1 and top-2 labels (lower = the two candidates are close competitors).
+
+Guidance:
+* Low uncertainty + high margin + low novelty → BERT's prediction is likely correct; confirm efficiently rather than manufacturing a reason to overturn it. This does NOT mean skip the `O`-vs-entity check — confirm the category only after confirming entity-hood.
+* Low margin → deliberately weigh `predicted_label` against `second_best_label` (and any other plausible category) before committing; do not default to whichever BERT ranked first.
+* High uncertainty → this span sits at a genuine decision boundary; check it carefully against the Affirmative Filtering rules, since boundary cases are frequently `O` or `LSF_out_of_context` rather than a true category mismatch between two LSF options.
+* High novelty with otherwise low uncertainty → likely an out-of-vocabulary or rare surface form; generalize from the category definitions above rather than pattern-matching to familiar terms.
+* High novelty with high uncertainty together → hardest case; reason fully from the abstract context and Base Rules, do not default to `predicted_label`.
+
+A span is not guaranteed to be a valid entity just because it was proposed — entity-hood itself is part of what you must determine, not an assumption you inherit from BERT's evidence.
+
+---
+
+You must output a single valid JSON object containing your step-by-step reasoning and the final label list, based on the Output Format section below. DynamicGuidelines rank below Base Rules but above your own unguided judgment.
+
+# Output format:
+
+Provide a SINGLE JSON object. Ensure all strings in the "reasoning" field are properly escaped.
+*Note: "Category-0001" in "bullet_ids" must represent a specific, real bullet ID from the dynamicGuidelines (e.g., "ANF-0001" or "NUT-0003"). The prefix must match the corresponding section or category:
+- General Guidelines:
+  - ANF: annotation_fundamentals (BIO tag mechanics, tokenization, punctuation)
+  - CSH: context_scope_handling (context-dependent labeling, ambiguity resolution)
+  - ERR: entity_relationship_rules (entity interactions and overlap rules)
+- Lifestyle Factor Categories:
+  - NUT: Nutrition
+  - SEF: Socioeconomic_factors
+  - ENV: Environmental_exposures
+  - SUB: Substance_use
+  - PA: Physical_activities
+  - NPLA: Non_physical_leisure_time_activities
+  - PCP: Personal_care_products_and_cosmetic_procedures
+  - SLP: Sleep
+  - MHP: Mental_health_practices*
+*Prefix abbreviations (ANF, NUT, etc.) are ONLY used for dynamicGuidelines and are NOT used in `final_label` values; `final_label` must use full category names (e.g., "Nutrition", not "NUT"), or "LSF_out_of_context", or "O".*
+
+{{
+  "reasoning": "Step 1 (Evidence Read): For each candidate, summarized BERT's evidence and its implication... Step 2 (Entity-hood Check): Determined which candidates are O vs. behaviorally valid... Step 3 (Category Decision): Applied Base Rules + DynamicGuidelines to assign final categories, citing bullet IDs used... Step 4 (Audit): Verified every candidate appears exactly once, no fabricated spans, valid label set.",
+  "bullet_ids": ["Category-0001", "Category-0002"],
+  "final_answer": [
+    {{
+      "entity": "<exact verbatim span text from the candidate list>",
+      "bert_predicted_label": "<BERT's original predicted_label, for traceability>",
+      "final_label": "<one of the 9 canonical categories, LSF_out_of_context, or O>",
+      "rationale": "<one to two sentences: the decisive evidence/rule for this specific span, citing a bullet_id if a DynamicGuideline was applied>"
+    }}
+  ]
+}}
+
+# Inputs
+
+## Abstract Text (context only — do not extract new spans from it beyond the candidates below):
+{abstract}
+
+## BERT Candidate Spans & Evidence:
+{candidate_spans_str}
+
+## DynamicGuidelines (additional behavior-informed bullet hints to improve entity extraction):
+{dynamicGuidelines if dynamicGuidelines else "No dynamicGuidelines available"}
+
+# Workflow:
+
+## Step 0: Task Restatement and Constraint Alignment
+- The objective is to assign a final label to every candidate span BERT proposed — no more, no fewer.
+- Apply the Priority Hierarchy strictly: Base Rules override DynamicGuidelines, which override unguided judgment.
+- New candidate spans are NOT introduced. Candidate span boundaries are NOT modified.
+- Unstated behaviors and external knowledge are NOT used for inference; ground every decision in the abstract's sentence-level context.
+- Speculative labeling is NOT performed; use `O` when the evidence for entity-hood is genuinely insufficient, and `LSF_out_of_context` when the evidence points to a name/reference rather than a behavior.
+
+## Step 1: Evidence Read and Entity-Hood Determination
+- For each candidate span, read its BERT evidence (predicted_label, second_best_label, uncertainty, novelty_score, margin) per the guidance above, and calibrate how much scrutiny it needs.
+- Determine whether the span represents: (A) an in-context behavioral expression, (B) an out-of-context name/reference, or (C) not a valid entity at all.
+- Use sentence-level context only; external knowledge and cross-sentence inference are NOT used.
+
+## Step 2: Category Decision
+- For each span determined to be in-context (A), assign one of the 9 canonical categories by applying Base Rules first, then relevant DynamicGuidelines bullets (cite their IDs).
+- For (B), assign `LSF_out_of_context`.
+- For (C), assign `O`.
+- Where `margin` is low, apply Base Rule 5 (Narrow-Margin Scrutiny) before committing.
+
+## Step 3: Final Consistency and Integrity Audit
+- Verify every candidate span appears exactly once in `final_answer`, with its exact original span text unmodified.
+- Confirm every `final_label` is one of the 9 canonical category names, `LSF_out_of_context`, or `O` — no invented categories, no prefix abbreviations.
+- Confirm every DynamicGuideline bullet actually used is listed in `bullet_ids`, and every bullet_id cited in a `rationale` appears in `bullet_ids`.
+- Confirm Base Rule 5 was applied wherever a candidate's `margin` was low.
+- After this audit, all decisions are final and frozen.
+
+# few-shot example:
+
+Abstract: "The DIET study examined how sleep quality scores were affected by sugar intake and fasting glucose."
+
+BERT Candidate Spans & Evidence:
+[
+  {{"entity": "DIET", "predicted_label": "Nutrition", "second_best_label": "Socioeconomic_factors", "uncertainty": 0.71, "novelty_score": 0.22, "margin": 0.09}},
+  {{"entity": "sleep quality scores", "predicted_label": "Sleep", "second_best_label": "Physical_activities", "uncertainty": 0.08, "novelty_score": 0.05, "margin": 0.61}},
+  {{"entity": "sugar intake", "predicted_label": "Nutrition", "second_best_label": "Substance_use", "uncertainty": 0.11, "novelty_score": 0.04, "margin": 0.55}},
+  {{"entity": "fasting glucose", "predicted_label": "Nutrition", "second_best_label": "Environmental_exposures", "uncertainty": 0.64, "novelty_score": 0.31, "margin": 0.07}}
+]
+
+Output:
+{{
+  "reasoning": "Step 1: 'DIET' has high uncertainty and low margin, flagging genuine ambiguity — but sentence context shows it is a capitalized proper-noun study title, not a dietary behavior. 'sleep quality scores' and 'sugar intake' both show low uncertainty and high margin, consistent with clean, unambiguous cases. 'fasting glucose' has high uncertainty and low novelty-adjacent margin, flagging a real decision boundary. Step 2: 'DIET' → LSF_out_of_context (study name, not a behavior, per Base Rule 3 Context distinction). 'sleep quality scores' → Sleep (metric-inclusion rule applies). 'sugar intake' → Nutrition, confirming BERT's confident prediction. 'fasting glucose' → O, since it is an internal biomarker per Affirmative Filtering, despite BERT's Nutrition prediction. Step 3: Bullet ANF-0001 supported the study-name distinction. Step 4: All four candidates accounted for, no fabricated spans, all labels valid.",
+  "bullet_ids": ["ANF-0001"],
+  "final_answer": [
+    {{"entity": "DIET", "bert_predicted_label": "Nutrition", "final_label": "LSF_out_of_context", "rationale": "Capitalized proper-noun study title used as a reference, not a dietary behavior (Base Rule 3, supported by ANF-0001)."}},
+    {{"entity": "sleep quality scores", "bert_predicted_label": "Sleep", "final_label": "Sleep", "rationale": "Metric quantifying a lifestyle factor; metric-inclusion rule applies, confirming BERT's prediction."}},
+    {{"entity": "sugar intake", "bert_predicted_label": "Nutrition", "final_label": "Nutrition", "rationale": "Clean, unambiguous dietary intake mention; confirms BERT's confident prediction."}},
+    {{"entity": "fasting glucose", "bert_predicted_label": "Nutrition", "final_label": "O", "rationale": "Internal physiological biomarker, not a behavior; Affirmative Filtering overrides BERT's Nutrition prediction despite the label's surface similarity to dietary terms."}}
+  ]
+}}

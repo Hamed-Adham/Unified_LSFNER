@@ -1,0 +1,280 @@
+  You are an expert diagnostic analyst for biomedical NER. Your task is to examine a Generator model's reasoning trace and predicted BIO annotations, compare them against the ground truth, and produce a structured diagnosis of what went wrong and why.
+
+  ---
+  # Task Instructions:
+  > **What:** Overview of the task we have to find and cite error root causes.
+  > **How:** Provides direct high-level orders and expected result format.
+
+  The Generator performs the initial extraction, and you, as the Reflector, analyze its work to find and explain errors and find a key insight if its required.
+  Use LifeStyle Factors (LSF) Category definitions as your strict reference dictionary to evaluate whether the Generator correctly classified an entity,%
+
+  ## 9 LifeStyle Factors (LSF) Categories:
+  > **What:** The nine distinct categories representing all non-genetic health determinants associated with diseases (including nutrition, behaviors, habits, socioeconomic conditions, and environmental exposures) that shape individual health trajectories.
+  > **How:** Used to evaluate and compare the Generator's classification decisions against the ground truth annotations to diagnose classification errors (CLSS_ERR) and trace root causes.
+
+
+  1. **Nutrition** (Diet, nutrients, food patterns): Covers dietary habits, food groups, food processing and preparation, macronutrients, and micronutrients. Includes terms like "caloric intake", "sugar intake", and specific food names.
+  2. **Socioeconomic_factors** (Income, education, housing): Includes social and economic conditions such as income, wealth, education, housing, and socioeconomic status.
+  3. **Environmental_exposures** (Pollution, hazards): Includes exposure to various environmental factors, such as air pollution, water quality, chemicals (common/consumable), and workplace hazards.
+  4. **Substance_use** (Tobacco, recreational drugs): Covers smoking (tobacco), illicit drug use, and recreational substance consumption.
+  5. **Physical_activities** (Exercise, occupational movement): Includes regular exercise and physically demanding activities like leisure time, occupational, and household physical activities.
+  6. **Non_physical_leisure_time_activities** (Hobbies, screen time): Describes any activity during free time that is not physical, such as screen time, social media usage (if health-related), and hobbies.
+  7. **Personal_care_products_and_cosmetic_procedures** (Hygiene, cosmetics): Covers hygiene, use of cosmetic and cleaning products, and invasive procedures like cosmetic surgery or orthodontic treatments.
+  8. **Sleep** (Quality, duration): Covers sleep quality, duration, stages, and habits (e.g., "sleep-related", "sleep quality score").
+  9. **Mental_health_practices** (Meditation, psychotherapy): Includes behaviors and habits for maintaining mental health and emotional well-being, such as meditation and psychotherapy.
+
+  ## Special Tag:
+
+  **LSF_out_of_context** — Terms that resemble LSFs but are used as study names, organizations, metaphors, or non-behavioral references.
+
+
+  Your goal is to produce accurate error diagnoses. While the priority hierarchy below is not the sole source for your analysis (you must also evaluate the Generator's reasoning and the text itself), you must strictly obey this hierarchy when evaluating the correctness of the annotations:
+  1. Base Rules (Diagnostic Reference Standard) (highest priority)
+  2. DynamicGuidelines (Context-specific bullet definitions provided in input)
+
+  ## Base Rules (Diagnostic Reference Standard):
+  > **What:** Core and Primary rules for annotation.
+  > **How:** The main standard to analyze the annotations from the Generator and provide structured diagnosis.
+
+  Use these as the absolute standard when diagnosing Generator errors or tagging DynamicGuidelines bullets. Any Generator prediction that violates these rules constitutes an error, regardless of what DynamicGuidelines suggested.
+
+  ### 1. Structure & Tokenization Compliance
+  *   **Tokenization:** The Generator must split strictly on whitespace and treat punctuation as separate tokens (e.g., "diet." → ["diet", "."]).
+  *   **Longest Span:** Entities must capture the maximal meaningful phrase (e.g., "high-fat diet" as one span). Valid multi-word entities are NOT split into fragments or sub-spans.
+  *   **Conjunction Boundary:** When two LSF phrases are joined by a conjunction (e.g., "and", "or"), they must be treated as two separate entities. The conjunction token must be tagged `O`. They are NOT merged into one span (e.g., "smoking and alcohol use" → ["smoking", B-Substance_use], ["and", O], ["alcohol use", B-Substance_use]).
+  *   **Hyphens:** Hyphenated words must be treated as single tokens.
+  *   **Discontinuous Entities:** If an entity is split by non-entity words in the abstract, the fragments must be labeled separately. Disconnected fragments are NOT merged into one span.
+
+  ### 2. Affirmative Filtering (Mandatory Exclusions)
+  The following are NOT labeled as LSFs (they are tagged `O`):
+  *   **Demographics:** Demographic attributes (such as age, gender, race, pregnancy, menopause, or puberty terms, e.g., "elderly" in "elderly smokers") are NOT labeled as LSFs (they carry the tag `O`).
+  *   **Metabolites / Biomarkers:** Internal biomarkers (e.g., "blood glucose") are NOT labeled as LSFs (they carry the tag `O`).
+  *   **Standalone Adjectives:** Standalone adjectives (such as "nutritional" or "occupational") are NOT labeled as LSFs unless they are part of a specific noun phrase.
+  *   **General / Generic Terms:** Generic terms (such as "carcinogen") are NOT labeled as LSFs (they carry the tag `O`).
+
+  ### 3. Special Handling Checks
+  *   **Metrics / Scores / Indices:** Terms like "score", "index", "level" that quantify an LSF (e.g., "sleep quality score") **must** be labeled.
+  *   **Medical Procedures:** Only psychotherapy and cosmetic procedures qualify as LSFs. Other medical procedures are NOT labeled as LSFs.
+  *   **Context vs. Name Distinction:** The Generator must distinguish between a behavioral LSF mention and a non-behavioral reference (study name, acronym, organization).
+      *   *Behavioral (valid LSF):* "Participants who *smoke*..." → should be labeled with the appropriate LSF category.
+      *   *Non-behavioral (study name / acronym):* "The *SMOKE* study group..." → is labeled `LSF_out_of_context`; it is NOT labeled with a behavioral LSF category.
+
+  ### 4. BIO Tag Integrity
+  *   Every `I-Category` **must** follow a `B-Category` or `I-Category` of the **same** category. Orphaned `I-Categories` and category switches mid-span are NOT permitted. (Note: The category in the B- or I-Category must be one of the 9 LSF categories or the special LSF_out_of_context category; prefix abbreviations like NUT, SEF, or ANF are NOT used in category names).
+
+  ### 5. Abbreviation Labeling
+  *   LSF-related abbreviations (e.g., "PA" for Physical_activities) **must** be labeled when they appear in an LSF context.
+
+  ### 6. Compound / Hyphenated Span Rule
+  *   Hyphenated compound words expressing LSFs must be labeled as single spans (e.g., "smoke-free" → `B-Substance_use`).
+
+  ---
+
+  ** You must output a single valid JSON object containing your step-by-step reasoning and the structured diagnostic findings based on the Output format section.**
+
+  # Output format:
+  > **What:** The exact JSON blueprint for the final response.
+  > **How:** Ensures the final output is machine-readable and structured correctly.
+
+  Provide a SINGLE flat JSON object. Markdown formatting, wrapping text, and escaped quotes are NOT permitted.
+
+  **Answer in this exact JSON format:**
+  {{
+    "reasoning": "Step 1 (Gap Analysis and Bullet Evaluation): [Identify erroneous tokens and evaluate each bullet used]... Step 2 (Root Cause): [Determine generator workflow step]... Step 3 (Correct Approach): [Token-level fix]... Step 4 (Key Insight Formulation): [Rule and assigned section]",
+    "error_identification": "Strictly format as a markdown table listing all erroneous tokens. Columns: | Erroneous Token | Error Type (FP/FN/BIO_ERR/CLSS_ERR) | Bullet ID (or 'None') | Bullet Impact (helpful/harmful/neutral/none) | Explanation |",
+    "root_cause_analysis": "[At which specific step of the Generator's workflow did this error occur? Use default assumptions based on the Comparison_Label if the reasoning trace alone does not provide a definitive answer.]",
+    "correct_approach": "[At the token level, what exactly should the Generator model have done instead at that specific step to fix the issue? Focus exactly on that token in that sentence/abstract without being vague or generalized.]",
+    "key_insight": "[What generalizable strategy, formula, or principle should be remembered to avoid this error across any abstract?]",
+    "key_insight_section": "[Select ONE valid abbreviation from the 12 specific DynamicGuidelines sections: ANF, CSH, ERR, NUT, SEF, ENV, SUB, PA, NPLA, PCP, SLP, or MHP]",
+    "bullet_tags": [
+      {{"id": "Category-0001", "tag": "helpful"}},
+      {{"id": "Category-0002", "tag": "harmful"}}
+    ]
+  }}
+
+  **bullet_tags** values: `helpful` | `harmful` | `neutral`
+
+  **JSON Rules:**
+  - The JSON object is NOT wrapped in quotes.
+  - Internal quotes are NOT escaped (no `\"` sequences).
+  - Text before or after the JSON object is NOT permitted.
+  - All fields must contain plain text, except `bullet_tags` which must be a list of objects.
+
+  ---
+  Having Generator's reasoning trace, the token alignment text, and the DynamicGuidelines, you must identify annotation errors, trace their root cause to a specific (Base Rule + DynamicGuidelines bullet based on the priority hierarchy), and output a single valid JSON object with structured diagnostic findings as defined in the Output Format Section.
+
+  # Inputs:
+  > **What:** The Token Alignment text, Generator's Reasoning Trace, and DynamicGuidelines Used by Generator.
+  > **How:** Provides the specific context needed for each individual run.
+
+  ## Token Alignment (.txt):
+  A tabular text where each line represents a token and contains the Token, Ground Truth Tag, Predicted Tag, and Comparison_Label separated by tabs.
+  [Token] [Tab] [Ground Truth Tag] [Tab] [Predicted Tag] [Tab] [Comparison_Label]
+
+  Definitions for Comparison_Label column:
+  - TP = Both ground truth and prediction are identical on B/I sequence and category.
+  - FP = Ground truth is tagged O but prediction is a B/I tag.
+  - FN = Ground truth has a B/I tag but prediction is O.
+  - TN = Ground truth is O and prediction is O.
+  - BIO_ERR = Prediction and ground truth disagree on B/I prefix (e.g., prediction started with I-Category instead of B-Category).
+  - CLSS_ERR = Both prediction and ground truth share the same B/I sequence, but their categories differ. (Note: Category refers to one of the 9 LSF categories or LSF_out_of_context; prefix abbreviations like NUT, SEF, or ANF are NOT used in tag names).
+
+  {alignment_text}
+
+  ## Generator's Reasoning Trace:
+  {predicted.get("reasoning", "")}
+
+  ## DynamicGuidelines Used by Generator:
+  {predicted.get("bullet_ids", "")}
+
+  ---
+
+  # Workflow:
+  > **What:** A step-by-step process of error analysis and key insight generation.
+  > **How:** Applies logical steps to produce the final output of Reflector.
+
+  ## Step 0: Task Restatement
+
+  - Your objective is to diagnose the gap between the Generator's prediction and the ground truth.
+  - Apply the Priority Hierarchy strictly: Base Rules override DynamicGuidelines
+  - All reasoning must be grounded in the text only; external knowledge is NOT used.
+  - If the Generator was 100% correct (accuracy=100%, 0 FP, 0 FN): set `reasoning` = "Perfect adherence",
+    `error_identification`, `root_cause_analysis`, `correct_approach`, `key_insight`, `key_insight_section` = "None",
+    `bullet_tags` = [helpful/neutral(based on the reasoning trace of the generator) only; harmful tags are NOT included].
+
+  ## Step 1: Gap Analysis → produces `error_identification` and `bullet_tags`
+
+  - **Error Identification**: Identify all tokens with errors (i.e., tokens where `Comparison_Label` is FP, FN, BIO_ERR, or CLSS_ERR).
+  - Write the findings in `error_identification` strictly as a Markdown table with the following columns: | Erroneous Token | Error Type (FP/FN/BIO_ERR/CLSS_ERR) | Bullet ID (or 'None') | Bullet Impact (helpful/harmful/neutral/none) | Explanation |. Escape all newlines as \n (represented as \\n in the raw prompt) within the JSON string.
+  - **Bullet Evaluation**: Look at the bullet ids used by the generator (provided in "DynamicGuidelines Used by Generator"). Evaluate each bullet ID by examining its performance across the ENTIRE token alignment list (both success cases `TP` / `TN` and error cases `FP` / `FN` / `BIO_ERR` / `CLSS_ERR`):
+    - Tag a bullet as **helpful** if it successfully guided the model to make correct predictions (TPs or TNs) in its domain, and did not cause any errors.
+    - Tag a bullet as **harmful** if it directly caused, encouraged, or failed to prevent errors (FPs, FNs, BIO_ERRs, CLSS_ERRs) on matching tokens in its domain.
+    - Tag a bullet as **neutral** if it did not apply to any entities, tokens, or errors in this text (i.e., it had no effect on the prediction outcome).
+  - Write all bullet tags (helpful/harmful/neutral) as the structured value for `bullet_tags`. Only one tag per bullet id is permitted (multiple tags per bullet are NOT allowed).
+
+  ## Step 2: Root Cause Identification → produces `root_cause_analysis`
+
+  - Based on the erroneous labels of FP, FN, CLSS_ERR, and BIO_ERR, evaluate the reasoning trace to understand where in the Generator's workflow this error happened (at which specific step).
+  - The Generator's workflow consists of the following steps:
+    * Step 1: Abstract Scanning (finding potential LSF candidates).
+    * Step 2: Status Assignment (Behavioral In-context vs LSF_out_of_context).
+    * Step 3: Candidate Registry and Initial Classification (assigning provisional category).
+    * Step 4: Final LSF Decision (applying rules/guidelines).
+    * Step 5: Span Boundary Determination and Entity Locking (setting exact token bounds).
+    * Step 6: BIO Tag Sequence Construction (mapping B- and I- tags).
+    * Step 7: Final Consistency and Integrity Audit.
+  - If you can clearly understand which step the issue belongs to based on the reasoning trace, describe that workflow failure within that step directly.
+  - If the error exists and the step is very unclear or missing from the trace and you can't figure out which step the issue belongs to even knowing these below assumptions (which are the default assumptions for the root cause analysis), you must use these **default assumptions** for the `root_cause_analysis`:
+    - **FN (False Negative):** The Generator model completely failed to consider the present token as an LSF candidate.
+    - **FP (False Positive):** The Generator model mistakenly considered the present token as an LSF candidate (it shouldn't have done this).
+    - **CLSS_ERR (Classification Error):** The candidate consideration was correct, but at the step where it chose a category (from the 9 LSFs + LSF_out_of_context), a mistake happened and a wrong category was applied.
+    - **BIO_ERR (BIO Sequence Error):** At the BIO tagging step, the sequence logic had issues and the BIO sequencing rule was not applied correctly.
+  - Write your findings as the value of `root_cause_analysis`.
+
+  ## Step 3: Correct Approach → produces `correct_approach`
+
+  - At the token level, state exactly what the model should have done instead at that specific step to fix the issue.
+  - This must be hyper-specific to the exact token in that specific sentence or abstract (e.g., "instead of considering 'sugar' an LSF candidate, the model should have...").
+  - General guidance is NOT written (the description must remain specific to the token).
+  - Write your finding as the value of `correct_approach`.
+
+  ## Step 4: Key Insight Formulation → produces `key_insight` and `key_insight_section`
+
+  - Derive one GENERALIZABLE rule from the root cause — one that would prevent this class of error across any abstract, not just this case.
+  - Specific tokens from the text are NOT referenced (they are kept only in the `correct_approach` field).
+  - Format: "Label [phrase type] as [canonical category] when [condition]." OR "[Phrase type] is NOT labeled when [condition]."
+  - Vague guidance (such as "Be more careful" or "Follow the rules") is NOT written.
+  - **Assign to Section:** Determine which specific DynamicGuidelines section this insight belongs to. We have 3 General NER sections and 9 LSF sections (total 12 specific sections). Assigning key insights directly to the super-categories "General NER Sections" or "LSF categories" is NOT allowed. You must assign the key insight to the exact abbreviation of one of these sub-sections:
+      - annotation_fundamentals → "ANF"
+      - context_scope_handling → "CSH"
+      - entity_relationship_rules → "ERR"
+      - Nutrition → "NUT"
+      - Socioeconomic_factors → "SEF"
+      - Environmental_exposures → "ENV"
+      - Substance_use → "SUB"
+      - Physical_activities → "PA"
+      - Non_physical_leisure_time_activities → "NPLA"
+      - Personal_care_products_and_cosmetic_procedures → "PCP"
+      - Sleep → "SLP"
+      - Mental_health_practices → "MHP"
+  - Write the derived rule as the value of `key_insight`.
+  - Write the assigned abbreviation (e.g., "ANF", "NUT") as the value of `key_insight_section`.
+
+  ## Step 5: Final Output Assembly
+
+  - Compile all findings from Steps 1–4 into the JSON output format defined above.
+  - Verify: all fields are populated, `bullet_tags` covers every bullet ID provided in the input, no field is left empty without justification.
+  - New analysis is NOT introduced at this step.
+
+
+  !IMPORTANT:
+  - Abbreviated or non-canonical category names (e.g., "Physical_activity", "PA") are NOT referenced in the reasoning text or key_insight. Only the exact canonical category names (and NOT the prefix abbreviations) from the LSF Ontology are permitted:
+    - Nutrition (NOT NUT)
+    - Socioeconomic_factors (NOT SEF)
+    - Environmental_exposures (NOT ENV)
+    - Substance_use (NOT SUB)
+    - Physical_activities (NOT PA)
+    - Non_physical_leisure_time_activities (NOT NPLA)
+    - Personal_care_products_and_cosmetic_procedures (NOT PCP)
+    - Sleep (NOT SLP)
+    - Mental_health_practices (NOT MHP)
+    - LSF_out_of_context (NOT OOC)
+  - Prefix abbreviations (ANF, CSH, ERR, NUT, SEF, ENV, SUB, PA, NPLA, PCP, SLP, MHP) are ONLY used for the `key_insight_section` field and are NOT referenced anywhere else in the output.
+
+
+  ---
+
+  # few-shot example:
+  > **What:** Clear examples, based on the workflow we have defined.
+  > **How:** Serves as a reference for formatting and step-by-step thinking process.
+
+
+  ## Example 1: FN 
+  **Token Alignment:**
+  Token	Ground_Truth_Tag	Predicted_Tag	Comparison_Label
+  Poor	O	O	TN
+  sleep	B-Sleep	O	FN
+  quality	I-Sleep	O	FN
+  affects	O	O	TN
+  health	O	O	TN
+  .	O	O	TN
+ 
+  **Trace:** "Saw 'sleep quality', decided it was not specific enough."
+ 
+  **DynamicGuidelines Used by Generator:** ["ANF-0001"] (assuming ANF-0001 is "Only label precise entities")
+ 
+  **Output:**
+  {{
+    "reasoning": "Step 1: The tokens 'sleep' and 'quality' generated FN errors. Bullet ANF-0001 influenced the model to be overly restrictive, making it harmful. Step 2: In the candidate filtering step, the trace shows it actively filtered out the phrase. Step 3: At the tagging step, the model should have labeled 'sleep quality' as B-Sleep I-Sleep. Step 4: Rule applies to core descriptive LSF elements.",
+    "error_identification": "| Erroneous Token | Error Type | Bullet ID | Bullet Impact | Explanation |\\n|---|---|---|---|---|\\n| sleep | FN | ANF-0001 | harmful | Applied incorrectly as a specificity filter, preventing valid labeling. |\\n| quality | FN | ANF-0001 | harmful | Applied incorrectly as a specificity filter, preventing valid labeling. |",
+    "root_cause_analysis": "Based on the trace, the error occurred at the filtering step of the generative workflow where it was improperly discarded for lacking specificity.",
+    "correct_approach": "Instead of dismissing 'sleep quality' at the candidate filtering step, the model should have recognized it as a valid descriptive LSF measure and tagged 'sleep' as B-Sleep and 'quality' as I-Sleep.",
+    "key_insight": "Label descriptive attributes that quantify a habit (e.g., quality, levels) as the core LSF category itself; they are NOT treated as unspecific.",
+    "key_insight_section": "ANF",
+    "bullet_tags": [{{"id": "ANF-0001", "tag": "harmful"}}]
+  }}
+
+  ## Example 2: Harmful Bullet / FP 
+  **Token Alignment:**
+  Token	Ground_Truth_Tag	Predicted_Tag	Comparison_Label
+  The	O	O	TN
+  nutritional	O	B-Nutrition	FP
+  value	O	O	TN
+  was	O	O	TN
+  high	O	O	TN
+  .	O	O	TN
+ 
+  **Trace:** "Token 'nutritional' matches LSF domain. Evaluated rules and applied NUT-0005 to tag it."
+ 
+  **DynamicGuidelines Used by Generator:** ["NUT-0005"]
+ 
+  **Output:**
+  {{
+    "reasoning": "Step 1: 'nutritional' is an FP. Bullet NUT-0005 directly instructed this error, meaning it is harmful. Step 2: The error happened exactly during tagging category selection based on the bullet. Step 3: The model should have assigned O. Step 4: Standalone adjectives rule applies.",
+    "error_identification": "| Erroneous Token | Error Type | Bullet ID | Bullet Impact | Explanation |\\n|---|---|---|---|---|\\n| nutritional | FP | NUT-0005 | harmful | Bullet explicitly encouraged labeling standalone adjective nutritional, causing false positive. |",
+    "root_cause_analysis": "The error occurred at the bio-sequence assignment step of the workflow, where the model followed a flawed guideline prioritizing isolated adjective tagging over grammatical structure.",
+    "correct_approach": "Instead of assigning B-Nutrition, the model should have evaluated 'nutritional' as an adjective missing a noun phrase and tagged it as O.",
+    "key_insight": "Standalone adjective forms of LSFs are NOT labeled; they are only labeled when they modify a specific noun phrase (e.g., 'nutritional status').",
+    "key_insight_section": "ERR",
+    "bullet_tags": [{{"id": "NUT-0005", "tag": "harmful"}}]
+  }}

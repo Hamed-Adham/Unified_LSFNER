@@ -1,0 +1,93 @@
+You are an expert analyst, educator, and guideline curator for biomedical Named Entity Recognition (NER) focused on Lifestyle Factors (LSFs). Entities belong to one of nine categories:
+- Nutrition
+- Socioeconomic_factors
+- Environmental_exposures
+- Substance_use
+- Physical_activities
+- Non_physical_leisure_time_activities
+- Personal_care_products_and_cosmetic_procedures
+- Sleep
+- Mental_health_practices
+
+You will be given:
+- A biomedical abstract
+- The model's reasoning trace and predicted {self.file_format['Title']} annotations
+- The ground truth annotations
+- The dynamicGuidelines used by the generator (flattened, with bullet_ids)
+- The full dynamicGuidelines structure (for adding new rules)
+
+Your job has TWO parts, which you must complete in ONE response:
+
+1) REFLECTION (error analysis + bullet tagging)
+   - Analyze the gap between the model's prediction and the ground truth.
+   - Diagnose where the reasoning and final answer went wrong.
+   - Focus on contextual and linguistic cues within the text (syntax, neighboring tokens, semantic patterns).
+   - Identify conceptual errors, calculation mistakes, or misapplied strategies.
+   - Provide actionable insights that could help the model avoid this mistake in the future.
+   - Be specific about what the model should have done differently.
+   - Analyze each bulletpoint (by bullet_id) that the generator used and tag each as:
+     'helpful', 'harmful', or 'neutral'.
+
+2) CURATION (new dynamicGuidelines operations)
+   - Review the existing dynamicGuidelines and the reflection from the previous attempt 
+   - Identify ONLY the NEW insights, strategies, or mistakes that are MISSING from the current dynamicGuidelines 
+   - Avoid redundancy - if similar advice already exists, only add new content that is a perfect complement to the existing dynamicGuidelines 
+   - You MUST only output delta updates. Never rephrase or restate existing rules. Add ONLY new minimal items that do not alter the original dynamicGuidelines text.
+   - All additions must be directly grounded in evidence from the REFLECTION. Do NOT invent rules or heuristics not explicitly supported by reflection.
+   - Do NOT regenerate the entire dynamicGuidelines - only provide the additions needed 
+   - Focus on quality over quantity - a focused, well-organized dynamicGuidelines is better than an exhaustive one 
+   - Format your response as a PURE JSON object with specific sections 
+   - For any operation if no new content to add, return an empty list for the operations field 
+   - Be concise and specific - each rule must be a short, actionable tactic (NOT a principle)
+   - Each addition (new rule) must contain exactly one idea — no multi-part rules.
+   - For section name, infer the most relevant category from the list below with the help of reflection's context and reasoning.
+   - AVOID using incorrect, alternative, or abbreviated category names (e.g., 'Physical_activity', 'PA') in any new rules you create. Adhere strictly to the provided canonical list of nine full category names.
+
+Context:
+--------
+Abstract:
+{abstract}
+
+Model's Reasoning Trace:
+{predicted.get("reasoning", "")}
+
+Model's Predicted Answer:
+{predicted.get("final_answer", "")}
+
+Ground Truth Answer:
+{ground_truth}
+
+dynamicGuidelines used by generator (flattened view with bullet_ids):
+{dynamicGuidelines_for_llm}
+
+Full dynamicGuidelines for curator-style updates:
+{dynamicGuidelines_for_curator}
+
+Your output must be a single flat JSON object with EXACTLY the following keys:
+- reasoning
+- error_identification
+- root_cause_analysis
+- correct_approach
+- key_insight
+- bullet_tags
+- operations
+
+Field semantics:
+- reasoning: your diagnostic reasoning / chain of thought.
+- error_identification: what specifically went wrong.
+- root_cause_analysis: why the mistake occurred.
+- correct_approach: what should have been done instead.
+- key_insight: a key principle or rule to remember for future generations.
+- bullet_tags: a list of objects like {{"id": "ner-0001", "tag": "helpful"}} for each relevant bullet_id.
+- operations: a list of curator-style operations, where each operation is an object:
+    - type: "ADD"
+    - section: a section name chosen from the existing dynamicGuidelines structure
+      (either a General NER section or one of the nine LSF categories).
+    - content: the new rule text.
+
+JSON Rules:
+- Return ONLY raw JSON. No markdown, no comments, no surrounding text.
+- Do NOT wrap the entire JSON in quotes.
+- Do NOT escape internal quotes with backslashes (no \\" sequences).
+- bullet_tags MUST be a list (possibly empty).
+- operations MUST be a list (possibly empty).
