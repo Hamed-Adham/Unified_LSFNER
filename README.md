@@ -1,13 +1,13 @@
 # Unified Hybrid ALinkNER: Production-Grade Framework
 
-A unified, modular framework combining neural span representations ([SpanNER](file:///Users/hmd/Documents/Workspace/Hybrid%20ALinkNER/Unified%20projectfolder/src/architectures/hybrid_linkner/spanner_model.py)), uncertainty-novelty unreliability gating, multi-agent reflection ([Dinasor](file:///Users/hmd/Documents/Workspace/Hybrid%20ALinkNER/Unified%20projectfolder/src/architectures/dinasor_dingen/dinasor_agent.py)), and dynamic self-curated annotation guidelines.
+A unified, modular framework combining neural span representations ([SpanNER](src/architectures/hybrid_linkner/spanner_model.py)), uncertainty-novelty unreliability gating, multi-agent reflection ([Dinasor](src/architectures/dinasor_dingen/dinasor_agent.py)), and dynamic self-curated annotation guidelines.
 
 ---
 
 ## 📁 Repository Structure
 
 ```text
-Unified projectfolder/
+Unified_LSFNER/
 ├── notebooks/                                 # Consolidated interactive Jupyter Notebooks
 │   ├── 01_extract_entity_embeddings_vectordb.ipynb
 │   ├── 02_escalation_dataset_preparation_gating_nn.ipynb
@@ -15,6 +15,12 @@ Unified projectfolder/
 │   ├── 04_dinasor_dingen_pipeline.ipynb
 │   ├── 05_ablation_sweeps_and_pareto.ipynb
 │   └── 06_agentic_guideline_curation_ner.ipynb
+│
+├── scripts/                                   # Centralized CLI tools & standalone utilities
+│   ├── run_evaluation.py                      # Benchmarking CLI (hybrid LinkNER)
+│   ├── manage_guidelines.py                   # Guideline inspection & export CLI
+│   ├── generate_subsets.py                    # Dataset subset sampler CLI
+│   └── compute_iaa.py                         # Inter-Annotator Agreement (IAA) CLI
 │
 ├── src/
 │   ├── common/                                # Shared foundational modules
@@ -81,11 +87,11 @@ Unified projectfolder/
 ├── models/                                    # Checkpoints (Symlinked to SpanNER & RoBERTa models)
 │
 └── output/                                    # Dedicated output folders per architecture
+    ├── linkner/
+    ├── dinasor_dingen/
     ├── gating_nn/
-    ├── linkner_audit/
-    ├── dingen_audit/
-    ├── ablation_reports/
-    └── agentic_guidelines/
+    ├── bertized_ace/
+    └── ablation_reports/
 ```
 
 ---
@@ -132,7 +138,7 @@ from src.architectures.agentic_guidelines import AgenticNERPipeline, DynamicGuid
 
 Due to GitHub's file size limitations (>100 MB), heavy model checkpoints and the 453 MB pre-extracted Vector Database are hosted externally on Google Drive:
 
-* 📥 **Google Drive Download Link**: [Download Models & Vector DB Bundle](https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_FOLDER_ID_HERE)
+* 📥 **Google Drive Download Link**: [Download Models & Vector DB Bundle](https://drive.google.com/drive/folders/1yjqGMCM6bqTaKgwEuIA5nW0oZd1bn7fi?usp=drive_link)
 
 ### Extracted Directory Placement:
 After downloading, place or extract the files into the repository as follows:
@@ -140,15 +146,15 @@ After downloading, place or extract the files into the repository as follows:
 1. **Neural Model Checkpoints (`models/`)**:
    ```bash
    models/
-   ├── SpanNER_LSF/best_spanner_160train.pt     # SpanNER candidate proposal model (~400 MB)
-   ├── NER_Model/trained_NER_model/             # Fine-tuned RoBERTa token model (~500 MB)
-   └── Qwen3-Embedding-8B/                      # Qwen 8B embedding weights (~16 GB)
+   ├── SpanNER_LSF/best_spanner_160train.pt     # SpanNER candidate proposal model 
+   ├── NER_Model/trained_NER_model/             # Fine-tuned RoBERTa token model 
+   └── Qwen3-Embedding-8B/                      # Qwen 8B embedding weights 
    ```
 
 2. **Entity Vector Database (`data/vector_db/`)**:
    ```bash
    data/vector_db/
-   ├── lsf_entity_vector_db.json                # Pre-extracted entity embedding vectors (453 MB)
-   └── chroma_db/                               # Persistent ChromaDB vector index (~120 MB)
+   ├── lsf_entity_vector_db.json                # Pre-extracted entity embedding vectors
+   └── chroma_db/                               # Persistent ChromaDB vector index
    ```
 
