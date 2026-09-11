@@ -522,12 +522,34 @@ class SpanNER_DinGenPipeline:
         all_resolved = cached_resolved + resolved_entities
         return sorted(all_resolved, key=lambda x: x["start_char"])
 
-    def predict_abstract(self, text: str, uncertainty_method: str = "mcd", doc_id: str = None) -> list:
+    def predict_abstract(self, text: str, uncertainty_method: str = "mcd", doc_id: str = None, precomputed_candidates: Any = None) -> list:
         """Runs SpanNER recognition, LOF novelty, Gating, and DinGenPipe resolution on a single abstract."""
-        batch_res = self.predict_batch([text], batch_size=1, uncertainty_method=uncertainty_method, doc_ids=[doc_id] if doc_id else None, verbose=False)
+        cands_input = None
+        if precomputed_candidates is not None:
+            if isinstance(precomputed_candidates, dict):
+                cands_input = precomputed_candidates
+            else:
+                cands_input = [precomputed_candidates]
+
+        batch_res = self.predict_batch(
+            [text],
+            batch_size=1,
+            uncertainty_method=uncertainty_method,
+            doc_ids=[doc_id] if doc_id else None,
+            verbose=False,
+            precomputed_candidates=cands_input
+        )
         return batch_res[0] if batch_res else []
 
-    def predict_batch(self, texts: list, batch_size: int = 5, uncertainty_method: str = "mcd", doc_ids: list = None, verbose: bool = True) -> list:
+    def predict_batch(
+        self,
+        texts: list,
+        batch_size: int = 5,
+        uncertainty_method: str = "mcd",
+        doc_ids: list = None,
+        verbose: bool = True,
+        precomputed_candidates: Any = None
+    ) -> list:
         """Runs full batched inference across multiple abstracts."""
         all_results = []
         total_abstracts = len(texts)
@@ -548,70 +570,142 @@ class SpanNER_DinGenPipeline:
             if verbose:
                 print(f"\n📦 [Batch {batch_num}/{total_batches}] Processing abstracts {chunk_start + 1}-{chunk_start + current_bs} of {total_abstracts}")
 
-            # Stage 1: SpanNER Tokenization & Forward Pass
-            encoding = self.tokenizer(chunk_texts, padding=True, truncation=True, max_length=512, return_offsets_mapping=True, return_tensors="pt")
-            input_ids = encoding["input_ids"].to(self.device)
-            attention_mask = encoding["attention_mask"].to(self.device)
-            offsets = encoding["offset_mapping"].cpu().numpy()
-
-            with torch.no_grad():
-                outputs = self.spanner_model(input_ids=input_ids, attention_mask=attention_mask)
-                logits = outputs["logits"]
-                candidate_spans = outputs["candidate_spans"]
-
-            u_scores, top1_probs, top1_label_ids, margins, top2_probs, top2_label_ids, p_background_o = self._compute_uncertainties(
-                logits,
-                input_ids=input_ids if uncertainty_method == "mcd" else None,
-                attention_mask=attention_mask if uncertainty_method == "mcd" else None,
-                method=uncertainty_method
-            )
-
-            # GPU Boolean Masking
-            keep_mask = (top1_label_ids != 0) | (u_scores >= self.unreliability_threshold)
-            b_indices, s_indices = torch.where(keep_mask)
-
             chunk_pending = []
-            if len(b_indices) > 0:
-                b_idx_arr = b_indices.cpu().numpy()
-                s_idx_arr = s_indices.cpu().numpy()
-                label_id_arr = top1_label_ids[b_indices, s_indices].cpu().numpy()
-                top2_label_arr = top2_label_ids[b_indices, s_indices].cpu().numpy()
-                u_arr = u_scores[b_indices, s_indices].cpu().numpy()
-                prob_arr = top1_probs[b_indices, s_indices].cpu().numpy()
-                top2_prob_arr = top2_probs[b_indices, s_indices].cpu().numpy()
-                margin_arr = margins[b_indices, s_indices].cpu().numpy()
-                po_arr = p_background_o[b_indices, s_indices].cpu().numpy()
 
-                for i in range(len(b_idx_arr)):
-                    b_idx = int(b_idx_arr[i])
-                    s_idx = int(s_idx_arr[i])
-                    start, end, _ = candidate_spans[s_idx]
-                    char_start = int(offsets[b_idx, start, 0])
-                    char_end = int(offsets[b_idx, end, 1])
-                    span_text = chunk_texts[b_idx][char_start:char_end].strip()
-                    if span_text:
+            if precomputed_candidates is not None:
+                if verbose and chunk_start == 0:
+                    print("  ⚡ [Stage 1: Precomputed Cache] Bypassing neural forward pass; consuming cached candidate spans directly.")
+                for b_idx in range(current_bs):
+                    global_idx = chunk_start + b_idx
+                    doc_key = chunk_doc_ids[b_idx] if (doc_ids and b_idx < len(chunk_doc_ids)) else None
+                    cands = None
+                    if isinstance(precomputed_candidates, dict):
+                        if doc_key and doc_key in precomputed_candidates:
+                            cands = precomputed_candidates[doc_key]
+                        elif global_idx in precomputed_candidates:
+                            cands = precomputed_candidates[global_idx]
+                        elif str(global_idx) in precomputed_candidates:
+                            cands = precomputed_candidates[str(global_idx)]
+                    elif isinstance(precomputed_candidates, list) and global_idx < len(precomputed_candidates):
+                        cands = precomputed_candidates[global_idx]
+
+                    if isinstance(cands, dict) and "candidates" in cands:
+                        cands = cands["candidates"]
+                    if cands is None:
+                        cands = []
+
+                    for s_idx, c in enumerate(cands):
+                        s_text = c.get("span_text", c.get("entity", "")).strip()
+                        if not s_text:
+                            continue
+                        c_start = int(c.get("start_char", c.get("char_start", 0)))
+                        c_end = int(c.get("end_char", c.get("char_end", 0)))
+                        raw_lbl = c.get("predicted_label", c.get("spanner_label", "O"))
+                        spanner_lbl = to_new_label(raw_lbl) if self.use_new_labels else raw_lbl
+                        raw_top2 = c.get("second_best_label", c.get("top2_label", "O"))
+                        top2_lbl = to_new_label(raw_top2) if self.use_new_labels else raw_top2
+
+                        prob_val = float(c.get("prob", c.get("confidence", 1.0)))
+                        u_val = float(c.get("uncertainty", c.get("u_score", 0.0)))
+                        margin_val = float(c.get("margin", prob_val))
+                        top2_p = float(c.get("top2_prob", 0.0))
+                        po_val = float(c.get("p_background_o", c.get("p_o", 0.0)))
+                        nov_val = float(c.get("novelty_score", c.get("novelty", 0.0)))
+
+                        lbl_id = 0 if spanner_lbl == "O" else 1
+                        top2_lbl_id = 0 if top2_lbl == "O" else 1
+                        for k, v in self.id2label.items():
+                            if v == raw_lbl or to_new_label(v) == spanner_lbl:
+                                lbl_id = k
+                            if v == raw_top2 or to_new_label(v) == top2_lbl:
+                                top2_lbl_id = k
+
                         chunk_pending.append({
                             "b_idx": b_idx,
                             "s_idx": s_idx,
-                            "char_start": char_start,
-                            "char_end": char_end,
-                            "span_text": span_text,
-                            "label_id": int(label_id_arr[i]),
-                            "top2_label_id": int(top2_label_arr[i]),
-                            "prob": float(prob_arr[i]),
-                            "top2_prob": float(top2_prob_arr[i]),
-                            "u_score": float(u_arr[i]),
-                            "margin": float(margin_arr[i]),
-                            "p_o": float(po_arr[i])
+                            "char_start": c_start,
+                            "char_end": c_end,
+                            "span_text": s_text,
+                            "label_id": lbl_id,
+                            "top2_label_id": top2_lbl_id,
+                            "prob": prob_val,
+                            "top2_prob": top2_p,
+                            "u_score": u_val,
+                            "margin": margin_val,
+                            "p_o": po_val,
+                            "novelty": nov_val,
+                            "novelty_score": nov_val
                         })
+            else:
+                # Stage 1: SpanNER Tokenization & Forward Pass
+                encoding = self.tokenizer(chunk_texts, padding=True, truncation=True, max_length=512, return_offsets_mapping=True, return_tensors="pt")
+                input_ids = encoding["input_ids"].to(self.device)
+                attention_mask = encoding["attention_mask"].to(self.device)
+                offsets = encoding["offset_mapping"].cpu().numpy()
+
+                with torch.no_grad():
+                    outputs = self.spanner_model(input_ids=input_ids, attention_mask=attention_mask)
+                    logits = outputs["logits"]
+                    candidate_spans = outputs["candidate_spans"]
+
+                u_scores, top1_probs, top1_label_ids, margins, top2_probs, top2_label_ids, p_background_o = self._compute_uncertainties(
+                    logits,
+                    input_ids=input_ids if uncertainty_method == "mcd" else None,
+                    attention_mask=attention_mask if uncertainty_method == "mcd" else None,
+                    method=uncertainty_method
+                )
+
+                # GPU Boolean Masking
+                keep_mask = (top1_label_ids != 0) | (u_scores >= self.unreliability_threshold)
+                b_indices, s_indices = torch.where(keep_mask)
+
+                if len(b_indices) > 0:
+                    b_idx_arr = b_indices.cpu().numpy()
+                    s_idx_arr = s_indices.cpu().numpy()
+                    label_id_arr = top1_label_ids[b_indices, s_indices].cpu().numpy()
+                    top2_label_arr = top2_label_ids[b_indices, s_indices].cpu().numpy()
+                    u_arr = u_scores[b_indices, s_indices].cpu().numpy()
+                    prob_arr = top1_probs[b_indices, s_indices].cpu().numpy()
+                    top2_prob_arr = top2_probs[b_indices, s_indices].cpu().numpy()
+                    margin_arr = margins[b_indices, s_indices].cpu().numpy()
+                    po_arr = p_background_o[b_indices, s_indices].cpu().numpy()
+
+                    for i in range(len(b_idx_arr)):
+                        b_idx = int(b_idx_arr[i])
+                        s_idx = int(s_idx_arr[i])
+                        start, end, _ = candidate_spans[s_idx]
+                        char_start = int(offsets[b_idx, start, 0])
+                        char_end = int(offsets[b_idx, end, 1])
+                        span_text = chunk_texts[b_idx][char_start:char_end].strip()
+                        if span_text:
+                            chunk_pending.append({
+                                "b_idx": b_idx,
+                                "s_idx": s_idx,
+                                "char_start": char_start,
+                                "char_end": char_end,
+                                "span_text": span_text,
+                                "label_id": int(label_id_arr[i]),
+                                "top2_label_id": int(top2_label_arr[i]),
+                                "prob": float(prob_arr[i]),
+                                "top2_prob": float(top2_prob_arr[i]),
+                                "u_score": float(u_arr[i]),
+                                "margin": float(margin_arr[i]),
+                                "p_o": float(po_arr[i])
+                            })
 
             # Stage 2: Parallel LOF Novelty Scoring
             if self.novelty_scorer is not None and chunk_pending:
-                span_texts = [p["span_text"] for p in chunk_pending]
-                span_vecs = self.novelty_scorer.embed(span_texts)
-                nov_scores = self.novelty_scorer.novelty(span_vecs)
-                for p_idx, item in enumerate(chunk_pending):
-                    item["embedding"] = span_vecs[p_idx]
+                all_have_nov = all("novelty_score" in p and p.get("novelty_score") is not None for p in chunk_pending)
+                if all_have_nov and precomputed_candidates is not None:
+                    nov_scores = np.array([float(p["novelty_score"]) for p in chunk_pending], dtype=float)
+                    if verbose:
+                        print(f"  🔍 [Stage 2: LOF Novelty] Reusing {len(chunk_pending)} precomputed novelty scores.")
+                else:
+                    span_texts = [p["span_text"] for p in chunk_pending]
+                    span_vecs = self.novelty_scorer.embed(span_texts)
+                    nov_scores = self.novelty_scorer.novelty(span_vecs)
+                    for p_idx, item in enumerate(chunk_pending):
+                        item["embedding"] = span_vecs[p_idx]
             else:
                 nov_scores = np.zeros(len(chunk_pending))
 

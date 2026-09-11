@@ -1,0 +1,68 @@
+{
+  "doc_id": "24234780",
+  "dataset_split": "200/train",
+  "text": "Practical issues and the assessment of pathological gamblers in a private practice setting. \nWith increased awareness and knowledge of pathological gambling comes the opportunity to share various perspectives and emerging skills. Descriptions of the assessment and treatment of the pathological gambler, spouse, and family have mushroomed in the past twenty years. However, most treatment summaries have come out of institutional or government funded settings. This article discusses various practical aspects of working with pathological gamblers in an outpatient, fee for service private practice setting. The author also describes refinements made in the assessment process since he first began working with pathological gamblers in 1979. \n",
+  "total_candidates": 1,
+  "spans": [
+    {
+      "span_id": "24234780_s000",
+      "abstract_id": "24234780",
+      "span_text": "gambling",
+      "boundaries": {
+        "start_char": 148,
+        "end_char": 156,
+        "token_start": 27,
+        "token_end": 27,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Non_physical_leisure_time_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0126,
+        "novelty_score": 0.9884,
+        "margin": 0.9947,
+        "top1_prob": 0.9965,
+        "top2_prob": 0.0018,
+        "p_background_o": 0.0018
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9884,
+        "novelty_lof": 1.6267,
+        "novelty_knn_dist": 0.3408
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0126,
+        "least_confidence": 0.0035,
+        "margin_uncertainty": 0.0053
+      },
+      "probabilities": {
+        "O": 0.0018,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.9965,
+        "Nutrition": 0.0,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0001
+      },
+      "logits": {
+        "O": 1.3468,
+        "Personal_care_products_and_cosmetic_procedures": -1.291,
+        "Substance_use": -0.4506,
+        "Environmental_exposures": -1.5064,
+        "Mental_health_practices": -0.3514,
+        "Non_physical_leisure_time_activities": 7.6704,
+        "Nutrition": -2.2525,
+        "Physical_activities": 0.0659,
+        "Sleep": -0.6348,
+        "Socioeconomic_factors": -1.7296
+      }
+    }
+  ]
+}

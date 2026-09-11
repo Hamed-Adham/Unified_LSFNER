@@ -1,0 +1,908 @@
+{
+  "doc_id": "21979764",
+  "dataset_split": "400/train",
+  "text": "Prevention of root caries. \nDESIGN: Randomised controlled trial. INTERVENTION: Elders having at least five teeth with exposed roots, no serious medical problems and basic self-care ability (including oral hygiene practices) were randomly allocated into one of four prevention groups. Individualised oral hygiene instruction was provided to each participant, focusing on effective brushing with a manual toothbrush, and use of fluoride toothpaste was recommended. Before applications of the study agents, a piece of gauze was used to clean and dry the teeth. Then water (placebo control), chlorhexidine varnish (Cervitec, Ivoclar Vivadent AG, Schaan, Liechtenstein), sodium fluoride varnish (Duraphat, Pharbil Waltrop GmbH, Waltrop, Germany) or SDF solution (Saforide, Toyo Seiyaku Kasei Co. Ltd., Osaka, Japan) was applied onto the exposed root surfaces of participants in the respective groups by means of a disposable microbrush. The participants were instructed not to eat for half an hour after treatment. Applications of water or SDF solution were repeated every 12 months, and applications of chlorhexidine varnish or sodium fluoride varnish were repeated every three months. OUTCOME MEASURES: Root Caries Index (RCI) was calculated as follows: (no. of root caries lesions/no. of teeth with gingival recession/person) x 100. Treatment effects were also measured by prevented fraction (PF), relative risk and the number (of elders) needed to treat (NNT) to prevent one elder from developing root caries. RESULTS: Two thirds (203/306) of the included elders were followed for three years. Significantly lower relative risks for developing new root caries were found in the elders in the chlorhexidine, sodium fluoride and SDF groups compared with the control (OHI only) group. The mean numbers of new root caries surfaces in the four groups were 2.5, 1.1, 0.9 and 0.7 respectively (ANOVA, p < 0.001). The prevented fraction and numbers needed to treat are shown in Table 1. CONCLUSIONS: Applications of SDF solution, sodium fluoride varnish and chlorhexidine varnish are more effective in preventing new root caries than OHI alone. The results of this study provide support for the clinical and community use of the three test materials, in addition to improvement in oral hygiene, to prevent the development of root caries in institutionalised elders. \n",
+  "total_candidates": 15,
+  "spans": [
+    {
+      "span_id": "21979764_s000",
+      "abstract_id": "21979764",
+      "span_text": "brushing",
+      "boundaries": {
+        "start_char": 380,
+        "end_char": 388,
+        "token_start": 71,
+        "token_end": 71,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.1897,
+        "novelty_score": 0.3508,
+        "margin": 0.8239,
+        "top1_prob": 0.899,
+        "top2_prob": 0.0751,
+        "p_background_o": 0.0751
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3508,
+        "novelty_lof": 0.9989,
+        "novelty_knn_dist": 0.1747
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1897,
+        "least_confidence": 0.101,
+        "margin_uncertainty": 0.1761
+      },
+      "probabilities": {
+        "O": 0.0751,
+        "Personal_care_products_and_cosmetic_procedures": 0.899,
+        "Substance_use": 0.0036,
+        "Environmental_exposures": 0.0017,
+        "Mental_health_practices": 0.0058,
+        "Non_physical_leisure_time_activities": 0.0031,
+        "Nutrition": 0.0025,
+        "Physical_activities": 0.0034,
+        "Sleep": 0.0037,
+        "Socioeconomic_factors": 0.002
+      },
+      "logits": {
+        "O": 2.041,
+        "Personal_care_products_and_cosmetic_procedures": 4.5229,
+        "Substance_use": -0.9879,
+        "Environmental_exposures": -1.7529,
+        "Mental_health_practices": -0.5144,
+        "Non_physical_leisure_time_activities": -1.1609,
+        "Nutrition": -1.369,
+        "Physical_activities": -1.0503,
+        "Sleep": -0.9669,
+        "Socioeconomic_factors": -1.5749
+      }
+    },
+    {
+      "span_id": "21979764_s001",
+      "abstract_id": "21979764",
+      "span_text": "eat",
+      "boundaries": {
+        "start_char": 972,
+        "end_char": 975,
+        "token_start": 218,
+        "token_end": 218,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.317,
+        "novelty_score": 0.3143,
+        "margin": 0.1398,
+        "top1_prob": 0.5667,
+        "top2_prob": 0.4269,
+        "p_background_o": 0.4269
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3143,
+        "novelty_lof": 0.9762,
+        "novelty_knn_dist": 0.1715
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.317,
+        "least_confidence": 0.4333,
+        "margin_uncertainty": 0.8602
+      },
+      "probabilities": {
+        "O": 0.4269,
+        "Personal_care_products_and_cosmetic_procedures": 0.0013,
+        "Substance_use": 0.0015,
+        "Environmental_exposures": 0.0008,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.5667,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 4.7129,
+        "Personal_care_products_and_cosmetic_procedures": -1.0586,
+        "Substance_use": -0.922,
+        "Environmental_exposures": -1.5084,
+        "Mental_health_practices": -3.0145,
+        "Non_physical_leisure_time_activities": -1.7383,
+        "Nutrition": 4.9962,
+        "Physical_activities": -1.9193,
+        "Sleep": -1.8743,
+        "Socioeconomic_factors": -1.7344
+      }
+    },
+    {
+      "span_id": "21979764_s002",
+      "abstract_id": "21979764",
+      "span_text": "oral hygiene",
+      "boundaries": {
+        "start_char": 200,
+        "end_char": 212,
+        "token_start": 43,
+        "token_end": 44,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.2154,
+        "novelty_score": 0.3363,
+        "margin": 0.7434,
+        "top1_prob": 0.862,
+        "top2_prob": 0.1186,
+        "p_background_o": 0.1186
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3363,
+        "novelty_lof": 0.9996,
+        "novelty_knn_dist": 0.1638
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2154,
+        "least_confidence": 0.138,
+        "margin_uncertainty": 0.2566
+      },
+      "probabilities": {
+        "O": 0.1186,
+        "Personal_care_products_and_cosmetic_procedures": 0.862,
+        "Substance_use": 0.003,
+        "Environmental_exposures": 0.0048,
+        "Mental_health_practices": 0.0021,
+        "Non_physical_leisure_time_activities": 0.0014,
+        "Nutrition": 0.002,
+        "Physical_activities": 0.0015,
+        "Sleep": 0.0028,
+        "Socioeconomic_factors": 0.0018
+      },
+      "logits": {
+        "O": 2.602,
+        "Personal_care_products_and_cosmetic_procedures": 4.5853,
+        "Substance_use": -1.0907,
+        "Environmental_exposures": -0.6081,
+        "Mental_health_practices": -1.4136,
+        "Non_physical_leisure_time_activities": -1.8333,
+        "Nutrition": -1.4663,
+        "Physical_activities": -1.7848,
+        "Sleep": -1.143,
+        "Socioeconomic_factors": -1.5921
+      }
+    },
+    {
+      "span_id": "21979764_s003",
+      "abstract_id": "21979764",
+      "span_text": "oral hygiene",
+      "boundaries": {
+        "start_char": 299,
+        "end_char": 311,
+        "token_start": 59,
+        "token_end": 60,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.0398,
+        "novelty_score": 0.3363,
+        "margin": 0.9828,
+        "top1_prob": 0.9875,
+        "top2_prob": 0.0046,
+        "p_background_o": 0.0046
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3363,
+        "novelty_lof": 0.9996,
+        "novelty_knn_dist": 0.1638
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0398,
+        "least_confidence": 0.0125,
+        "margin_uncertainty": 0.0172
+      },
+      "probabilities": {
+        "O": 0.0046,
+        "Personal_care_products_and_cosmetic_procedures": 0.9875,
+        "Substance_use": 0.001,
+        "Environmental_exposures": 0.0014,
+        "Mental_health_practices": 0.0014,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0008,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 0.387,
+        "Personal_care_products_and_cosmetic_procedures": 5.7492,
+        "Substance_use": -1.1476,
+        "Environmental_exposures": -0.8309,
+        "Mental_health_practices": -0.836,
+        "Non_physical_leisure_time_activities": -1.6197,
+        "Nutrition": -1.3258,
+        "Physical_activities": -1.6119,
+        "Sleep": -0.8527,
+        "Socioeconomic_factors": -1.4409
+      }
+    },
+    {
+      "span_id": "21979764_s004",
+      "abstract_id": "21979764",
+      "span_text": "fluoride toothpaste",
+      "boundaries": {
+        "start_char": 426,
+        "end_char": 445,
+        "token_start": 81,
+        "token_end": 82,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.1406,
+        "novelty_score": 0.3953,
+        "margin": 0.9214,
+        "top1_prob": 0.9423,
+        "top2_prob": 0.0208,
+        "p_background_o": 0.0144
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3953,
+        "novelty_lof": 1.0039,
+        "novelty_knn_dist": 0.1996
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1406,
+        "least_confidence": 0.0577,
+        "margin_uncertainty": 0.0786
+      },
+      "probabilities": {
+        "O": 0.0144,
+        "Personal_care_products_and_cosmetic_procedures": 0.9423,
+        "Substance_use": 0.006,
+        "Environmental_exposures": 0.0208,
+        "Mental_health_practices": 0.0031,
+        "Non_physical_leisure_time_activities": 0.0016,
+        "Nutrition": 0.005,
+        "Physical_activities": 0.0019,
+        "Sleep": 0.0035,
+        "Socioeconomic_factors": 0.0013
+      },
+      "logits": {
+        "O": 0.2812,
+        "Personal_care_products_and_cosmetic_procedures": 4.4624,
+        "Substance_use": -0.5908,
+        "Environmental_exposures": 0.6514,
+        "Mental_health_practices": -1.2541,
+        "Non_physical_leisure_time_activities": -1.8914,
+        "Nutrition": -0.7773,
+        "Physical_activities": -1.7407,
+        "Sleep": -1.1333,
+        "Socioeconomic_factors": -2.1261
+      }
+    },
+    {
+      "span_id": "21979764_s005",
+      "abstract_id": "21979764",
+      "span_text": "sodium fluoride",
+      "boundaries": {
+        "start_char": 1706,
+        "end_char": 1721,
+        "token_start": 371,
+        "token_end": 372,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.4585,
+        "novelty_score": 0.411,
+        "margin": 0.4626,
+        "top1_prob": 0.641,
+        "top2_prob": 0.1784,
+        "p_background_o": 0.1784
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.411,
+        "novelty_lof": 1.0045,
+        "novelty_knn_dist": 0.2091
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4585,
+        "least_confidence": 0.359,
+        "margin_uncertainty": 0.5374
+      },
+      "probabilities": {
+        "O": 0.1784,
+        "Personal_care_products_and_cosmetic_procedures": 0.1441,
+        "Substance_use": 0.0076,
+        "Environmental_exposures": 0.641,
+        "Mental_health_practices": 0.0028,
+        "Non_physical_leisure_time_activities": 0.0022,
+        "Nutrition": 0.0134,
+        "Physical_activities": 0.0026,
+        "Sleep": 0.0047,
+        "Socioeconomic_factors": 0.0033
+      },
+      "logits": {
+        "O": 1.9853,
+        "Personal_care_products_and_cosmetic_procedures": 1.7722,
+        "Substance_use": -1.1642,
+        "Environmental_exposures": 3.2644,
+        "Mental_health_practices": -2.1869,
+        "Non_physical_leisure_time_activities": -2.4115,
+        "Nutrition": -0.6065,
+        "Physical_activities": -2.2423,
+        "Sleep": -1.6549,
+        "Socioeconomic_factors": -2.0078
+      }
+    },
+    {
+      "span_id": "21979764_s006",
+      "abstract_id": "21979764",
+      "span_text": "oral hygiene",
+      "boundaries": {
+        "start_char": 2272,
+        "end_char": 2284,
+        "token_start": 494,
+        "token_end": 495,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.0433,
+        "novelty_score": 0.3363,
+        "margin": 0.9819,
+        "top1_prob": 0.9863,
+        "top2_prob": 0.0044,
+        "p_background_o": 0.0044
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3363,
+        "novelty_lof": 0.9996,
+        "novelty_knn_dist": 0.1638
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0433,
+        "least_confidence": 0.0137,
+        "margin_uncertainty": 0.0181
+      },
+      "probabilities": {
+        "O": 0.0044,
+        "Personal_care_products_and_cosmetic_procedures": 0.9863,
+        "Substance_use": 0.0012,
+        "Environmental_exposures": 0.0019,
+        "Mental_health_practices": 0.0013,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0011,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0015,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 0.2129,
+        "Personal_care_products_and_cosmetic_procedures": 5.6302,
+        "Substance_use": -1.113,
+        "Environmental_exposures": -0.6136,
+        "Mental_health_practices": -0.9651,
+        "Non_physical_leisure_time_activities": -1.6545,
+        "Nutrition": -1.2,
+        "Physical_activities": -1.553,
+        "Sleep": -0.8524,
+        "Socioeconomic_factors": -1.4014
+      }
+    },
+    {
+      "span_id": "21979764_s007",
+      "abstract_id": "21979764",
+      "span_text": "chlorhexidine varnish",
+      "boundaries": {
+        "start_char": 588,
+        "end_char": 609,
+        "token_start": 112,
+        "token_end": 115,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "Personal_care_products_and_cosmetic_procedures",
+        "uncertainty": 0.5096,
+        "novelty_score": 0.6804,
+        "margin": 0.0313,
+        "top1_prob": 0.449,
+        "top2_prob": 0.4177,
+        "p_background_o": 0.0814
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6804,
+        "novelty_lof": 1.0839,
+        "novelty_knn_dist": 0.3047
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5096,
+        "least_confidence": 0.551,
+        "margin_uncertainty": 0.9687
+      },
+      "probabilities": {
+        "O": 0.0814,
+        "Personal_care_products_and_cosmetic_procedures": 0.4177,
+        "Substance_use": 0.0143,
+        "Environmental_exposures": 0.449,
+        "Mental_health_practices": 0.0052,
+        "Non_physical_leisure_time_activities": 0.0036,
+        "Nutrition": 0.0147,
+        "Physical_activities": 0.0033,
+        "Sleep": 0.0065,
+        "Socioeconomic_factors": 0.0043
+      },
+      "logits": {
+        "O": 1.0178,
+        "Personal_care_products_and_cosmetic_procedures": 2.6535,
+        "Substance_use": -0.7211,
+        "Environmental_exposures": 2.7258,
+        "Mental_health_practices": -1.7363,
+        "Non_physical_leisure_time_activities": -2.11,
+        "Nutrition": -0.6951,
+        "Physical_activities": -2.1879,
+        "Sleep": -1.514,
+        "Socioeconomic_factors": -1.9115
+      }
+    },
+    {
+      "span_id": "21979764_s008",
+      "abstract_id": "21979764",
+      "span_text": "chlorhexidine varnish",
+      "boundaries": {
+        "start_char": 1099,
+        "end_char": 1120,
+        "token_start": 242,
+        "token_end": 245,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "Personal_care_products_and_cosmetic_procedures",
+        "uncertainty": 0.5049,
+        "novelty_score": 0.6805,
+        "margin": 0.2274,
+        "top1_prob": 0.5434,
+        "top2_prob": 0.3161,
+        "p_background_o": 0.0856
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6805,
+        "novelty_lof": 1.0839,
+        "novelty_knn_dist": 0.3047
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5049,
+        "least_confidence": 0.4566,
+        "margin_uncertainty": 0.7726
+      },
+      "probabilities": {
+        "O": 0.0856,
+        "Personal_care_products_and_cosmetic_procedures": 0.3161,
+        "Substance_use": 0.0132,
+        "Environmental_exposures": 0.5434,
+        "Mental_health_practices": 0.005,
+        "Non_physical_leisure_time_activities": 0.0035,
+        "Nutrition": 0.0172,
+        "Physical_activities": 0.0037,
+        "Sleep": 0.0067,
+        "Socioeconomic_factors": 0.0057
+      },
+      "logits": {
+        "O": 1.0145,
+        "Personal_care_products_and_cosmetic_procedures": 2.3211,
+        "Substance_use": -0.8584,
+        "Environmental_exposures": 2.8631,
+        "Mental_health_practices": -1.8311,
+        "Non_physical_leisure_time_activities": -2.1868,
+        "Nutrition": -0.5883,
+        "Physical_activities": -2.1242,
+        "Sleep": -1.5386,
+        "Socioeconomic_factors": -1.6898
+      }
+    },
+    {
+      "span_id": "21979764_s009",
+      "abstract_id": "21979764",
+      "span_text": "chlorhexidine, sodium fluoride",
+      "boundaries": {
+        "start_char": 1691,
+        "end_char": 1721,
+        "token_start": 369,
+        "token_end": 372,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.5011,
+        "novelty_score": 0.6629,
+        "margin": 0.3077,
+        "top1_prob": 0.5569,
+        "top2_prob": 0.2491,
+        "p_background_o": 0.2491
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6629,
+        "novelty_lof": 1.0841,
+        "novelty_knn_dist": 0.292
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5011,
+        "least_confidence": 0.4431,
+        "margin_uncertainty": 0.6923
+      },
+      "probabilities": {
+        "O": 0.2491,
+        "Personal_care_products_and_cosmetic_procedures": 0.1547,
+        "Substance_use": 0.0124,
+        "Environmental_exposures": 0.5569,
+        "Mental_health_practices": 0.0035,
+        "Non_physical_leisure_time_activities": 0.0024,
+        "Nutrition": 0.0126,
+        "Physical_activities": 0.002,
+        "Sleep": 0.0041,
+        "Socioeconomic_factors": 0.0023
+      },
+      "logits": {
+        "O": 2.4183,
+        "Personal_care_products_and_cosmetic_procedures": 1.9415,
+        "Substance_use": -0.5815,
+        "Environmental_exposures": 3.2226,
+        "Mental_health_practices": -1.8423,
+        "Non_physical_leisure_time_activities": -2.227,
+        "Nutrition": -0.5655,
+        "Physical_activities": -2.4268,
+        "Sleep": -1.6837,
+        "Socioeconomic_factors": -2.2511
+      }
+    },
+    {
+      "span_id": "21979764_s010",
+      "abstract_id": "21979764",
+      "span_text": "chlorhexidine varnish",
+      "boundaries": {
+        "start_char": 2049,
+        "end_char": 2070,
+        "token_start": 453,
+        "token_end": 456,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "Personal_care_products_and_cosmetic_procedures",
+        "uncertainty": 0.489,
+        "novelty_score": 0.6805,
+        "margin": 0.2099,
+        "top1_prob": 0.5437,
+        "top2_prob": 0.3338,
+        "p_background_o": 0.0728
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6805,
+        "novelty_lof": 1.0839,
+        "novelty_knn_dist": 0.3047
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.489,
+        "least_confidence": 0.4563,
+        "margin_uncertainty": 0.7901
+      },
+      "probabilities": {
+        "O": 0.0728,
+        "Personal_care_products_and_cosmetic_procedures": 0.3338,
+        "Substance_use": 0.0127,
+        "Environmental_exposures": 0.5437,
+        "Mental_health_practices": 0.0046,
+        "Non_physical_leisure_time_activities": 0.0031,
+        "Nutrition": 0.0148,
+        "Physical_activities": 0.0034,
+        "Sleep": 0.0061,
+        "Socioeconomic_factors": 0.0051
+      },
+      "logits": {
+        "O": 0.925,
+        "Personal_care_products_and_cosmetic_procedures": 2.4483,
+        "Substance_use": -0.8225,
+        "Environmental_exposures": 2.9361,
+        "Mental_health_practices": -1.8314,
+        "Non_physical_leisure_time_activities": -2.2217,
+        "Nutrition": -0.6682,
+        "Physical_activities": -2.1431,
+        "Sleep": -1.5606,
+        "Socioeconomic_factors": -1.7335
+      }
+    },
+    {
+      "span_id": "21979764_s011",
+      "abstract_id": "21979764",
+      "span_text": "sodium fluoride varnish",
+      "boundaries": {
+        "start_char": 666,
+        "end_char": 689,
+        "token_start": 141,
+        "token_end": 145,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "Personal_care_products_and_cosmetic_procedures",
+        "uncertainty": 0.5289,
+        "novelty_score": 0.4795,
+        "margin": 0.2645,
+        "top1_prob": 0.5193,
+        "top2_prob": 0.2548,
+        "p_background_o": 0.1809
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4795,
+        "novelty_lof": 1.0271,
+        "novelty_knn_dist": 0.23
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5289,
+        "least_confidence": 0.4807,
+        "margin_uncertainty": 0.7355
+      },
+      "probabilities": {
+        "O": 0.1809,
+        "Personal_care_products_and_cosmetic_procedures": 0.2548,
+        "Substance_use": 0.0085,
+        "Environmental_exposures": 0.5193,
+        "Mental_health_practices": 0.0048,
+        "Non_physical_leisure_time_activities": 0.004,
+        "Nutrition": 0.0156,
+        "Physical_activities": 0.0034,
+        "Sleep": 0.0046,
+        "Socioeconomic_factors": 0.0041
+      },
+      "logits": {
+        "O": 1.807,
+        "Personal_care_products_and_cosmetic_procedures": 2.1496,
+        "Substance_use": -1.2473,
+        "Environmental_exposures": 2.8617,
+        "Mental_health_practices": -1.8264,
+        "Non_physical_leisure_time_activities": -2.0129,
+        "Nutrition": -0.6422,
+        "Physical_activities": -2.1797,
+        "Sleep": -1.8546,
+        "Socioeconomic_factors": -1.9709
+      }
+    },
+    {
+      "span_id": "21979764_s012",
+      "abstract_id": "21979764",
+      "span_text": "sodium fluoride varnish",
+      "boundaries": {
+        "start_char": 1124,
+        "end_char": 1147,
+        "token_start": 247,
+        "token_end": 251,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "Personal_care_products_and_cosmetic_procedures",
+        "uncertainty": 0.5234,
+        "novelty_score": 0.4796,
+        "margin": 0.2935,
+        "top1_prob": 0.5374,
+        "top2_prob": 0.2439,
+        "p_background_o": 0.1725
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4796,
+        "novelty_lof": 1.0272,
+        "novelty_knn_dist": 0.2301
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5234,
+        "least_confidence": 0.4626,
+        "margin_uncertainty": 0.7065
+      },
+      "probabilities": {
+        "O": 0.1725,
+        "Personal_care_products_and_cosmetic_procedures": 0.2439,
+        "Substance_use": 0.0089,
+        "Environmental_exposures": 0.5374,
+        "Mental_health_practices": 0.0045,
+        "Non_physical_leisure_time_activities": 0.0038,
+        "Nutrition": 0.0163,
+        "Physical_activities": 0.0034,
+        "Sleep": 0.0048,
+        "Socioeconomic_factors": 0.0046
+      },
+      "logits": {
+        "O": 1.7531,
+        "Personal_care_products_and_cosmetic_procedures": 2.0995,
+        "Substance_use": -1.2145,
+        "Environmental_exposures": 2.8894,
+        "Mental_health_practices": -1.8825,
+        "Non_physical_leisure_time_activities": -2.0583,
+        "Nutrition": -0.6084,
+        "Physical_activities": -2.1791,
+        "Sleep": -1.8357,
+        "Socioeconomic_factors": -1.8665
+      }
+    },
+    {
+      "span_id": "21979764_s013",
+      "abstract_id": "21979764",
+      "span_text": "sodium fluoride varnish",
+      "boundaries": {
+        "start_char": 2021,
+        "end_char": 2044,
+        "token_start": 447,
+        "token_end": 451,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "Personal_care_products_and_cosmetic_procedures",
+        "uncertainty": 0.5112,
+        "novelty_score": 0.4796,
+        "margin": 0.3477,
+        "top1_prob": 0.5618,
+        "top2_prob": 0.2141,
+        "p_background_o": 0.1808
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4796,
+        "novelty_lof": 1.0272,
+        "novelty_knn_dist": 0.2301
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5112,
+        "least_confidence": 0.4382,
+        "margin_uncertainty": 0.6523
+      },
+      "probabilities": {
+        "O": 0.1808,
+        "Personal_care_products_and_cosmetic_procedures": 0.2141,
+        "Substance_use": 0.0082,
+        "Environmental_exposures": 0.5618,
+        "Mental_health_practices": 0.0047,
+        "Non_physical_leisure_time_activities": 0.0037,
+        "Nutrition": 0.0141,
+        "Physical_activities": 0.0035,
+        "Sleep": 0.0043,
+        "Socioeconomic_factors": 0.0046
+      },
+      "logits": {
+        "O": 1.8239,
+        "Personal_care_products_and_cosmetic_procedures": 1.9931,
+        "Substance_use": -1.2665,
+        "Environmental_exposures": 2.9577,
+        "Mental_health_practices": -1.8187,
+        "Non_physical_leisure_time_activities": -2.055,
+        "Nutrition": -0.7245,
+        "Physical_activities": -2.1071,
+        "Sleep": -1.9248,
+        "Socioeconomic_factors": -1.8543
+      }
+    },
+    {
+      "span_id": "21979764_s014",
+      "abstract_id": "21979764",
+      "span_text": "brushing with a manual toothbrush",
+      "boundaries": {
+        "start_char": 380,
+        "end_char": 413,
+        "token_start": 71,
+        "token_end": 76,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.3575,
+        "novelty_score": 0.4629,
+        "margin": 0.2746,
+        "top1_prob": 0.6228,
+        "top2_prob": 0.3482,
+        "p_background_o": 0.3482
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4629,
+        "novelty_lof": 1.0225,
+        "novelty_knn_dist": 0.2242
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3575,
+        "least_confidence": 0.3772,
+        "margin_uncertainty": 0.7254
+      },
+      "probabilities": {
+        "O": 0.3482,
+        "Personal_care_products_and_cosmetic_procedures": 0.6228,
+        "Substance_use": 0.0045,
+        "Environmental_exposures": 0.0027,
+        "Mental_health_practices": 0.0056,
+        "Non_physical_leisure_time_activities": 0.0041,
+        "Nutrition": 0.0013,
+        "Physical_activities": 0.0045,
+        "Sleep": 0.0038,
+        "Socioeconomic_factors": 0.0024
+      },
+      "logits": {
+        "O": 3.392,
+        "Personal_care_products_and_cosmetic_procedures": 3.9734,
+        "Substance_use": -0.9542,
+        "Environmental_exposures": -1.4748,
+        "Mental_health_practices": -0.7292,
+        "Non_physical_leisure_time_activities": -1.0424,
+        "Nutrition": -2.1705,
+        "Physical_activities": -0.9472,
+        "Sleep": -1.1322,
+        "Socioeconomic_factors": -1.5885
+      }
+    }
+  ]
+}

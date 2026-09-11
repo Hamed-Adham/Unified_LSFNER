@@ -1,0 +1,1328 @@
+{
+  "doc_id": "32515431",
+  "dataset_split": "400/val",
+  "text": "Dental Caries Investigation in Children Controlled for an Educative and Preventive Oral Health Programme. \nPURPOSE: To evaluate the association of dental caries with behavioural, socioeconomic and cultural factors; and Streptococcus mutans (SM) levels in the saliva and oral hygiene index of children aged 4 and 6 years old placed in an oral health programme. MATERIALS AND METHODS: This study was an analytic cross-sectional oral health survey conducted over a 9-month period. A total of 466 children aged 4 and 6 years old were included for evaluation of SM levels in saliva, simplified oral hygiene index and dental caries activity. RESULTS: High SM levels were associated with dmft index, toothbrushing without parental assistance, deficient oral hygiene and ingestion of sweet foods. Deficient oral hygiene was found in children aged 4 years old and with three or more siblings. Dental caries was associated with low family income, deficient oral hygiene, sucrose ingestion by children younger than three years old, bottle-feeding habit and low parental compliance. CONCLUSIONS: High SM levels in saliva, deficient oral hygiene and high frequency of sucrose ingestion had association with dental caries in children. Cultural, socioeconomic and behaviour factors indirectly influenced the onset of dental caries. \n",
+  "total_candidates": 22,
+  "spans": [
+    {
+      "span_id": "32515431_s000",
+      "abstract_id": "32515431",
+      "span_text": "Oral Health",
+      "boundaries": {
+        "start_char": 83,
+        "end_char": 94,
+        "token_start": 15,
+        "token_end": 16,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.1383,
+        "novelty_score": 0.6293,
+        "margin": 0.8626,
+        "top1_prob": 0.9258,
+        "top2_prob": 0.0631,
+        "p_background_o": 0.0631
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6293,
+        "novelty_lof": 1.085,
+        "novelty_knn_dist": 0.2681
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1383,
+        "least_confidence": 0.0742,
+        "margin_uncertainty": 0.1374
+      },
+      "probabilities": {
+        "O": 0.0631,
+        "Personal_care_products_and_cosmetic_procedures": 0.9258,
+        "Substance_use": 0.0014,
+        "Environmental_exposures": 0.0018,
+        "Mental_health_practices": 0.002,
+        "Non_physical_leisure_time_activities": 0.0012,
+        "Nutrition": 0.0014,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0011,
+        "Socioeconomic_factors": 0.0015
+      },
+      "logits": {
+        "O": 2.5191,
+        "Personal_care_products_and_cosmetic_procedures": 5.2043,
+        "Substance_use": -1.2969,
+        "Environmental_exposures": -1.0265,
+        "Mental_health_practices": -0.9447,
+        "Non_physical_leisure_time_activities": -1.4582,
+        "Nutrition": -1.266,
+        "Physical_activities": -1.9885,
+        "Sleep": -1.4953,
+        "Socioeconomic_factors": -1.2544
+      }
+    },
+    {
+      "span_id": "32515431_s001",
+      "abstract_id": "32515431",
+      "span_text": "cultural factors",
+      "boundaries": {
+        "start_char": 197,
+        "end_char": 213,
+        "token_start": 35,
+        "token_end": 36,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.1461,
+        "novelty_score": 0.974,
+        "margin": 0.84,
+        "top1_prob": 0.9149,
+        "top2_prob": 0.0749,
+        "p_background_o": 0.0749
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.974,
+        "novelty_lof": 1.5724,
+        "novelty_knn_dist": 0.2656
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1461,
+        "least_confidence": 0.0851,
+        "margin_uncertainty": 0.16
+      },
+      "probabilities": {
+        "O": 0.0749,
+        "Personal_care_products_and_cosmetic_procedures": 0.0007,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0065,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.9149
+      },
+      "logits": {
+        "O": 2.9974,
+        "Personal_care_products_and_cosmetic_procedures": -1.7319,
+        "Substance_use": -2.1499,
+        "Environmental_exposures": 0.554,
+        "Mental_health_practices": -1.9852,
+        "Non_physical_leisure_time_activities": -1.6867,
+        "Nutrition": -1.9265,
+        "Physical_activities": -1.9443,
+        "Sleep": -2.2955,
+        "Socioeconomic_factors": 5.5003
+      }
+    },
+    {
+      "span_id": "32515431_s002",
+      "abstract_id": "32515431",
+      "span_text": "oral hygiene",
+      "boundaries": {
+        "start_char": 270,
+        "end_char": 282,
+        "token_start": 49,
+        "token_end": 50,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.3216,
+        "novelty_score": 0.3363,
+        "margin": 0.4251,
+        "top1_prob": 0.7005,
+        "top2_prob": 0.2754,
+        "p_background_o": 0.2754
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3363,
+        "novelty_lof": 0.9996,
+        "novelty_knn_dist": 0.1638
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3216,
+        "least_confidence": 0.2995,
+        "margin_uncertainty": 0.5749
+      },
+      "probabilities": {
+        "O": 0.2754,
+        "Personal_care_products_and_cosmetic_procedures": 0.7005,
+        "Substance_use": 0.002,
+        "Environmental_exposures": 0.0052,
+        "Mental_health_practices": 0.0021,
+        "Non_physical_leisure_time_activities": 0.0015,
+        "Nutrition": 0.0021,
+        "Physical_activities": 0.0018,
+        "Sleep": 0.0026,
+        "Socioeconomic_factors": 0.0068
+      },
+      "logits": {
+        "O": 3.2489,
+        "Personal_care_products_and_cosmetic_procedures": 4.1824,
+        "Substance_use": -1.6738,
+        "Environmental_exposures": -0.7219,
+        "Mental_health_practices": -1.6384,
+        "Non_physical_leisure_time_activities": -1.9696,
+        "Nutrition": -1.6112,
+        "Physical_activities": -1.7948,
+        "Sleep": -1.4042,
+        "Socioeconomic_factors": -0.4597
+      }
+    },
+    {
+      "span_id": "32515431_s003",
+      "abstract_id": "32515431",
+      "span_text": "oral health",
+      "boundaries": {
+        "start_char": 337,
+        "end_char": 348,
+        "token_start": 63,
+        "token_end": 64,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.134,
+        "novelty_score": 0.5293,
+        "margin": 0.8785,
+        "top1_prob": 0.9324,
+        "top2_prob": 0.054,
+        "p_background_o": 0.054
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5293,
+        "novelty_lof": 1.0447,
+        "novelty_knn_dist": 0.2438
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.134,
+        "least_confidence": 0.0676,
+        "margin_uncertainty": 0.1215
+      },
+      "probabilities": {
+        "O": 0.054,
+        "Personal_care_products_and_cosmetic_procedures": 0.9324,
+        "Substance_use": 0.0017,
+        "Environmental_exposures": 0.0027,
+        "Mental_health_practices": 0.002,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.0022,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0016
+      },
+      "logits": {
+        "O": 2.1994,
+        "Personal_care_products_and_cosmetic_procedures": 5.0485,
+        "Substance_use": -1.2777,
+        "Environmental_exposures": -0.8115,
+        "Mental_health_practices": -1.0852,
+        "Non_physical_leisure_time_activities": -1.5452,
+        "Nutrition": -0.999,
+        "Physical_activities": -1.9711,
+        "Sleep": -1.5049,
+        "Socioeconomic_factors": -1.3357
+      }
+    },
+    {
+      "span_id": "32515431_s004",
+      "abstract_id": "32515431",
+      "span_text": "oral health",
+      "boundaries": {
+        "start_char": 426,
+        "end_char": 437,
+        "token_start": 79,
+        "token_end": 80,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.1132,
+        "novelty_score": 0.5293,
+        "margin": 0.9048,
+        "top1_prob": 0.9465,
+        "top2_prob": 0.0417,
+        "p_background_o": 0.0417
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5293,
+        "novelty_lof": 1.0447,
+        "novelty_knn_dist": 0.2438
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1132,
+        "least_confidence": 0.0535,
+        "margin_uncertainty": 0.0952
+      },
+      "probabilities": {
+        "O": 0.0417,
+        "Personal_care_products_and_cosmetic_procedures": 0.9465,
+        "Substance_use": 0.0015,
+        "Environmental_exposures": 0.0023,
+        "Mental_health_practices": 0.0017,
+        "Non_physical_leisure_time_activities": 0.0012,
+        "Nutrition": 0.0017,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0013
+      },
+      "logits": {
+        "O": 2.0887,
+        "Personal_care_products_and_cosmetic_procedures": 5.2101,
+        "Substance_use": -1.2166,
+        "Environmental_exposures": -0.8058,
+        "Mental_health_practices": -1.0873,
+        "Non_physical_leisure_time_activities": -1.4923,
+        "Nutrition": -1.1276,
+        "Physical_activities": -2.0173,
+        "Sleep": -1.3807,
+        "Socioeconomic_factors": -1.3594
+      }
+    },
+    {
+      "span_id": "32515431_s005",
+      "abstract_id": "32515431",
+      "span_text": "oral hygiene",
+      "boundaries": {
+        "start_char": 746,
+        "end_char": 758,
+        "token_start": 141,
+        "token_end": 142,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.3463,
+        "novelty_score": 0.3363,
+        "margin": 0.0487,
+        "top1_prob": 0.5161,
+        "top2_prob": 0.4674,
+        "p_background_o": 0.4674
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3363,
+        "novelty_lof": 0.9996,
+        "novelty_knn_dist": 0.1638
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3463,
+        "least_confidence": 0.4839,
+        "margin_uncertainty": 0.9513
+      },
+      "probabilities": {
+        "O": 0.4674,
+        "Personal_care_products_and_cosmetic_procedures": 0.5161,
+        "Substance_use": 0.0014,
+        "Environmental_exposures": 0.0029,
+        "Mental_health_practices": 0.0018,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.0012,
+        "Physical_activities": 0.0017,
+        "Sleep": 0.002,
+        "Socioeconomic_factors": 0.0042
+      },
+      "logits": {
+        "O": 4.0544,
+        "Personal_care_products_and_cosmetic_procedures": 4.1534,
+        "Substance_use": -1.723,
+        "Environmental_exposures": -1.0294,
+        "Mental_health_practices": -1.5226,
+        "Non_physical_leisure_time_activities": -1.8262,
+        "Nutrition": -1.8734,
+        "Physical_activities": -1.5883,
+        "Sleep": -1.4056,
+        "Socioeconomic_factors": -0.6642
+      }
+    },
+    {
+      "span_id": "32515431_s006",
+      "abstract_id": "32515431",
+      "span_text": "sweet foods",
+      "boundaries": {
+        "start_char": 776,
+        "end_char": 787,
+        "token_start": 146,
+        "token_end": 147,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1724,
+        "novelty_score": 0.4183,
+        "margin": 0.7659,
+        "top1_prob": 0.8804,
+        "top2_prob": 0.1145,
+        "p_background_o": 0.1145
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4183,
+        "novelty_lof": 1.0382,
+        "novelty_knn_dist": 0.1802
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1724,
+        "least_confidence": 0.1196,
+        "margin_uncertainty": 0.2341
+      },
+      "probabilities": {
+        "O": 0.1145,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.0008,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.8804,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 3.5342,
+        "Personal_care_products_and_cosmetic_procedures": -1.4108,
+        "Substance_use": -1.4494,
+        "Environmental_exposures": -1.419,
+        "Mental_health_practices": -3.2161,
+        "Non_physical_leisure_time_activities": -1.9595,
+        "Nutrition": 5.574,
+        "Physical_activities": -1.4842,
+        "Sleep": -1.9581,
+        "Socioeconomic_factors": -1.4138
+      }
+    },
+    {
+      "span_id": "32515431_s007",
+      "abstract_id": "32515431",
+      "span_text": "oral hygiene",
+      "boundaries": {
+        "start_char": 799,
+        "end_char": 811,
+        "token_start": 151,
+        "token_end": 152,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.2585,
+        "novelty_score": 0.3363,
+        "margin": 0.6183,
+        "top1_prob": 0.8003,
+        "top2_prob": 0.182,
+        "p_background_o": 0.182
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3363,
+        "novelty_lof": 0.9996,
+        "novelty_knn_dist": 0.1638
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2585,
+        "least_confidence": 0.1997,
+        "margin_uncertainty": 0.3817
+      },
+      "probabilities": {
+        "O": 0.182,
+        "Personal_care_products_and_cosmetic_procedures": 0.8003,
+        "Substance_use": 0.0016,
+        "Environmental_exposures": 0.0029,
+        "Mental_health_practices": 0.0021,
+        "Non_physical_leisure_time_activities": 0.0014,
+        "Nutrition": 0.0012,
+        "Physical_activities": 0.0017,
+        "Sleep": 0.0023,
+        "Socioeconomic_factors": 0.0045
+      },
+      "logits": {
+        "O": 3.094,
+        "Personal_care_products_and_cosmetic_procedures": 4.5752,
+        "Substance_use": -1.6337,
+        "Environmental_exposures": -1.0424,
+        "Mental_health_practices": -1.3549,
+        "Non_physical_leisure_time_activities": -1.7839,
+        "Nutrition": -1.8877,
+        "Physical_activities": -1.591,
+        "Sleep": -1.2711,
+        "Socioeconomic_factors": -0.6062
+      }
+    },
+    {
+      "span_id": "32515431_s008",
+      "abstract_id": "32515431",
+      "span_text": "sucrose ingestion",
+      "boundaries": {
+        "start_char": 961,
+        "end_char": 978,
+        "token_start": 181,
+        "token_end": 182,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1189,
+        "novelty_score": 0.5386,
+        "margin": 0.8603,
+        "top1_prob": 0.9288,
+        "top2_prob": 0.0685,
+        "p_background_o": 0.0685
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5386,
+        "novelty_lof": 1.0685,
+        "novelty_knn_dist": 0.2258
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1189,
+        "least_confidence": 0.0712,
+        "margin_uncertainty": 0.1397
+      },
+      "probabilities": {
+        "O": 0.0685,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.0006,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.9288,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 3.602,
+        "Personal_care_products_and_cosmetic_procedures": -1.5599,
+        "Substance_use": -1.2988,
+        "Environmental_exposures": -1.1707,
+        "Mental_health_practices": -3.1233,
+        "Non_physical_leisure_time_activities": -1.8818,
+        "Nutrition": 6.2094,
+        "Physical_activities": -1.9622,
+        "Sleep": -1.9723,
+        "Socioeconomic_factors": -1.6196
+      }
+    },
+    {
+      "span_id": "32515431_s009",
+      "abstract_id": "32515431",
+      "span_text": "oral hygiene",
+      "boundaries": {
+        "start_char": 1120,
+        "end_char": 1132,
+        "token_start": 209,
+        "token_end": 210,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.3365,
+        "novelty_score": 0.3363,
+        "margin": 0.2151,
+        "top1_prob": 0.5993,
+        "top2_prob": 0.3842,
+        "p_background_o": 0.3842
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3363,
+        "novelty_lof": 0.9996,
+        "novelty_knn_dist": 0.1638
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3365,
+        "least_confidence": 0.4007,
+        "margin_uncertainty": 0.7849
+      },
+      "probabilities": {
+        "O": 0.3842,
+        "Personal_care_products_and_cosmetic_procedures": 0.5993,
+        "Substance_use": 0.0016,
+        "Environmental_exposures": 0.0031,
+        "Mental_health_practices": 0.0018,
+        "Non_physical_leisure_time_activities": 0.0014,
+        "Nutrition": 0.0011,
+        "Physical_activities": 0.0016,
+        "Sleep": 0.002,
+        "Socioeconomic_factors": 0.0039
+      },
+      "logits": {
+        "O": 3.8833,
+        "Personal_care_products_and_cosmetic_procedures": 4.3279,
+        "Substance_use": -1.6249,
+        "Environmental_exposures": -0.9527,
+        "Mental_health_practices": -1.4797,
+        "Non_physical_leisure_time_activities": -1.7426,
+        "Nutrition": -1.9621,
+        "Physical_activities": -1.5889,
+        "Sleep": -1.3605,
+        "Socioeconomic_factors": -0.7072
+      }
+    },
+    {
+      "span_id": "32515431_s010",
+      "abstract_id": "32515431",
+      "span_text": "sucrose ingestion",
+      "boundaries": {
+        "start_char": 1155,
+        "end_char": 1172,
+        "token_start": 215,
+        "token_end": 216,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0683,
+        "novelty_score": 0.5386,
+        "margin": 0.9367,
+        "top1_prob": 0.9672,
+        "top2_prob": 0.0305,
+        "p_background_o": 0.0305
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5386,
+        "novelty_lof": 1.0685,
+        "novelty_knn_dist": 0.2258
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0683,
+        "least_confidence": 0.0328,
+        "margin_uncertainty": 0.0633
+      },
+      "probabilities": {
+        "O": 0.0305,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9672,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 2.9786,
+        "Personal_care_products_and_cosmetic_procedures": -1.4039,
+        "Substance_use": -1.4552,
+        "Environmental_exposures": -1.2103,
+        "Mental_health_practices": -3.0898,
+        "Non_physical_leisure_time_activities": -1.9045,
+        "Nutrition": 6.4358,
+        "Physical_activities": -1.8016,
+        "Sleep": -1.8173,
+        "Socioeconomic_factors": -1.6959
+      }
+    },
+    {
+      "span_id": "32515431_s011",
+      "abstract_id": "32515431",
+      "span_text": "behaviour factors",
+      "boundaries": {
+        "start_char": 1249,
+        "end_char": 1266,
+        "token_start": 230,
+        "token_end": 231,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.3748,
+        "novelty_score": 0.7868,
+        "margin": 0.1578,
+        "top1_prob": 0.5589,
+        "top2_prob": 0.4011,
+        "p_background_o": 0.4011
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7868,
+        "novelty_lof": 1.2139,
+        "novelty_knn_dist": 0.2609
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3748,
+        "least_confidence": 0.4411,
+        "margin_uncertainty": 0.8422
+      },
+      "probabilities": {
+        "O": 0.4011,
+        "Personal_care_products_and_cosmetic_procedures": 0.0016,
+        "Substance_use": 0.0017,
+        "Environmental_exposures": 0.0296,
+        "Mental_health_practices": 0.0013,
+        "Non_physical_leisure_time_activities": 0.0016,
+        "Nutrition": 0.0019,
+        "Physical_activities": 0.0013,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.5589
+      },
+      "logits": {
+        "O": 3.6576,
+        "Personal_care_products_and_cosmetic_procedures": -1.8607,
+        "Substance_use": -1.8317,
+        "Environmental_exposures": 1.052,
+        "Mental_health_practices": -2.1033,
+        "Non_physical_leisure_time_activities": -1.8697,
+        "Nutrition": -1.6923,
+        "Physical_activities": -2.0431,
+        "Sleep": -2.3667,
+        "Socioeconomic_factors": 3.9893
+      }
+    },
+    {
+      "span_id": "32515431_s012",
+      "abstract_id": "32515431",
+      "span_text": "toothbrushing",
+      "boundaries": {
+        "start_char": 693,
+        "end_char": 706,
+        "token_start": 133,
+        "token_end": 135,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.1309,
+        "novelty_score": 0.3385,
+        "margin": 0.9058,
+        "top1_prob": 0.9422,
+        "top2_prob": 0.0364,
+        "p_background_o": 0.0364
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3385,
+        "novelty_lof": 1.007,
+        "novelty_knn_dist": 0.158
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1309,
+        "least_confidence": 0.0578,
+        "margin_uncertainty": 0.0942
+      },
+      "probabilities": {
+        "O": 0.0364,
+        "Personal_care_products_and_cosmetic_procedures": 0.9422,
+        "Substance_use": 0.0028,
+        "Environmental_exposures": 0.0018,
+        "Mental_health_practices": 0.0041,
+        "Non_physical_leisure_time_activities": 0.0017,
+        "Nutrition": 0.0011,
+        "Physical_activities": 0.0025,
+        "Sleep": 0.0025,
+        "Socioeconomic_factors": 0.0048
+      },
+      "logits": {
+        "O": 1.453,
+        "Personal_care_products_and_cosmetic_procedures": 4.7072,
+        "Substance_use": -1.1074,
+        "Environmental_exposures": -1.5683,
+        "Mental_health_practices": -0.7349,
+        "Non_physical_leisure_time_activities": -1.5883,
+        "Nutrition": -2.0158,
+        "Physical_activities": -1.2052,
+        "Sleep": -1.2145,
+        "Socioeconomic_factors": -0.5754
+      }
+    },
+    {
+      "span_id": "32515431_s013",
+      "abstract_id": "32515431",
+      "span_text": "deficient oral hygiene",
+      "boundaries": {
+        "start_char": 736,
+        "end_char": 758,
+        "token_start": 140,
+        "token_end": 142,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.3397,
+        "novelty_score": 0.6868,
+        "margin": 0.5634,
+        "top1_prob": 0.7545,
+        "top2_prob": 0.1911,
+        "p_background_o": 0.1911
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6868,
+        "novelty_lof": 1.1076,
+        "novelty_knn_dist": 0.2856
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3397,
+        "least_confidence": 0.2455,
+        "margin_uncertainty": 0.4366
+      },
+      "probabilities": {
+        "O": 0.1911,
+        "Personal_care_products_and_cosmetic_procedures": 0.7545,
+        "Substance_use": 0.0038,
+        "Environmental_exposures": 0.0032,
+        "Mental_health_practices": 0.0049,
+        "Non_physical_leisure_time_activities": 0.0031,
+        "Nutrition": 0.0043,
+        "Physical_activities": 0.0058,
+        "Sleep": 0.0048,
+        "Socioeconomic_factors": 0.0244
+      },
+      "logits": {
+        "O": 2.3744,
+        "Personal_care_products_and_cosmetic_procedures": 3.7476,
+        "Substance_use": -1.5399,
+        "Environmental_exposures": -1.7126,
+        "Mental_health_practices": -1.284,
+        "Non_physical_leisure_time_activities": -1.7535,
+        "Nutrition": -1.4191,
+        "Physical_activities": -1.1255,
+        "Sleep": -1.3006,
+        "Socioeconomic_factors": 0.3181
+      }
+    },
+    {
+      "span_id": "32515431_s014",
+      "abstract_id": "32515431",
+      "span_text": "low family income",
+      "boundaries": {
+        "start_char": 918,
+        "end_char": 935,
+        "token_start": 173,
+        "token_end": 175,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0235,
+        "novelty_score": 0.3678,
+        "margin": 0.9869,
+        "top1_prob": 0.9923,
+        "top2_prob": 0.0054,
+        "p_background_o": 0.0054
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3678,
+        "novelty_lof": 1.0249,
+        "novelty_knn_dist": 0.1602
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0235,
+        "least_confidence": 0.0077,
+        "margin_uncertainty": 0.0131
+      },
+      "probabilities": {
+        "O": 0.0054,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.9923
+      },
+      "logits": {
+        "O": 1.4459,
+        "Personal_care_products_and_cosmetic_procedures": -1.2896,
+        "Substance_use": -2.0102,
+        "Environmental_exposures": -1.2349,
+        "Mental_health_practices": -1.888,
+        "Non_physical_leisure_time_activities": -1.806,
+        "Nutrition": -0.919,
+        "Physical_activities": -1.598,
+        "Sleep": -1.9711,
+        "Socioeconomic_factors": 6.6557
+      }
+    },
+    {
+      "span_id": "32515431_s015",
+      "abstract_id": "32515431",
+      "span_text": "deficient oral hygiene",
+      "boundaries": {
+        "start_char": 937,
+        "end_char": 959,
+        "token_start": 177,
+        "token_end": 179,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.3567,
+        "novelty_score": 0.6868,
+        "margin": 0.5372,
+        "top1_prob": 0.7384,
+        "top2_prob": 0.2011,
+        "p_background_o": 0.2011
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6868,
+        "novelty_lof": 1.1076,
+        "novelty_knn_dist": 0.2856
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3567,
+        "least_confidence": 0.2616,
+        "margin_uncertainty": 0.4628
+      },
+      "probabilities": {
+        "O": 0.2011,
+        "Personal_care_products_and_cosmetic_procedures": 0.7384,
+        "Substance_use": 0.0041,
+        "Environmental_exposures": 0.0036,
+        "Mental_health_practices": 0.0051,
+        "Non_physical_leisure_time_activities": 0.0034,
+        "Nutrition": 0.0046,
+        "Physical_activities": 0.0068,
+        "Sleep": 0.0055,
+        "Socioeconomic_factors": 0.0276
+      },
+      "logits": {
+        "O": 2.3372,
+        "Personal_care_products_and_cosmetic_procedures": 3.6377,
+        "Substance_use": -1.5607,
+        "Environmental_exposures": -1.6997,
+        "Mental_health_practices": -1.3326,
+        "Non_physical_leisure_time_activities": -1.7511,
+        "Nutrition": -1.439,
+        "Physical_activities": -1.055,
+        "Sleep": -1.2708,
+        "Socioeconomic_factors": 0.3497
+      }
+    },
+    {
+      "span_id": "32515431_s016",
+      "abstract_id": "32515431",
+      "span_text": "deficient oral hygiene",
+      "boundaries": {
+        "start_char": 1110,
+        "end_char": 1132,
+        "token_start": 208,
+        "token_end": 210,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.2755,
+        "novelty_score": 0.6867,
+        "margin": 0.7267,
+        "top1_prob": 0.8379,
+        "top2_prob": 0.1112,
+        "p_background_o": 0.1112
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6867,
+        "novelty_lof": 1.1075,
+        "novelty_knn_dist": 0.2856
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2755,
+        "least_confidence": 0.1621,
+        "margin_uncertainty": 0.2733
+      },
+      "probabilities": {
+        "O": 0.1112,
+        "Personal_care_products_and_cosmetic_procedures": 0.8379,
+        "Substance_use": 0.0037,
+        "Environmental_exposures": 0.0033,
+        "Mental_health_practices": 0.005,
+        "Non_physical_leisure_time_activities": 0.0029,
+        "Nutrition": 0.0038,
+        "Physical_activities": 0.0055,
+        "Sleep": 0.0047,
+        "Socioeconomic_factors": 0.022
+      },
+      "logits": {
+        "O": 1.9151,
+        "Personal_care_products_and_cosmetic_procedures": 3.9343,
+        "Substance_use": -1.4847,
+        "Environmental_exposures": -1.6153,
+        "Mental_health_practices": -1.1945,
+        "Non_physical_leisure_time_activities": -1.7256,
+        "Nutrition": -1.4491,
+        "Physical_activities": -1.0974,
+        "Sleep": -1.2491,
+        "Socioeconomic_factors": 0.2937
+      }
+    },
+    {
+      "span_id": "32515431_s017",
+      "abstract_id": "32515431",
+      "span_text": "socioeconomic and cultural factors",
+      "boundaries": {
+        "start_char": 179,
+        "end_char": 213,
+        "token_start": 33,
+        "token_end": 36,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.1304,
+        "novelty_score": 0.3161,
+        "margin": 0.8491,
+        "top1_prob": 0.922,
+        "top2_prob": 0.0729,
+        "p_background_o": 0.0729
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3161,
+        "novelty_lof": 1.0135,
+        "novelty_knn_dist": 0.1356
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1304,
+        "least_confidence": 0.078,
+        "margin_uncertainty": 0.1509
+      },
+      "probabilities": {
+        "O": 0.0729,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0029,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.922
+      },
+      "logits": {
+        "O": 3.4425,
+        "Personal_care_products_and_cosmetic_procedures": -2.0592,
+        "Substance_use": -1.8462,
+        "Environmental_exposures": 0.2335,
+        "Mental_health_practices": -2.2054,
+        "Non_physical_leisure_time_activities": -1.964,
+        "Nutrition": -1.8897,
+        "Physical_activities": -1.8889,
+        "Sleep": -2.4631,
+        "Socioeconomic_factors": 5.9797
+      }
+    },
+    {
+      "span_id": "32515431_s018",
+      "abstract_id": "32515431",
+      "span_text": "ingestion of sweet foods",
+      "boundaries": {
+        "start_char": 763,
+        "end_char": 787,
+        "token_start": 144,
+        "token_end": 147,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1845,
+        "novelty_score": 0.5234,
+        "margin": 0.7755,
+        "top1_prob": 0.8818,
+        "top2_prob": 0.1063,
+        "p_background_o": 0.1063
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5234,
+        "novelty_lof": 1.0468,
+        "novelty_knn_dist": 0.238
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1845,
+        "least_confidence": 0.1182,
+        "margin_uncertainty": 0.2245
+      },
+      "probabilities": {
+        "O": 0.1063,
+        "Personal_care_products_and_cosmetic_procedures": 0.0015,
+        "Substance_use": 0.0022,
+        "Environmental_exposures": 0.0017,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.8818,
+        "Physical_activities": 0.0014,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0033
+      },
+      "logits": {
+        "O": 2.9059,
+        "Personal_care_products_and_cosmetic_procedures": -1.3227,
+        "Substance_use": -0.9919,
+        "Environmental_exposures": -1.2543,
+        "Mental_health_practices": -2.973,
+        "Non_physical_leisure_time_activities": -1.9578,
+        "Nutrition": 5.0218,
+        "Physical_activities": -1.41,
+        "Sleep": -2.0813,
+        "Socioeconomic_factors": -0.5599
+      }
+    },
+    {
+      "span_id": "32515431_s019",
+      "abstract_id": "32515431",
+      "span_text": "Deficient oral hygiene",
+      "boundaries": {
+        "start_char": 789,
+        "end_char": 811,
+        "token_start": 149,
+        "token_end": 152,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.4764,
+        "novelty_score": 0.7937,
+        "margin": 0.3162,
+        "top1_prob": 0.601,
+        "top2_prob": 0.2848,
+        "p_background_o": 0.2848
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7937,
+        "novelty_lof": 1.1602,
+        "novelty_knn_dist": 0.3212
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4764,
+        "least_confidence": 0.399,
+        "margin_uncertainty": 0.6838
+      },
+      "probabilities": {
+        "O": 0.2848,
+        "Personal_care_products_and_cosmetic_procedures": 0.601,
+        "Substance_use": 0.0083,
+        "Environmental_exposures": 0.0071,
+        "Mental_health_practices": 0.0076,
+        "Non_physical_leisure_time_activities": 0.0048,
+        "Nutrition": 0.0094,
+        "Physical_activities": 0.0095,
+        "Sleep": 0.0084,
+        "Socioeconomic_factors": 0.0591
+      },
+      "logits": {
+        "O": 2.1958,
+        "Personal_care_products_and_cosmetic_procedures": 2.9427,
+        "Substance_use": -1.3395,
+        "Environmental_exposures": -1.4975,
+        "Mental_health_practices": -1.4261,
+        "Non_physical_leisure_time_activities": -1.8833,
+        "Nutrition": -1.2153,
+        "Physical_activities": -1.1993,
+        "Sleep": -1.3282,
+        "Socioeconomic_factors": 0.6237
+      }
+    },
+    {
+      "span_id": "32515431_s020",
+      "abstract_id": "32515431",
+      "span_text": "socioeconomic and behaviour factors",
+      "boundaries": {
+        "start_char": 1231,
+        "end_char": 1266,
+        "token_start": 228,
+        "token_end": 231,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.3108,
+        "novelty_score": 0.4782,
+        "margin": 0.2926,
+        "top1_prob": 0.6409,
+        "top2_prob": 0.3483,
+        "p_background_o": 0.3483
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4782,
+        "novelty_lof": 1.0938,
+        "novelty_knn_dist": 0.1626
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3108,
+        "least_confidence": 0.3591,
+        "margin_uncertainty": 0.7074
+      },
+      "probabilities": {
+        "O": 0.3483,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0007,
+        "Environmental_exposures": 0.0071,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.6409
+      },
+      "logits": {
+        "O": 4.4178,
+        "Personal_care_products_and_cosmetic_procedures": -2.1976,
+        "Substance_use": -1.8018,
+        "Environmental_exposures": 0.5315,
+        "Mental_health_practices": -2.4578,
+        "Non_physical_leisure_time_activities": -1.8113,
+        "Nutrition": -1.8886,
+        "Physical_activities": -2.0531,
+        "Sleep": -2.514,
+        "Socioeconomic_factors": 5.0276
+      }
+    },
+    {
+      "span_id": "32515431_s021",
+      "abstract_id": "32515431",
+      "span_text": "behavioural, socioeconomic and cultural factors",
+      "boundaries": {
+        "start_char": 166,
+        "end_char": 213,
+        "token_start": 31,
+        "token_end": 36,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.1774,
+        "novelty_score": 0.7699,
+        "margin": 0.7564,
+        "top1_prob": 0.8754,
+        "top2_prob": 0.119,
+        "p_background_o": 0.119
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7699,
+        "novelty_lof": 1.2506,
+        "novelty_knn_dist": 0.2088
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1774,
+        "least_confidence": 0.1246,
+        "margin_uncertainty": 0.2436
+      },
+      "probabilities": {
+        "O": 0.119,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0027,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.8754
+      },
+      "logits": {
+        "O": 3.723,
+        "Personal_care_products_and_cosmetic_procedures": -2.0075,
+        "Substance_use": -1.9087,
+        "Environmental_exposures": -0.0453,
+        "Mental_health_practices": -1.7537,
+        "Non_physical_leisure_time_activities": -1.7528,
+        "Nutrition": -1.8097,
+        "Physical_activities": -1.9504,
+        "Sleep": -2.5521,
+        "Socioeconomic_factors": 5.7189
+      }
+    }
+  ]
+}

@@ -17,7 +17,10 @@ from src.architectures.agentic_guidelines import (
     Reflector,
     Curator,
     ReflectorCuratorCombined,
+    DynamicGuidebookManager,
     DynamicGuidelinesManager,
+    GuidebookStore,
+    SchemaStore,
     AgenticNERPipeline
 )
 
@@ -36,7 +39,10 @@ __all__ = [
     "Reflector",
     "Curator",
     "ReflectorCuratorCombined",
+    "DynamicGuidebookManager",
     "DynamicGuidelinesManager",
+    "GuidebookStore",
+    "SchemaStore",
     "AgenticNERPipeline"
 ]
 

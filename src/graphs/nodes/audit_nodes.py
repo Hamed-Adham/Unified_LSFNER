@@ -12,7 +12,7 @@ from typing import Dict, Any, Optional, List, Tuple
 from langchain_core.runnables import RunnableConfig
 
 from src.graphs.state import UnifiedNERState, CandidateSpan
-from src.common.audit_logger import classify_8_outcome_str, match_gt_label, canonicalize_label
+from src.common.audit_logger import classify_10_outcome_str, classify_8_outcome_str, match_gt_label, canonicalize_label
 
 
 def safe_run_nms(spans: List[CandidateSpan]) -> List[CandidateSpan]:
@@ -185,7 +185,7 @@ def audit_eval_node(
             gt_lbl = match_gt_label(st, s_char, e_char, ground_truth)
             span["gold_label"] = gt_lbl
 
-            outcome = classify_8_outcome_str(
+            outcome = classify_10_outcome_str(
                 gt_label=gt_lbl,
                 spanner_label=spanner_lbl,
                 final_label=final_lbl,

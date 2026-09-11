@@ -1,0 +1,368 @@
+{
+  "doc_id": "22981087",
+  "dataset_split": "400/train",
+  "text": "Fatal coronary artery intimal hyperplasia due to amphetamine use. \nBACKGROUND: Amphetamines have been reported to cause myocardial infarct, cerebral hemorrhage, aortic dissection, hypertension, vasculitis, aneurysms, and, occasionally, death from direct toxicity. To date, there have been no reports of coronary intimal hyperplasia in an amphetamine user. METHODS: A 29-year-old male was found collapsed after jogging. He had been taking amphetamines for 11 years for attention deficit/hyperactivity disorder. Past medical history was positive for mild hypertension and migraine headaches. He underwent a complete autopsy and drug screen. RESULTS: At gross autopsy his left anterior descending (LAD) coronary artery was occluded and he had an old myocardial infarct in the anterior wall of the left ventricle. Microscopic findings included occlusive intimal hyperplasia (positive for smooth muscle actin) in the LAD and an old left ventricular anterior wall infarct surrounded by acute infarct. CONCLUSION: In addition to other reported adverse effects, amphetamines can also cause occlusive intimal hyperplasia of the coronary arteries. \n",
+  "total_candidates": 6,
+  "spans": [
+    {
+      "span_id": "22981087_s000",
+      "abstract_id": "22981087",
+      "span_text": "amphetamine",
+      "boundaries": {
+        "start_char": 338,
+        "end_char": 349,
+        "token_start": 62,
+        "token_end": 62,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.2888,
+        "novelty_score": 0.3568,
+        "margin": 0.4344,
+        "top1_prob": 0.7114,
+        "top2_prob": 0.277,
+        "p_background_o": 0.277
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3568,
+        "novelty_lof": 1.0128,
+        "novelty_knn_dist": 0.1648
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2888,
+        "least_confidence": 0.2886,
+        "margin_uncertainty": 0.5656
+      },
+      "probabilities": {
+        "O": 0.277,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.7114,
+        "Environmental_exposures": 0.0009,
+        "Mental_health_practices": 0.0012,
+        "Non_physical_leisure_time_activities": 0.007,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0008,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 4.3714,
+        "Personal_care_products_and_cosmetic_procedures": -2.8374,
+        "Substance_use": 5.3145,
+        "Environmental_exposures": -1.3418,
+        "Mental_health_practices": -1.0766,
+        "Non_physical_leisure_time_activities": 0.693,
+        "Nutrition": -2.5059,
+        "Physical_activities": -2.4324,
+        "Sleep": -1.4179,
+        "Socioeconomic_factors": -1.5071
+      }
+    },
+    {
+      "span_id": "22981087_s001",
+      "abstract_id": "22981087",
+      "span_text": "amphetamine use",
+      "boundaries": {
+        "start_char": 49,
+        "end_char": 64,
+        "token_start": 9,
+        "token_end": 10,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.0807,
+        "novelty_score": 0.3169,
+        "margin": 0.9474,
+        "top1_prob": 0.9674,
+        "top2_prob": 0.02,
+        "p_background_o": 0.02
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3169,
+        "novelty_lof": 0.982,
+        "novelty_knn_dist": 0.1676
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0807,
+        "least_confidence": 0.0326,
+        "margin_uncertainty": 0.0526
+      },
+      "probabilities": {
+        "O": 0.02,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.9674,
+        "Environmental_exposures": 0.0027,
+        "Mental_health_practices": 0.0011,
+        "Non_physical_leisure_time_activities": 0.0056,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 1.6766,
+        "Personal_care_products_and_cosmetic_procedures": -2.1632,
+        "Substance_use": 5.5551,
+        "Environmental_exposures": -0.3187,
+        "Mental_health_practices": -1.2558,
+        "Non_physical_leisure_time_activities": 0.3944,
+        "Nutrition": -2.1995,
+        "Physical_activities": -2.1828,
+        "Sleep": -1.0335,
+        "Socioeconomic_factors": -1.7765
+      }
+    },
+    {
+      "span_id": "22981087_s002",
+      "abstract_id": "22981087",
+      "span_text": "jogging",
+      "boundaries": {
+        "start_char": 410,
+        "end_char": 417,
+        "token_start": 78,
+        "token_end": 79,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0992,
+        "novelty_score": 0.4914,
+        "margin": 0.9198,
+        "top1_prob": 0.9545,
+        "top2_prob": 0.0347,
+        "p_background_o": 0.0347
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4914,
+        "novelty_lof": 1.0492,
+        "novelty_knn_dist": 0.2154
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0992,
+        "least_confidence": 0.0455,
+        "margin_uncertainty": 0.0802
+      },
+      "probabilities": {
+        "O": 0.0347,
+        "Personal_care_products_and_cosmetic_procedures": 0.0007,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0006,
+        "Non_physical_leisure_time_activities": 0.005,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.9545,
+        "Sleep": 0.0015,
+        "Socioeconomic_factors": 0.0014
+      },
+      "logits": {
+        "O": 2.033,
+        "Personal_care_products_and_cosmetic_procedures": -1.8162,
+        "Substance_use": -1.9587,
+        "Environmental_exposures": -2.2199,
+        "Mental_health_practices": -1.9588,
+        "Non_physical_leisure_time_activities": 0.0875,
+        "Nutrition": -2.2193,
+        "Physical_activities": 5.348,
+        "Sleep": -1.1073,
+        "Socioeconomic_factors": -1.198
+      }
+    },
+    {
+      "span_id": "22981087_s003",
+      "abstract_id": "22981087",
+      "span_text": "Amphetamines",
+      "boundaries": {
+        "start_char": 79,
+        "end_char": 91,
+        "token_start": 16,
+        "token_end": 18,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1639,
+        "novelty_score": 0.5378,
+        "margin": 0.9023,
+        "top1_prob": 0.9295,
+        "top2_prob": 0.0273,
+        "p_background_o": 0.0273
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5378,
+        "novelty_lof": 1.055,
+        "novelty_knn_dist": 0.2388
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1639,
+        "least_confidence": 0.0705,
+        "margin_uncertainty": 0.0977
+      },
+      "probabilities": {
+        "O": 0.0273,
+        "Personal_care_products_and_cosmetic_procedures": 0.0013,
+        "Substance_use": 0.9295,
+        "Environmental_exposures": 0.0117,
+        "Mental_health_practices": 0.004,
+        "Non_physical_leisure_time_activities": 0.0147,
+        "Nutrition": 0.0019,
+        "Physical_activities": 0.0019,
+        "Sleep": 0.0031,
+        "Socioeconomic_factors": 0.0046
+      },
+      "logits": {
+        "O": 0.8368,
+        "Personal_care_products_and_cosmetic_procedures": -2.2332,
+        "Substance_use": 4.3664,
+        "Environmental_exposures": -0.0082,
+        "Mental_health_practices": -1.0783,
+        "Non_physical_leisure_time_activities": 0.2219,
+        "Nutrition": -1.8017,
+        "Physical_activities": -1.8526,
+        "Sleep": -1.3332,
+        "Socioeconomic_factors": -0.9452
+      }
+    },
+    {
+      "span_id": "22981087_s004",
+      "abstract_id": "22981087",
+      "span_text": "amphetamines",
+      "boundaries": {
+        "start_char": 438,
+        "end_char": 450,
+        "token_start": 85,
+        "token_end": 87,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.2332,
+        "novelty_score": 0.5129,
+        "margin": 0.8319,
+        "top1_prob": 0.8868,
+        "top2_prob": 0.0549,
+        "p_background_o": 0.0549
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5129,
+        "novelty_lof": 1.0475,
+        "novelty_knn_dist": 0.2307
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2332,
+        "least_confidence": 0.1132,
+        "margin_uncertainty": 0.1681
+      },
+      "probabilities": {
+        "O": 0.0549,
+        "Personal_care_products_and_cosmetic_procedures": 0.0018,
+        "Substance_use": 0.8868,
+        "Environmental_exposures": 0.0132,
+        "Mental_health_practices": 0.0056,
+        "Non_physical_leisure_time_activities": 0.0195,
+        "Nutrition": 0.0033,
+        "Physical_activities": 0.003,
+        "Sleep": 0.005,
+        "Socioeconomic_factors": 0.007
+      },
+      "logits": {
+        "O": 1.1504,
+        "Personal_care_products_and_cosmetic_procedures": -2.2906,
+        "Substance_use": 3.9329,
+        "Environmental_exposures": -0.2725,
+        "Mental_health_practices": -1.1286,
+        "Non_physical_leisure_time_activities": 0.1163,
+        "Nutrition": -1.6739,
+        "Physical_activities": -1.7624,
+        "Sleep": -1.2536,
+        "Socioeconomic_factors": -0.9122
+      }
+    },
+    {
+      "span_id": "22981087_s005",
+      "abstract_id": "22981087",
+      "span_text": "amphetamines",
+      "boundaries": {
+        "start_char": 1054,
+        "end_char": 1066,
+        "token_start": 191,
+        "token_end": 193,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1574,
+        "novelty_score": 0.5129,
+        "margin": 0.9123,
+        "top1_prob": 0.9341,
+        "top2_prob": 0.0218,
+        "p_background_o": 0.0218
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5129,
+        "novelty_lof": 1.0475,
+        "novelty_knn_dist": 0.2307
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1574,
+        "least_confidence": 0.0659,
+        "margin_uncertainty": 0.0877
+      },
+      "probabilities": {
+        "O": 0.0218,
+        "Personal_care_products_and_cosmetic_procedures": 0.0014,
+        "Substance_use": 0.9341,
+        "Environmental_exposures": 0.0113,
+        "Mental_health_practices": 0.0041,
+        "Non_physical_leisure_time_activities": 0.0151,
+        "Nutrition": 0.002,
+        "Physical_activities": 0.0022,
+        "Sleep": 0.0034,
+        "Socioeconomic_factors": 0.0045
+      },
+      "logits": {
+        "O": 0.5742,
+        "Personal_care_products_and_cosmetic_procedures": -2.1842,
+        "Substance_use": 4.3306,
+        "Environmental_exposures": -0.0819,
+        "Mental_health_practices": -1.0874,
+        "Non_physical_leisure_time_activities": 0.2047,
+        "Nutrition": -1.8278,
+        "Physical_activities": -1.7358,
+        "Sleep": -1.2708,
+        "Socioeconomic_factors": -1.003
+      }
+    }
+  ]
+}

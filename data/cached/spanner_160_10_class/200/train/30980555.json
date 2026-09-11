@@ -1,0 +1,128 @@
+{
+  "doc_id": "30980555",
+  "dataset_split": "200/train",
+  "text": "Airborne transmission between room occupants during short-term events: Measurement and evaluation. \nThis study experimentally examines and compares the dynamics and short-term events of airborne cross-infection in a full-scale room ventilated by stratum, mixing and displacement air distributions. Two breathing thermal manikins were employed to simulate a standing infected person and a standing exposed person. Four influential factors were examined, including separation distance between manikins, air change per hour, positioning of the two manikinsand air distribution. Tracer gas technique was used to simulate the exhaled droplet nuclei from the infected person and fast tracer gas concentration meters (FCM41) were used to monitor the concentrations. Real-time and average exposure indices were proposed to evaluate the dynamics of airborne exposure. The time-averaged exposure index depends on the duration of exposure time and can be considerably different during short-term events and under steady-state conditions. The exposure risk during short-term events may not always decrease with increasing separation distance. It changes over time and may not always increase with time. These findings imply that the control measures formulated on the basis of steady-state conditions are not necessarily appropriate for short-term events. \n",
+  "total_candidates": 2,
+  "spans": [
+    {
+      "span_id": "30980555_s000",
+      "abstract_id": "30980555",
+      "span_text": "air change",
+      "boundaries": {
+        "start_char": 501,
+        "end_char": 511,
+        "token_start": 88,
+        "token_end": 89,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0151,
+        "novelty_score": 0.7927,
+        "margin": 0.993,
+        "top1_prob": 0.9956,
+        "top2_prob": 0.0026,
+        "p_background_o": 0.0026
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7927,
+        "novelty_lof": 1.1447,
+        "novelty_knn_dist": 0.3357
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0151,
+        "least_confidence": 0.0044,
+        "margin_uncertainty": 0.007
+      },
+      "probabilities": {
+        "O": 0.0026,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.9956,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 0.9187,
+        "Personal_care_products_and_cosmetic_procedures": -1.0107,
+        "Substance_use": -0.9589,
+        "Environmental_exposures": 6.8718,
+        "Mental_health_practices": -1.754,
+        "Non_physical_leisure_time_activities": -2.1048,
+        "Nutrition": -1.5679,
+        "Physical_activities": -1.996,
+        "Sleep": -1.6503,
+        "Socioeconomic_factors": -1.7749
+      }
+    },
+    {
+      "span_id": "30980555_s001",
+      "abstract_id": "30980555",
+      "span_text": "airborne exposure",
+      "boundaries": {
+        "start_char": 840,
+        "end_char": 857,
+        "token_start": 152,
+        "token_end": 153,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0245,
+        "novelty_score": 0.5247,
+        "margin": 0.9882,
+        "top1_prob": 0.9924,
+        "top2_prob": 0.0042,
+        "p_background_o": 0.0042
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5247,
+        "novelty_lof": 1.0515,
+        "novelty_knn_dist": 0.2341
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0245,
+        "least_confidence": 0.0076,
+        "margin_uncertainty": 0.0118
+      },
+      "probabilities": {
+        "O": 0.0042,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.9924,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 0.8689,
+        "Personal_care_products_and_cosmetic_procedures": -1.0649,
+        "Substance_use": -0.8266,
+        "Environmental_exposures": 6.3348,
+        "Mental_health_practices": -1.6473,
+        "Non_physical_leisure_time_activities": -2.2045,
+        "Nutrition": -1.4817,
+        "Physical_activities": -2.1159,
+        "Sleep": -1.7208,
+        "Socioeconomic_factors": -1.2035
+      }
+    }
+  ]
+}

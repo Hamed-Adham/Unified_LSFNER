@@ -1,0 +1,428 @@
+{
+  "doc_id": "17116632",
+  "dataset_split": "400/val",
+  "text": "[Assessment of 24 years of infant growth monitoring in a rural area of Senegal (1969-1992)]. \nUndernutrition in young children in developing countries is associated with an increased risk of death. But in several studies, a decrease in mortality was not associated with any decrease in the prevalence of undernutrition. STUDY AREA: A rural population of Casamance (Senegal) has been under yearly demographic surveillance by The French National Institute of Demographic Studies (INED) since 1985. Between 1960-1964 and 1990-1994, under-5 and child (1-4 years) mortality rates dropped from 312 to 127 and from 201 to 68 per 1,000, respectively. Since 1961, French Catholic nuns who are also professional nurses have been in charge of a private village dispensary located in a rural area of Casamance. This dispensary delivers permanent, high quality service and is widely attended. GROWTH MONITORING PROGRAMME: A growth-monitoring programme, supported by Cathwell, was initiated in 1969 for 0-5-year-old children (0-3 from 1985). Children were weighed wearing light clothes to the nearest 10g. Weights were recorded in a register that also contained information concerning identity (name, sex, date of birth) and address. All weights were plotted on growth charts kept by the mothers. During the sessions, the nurses provided nutrition education messages (i.e., preparation of high-energy and nutrient-dense infant gruels using local foods), advice on illness management (oral rehydration during diarrhoea) and hygiene (well and water-jar disinfection, construction of pit-latrines), importance of vaccination. From 1975, they also distributed free chloroquine during the malaria transmission season (May-November) for prevention and early presumptive treatment. Most likely thanks to this programme, infant and child mortality reached a low level at the end of the 1980s. In 1990, plasmodium resistance to chloroquine appeared, increasing malaria mortality. METHODS: All weight measurements taken in 1969-1994 were entered into a database. This paper presents an analysis of weight measurements taken at 3-23 months of age from 1969-1992. A total of 4,636 infants were weighed at least once, but only 3,912 infants (1,983 boys and 1,929 girls) were available for the analysis, 724 being excluded due to missing data. RESULTS: The average coverage of the programme during the month of February was 88% for infants aged 3-23 months. Mean weight was examined at three target ages: 5, 11 and 15 months. Not only did the nutritional status not improve between 1969 and 1989, it even deteriorated in some years for all three age-cohorts. The nutritional status of infants in this community did not differ significantly from that of 12-23 month-old Senegalese children in the 1992-1993 Demographic and Health Survey (DHS). Seasonal differences in mean weight and the prevalence of underweight became significant in the rainy season since 1975. Underweight for the 15-month-old children increased over time during the rainy season. These findings were unexpected, since malaria morbidity is thought to be at least partially responsible for seasonal variations in the nutritional status of young children, and despite the fact that the nurses began a malaria control programme in 1975. CONCLUSION: The rapid transition towards lower childhood mortality observed in this rural area of Casamance (Senegal), was not concomitant with any improvement in infants' nutritional status from 1969 through 1992. Focused public health interventions such as vaccinations and malaria prevention probably did not improve the nutritional status. Paradoxically, growth monitoring may have been more helpful in improving health than growth. Targeted specific nutritional interventions are needed to significantly improve growth of children in this community. \n",
+  "total_candidates": 7,
+  "spans": [
+    {
+      "span_id": "17116632_s000",
+      "abstract_id": "17116632",
+      "span_text": "hygiene",
+      "boundaries": {
+        "start_char": 1509,
+        "end_char": 1516,
+        "token_start": 322,
+        "token_end": 322,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.3916,
+        "novelty_score": 0.2931,
+        "margin": 0.1729,
+        "top1_prob": 0.565,
+        "top2_prob": 0.3921,
+        "p_background_o": 0.3921
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2931,
+        "novelty_lof": 0.9964,
+        "novelty_knn_dist": 0.1356
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3916,
+        "least_confidence": 0.435,
+        "margin_uncertainty": 0.8271
+      },
+      "probabilities": {
+        "O": 0.3921,
+        "Personal_care_products_and_cosmetic_procedures": 0.0176,
+        "Substance_use": 0.0038,
+        "Environmental_exposures": 0.565,
+        "Mental_health_practices": 0.004,
+        "Non_physical_leisure_time_activities": 0.0021,
+        "Nutrition": 0.0037,
+        "Physical_activities": 0.0025,
+        "Sleep": 0.0032,
+        "Socioeconomic_factors": 0.0059
+      },
+      "logits": {
+        "O": 3.2849,
+        "Personal_care_products_and_cosmetic_procedures": 0.182,
+        "Substance_use": -1.3422,
+        "Environmental_exposures": 3.6502,
+        "Mental_health_practices": -1.2934,
+        "Non_physical_leisure_time_activities": -1.9262,
+        "Nutrition": -1.3864,
+        "Physical_activities": -1.7714,
+        "Sleep": -1.5187,
+        "Socioeconomic_factors": -0.9152
+      }
+    },
+    {
+      "span_id": "17116632_s001",
+      "abstract_id": "17116632",
+      "span_text": "rural area",
+      "boundaries": {
+        "start_char": 57,
+        "end_char": 67,
+        "token_start": 12,
+        "token_end": 13,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2758,
+        "novelty_score": 0.2927,
+        "margin": 0.4075,
+        "top1_prob": 0.702,
+        "top2_prob": 0.2945,
+        "p_background_o": 0.2945
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2927,
+        "novelty_lof": 0.9872,
+        "novelty_knn_dist": 0.1445
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2758,
+        "least_confidence": 0.298,
+        "margin_uncertainty": 0.5925
+      },
+      "probabilities": {
+        "O": 0.2945,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.702
+      },
+      "logits": {
+        "O": 4.6465,
+        "Personal_care_products_and_cosmetic_procedures": -1.8337,
+        "Substance_use": -2.3076,
+        "Environmental_exposures": -1.7515,
+        "Mental_health_practices": -2.1249,
+        "Non_physical_leisure_time_activities": -1.8404,
+        "Nutrition": -1.8711,
+        "Physical_activities": -1.5952,
+        "Sleep": -1.8858,
+        "Socioeconomic_factors": 5.5151
+      }
+    },
+    {
+      "span_id": "17116632_s002",
+      "abstract_id": "17116632",
+      "span_text": "developing countries",
+      "boundaries": {
+        "start_char": 130,
+        "end_char": 150,
+        "token_start": 30,
+        "token_end": 31,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0239,
+        "novelty_score": 0.2765,
+        "margin": 0.9867,
+        "top1_prob": 0.9922,
+        "top2_prob": 0.0055,
+        "p_background_o": 0.0055
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2765,
+        "novelty_lof": 0.9727,
+        "novelty_knn_dist": 0.1466
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0239,
+        "least_confidence": 0.0078,
+        "margin_uncertainty": 0.0133
+      },
+      "probabilities": {
+        "O": 0.0055,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.9922
+      },
+      "logits": {
+        "O": 1.4831,
+        "Personal_care_products_and_cosmetic_procedures": -1.0569,
+        "Substance_use": -2.0707,
+        "Environmental_exposures": -1.0062,
+        "Mental_health_practices": -2.1481,
+        "Non_physical_leisure_time_activities": -1.8482,
+        "Nutrition": -0.9444,
+        "Physical_activities": -1.5207,
+        "Sleep": -1.9299,
+        "Socioeconomic_factors": 6.6795
+      }
+    },
+    {
+      "span_id": "17116632_s003",
+      "abstract_id": "17116632",
+      "span_text": "rural area",
+      "boundaries": {
+        "start_char": 774,
+        "end_char": 784,
+        "token_start": 166,
+        "token_end": 167,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2922,
+        "novelty_score": 0.2927,
+        "margin": 0.2953,
+        "top1_prob": 0.6462,
+        "top2_prob": 0.3509,
+        "p_background_o": 0.3509
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2927,
+        "novelty_lof": 0.9872,
+        "novelty_knn_dist": 0.1445
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2922,
+        "least_confidence": 0.3538,
+        "margin_uncertainty": 0.7047
+      },
+      "probabilities": {
+        "O": 0.3509,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.6462
+      },
+      "logits": {
+        "O": 4.9355,
+        "Personal_care_products_and_cosmetic_procedures": -1.902,
+        "Substance_use": -2.324,
+        "Environmental_exposures": -1.782,
+        "Mental_health_practices": -2.1974,
+        "Non_physical_leisure_time_activities": -1.822,
+        "Nutrition": -1.8652,
+        "Physical_activities": -1.6708,
+        "Sleep": -1.9768,
+        "Socioeconomic_factors": 5.5461
+      }
+    },
+    {
+      "span_id": "17116632_s004",
+      "abstract_id": "17116632",
+      "span_text": "nutrition education",
+      "boundaries": {
+        "start_char": 1324,
+        "end_char": 1343,
+        "token_start": 286,
+        "token_end": 287,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2053,
+        "novelty_score": 0.7002,
+        "margin": 0.7047,
+        "top1_prob": 0.8484,
+        "top2_prob": 0.1437,
+        "p_background_o": 0.1437
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7002,
+        "novelty_lof": 1.1525,
+        "novelty_knn_dist": 0.2506
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2053,
+        "least_confidence": 0.1516,
+        "margin_uncertainty": 0.2953
+      },
+      "probabilities": {
+        "O": 0.1437,
+        "Personal_care_products_and_cosmetic_procedures": 0.0009,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.0013,
+        "Mental_health_practices": 0.0006,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.8484,
+        "Physical_activities": 0.0012,
+        "Sleep": 0.0009,
+        "Socioeconomic_factors": 0.0013
+      },
+      "logits": {
+        "O": 3.2612,
+        "Personal_care_products_and_cosmetic_procedures": -1.7943,
+        "Substance_use": -1.8267,
+        "Environmental_exposures": -1.4174,
+        "Mental_health_practices": -2.1416,
+        "Non_physical_leisure_time_activities": -2.0406,
+        "Nutrition": 5.0366,
+        "Physical_activities": -1.5571,
+        "Sleep": -1.7742,
+        "Socioeconomic_factors": -1.4494
+      }
+    },
+    {
+      "span_id": "17116632_s005",
+      "abstract_id": "17116632",
+      "span_text": "local foods",
+      "boundaries": {
+        "start_char": 1426,
+        "end_char": 1437,
+        "token_start": 308,
+        "token_end": 309,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0332,
+        "novelty_score": 0.6588,
+        "margin": 0.9775,
+        "top1_prob": 0.9877,
+        "top2_prob": 0.0102,
+        "p_background_o": 0.0102
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6588,
+        "novelty_lof": 1.1182,
+        "novelty_knn_dist": 0.255
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0332,
+        "least_confidence": 0.0123,
+        "margin_uncertainty": 0.0225
+      },
+      "probabilities": {
+        "O": 0.0102,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9877,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 2.0355,
+        "Personal_care_products_and_cosmetic_procedures": -1.6441,
+        "Substance_use": -2.0565,
+        "Environmental_exposures": -1.4988,
+        "Mental_health_practices": -2.7809,
+        "Non_physical_leisure_time_activities": -1.9013,
+        "Nutrition": 6.6073,
+        "Physical_activities": -1.4833,
+        "Sleep": -1.5133,
+        "Socioeconomic_factors": -0.9434
+      }
+    },
+    {
+      "span_id": "17116632_s006",
+      "abstract_id": "17116632",
+      "span_text": "pit-latrines",
+      "boundaries": {
+        "start_char": 1567,
+        "end_char": 1579,
+        "token_start": 334,
+        "token_end": 338,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.2968,
+        "novelty_score": 0.6521,
+        "margin": 0.2863,
+        "top1_prob": 0.641,
+        "top2_prob": 0.3548,
+        "p_background_o": 0.3548
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6521,
+        "novelty_lof": 1.1272,
+        "novelty_knn_dist": 0.2414
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2968,
+        "least_confidence": 0.359,
+        "margin_uncertainty": 0.7137
+      },
+      "probabilities": {
+        "O": 0.3548,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.641,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0013
+      },
+      "logits": {
+        "O": 4.8731,
+        "Personal_care_products_and_cosmetic_procedures": -1.2736,
+        "Substance_use": -1.531,
+        "Environmental_exposures": 5.4647,
+        "Mental_health_practices": -2.1035,
+        "Non_physical_leisure_time_activities": -2.1799,
+        "Nutrition": -1.9021,
+        "Physical_activities": -2.2622,
+        "Sleep": -2.5021,
+        "Socioeconomic_factors": -0.7536
+      }
+    }
+  ]
+}

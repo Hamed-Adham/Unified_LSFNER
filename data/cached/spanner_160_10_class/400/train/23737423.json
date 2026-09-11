@@ -1,0 +1,1448 @@
+{
+  "doc_id": "23737423",
+  "dataset_split": "400/train",
+  "text": "The efficacy of psychotherapy and pharmacotherapy in treating depressive and anxiety disorders: a meta-analysis of direct comparisons. \nAlthough psychotherapy and antidepressant medication are efficacious in the treatment of depressive and anxiety disorders, it is not known whether they are equally efficacious for all types of disorders, and whether all types of psychotherapy and antidepressants are equally efficacious for each disorder. We conducted a meta-analysis of studies in which psychotherapy and antidepressant medication were directly compared in the treatment of depressive and anxiety disorders. Systematic searches in bibliographical databases resulted in 67 randomized trials, including 5,993 patients that met inclusion criteria, 40 studies focusing on depressive disorders and 27 focusing on anxiety disorders. The overall effect size indicating the difference between psychotherapy and pharmacotherapy after treatment in all disorders was g=0.02 (95% CI: -0.07 to 0.10), which was not statistically significant. Pharmacotherapy was significantly more efficacious than psychotherapy in dysthymia (g=0.30), and psychotherapy was significantly more efficacious than pharmacotherapy in obsessive-compulsive disorder (g=0.64). Furthermore, pharmacotherapy was significantly more efficacious than non-directive counseling (g=0.33), and psychotherapy was significantly more efficacious than pharmacotherapy with tricyclic antidepressants (g=0.21). These results remained significant when we controlled for other characteristics of the studies in multivariate meta-regression analysis, except for the differential effects in dysthymia, which were no longer statistically significant. \n",
+  "total_candidates": 24,
+  "spans": [
+    {
+      "span_id": "23737423_s000",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy",
+      "boundaries": {
+        "start_char": 16,
+        "end_char": 29,
+        "token_start": 4,
+        "token_end": 4,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0211,
+        "novelty_score": 0.3097,
+        "margin": 0.9884,
+        "top1_prob": 0.9932,
+        "top2_prob": 0.0048,
+        "p_background_o": 0.0048
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3097,
+        "novelty_lof": 0.9915,
+        "novelty_knn_dist": 0.1528
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0211,
+        "least_confidence": 0.0068,
+        "margin_uncertainty": 0.0116
+      },
+      "probabilities": {
+        "O": 0.0048,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.9932,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 1.5234,
+        "Personal_care_products_and_cosmetic_procedures": -1.2611,
+        "Substance_use": -1.3984,
+        "Environmental_exposures": -1.3647,
+        "Mental_health_practices": 6.8574,
+        "Non_physical_leisure_time_activities": -0.7534,
+        "Nutrition": -2.5542,
+        "Physical_activities": -1.9478,
+        "Sleep": -1.9894,
+        "Socioeconomic_factors": -1.2338
+      }
+    },
+    {
+      "span_id": "23737423_s001",
+      "abstract_id": "23737423",
+      "span_text": "pharmacotherapy",
+      "boundaries": {
+        "start_char": 34,
+        "end_char": 49,
+        "token_start": 6,
+        "token_end": 6,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "Substance_use",
+        "uncertainty": 0.5644,
+        "novelty_score": 0.8215,
+        "margin": 0.1185,
+        "top1_prob": 0.4222,
+        "top2_prob": 0.3037,
+        "p_background_o": 0.2231
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8215,
+        "novelty_lof": 1.2136,
+        "novelty_knn_dist": 0.2959
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5644,
+        "least_confidence": 0.5778,
+        "margin_uncertainty": 0.8815
+      },
+      "probabilities": {
+        "O": 0.2231,
+        "Personal_care_products_and_cosmetic_procedures": 0.0053,
+        "Substance_use": 0.3037,
+        "Environmental_exposures": 0.0199,
+        "Mental_health_practices": 0.4222,
+        "Non_physical_leisure_time_activities": 0.0091,
+        "Nutrition": 0.0035,
+        "Physical_activities": 0.0025,
+        "Sleep": 0.0062,
+        "Socioeconomic_factors": 0.0045
+      },
+      "logits": {
+        "O": 2.1827,
+        "Personal_care_products_and_cosmetic_procedures": -1.5594,
+        "Substance_use": 2.4914,
+        "Environmental_exposures": -0.234,
+        "Mental_health_practices": 2.8209,
+        "Non_physical_leisure_time_activities": -1.015,
+        "Nutrition": -1.9846,
+        "Physical_activities": -2.2913,
+        "Sleep": -1.3957,
+        "Socioeconomic_factors": -1.7314
+      }
+    },
+    {
+      "span_id": "23737423_s002",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy",
+      "boundaries": {
+        "start_char": 145,
+        "end_char": 158,
+        "token_start": 25,
+        "token_end": 25,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0198,
+        "novelty_score": 0.3097,
+        "margin": 0.9897,
+        "top1_prob": 0.9938,
+        "top2_prob": 0.0041,
+        "p_background_o": 0.0041
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3097,
+        "novelty_lof": 0.9915,
+        "novelty_knn_dist": 0.1528
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0198,
+        "least_confidence": 0.0062,
+        "margin_uncertainty": 0.0103
+      },
+      "probabilities": {
+        "O": 0.0041,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.9938,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 1.3486,
+        "Personal_care_products_and_cosmetic_procedures": -1.2143,
+        "Substance_use": -1.4967,
+        "Environmental_exposures": -1.3777,
+        "Mental_health_practices": 6.8391,
+        "Non_physical_leisure_time_activities": -0.7591,
+        "Nutrition": -2.4934,
+        "Physical_activities": -1.8536,
+        "Sleep": -1.9147,
+        "Socioeconomic_factors": -1.1584
+      }
+    },
+    {
+      "span_id": "23737423_s003",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy",
+      "boundaries": {
+        "start_char": 365,
+        "end_char": 378,
+        "token_start": 60,
+        "token_end": 60,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.021,
+        "novelty_score": 0.3097,
+        "margin": 0.9889,
+        "top1_prob": 0.9934,
+        "top2_prob": 0.0044,
+        "p_background_o": 0.0044
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3097,
+        "novelty_lof": 0.9915,
+        "novelty_knn_dist": 0.1528
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.021,
+        "least_confidence": 0.0066,
+        "margin_uncertainty": 0.0111
+      },
+      "probabilities": {
+        "O": 0.0044,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.9934,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 1.3803,
+        "Personal_care_products_and_cosmetic_procedures": -1.2027,
+        "Substance_use": -1.4846,
+        "Environmental_exposures": -1.364,
+        "Mental_health_practices": 6.789,
+        "Non_physical_leisure_time_activities": -0.7727,
+        "Nutrition": -2.5061,
+        "Physical_activities": -1.8282,
+        "Sleep": -1.8814,
+        "Socioeconomic_factors": -1.1497
+      }
+    },
+    {
+      "span_id": "23737423_s004",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy",
+      "boundaries": {
+        "start_char": 491,
+        "end_char": 504,
+        "token_start": 80,
+        "token_end": 80,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0193,
+        "novelty_score": 0.3097,
+        "margin": 0.9902,
+        "top1_prob": 0.9941,
+        "top2_prob": 0.0039,
+        "p_background_o": 0.0039
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3097,
+        "novelty_lof": 0.9915,
+        "novelty_knn_dist": 0.1528
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0193,
+        "least_confidence": 0.0059,
+        "margin_uncertainty": 0.0098
+      },
+      "probabilities": {
+        "O": 0.0039,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.9941,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 1.296,
+        "Personal_care_products_and_cosmetic_procedures": -1.2095,
+        "Substance_use": -1.422,
+        "Environmental_exposures": -1.3545,
+        "Mental_health_practices": 6.845,
+        "Non_physical_leisure_time_activities": -0.737,
+        "Nutrition": -2.4814,
+        "Physical_activities": -1.8869,
+        "Sleep": -1.9079,
+        "Socioeconomic_factors": -1.1865
+      }
+    },
+    {
+      "span_id": "23737423_s005",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy",
+      "boundaries": {
+        "start_char": 889,
+        "end_char": 902,
+        "token_start": 139,
+        "token_end": 139,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0207,
+        "novelty_score": 0.3097,
+        "margin": 0.9891,
+        "top1_prob": 0.9935,
+        "top2_prob": 0.0044,
+        "p_background_o": 0.0044
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3097,
+        "novelty_lof": 0.9915,
+        "novelty_knn_dist": 0.1528
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0207,
+        "least_confidence": 0.0065,
+        "margin_uncertainty": 0.0109
+      },
+      "probabilities": {
+        "O": 0.0044,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.9935,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 1.3716,
+        "Personal_care_products_and_cosmetic_procedures": -1.2762,
+        "Substance_use": -1.2965,
+        "Environmental_exposures": -1.3253,
+        "Mental_health_practices": 6.7911,
+        "Non_physical_leisure_time_activities": -0.7986,
+        "Nutrition": -2.4511,
+        "Physical_activities": -1.9741,
+        "Sleep": -1.9518,
+        "Socioeconomic_factors": -1.2745
+      }
+    },
+    {
+      "span_id": "23737423_s006",
+      "abstract_id": "23737423",
+      "span_text": "pharmacotherapy",
+      "boundaries": {
+        "start_char": 907,
+        "end_char": 922,
+        "token_start": 141,
+        "token_end": 141,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "Substance_use",
+        "uncertainty": 0.5698,
+        "novelty_score": 0.8215,
+        "margin": 0.1065,
+        "top1_prob": 0.4061,
+        "top2_prob": 0.2996,
+        "p_background_o": 0.2425
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8215,
+        "novelty_lof": 1.2136,
+        "novelty_knn_dist": 0.2959
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5698,
+        "least_confidence": 0.5939,
+        "margin_uncertainty": 0.8935
+      },
+      "probabilities": {
+        "O": 0.2425,
+        "Personal_care_products_and_cosmetic_procedures": 0.0053,
+        "Substance_use": 0.2996,
+        "Environmental_exposures": 0.021,
+        "Mental_health_practices": 0.4061,
+        "Non_physical_leisure_time_activities": 0.0085,
+        "Nutrition": 0.0036,
+        "Physical_activities": 0.0025,
+        "Sleep": 0.0064,
+        "Socioeconomic_factors": 0.0046
+      },
+      "logits": {
+        "O": 2.2382,
+        "Personal_care_products_and_cosmetic_procedures": -1.5918,
+        "Substance_use": 2.4499,
+        "Environmental_exposures": -0.2103,
+        "Mental_health_practices": 2.7539,
+        "Non_physical_leisure_time_activities": -1.1176,
+        "Nutrition": -1.9643,
+        "Physical_activities": -2.3295,
+        "Sleep": -1.4041,
+        "Socioeconomic_factors": -1.719
+      }
+    },
+    {
+      "span_id": "23737423_s007",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy",
+      "boundaries": {
+        "start_char": 1089,
+        "end_char": 1102,
+        "token_start": 180,
+        "token_end": 180,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0212,
+        "novelty_score": 0.3097,
+        "margin": 0.9884,
+        "top1_prob": 0.9932,
+        "top2_prob": 0.0048,
+        "p_background_o": 0.0048
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3097,
+        "novelty_lof": 0.9915,
+        "novelty_knn_dist": 0.1528
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0212,
+        "least_confidence": 0.0068,
+        "margin_uncertainty": 0.0116
+      },
+      "probabilities": {
+        "O": 0.0048,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.9932,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 1.5283,
+        "Personal_care_products_and_cosmetic_procedures": -1.2663,
+        "Substance_use": -1.374,
+        "Environmental_exposures": -1.3625,
+        "Mental_health_practices": 6.8631,
+        "Non_physical_leisure_time_activities": -0.7451,
+        "Nutrition": -2.5355,
+        "Physical_activities": -1.9653,
+        "Sleep": -1.9765,
+        "Socioeconomic_factors": -1.1777
+      }
+    },
+    {
+      "span_id": "23737423_s008",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy",
+      "boundaries": {
+        "start_char": 1130,
+        "end_char": 1143,
+        "token_start": 193,
+        "token_end": 193,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0219,
+        "novelty_score": 0.3097,
+        "margin": 0.9883,
+        "top1_prob": 0.993,
+        "top2_prob": 0.0048,
+        "p_background_o": 0.0048
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3097,
+        "novelty_lof": 0.9915,
+        "novelty_knn_dist": 0.1528
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0219,
+        "least_confidence": 0.007,
+        "margin_uncertainty": 0.0117
+      },
+      "probabilities": {
+        "O": 0.0048,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.993,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 1.4083,
+        "Personal_care_products_and_cosmetic_procedures": -1.2996,
+        "Substance_use": -1.4272,
+        "Environmental_exposures": -1.3846,
+        "Mental_health_practices": 6.7502,
+        "Non_physical_leisure_time_activities": -0.7766,
+        "Nutrition": -2.4691,
+        "Physical_activities": -1.9103,
+        "Sleep": -1.9168,
+        "Socioeconomic_factors": -1.1837
+      }
+    },
+    {
+      "span_id": "23737423_s009",
+      "abstract_id": "23737423",
+      "span_text": "pharmacotherapy",
+      "boundaries": {
+        "start_char": 1184,
+        "end_char": 1199,
+        "token_start": 199,
+        "token_end": 199,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "Substance_use",
+        "uncertainty": 0.5642,
+        "novelty_score": 0.8215,
+        "margin": 0.0846,
+        "top1_prob": 0.3945,
+        "top2_prob": 0.3099,
+        "p_background_o": 0.2487
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8215,
+        "novelty_lof": 1.2136,
+        "novelty_knn_dist": 0.2959
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5642,
+        "least_confidence": 0.6055,
+        "margin_uncertainty": 0.9154
+      },
+      "probabilities": {
+        "O": 0.2487,
+        "Personal_care_products_and_cosmetic_procedures": 0.0049,
+        "Substance_use": 0.3099,
+        "Environmental_exposures": 0.019,
+        "Mental_health_practices": 0.3945,
+        "Non_physical_leisure_time_activities": 0.0074,
+        "Nutrition": 0.0035,
+        "Physical_activities": 0.0021,
+        "Sleep": 0.0059,
+        "Socioeconomic_factors": 0.0041
+      },
+      "logits": {
+        "O": 2.3226,
+        "Personal_care_products_and_cosmetic_procedures": -1.605,
+        "Substance_use": 2.5427,
+        "Environmental_exposures": -0.2518,
+        "Mental_health_practices": 2.7839,
+        "Non_physical_leisure_time_activities": -1.1885,
+        "Nutrition": -1.9286,
+        "Physical_activities": -2.4555,
+        "Sleep": -1.4199,
+        "Socioeconomic_factors": -1.7916
+      }
+    },
+    {
+      "span_id": "23737423_s010",
+      "abstract_id": "23737423",
+      "span_text": "pharmacotherapy",
+      "boundaries": {
+        "start_char": 1256,
+        "end_char": 1271,
+        "token_start": 214,
+        "token_end": 214,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "Substance_use",
+        "uncertainty": 0.5534,
+        "novelty_score": 0.8215,
+        "margin": 0.1567,
+        "top1_prob": 0.4407,
+        "top2_prob": 0.2841,
+        "p_background_o": 0.2298
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8215,
+        "novelty_lof": 1.2136,
+        "novelty_knn_dist": 0.2959
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5534,
+        "least_confidence": 0.5593,
+        "margin_uncertainty": 0.8433
+      },
+      "probabilities": {
+        "O": 0.2298,
+        "Personal_care_products_and_cosmetic_procedures": 0.0048,
+        "Substance_use": 0.2841,
+        "Environmental_exposures": 0.0182,
+        "Mental_health_practices": 0.4407,
+        "Non_physical_leisure_time_activities": 0.0076,
+        "Nutrition": 0.0031,
+        "Physical_activities": 0.0021,
+        "Sleep": 0.0054,
+        "Socioeconomic_factors": 0.0042
+      },
+      "logits": {
+        "O": 2.2664,
+        "Personal_care_products_and_cosmetic_procedures": -1.5926,
+        "Substance_use": 2.4785,
+        "Environmental_exposures": -0.2685,
+        "Mental_health_practices": 2.9178,
+        "Non_physical_leisure_time_activities": -1.1435,
+        "Nutrition": -2.0449,
+        "Physical_activities": -2.4134,
+        "Sleep": -1.4864,
+        "Socioeconomic_factors": -1.739
+      }
+    },
+    {
+      "span_id": "23737423_s011",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy",
+      "boundaries": {
+        "start_char": 1351,
+        "end_char": 1364,
+        "token_start": 233,
+        "token_end": 233,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0228,
+        "novelty_score": 0.3097,
+        "margin": 0.9874,
+        "top1_prob": 0.9926,
+        "top2_prob": 0.0052,
+        "p_background_o": 0.0052
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3097,
+        "novelty_lof": 0.9915,
+        "novelty_knn_dist": 0.1528
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0228,
+        "least_confidence": 0.0074,
+        "margin_uncertainty": 0.0126
+      },
+      "probabilities": {
+        "O": 0.0052,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.9926,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 1.4858,
+        "Personal_care_products_and_cosmetic_procedures": -1.3178,
+        "Substance_use": -1.3954,
+        "Environmental_exposures": -1.4019,
+        "Mental_health_practices": 6.7418,
+        "Non_physical_leisure_time_activities": -0.7908,
+        "Nutrition": -2.5079,
+        "Physical_activities": -1.9325,
+        "Sleep": -1.934,
+        "Socioeconomic_factors": -1.1677
+      }
+    },
+    {
+      "span_id": "23737423_s012",
+      "abstract_id": "23737423",
+      "span_text": "pharmacotherapy",
+      "boundaries": {
+        "start_char": 1405,
+        "end_char": 1420,
+        "token_start": 239,
+        "token_end": 239,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.5574,
+        "novelty_score": 0.8215,
+        "margin": 0.0685,
+        "top1_prob": 0.3695,
+        "top2_prob": 0.301,
+        "p_background_o": 0.301
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8215,
+        "novelty_lof": 1.2136,
+        "novelty_knn_dist": 0.2959
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5574,
+        "least_confidence": 0.6305,
+        "margin_uncertainty": 0.9315
+      },
+      "probabilities": {
+        "O": 0.301,
+        "Personal_care_products_and_cosmetic_procedures": 0.0042,
+        "Substance_use": 0.2898,
+        "Environmental_exposures": 0.0162,
+        "Mental_health_practices": 0.3695,
+        "Non_physical_leisure_time_activities": 0.0064,
+        "Nutrition": 0.0027,
+        "Physical_activities": 0.0018,
+        "Sleep": 0.005,
+        "Socioeconomic_factors": 0.0034
+      },
+      "logits": {
+        "O": 2.6256,
+        "Personal_care_products_and_cosmetic_procedures": -1.6549,
+        "Substance_use": 2.5874,
+        "Environmental_exposures": -0.2936,
+        "Mental_health_practices": 2.8306,
+        "Non_physical_leisure_time_activities": -1.2283,
+        "Nutrition": -2.0853,
+        "Physical_activities": -2.4771,
+        "Sleep": -1.4774,
+        "Socioeconomic_factors": -1.865
+      }
+    },
+    {
+      "span_id": "23737423_s013",
+      "abstract_id": "23737423",
+      "span_text": "antidepressant medication",
+      "boundaries": {
+        "start_char": 163,
+        "end_char": 188,
+        "token_start": 27,
+        "token_end": 28,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.4893,
+        "novelty_score": 0.8169,
+        "margin": 0.6074,
+        "top1_prob": 0.7043,
+        "top2_prob": 0.0969,
+        "p_background_o": 0.0743
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8169,
+        "novelty_lof": 1.1966,
+        "novelty_knn_dist": 0.308
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4893,
+        "least_confidence": 0.2957,
+        "margin_uncertainty": 0.3926
+      },
+      "probabilities": {
+        "O": 0.0743,
+        "Personal_care_products_and_cosmetic_procedures": 0.013,
+        "Substance_use": 0.7043,
+        "Environmental_exposures": 0.0969,
+        "Mental_health_practices": 0.0582,
+        "Non_physical_leisure_time_activities": 0.0105,
+        "Nutrition": 0.0164,
+        "Physical_activities": 0.0055,
+        "Sleep": 0.0131,
+        "Socioeconomic_factors": 0.0077
+      },
+      "logits": {
+        "O": 0.5027,
+        "Personal_care_products_and_cosmetic_procedures": -1.2371,
+        "Substance_use": 2.7521,
+        "Environmental_exposures": 0.769,
+        "Mental_health_practices": 0.2595,
+        "Non_physical_leisure_time_activities": -1.4547,
+        "Nutrition": -1.0055,
+        "Physical_activities": -2.0938,
+        "Sleep": -1.2358,
+        "Socioeconomic_factors": -1.7675
+      }
+    },
+    {
+      "span_id": "23737423_s014",
+      "abstract_id": "23737423",
+      "span_text": "antidepressant medication",
+      "boundaries": {
+        "start_char": 509,
+        "end_char": 534,
+        "token_start": 82,
+        "token_end": 83,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.5181,
+        "novelty_score": 0.8169,
+        "margin": 0.5697,
+        "top1_prob": 0.6751,
+        "top2_prob": 0.1053,
+        "p_background_o": 0.0812
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8169,
+        "novelty_lof": 1.1966,
+        "novelty_knn_dist": 0.308
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5181,
+        "least_confidence": 0.3249,
+        "margin_uncertainty": 0.4303
+      },
+      "probabilities": {
+        "O": 0.0812,
+        "Personal_care_products_and_cosmetic_procedures": 0.0136,
+        "Substance_use": 0.6751,
+        "Environmental_exposures": 0.1053,
+        "Mental_health_practices": 0.0711,
+        "Non_physical_leisure_time_activities": 0.0101,
+        "Nutrition": 0.0162,
+        "Physical_activities": 0.0054,
+        "Sleep": 0.0131,
+        "Socioeconomic_factors": 0.0089
+      },
+      "logits": {
+        "O": 0.5405,
+        "Personal_care_products_and_cosmetic_procedures": -1.2456,
+        "Substance_use": 2.659,
+        "Environmental_exposures": 0.8013,
+        "Mental_health_practices": 0.4088,
+        "Non_physical_leisure_time_activities": -1.5404,
+        "Nutrition": -1.0695,
+        "Physical_activities": -2.1696,
+        "Sleep": -1.2827,
+        "Socioeconomic_factors": -1.6738
+      }
+    },
+    {
+      "span_id": "23737423_s015",
+      "abstract_id": "23737423",
+      "span_text": "Pharmacotherapy",
+      "boundaries": {
+        "start_char": 1033,
+        "end_char": 1048,
+        "token_start": 173,
+        "token_end": 174,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "Substance_use",
+        "uncertainty": 0.5544,
+        "novelty_score": 0.957,
+        "margin": 0.0651,
+        "top1_prob": 0.4517,
+        "top2_prob": 0.3866,
+        "p_background_o": 0.063
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.957,
+        "novelty_lof": 1.3689,
+        "novelty_knn_dist": 0.3878
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5544,
+        "least_confidence": 0.5483,
+        "margin_uncertainty": 0.9349
+      },
+      "probabilities": {
+        "O": 0.063,
+        "Personal_care_products_and_cosmetic_procedures": 0.0136,
+        "Substance_use": 0.3866,
+        "Environmental_exposures": 0.0514,
+        "Mental_health_practices": 0.4517,
+        "Non_physical_leisure_time_activities": 0.0119,
+        "Nutrition": 0.0059,
+        "Physical_activities": 0.0038,
+        "Sleep": 0.0081,
+        "Socioeconomic_factors": 0.0039
+      },
+      "logits": {
+        "O": 0.5158,
+        "Personal_care_products_and_cosmetic_procedures": -1.0164,
+        "Substance_use": 2.3301,
+        "Environmental_exposures": 0.3123,
+        "Mental_health_practices": 2.4857,
+        "Non_physical_leisure_time_activities": -1.1501,
+        "Nutrition": -1.8572,
+        "Physical_activities": -2.2949,
+        "Sleep": -1.5314,
+        "Socioeconomic_factors": -2.2558
+      }
+    },
+    {
+      "span_id": "23737423_s016",
+      "abstract_id": "23737423",
+      "span_text": "tricyclic antidepressants",
+      "boundaries": {
+        "start_char": 1426,
+        "end_char": 1451,
+        "token_start": 241,
+        "token_end": 242,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.4994,
+        "novelty_score": 0.8324,
+        "margin": 0.5918,
+        "top1_prob": 0.6876,
+        "top2_prob": 0.0959,
+        "p_background_o": 0.0959
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8324,
+        "novelty_lof": 1.1919,
+        "novelty_knn_dist": 0.3295
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4994,
+        "least_confidence": 0.3124,
+        "margin_uncertainty": 0.4082
+      },
+      "probabilities": {
+        "O": 0.0959,
+        "Personal_care_products_and_cosmetic_procedures": 0.0119,
+        "Substance_use": 0.6876,
+        "Environmental_exposures": 0.0913,
+        "Mental_health_practices": 0.0667,
+        "Non_physical_leisure_time_activities": 0.0078,
+        "Nutrition": 0.0118,
+        "Physical_activities": 0.0048,
+        "Sleep": 0.0115,
+        "Socioeconomic_factors": 0.0107
+      },
+      "logits": {
+        "O": 0.7824,
+        "Personal_care_products_and_cosmetic_procedures": -1.303,
+        "Substance_use": 2.7527,
+        "Environmental_exposures": 0.7339,
+        "Mental_health_practices": 0.4195,
+        "Non_physical_leisure_time_activities": -1.7319,
+        "Nutrition": -1.3117,
+        "Physical_activities": -2.2186,
+        "Sleep": -1.3371,
+        "Socioeconomic_factors": -1.4081
+      }
+    },
+    {
+      "span_id": "23737423_s017",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy and pharmacotherapy",
+      "boundaries": {
+        "start_char": 16,
+        "end_char": 49,
+        "token_start": 4,
+        "token_end": 6,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.161,
+        "novelty_score": 0.394,
+        "margin": 0.8586,
+        "top1_prob": 0.918,
+        "top2_prob": 0.0594,
+        "p_background_o": 0.0594
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.394,
+        "novelty_lof": 0.9813,
+        "novelty_knn_dist": 0.2213
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.161,
+        "least_confidence": 0.082,
+        "margin_uncertainty": 0.1414
+      },
+      "probabilities": {
+        "O": 0.0594,
+        "Personal_care_products_and_cosmetic_procedures": 0.0018,
+        "Substance_use": 0.01,
+        "Environmental_exposures": 0.0035,
+        "Mental_health_practices": 0.918,
+        "Non_physical_leisure_time_activities": 0.0025,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.0012,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0018
+      },
+      "logits": {
+        "O": 2.0903,
+        "Personal_care_products_and_cosmetic_procedures": -1.4249,
+        "Substance_use": 0.3047,
+        "Environmental_exposures": -0.7349,
+        "Mental_health_practices": 4.8283,
+        "Non_physical_leisure_time_activities": -1.0627,
+        "Nutrition": -2.4673,
+        "Physical_activities": -1.8441,
+        "Sleep": -1.7698,
+        "Socioeconomic_factors": -1.4044
+      }
+    },
+    {
+      "span_id": "23737423_s018",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy and antidepressants",
+      "boundaries": {
+        "start_char": 365,
+        "end_char": 398,
+        "token_start": 60,
+        "token_end": 62,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.3809,
+        "novelty_score": 0.411,
+        "margin": 0.281,
+        "top1_prob": 0.6182,
+        "top2_prob": 0.3372,
+        "p_background_o": 0.3372
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.411,
+        "novelty_lof": 0.9813,
+        "novelty_knn_dist": 0.2324
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3809,
+        "least_confidence": 0.3818,
+        "margin_uncertainty": 0.719
+      },
+      "probabilities": {
+        "O": 0.3372,
+        "Personal_care_products_and_cosmetic_procedures": 0.0029,
+        "Substance_use": 0.0207,
+        "Environmental_exposures": 0.0072,
+        "Mental_health_practices": 0.6182,
+        "Non_physical_leisure_time_activities": 0.004,
+        "Nutrition": 0.0015,
+        "Physical_activities": 0.0021,
+        "Sleep": 0.0023,
+        "Socioeconomic_factors": 0.0041
+      },
+      "logits": {
+        "O": 3.1851,
+        "Personal_care_products_and_cosmetic_procedures": -1.5774,
+        "Substance_use": 0.3929,
+        "Environmental_exposures": -0.6678,
+        "Mental_health_practices": 3.7913,
+        "Non_physical_leisure_time_activities": -1.2606,
+        "Nutrition": -2.2632,
+        "Physical_activities": -1.8986,
+        "Sleep": -1.8065,
+        "Socioeconomic_factors": -1.2172
+      }
+    },
+    {
+      "span_id": "23737423_s019",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy and pharmacotherapy",
+      "boundaries": {
+        "start_char": 889,
+        "end_char": 922,
+        "token_start": 139,
+        "token_end": 141,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.1632,
+        "novelty_score": 0.394,
+        "margin": 0.8576,
+        "top1_prob": 0.9169,
+        "top2_prob": 0.0593,
+        "p_background_o": 0.0593
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.394,
+        "novelty_lof": 0.9813,
+        "novelty_knn_dist": 0.2213
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1632,
+        "least_confidence": 0.0831,
+        "margin_uncertainty": 0.1424
+      },
+      "probabilities": {
+        "O": 0.0593,
+        "Personal_care_products_and_cosmetic_procedures": 0.0018,
+        "Substance_use": 0.0108,
+        "Environmental_exposures": 0.0038,
+        "Mental_health_practices": 0.9169,
+        "Non_physical_leisure_time_activities": 0.0024,
+        "Nutrition": 0.0007,
+        "Physical_activities": 0.0011,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0019
+      },
+      "logits": {
+        "O": 2.0545,
+        "Personal_care_products_and_cosmetic_procedures": -1.4597,
+        "Substance_use": 0.3499,
+        "Environmental_exposures": -0.7047,
+        "Mental_health_practices": 4.7925,
+        "Non_physical_leisure_time_activities": -1.1326,
+        "Nutrition": -2.4323,
+        "Physical_activities": -1.9012,
+        "Sleep": -1.7465,
+        "Socioeconomic_factors": -1.4118
+      }
+    },
+    {
+      "span_id": "23737423_s020",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy and antidepressant medication",
+      "boundaries": {
+        "start_char": 145,
+        "end_char": 188,
+        "token_start": 25,
+        "token_end": 28,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.2816,
+        "novelty_score": 0.45,
+        "margin": 0.7876,
+        "top1_prob": 0.8498,
+        "top2_prob": 0.0622,
+        "p_background_o": 0.0622
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.45,
+        "novelty_lof": 0.9871,
+        "novelty_knn_dist": 0.2515
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2816,
+        "least_confidence": 0.1502,
+        "margin_uncertainty": 0.2124
+      },
+      "probabilities": {
+        "O": 0.0622,
+        "Personal_care_products_and_cosmetic_procedures": 0.0047,
+        "Substance_use": 0.0535,
+        "Environmental_exposures": 0.0087,
+        "Mental_health_practices": 0.8498,
+        "Non_physical_leisure_time_activities": 0.0062,
+        "Nutrition": 0.0023,
+        "Physical_activities": 0.0042,
+        "Sleep": 0.0038,
+        "Socioeconomic_factors": 0.0047
+      },
+      "logits": {
+        "O": 1.1817,
+        "Personal_care_products_and_cosmetic_procedures": -1.3967,
+        "Substance_use": 1.0312,
+        "Environmental_exposures": -0.7896,
+        "Mental_health_practices": 3.7959,
+        "Non_physical_leisure_time_activities": -1.125,
+        "Nutrition": -2.1299,
+        "Physical_activities": -1.5209,
+        "Sleep": -1.6263,
+        "Socioeconomic_factors": -1.4117
+      }
+    },
+    {
+      "span_id": "23737423_s021",
+      "abstract_id": "23737423",
+      "span_text": "psychotherapy and antidepressant medication",
+      "boundaries": {
+        "start_char": 491,
+        "end_char": 534,
+        "token_start": 80,
+        "token_end": 83,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.2707,
+        "novelty_score": 0.45,
+        "margin": 0.7982,
+        "top1_prob": 0.8577,
+        "top2_prob": 0.0594,
+        "p_background_o": 0.0594
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.45,
+        "novelty_lof": 0.9871,
+        "novelty_knn_dist": 0.2515
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2707,
+        "least_confidence": 0.1423,
+        "margin_uncertainty": 0.2018
+      },
+      "probabilities": {
+        "O": 0.0594,
+        "Personal_care_products_and_cosmetic_procedures": 0.0045,
+        "Substance_use": 0.0499,
+        "Environmental_exposures": 0.0087,
+        "Mental_health_practices": 0.8577,
+        "Non_physical_leisure_time_activities": 0.0057,
+        "Nutrition": 0.0022,
+        "Physical_activities": 0.0038,
+        "Sleep": 0.0035,
+        "Socioeconomic_factors": 0.0046
+      },
+      "logits": {
+        "O": 1.1854,
+        "Personal_care_products_and_cosmetic_procedures": -1.3925,
+        "Substance_use": 1.011,
+        "Environmental_exposures": -0.7324,
+        "Mental_health_practices": 3.8548,
+        "Non_physical_leisure_time_activities": -1.1579,
+        "Nutrition": -2.1304,
+        "Physical_activities": -1.5613,
+        "Sleep": -1.6471,
+        "Socioeconomic_factors": -1.3804
+      }
+    },
+    {
+      "span_id": "23737423_s022",
+      "abstract_id": "23737423",
+      "span_text": "pharmacotherapy with tricyclic antidepressants",
+      "boundaries": {
+        "start_char": 1405,
+        "end_char": 1451,
+        "token_start": 239,
+        "token_end": 242,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Mental_health_practices",
+        "uncertainty": 0.4909,
+        "novelty_score": 0.815,
+        "margin": 0.4836,
+        "top1_prob": 0.6452,
+        "top2_prob": 0.1615,
+        "p_background_o": 0.126
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.815,
+        "novelty_lof": 1.1773,
+        "novelty_knn_dist": 0.3253
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4909,
+        "least_confidence": 0.3548,
+        "margin_uncertainty": 0.5164
+      },
+      "probabilities": {
+        "O": 0.126,
+        "Personal_care_products_and_cosmetic_procedures": 0.0071,
+        "Substance_use": 0.6452,
+        "Environmental_exposures": 0.0307,
+        "Mental_health_practices": 0.1615,
+        "Non_physical_leisure_time_activities": 0.0083,
+        "Nutrition": 0.0038,
+        "Physical_activities": 0.0038,
+        "Sleep": 0.0077,
+        "Socioeconomic_factors": 0.0059
+      },
+      "logits": {
+        "O": 1.5101,
+        "Personal_care_products_and_cosmetic_procedures": -1.3623,
+        "Substance_use": 3.1437,
+        "Environmental_exposures": 0.0988,
+        "Mental_health_practices": 1.7589,
+        "Non_physical_leisure_time_activities": -1.2093,
+        "Nutrition": -1.9845,
+        "Physical_activities": -1.9985,
+        "Sleep": -1.2786,
+        "Socioeconomic_factors": -1.5583
+      }
+    },
+    {
+      "span_id": "23737423_s023",
+      "abstract_id": "23737423",
+      "span_text": "non-directive counseling",
+      "boundaries": {
+        "start_char": 1312,
+        "end_char": 1336,
+        "token_start": 220,
+        "token_end": 224,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "Socioeconomic_factors",
+        "uncertainty": 0.1744,
+        "novelty_score": 0.6734,
+        "margin": 0.8736,
+        "top1_prob": 0.9139,
+        "top2_prob": 0.0403,
+        "p_background_o": 0.0334
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6734,
+        "novelty_lof": 1.1105,
+        "novelty_knn_dist": 0.2731
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1744,
+        "least_confidence": 0.0861,
+        "margin_uncertainty": 0.1264
+      },
+      "probabilities": {
+        "O": 0.0334,
+        "Personal_care_products_and_cosmetic_procedures": 0.0031,
+        "Substance_use": 0.0011,
+        "Environmental_exposures": 0.0011,
+        "Mental_health_practices": 0.9139,
+        "Non_physical_leisure_time_activities": 0.0038,
+        "Nutrition": 0.0007,
+        "Physical_activities": 0.0014,
+        "Sleep": 0.0012,
+        "Socioeconomic_factors": 0.0403
+      },
+      "logits": {
+        "O": 1.3634,
+        "Personal_care_products_and_cosmetic_procedures": -1.0065,
+        "Substance_use": -2.0547,
+        "Environmental_exposures": -2.0062,
+        "Mental_health_practices": 4.674,
+        "Non_physical_leisure_time_activities": -0.8143,
+        "Nutrition": -2.569,
+        "Physical_activities": -1.7804,
+        "Sleep": -1.9812,
+        "Socioeconomic_factors": 1.5525
+      }
+    }
+  ]
+}

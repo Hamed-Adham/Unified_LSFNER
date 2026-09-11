@@ -1,0 +1,68 @@
+{
+  "doc_id": "3605460",
+  "dataset_split": "200/train",
+  "text": "Tarasoff decision: a decade later dilemma still faces psychotherapists. \nThe landmark cases on the \"duty to warn\" concept are reviewed. Two trends are noted in the court rulings. The first trend narrowly interprets the duty to warn as applying only to situations involving a serious threat to a specific individual. The second trend has broadened the doctrine to include warnings about patients who do not make threats and whose potential victims are unspecified. The authors argue that the original Tarasoff Doctrine is sound both from the perspective of public policy and psychotherapeutic practice, but that its broader interpretation is problematic for psychotherapists. \n",
+  "total_candidates": 1,
+  "spans": [
+    {
+      "span_id": "3605460_s000",
+      "abstract_id": "3605460",
+      "span_text": "psychotherapeutic practice",
+      "boundaries": {
+        "start_char": 574,
+        "end_char": 600,
+        "token_start": 119,
+        "token_end": 121,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0432,
+        "novelty_score": 0.3672,
+        "margin": 0.9782,
+        "top1_prob": 0.9855,
+        "top2_prob": 0.0073,
+        "p_background_o": 0.0073
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3672,
+        "novelty_lof": 0.9853,
+        "novelty_knn_dist": 0.1994
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0432,
+        "least_confidence": 0.0145,
+        "margin_uncertainty": 0.0218
+      },
+      "probabilities": {
+        "O": 0.0073,
+        "Personal_care_products_and_cosmetic_procedures": 0.0022,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.0006,
+        "Mental_health_practices": 0.9855,
+        "Non_physical_leisure_time_activities": 0.0011,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.001
+      },
+      "logits": {
+        "O": 0.9314,
+        "Personal_care_products_and_cosmetic_procedures": -0.2557,
+        "Substance_use": -1.1924,
+        "Environmental_exposures": -1.5098,
+        "Mental_health_practices": 5.8331,
+        "Non_physical_leisure_time_activities": -0.9547,
+        "Nutrition": -2.5043,
+        "Physical_activities": -1.6666,
+        "Sleep": -1.7232,
+        "Socioeconomic_factors": -1.0287
+      }
+    }
+  ]
+}

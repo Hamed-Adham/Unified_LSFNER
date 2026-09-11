@@ -1,0 +1,848 @@
+{
+  "doc_id": "28605409",
+  "dataset_split": "400/train",
+  "text": "Hair product use and breast cancer risk among African American and White women. \nExposures to carcinogens in hair products have been explored as breast cancer risk factors, yielding equivocal findings. We examined hair product use (hair dyes, chemical relaxers and cholesterol or placenta-containing conditioners) among African American (AA) and White women, and explored associations with breast cancer. Multivariable-adjusted models were used to estimate odds ratios (ORs) and 95% confidence intervals (CIs) to describe the associations of interest among 2280 cases (1508 AA and 772 White) and 2005 controls (1290 AA and 715 White). Among controls, hair dye use was more common among Whites than AAs (58 versus 30%), while relaxer (88 versus 5%) and deep conditioner use (59 versus 6%) was more common among AAs. Among AAs, use of dark hair dye shades was associated with increased breast cancer risk (OR = 1.51, 95% CI: 1.20-1.90) and use of dark shades (OR = 1.72, 95% CI: 1.30-2.26) and higher frequency of use (OR = 1.36, 95% CI: 1.01-1.84) were associated with ER+ disease. Among Whites, relaxer use (OR = 1.74, 95% CI: 1.11-2.74) and dual use of relaxers and hair dyes (OR = 2.40, 95% CI: 1.35-4.27) was associated with breast cancer; use of dark hair dyes was associated with increased ER+ disease (OR = 1.54, 95% CI: 1.01-2.33), and relaxer use was associated with increased ER- disease (OR = 2.56, 95% CI: 1.06-6.16). These novel findings provide support a relationship between the use of some hair products and breast cancer. Further examinations of hair products as important exposures contributing to breast cancer carcinogenesis are necessary. \n",
+  "total_candidates": 14,
+  "spans": [
+    {
+      "span_id": "28605409_s000",
+      "abstract_id": "28605409",
+      "span_text": "carcinogens",
+      "boundaries": {
+        "start_char": 94,
+        "end_char": 105,
+        "token_start": 22,
+        "token_end": 22,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1004,
+        "novelty_score": 0.5459,
+        "margin": 0.8972,
+        "top1_prob": 0.9465,
+        "top2_prob": 0.0493,
+        "p_background_o": 0.0493
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5459,
+        "novelty_lof": 1.0404,
+        "novelty_knn_dist": 0.2586
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1004,
+        "least_confidence": 0.0535,
+        "margin_uncertainty": 0.1028
+      },
+      "probabilities": {
+        "O": 0.0493,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0017,
+        "Environmental_exposures": 0.9465,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 3.1938,
+        "Personal_care_products_and_cosmetic_procedures": -1.7898,
+        "Substance_use": -0.1819,
+        "Environmental_exposures": 6.1489,
+        "Mental_health_practices": -1.3163,
+        "Non_physical_leisure_time_activities": -1.9021,
+        "Nutrition": -1.3517,
+        "Physical_activities": -2.267,
+        "Sleep": -2.2178,
+        "Socioeconomic_factors": -1.564
+      }
+    },
+    {
+      "span_id": "28605409_s001",
+      "abstract_id": "28605409",
+      "span_text": "hair products",
+      "boundaries": {
+        "start_char": 109,
+        "end_char": 122,
+        "token_start": 24,
+        "token_end": 25,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "Personal_care_products_and_cosmetic_procedures",
+        "uncertainty": 0.8335,
+        "novelty_score": 0.8183,
+        "margin": 0.1362,
+        "top1_prob": 0.3066,
+        "top2_prob": 0.1704,
+        "p_background_o": 0.1259
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8183,
+        "novelty_lof": 1.1844,
+        "novelty_knn_dist": 0.3217
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.8335,
+        "least_confidence": 0.6934,
+        "margin_uncertainty": 0.8638
+      },
+      "probabilities": {
+        "O": 0.1259,
+        "Personal_care_products_and_cosmetic_procedures": 0.1704,
+        "Substance_use": 0.1002,
+        "Environmental_exposures": 0.3066,
+        "Mental_health_practices": 0.0171,
+        "Non_physical_leisure_time_activities": 0.1529,
+        "Nutrition": 0.0419,
+        "Physical_activities": 0.0066,
+        "Sleep": 0.0172,
+        "Socioeconomic_factors": 0.0613
+      },
+      "logits": {
+        "O": 0.3614,
+        "Personal_care_products_and_cosmetic_procedures": 0.6641,
+        "Substance_use": 0.1335,
+        "Environmental_exposures": 1.2518,
+        "Mental_health_practices": -1.6337,
+        "Non_physical_leisure_time_activities": 0.5557,
+        "Nutrition": -0.7385,
+        "Physical_activities": -2.5815,
+        "Sleep": -1.6308,
+        "Socioeconomic_factors": -0.3579
+      }
+    },
+    {
+      "span_id": "28605409_s002",
+      "abstract_id": "28605409",
+      "span_text": "hair dyes",
+      "boundaries": {
+        "start_char": 232,
+        "end_char": 241,
+        "token_start": 45,
+        "token_end": 46,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.2189,
+        "novelty_score": 0.6309,
+        "margin": 0.81,
+        "top1_prob": 0.8853,
+        "top2_prob": 0.0754,
+        "p_background_o": 0.0754
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6309,
+        "novelty_lof": 1.0725,
+        "novelty_knn_dist": 0.2816
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2189,
+        "least_confidence": 0.1147,
+        "margin_uncertainty": 0.19
+      },
+      "probabilities": {
+        "O": 0.0754,
+        "Personal_care_products_and_cosmetic_procedures": 0.0081,
+        "Substance_use": 0.0071,
+        "Environmental_exposures": 0.8853,
+        "Mental_health_practices": 0.0018,
+        "Non_physical_leisure_time_activities": 0.0042,
+        "Nutrition": 0.0097,
+        "Physical_activities": 0.0013,
+        "Sleep": 0.0019,
+        "Socioeconomic_factors": 0.0053
+      },
+      "logits": {
+        "O": 1.6601,
+        "Personal_care_products_and_cosmetic_procedures": -0.5709,
+        "Substance_use": -0.7088,
+        "Environmental_exposures": 4.1236,
+        "Mental_health_practices": -2.0832,
+        "Non_physical_leisure_time_activities": -1.2237,
+        "Nutrition": -0.3865,
+        "Physical_activities": -2.4302,
+        "Sleep": -2.043,
+        "Socioeconomic_factors": -0.996
+      }
+    },
+    {
+      "span_id": "28605409_s003",
+      "abstract_id": "28605409",
+      "span_text": "hair dyes",
+      "boundaries": {
+        "start_char": 1167,
+        "end_char": 1176,
+        "token_start": 294,
+        "token_end": 295,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.3136,
+        "novelty_score": 0.6309,
+        "margin": 0.5875,
+        "top1_prob": 0.7728,
+        "top2_prob": 0.1853,
+        "p_background_o": 0.1853
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6309,
+        "novelty_lof": 1.0725,
+        "novelty_knn_dist": 0.2816
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3136,
+        "least_confidence": 0.2272,
+        "margin_uncertainty": 0.4125
+      },
+      "probabilities": {
+        "O": 0.1853,
+        "Personal_care_products_and_cosmetic_procedures": 0.007,
+        "Substance_use": 0.0066,
+        "Environmental_exposures": 0.7728,
+        "Mental_health_practices": 0.0017,
+        "Non_physical_leisure_time_activities": 0.0039,
+        "Nutrition": 0.0124,
+        "Physical_activities": 0.0012,
+        "Sleep": 0.0021,
+        "Socioeconomic_factors": 0.007
+      },
+      "logits": {
+        "O": 2.4144,
+        "Personal_care_products_and_cosmetic_procedures": -0.8595,
+        "Substance_use": -0.928,
+        "Environmental_exposures": 3.8423,
+        "Mental_health_practices": -2.2696,
+        "Non_physical_leisure_time_activities": -1.4397,
+        "Nutrition": -0.2882,
+        "Physical_activities": -2.6472,
+        "Sleep": -2.0742,
+        "Socioeconomic_factors": -0.8587
+      }
+    },
+    {
+      "span_id": "28605409_s004",
+      "abstract_id": "28605409",
+      "span_text": "hair products",
+      "boundaries": {
+        "start_char": 1505,
+        "end_char": 1518,
+        "token_start": 394,
+        "token_end": 395,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.857,
+        "novelty_score": 0.8184,
+        "margin": 0.037,
+        "top1_prob": 0.236,
+        "top2_prob": 0.199,
+        "p_background_o": 0.1495
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8184,
+        "novelty_lof": 1.1845,
+        "novelty_knn_dist": 0.3217
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.857,
+        "least_confidence": 0.764,
+        "margin_uncertainty": 0.963
+      },
+      "probabilities": {
+        "O": 0.1495,
+        "Personal_care_products_and_cosmetic_procedures": 0.1634,
+        "Substance_use": 0.0919,
+        "Environmental_exposures": 0.199,
+        "Mental_health_practices": 0.0186,
+        "Non_physical_leisure_time_activities": 0.236,
+        "Nutrition": 0.0372,
+        "Physical_activities": 0.0077,
+        "Sleep": 0.0218,
+        "Socioeconomic_factors": 0.075
+      },
+      "logits": {
+        "O": 0.4655,
+        "Personal_care_products_and_cosmetic_procedures": 0.5544,
+        "Substance_use": -0.0214,
+        "Environmental_exposures": 0.7514,
+        "Mental_health_practices": -1.6207,
+        "Non_physical_leisure_time_activities": 0.9221,
+        "Nutrition": -0.9244,
+        "Physical_activities": -2.495,
+        "Sleep": -1.4581,
+        "Socioeconomic_factors": -0.2241
+      }
+    },
+    {
+      "span_id": "28605409_s005",
+      "abstract_id": "28605409",
+      "span_text": "hair products",
+      "boundaries": {
+        "start_char": 1562,
+        "end_char": 1575,
+        "token_start": 403,
+        "token_end": 404,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.8397,
+        "novelty_score": 0.8183,
+        "margin": 0.1232,
+        "top1_prob": 0.3014,
+        "top2_prob": 0.1782,
+        "p_background_o": 0.0925
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8183,
+        "novelty_lof": 1.1844,
+        "novelty_knn_dist": 0.3217
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.8397,
+        "least_confidence": 0.6986,
+        "margin_uncertainty": 0.8768
+      },
+      "probabilities": {
+        "O": 0.0925,
+        "Personal_care_products_and_cosmetic_procedures": 0.1568,
+        "Substance_use": 0.1168,
+        "Environmental_exposures": 0.1782,
+        "Mental_health_practices": 0.0197,
+        "Non_physical_leisure_time_activities": 0.3014,
+        "Nutrition": 0.0361,
+        "Physical_activities": 0.0084,
+        "Sleep": 0.021,
+        "Socioeconomic_factors": 0.069
+      },
+      "logits": {
+        "O": 0.0102,
+        "Personal_care_products_and_cosmetic_procedures": 0.5383,
+        "Substance_use": 0.2442,
+        "Environmental_exposures": 0.6666,
+        "Mental_health_practices": -1.5363,
+        "Non_physical_leisure_time_activities": 1.1919,
+        "Nutrition": -0.929,
+        "Physical_activities": -2.3831,
+        "Sleep": -1.4736,
+        "Socioeconomic_factors": -0.2819
+      }
+    },
+    {
+      "span_id": "28605409_s006",
+      "abstract_id": "28605409",
+      "span_text": "hair product use",
+      "boundaries": {
+        "start_char": 214,
+        "end_char": 230,
+        "token_start": 41,
+        "token_end": 43,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.8454,
+        "novelty_score": 0.8482,
+        "margin": 0.0974,
+        "top1_prob": 0.2768,
+        "top2_prob": 0.1794,
+        "p_background_o": 0.1639
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8482,
+        "novelty_lof": 1.1981,
+        "novelty_knn_dist": 0.3417
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.8454,
+        "least_confidence": 0.7232,
+        "margin_uncertainty": 0.9026
+      },
+      "probabilities": {
+        "O": 0.1639,
+        "Personal_care_products_and_cosmetic_procedures": 0.0943,
+        "Substance_use": 0.1233,
+        "Environmental_exposures": 0.1794,
+        "Mental_health_practices": 0.0165,
+        "Non_physical_leisure_time_activities": 0.2768,
+        "Nutrition": 0.0347,
+        "Physical_activities": 0.0095,
+        "Sleep": 0.0163,
+        "Socioeconomic_factors": 0.0853
+      },
+      "logits": {
+        "O": 0.585,
+        "Personal_care_products_and_cosmetic_procedures": 0.0318,
+        "Substance_use": 0.3002,
+        "Environmental_exposures": 0.6754,
+        "Mental_health_practices": -1.713,
+        "Non_physical_leisure_time_activities": 1.1091,
+        "Nutrition": -0.9669,
+        "Physical_activities": -2.2591,
+        "Sleep": -1.7214,
+        "Socioeconomic_factors": -0.0684
+      }
+    },
+    {
+      "span_id": "28605409_s007",
+      "abstract_id": "28605409",
+      "span_text": "chemical relaxers",
+      "boundaries": {
+        "start_char": 243,
+        "end_char": 260,
+        "token_start": 48,
+        "token_end": 50,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1601,
+        "novelty_score": 0.6598,
+        "margin": 0.8261,
+        "top1_prob": 0.9068,
+        "top2_prob": 0.0807,
+        "p_background_o": 0.0807
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6598,
+        "novelty_lof": 1.0698,
+        "novelty_knn_dist": 0.3041
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1601,
+        "least_confidence": 0.0932,
+        "margin_uncertainty": 0.1739
+      },
+      "probabilities": {
+        "O": 0.0807,
+        "Personal_care_products_and_cosmetic_procedures": 0.0011,
+        "Substance_use": 0.0025,
+        "Environmental_exposures": 0.9068,
+        "Mental_health_practices": 0.0006,
+        "Non_physical_leisure_time_activities": 0.0009,
+        "Nutrition": 0.0041,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0024
+      },
+      "logits": {
+        "O": 2.7305,
+        "Personal_care_products_and_cosmetic_procedures": -1.5821,
+        "Substance_use": -0.7613,
+        "Environmental_exposures": 5.1493,
+        "Mental_health_practices": -2.1882,
+        "Non_physical_leisure_time_activities": -1.7827,
+        "Nutrition": -0.2564,
+        "Physical_activities": -2.4976,
+        "Sleep": -2.3768,
+        "Socioeconomic_factors": -0.778
+      }
+    },
+    {
+      "span_id": "28605409_s008",
+      "abstract_id": "28605409",
+      "span_text": "hair dye use",
+      "boundaries": {
+        "start_char": 651,
+        "end_char": 663,
+        "token_start": 133,
+        "token_end": 135,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.7416,
+        "novelty_score": 0.8998,
+        "margin": 0.2507,
+        "top1_prob": 0.437,
+        "top2_prob": 0.1864,
+        "p_background_o": 0.1864
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8998,
+        "novelty_lof": 1.2713,
+        "novelty_knn_dist": 0.343
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.7416,
+        "least_confidence": 0.563,
+        "margin_uncertainty": 0.7493
+      },
+      "probabilities": {
+        "O": 0.1864,
+        "Personal_care_products_and_cosmetic_procedures": 0.0531,
+        "Substance_use": 0.0935,
+        "Environmental_exposures": 0.437,
+        "Mental_health_practices": 0.012,
+        "Non_physical_leisure_time_activities": 0.1071,
+        "Nutrition": 0.0407,
+        "Physical_activities": 0.0057,
+        "Sleep": 0.0093,
+        "Socioeconomic_factors": 0.0553
+      },
+      "logits": {
+        "O": 0.9275,
+        "Personal_care_products_and_cosmetic_procedures": -0.3284,
+        "Substance_use": 0.2376,
+        "Environmental_exposures": 1.7797,
+        "Mental_health_practices": -1.8192,
+        "Non_physical_leisure_time_activities": 0.3738,
+        "Nutrition": -0.595,
+        "Physical_activities": -2.5587,
+        "Sleep": -2.0747,
+        "Socioeconomic_factors": -0.2881
+      }
+    },
+    {
+      "span_id": "28605409_s009",
+      "abstract_id": "28605409",
+      "span_text": "dark hair dyes",
+      "boundaries": {
+        "start_char": 1250,
+        "end_char": 1264,
+        "token_start": 323,
+        "token_end": 325,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.361,
+        "novelty_score": 0.9189,
+        "margin": 0.179,
+        "top1_prob": 0.5761,
+        "top2_prob": 0.3971,
+        "p_background_o": 0.3971
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9189,
+        "novelty_lof": 1.2819,
+        "novelty_knn_dist": 0.3688
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.361,
+        "least_confidence": 0.4239,
+        "margin_uncertainty": 0.821
+      },
+      "probabilities": {
+        "O": 0.3971,
+        "Personal_care_products_and_cosmetic_procedures": 0.003,
+        "Substance_use": 0.0053,
+        "Environmental_exposures": 0.5761,
+        "Mental_health_practices": 0.0012,
+        "Non_physical_leisure_time_activities": 0.0025,
+        "Nutrition": 0.0067,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.0012,
+        "Socioeconomic_factors": 0.006
+      },
+      "logits": {
+        "O": 3.5667,
+        "Personal_care_products_and_cosmetic_procedures": -1.3277,
+        "Substance_use": -0.756,
+        "Environmental_exposures": 3.9389,
+        "Mental_health_practices": -2.1989,
+        "Non_physical_leisure_time_activities": -1.4889,
+        "Nutrition": -0.52,
+        "Physical_activities": -2.5834,
+        "Sleep": -2.2253,
+        "Socioeconomic_factors": -0.6198
+      }
+    },
+    {
+      "span_id": "28605409_s010",
+      "abstract_id": "28605409",
+      "span_text": "Hair product use",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 16,
+        "token_start": 1,
+        "token_end": 4,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Non_physical_leisure_time_activities",
+        "uncertainty": 0.8404,
+        "novelty_score": 0.8826,
+        "margin": 0.0552,
+        "top1_prob": 0.2769,
+        "top2_prob": 0.2217,
+        "p_background_o": 0.1236
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8826,
+        "novelty_lof": 1.2313,
+        "novelty_knn_dist": 0.3552
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.8404,
+        "least_confidence": 0.7231,
+        "margin_uncertainty": 0.9448
+      },
+      "probabilities": {
+        "O": 0.1236,
+        "Personal_care_products_and_cosmetic_procedures": 0.06,
+        "Substance_use": 0.2769,
+        "Environmental_exposures": 0.1001,
+        "Mental_health_practices": 0.0232,
+        "Non_physical_leisure_time_activities": 0.2217,
+        "Nutrition": 0.0258,
+        "Physical_activities": 0.0147,
+        "Sleep": 0.0182,
+        "Socioeconomic_factors": 0.1358
+      },
+      "logits": {
+        "O": 0.3351,
+        "Personal_care_products_and_cosmetic_procedures": -0.3877,
+        "Substance_use": 1.1419,
+        "Environmental_exposures": 0.1245,
+        "Mental_health_practices": -1.3394,
+        "Non_physical_leisure_time_activities": 0.9198,
+        "Nutrition": -1.2302,
+        "Physical_activities": -1.7915,
+        "Sleep": -1.5778,
+        "Socioeconomic_factors": 0.4297
+      }
+    },
+    {
+      "span_id": "28605409_s011",
+      "abstract_id": "28605409",
+      "span_text": "carcinogens in hair products",
+      "boundaries": {
+        "start_char": 94,
+        "end_char": 122,
+        "token_start": 22,
+        "token_end": 25,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.2732,
+        "novelty_score": 0.7706,
+        "margin": 0.7238,
+        "top1_prob": 0.8376,
+        "top2_prob": 0.1138,
+        "p_background_o": 0.1138
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7706,
+        "novelty_lof": 1.1402,
+        "novelty_knn_dist": 0.3199
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2732,
+        "least_confidence": 0.1624,
+        "margin_uncertainty": 0.2762
+      },
+      "probabilities": {
+        "O": 0.1138,
+        "Personal_care_products_and_cosmetic_procedures": 0.008,
+        "Substance_use": 0.0184,
+        "Environmental_exposures": 0.8376,
+        "Mental_health_practices": 0.0045,
+        "Non_physical_leisure_time_activities": 0.0065,
+        "Nutrition": 0.003,
+        "Physical_activities": 0.0011,
+        "Sleep": 0.0018,
+        "Socioeconomic_factors": 0.0053
+      },
+      "logits": {
+        "O": 2.1108,
+        "Personal_care_products_and_cosmetic_procedures": -0.549,
+        "Substance_use": 0.2886,
+        "Environmental_exposures": 4.1066,
+        "Mental_health_practices": -1.1205,
+        "Non_physical_leisure_time_activities": -0.7555,
+        "Nutrition": -1.5194,
+        "Physical_activities": -2.5189,
+        "Sleep": -2.0563,
+        "Socioeconomic_factors": -0.9494
+      }
+    },
+    {
+      "span_id": "28605409_s012",
+      "abstract_id": "28605409",
+      "span_text": "Exposures to carcinogens",
+      "boundaries": {
+        "start_char": 81,
+        "end_char": 105,
+        "token_start": 18,
+        "token_end": 22,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.3176,
+        "novelty_score": 0.3821,
+        "margin": 0.2169,
+        "top1_prob": 0.604,
+        "top2_prob": 0.387,
+        "p_background_o": 0.387
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3821,
+        "novelty_lof": 0.9789,
+        "novelty_knn_dist": 0.2158
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3176,
+        "least_confidence": 0.396,
+        "margin_uncertainty": 0.7831
+      },
+      "probabilities": {
+        "O": 0.387,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0028,
+        "Environmental_exposures": 0.604,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.0014,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0016
+      },
+      "logits": {
+        "O": 4.4212,
+        "Personal_care_products_and_cosmetic_procedures": -2.1185,
+        "Substance_use": -0.5093,
+        "Environmental_exposures": 4.8662,
+        "Mental_health_practices": -1.7205,
+        "Non_physical_leisure_time_activities": -1.7043,
+        "Nutrition": -1.2172,
+        "Physical_activities": -2.4184,
+        "Sleep": -2.0691,
+        "Socioeconomic_factors": -1.0684
+      }
+    },
+    {
+      "span_id": "28605409_s013",
+      "abstract_id": "28605409",
+      "span_text": "hair dyes, chemical relaxers",
+      "boundaries": {
+        "start_char": 232,
+        "end_char": 260,
+        "token_start": 45,
+        "token_end": 50,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.2458,
+        "novelty_score": 0.7851,
+        "margin": 0.6968,
+        "top1_prob": 0.8355,
+        "top2_prob": 0.1387,
+        "p_background_o": 0.1387
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7851,
+        "novelty_lof": 1.1435,
+        "novelty_knn_dist": 0.3297
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2458,
+        "least_confidence": 0.1645,
+        "margin_uncertainty": 0.3032
+      },
+      "probabilities": {
+        "O": 0.1387,
+        "Personal_care_products_and_cosmetic_procedures": 0.0033,
+        "Substance_use": 0.0056,
+        "Environmental_exposures": 0.8355,
+        "Mental_health_practices": 0.001,
+        "Non_physical_leisure_time_activities": 0.0023,
+        "Nutrition": 0.0075,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.0041
+      },
+      "logits": {
+        "O": 2.5861,
+        "Personal_care_products_and_cosmetic_procedures": -1.1469,
+        "Substance_use": -0.6316,
+        "Environmental_exposures": 4.3818,
+        "Mental_health_practices": -2.2988,
+        "Non_physical_leisure_time_activities": -1.5061,
+        "Nutrition": -0.3281,
+        "Physical_activities": -2.4196,
+        "Sleep": -2.3164,
+        "Socioeconomic_factors": -0.9401
+      }
+    }
+  ]
+}

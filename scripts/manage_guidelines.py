@@ -21,22 +21,28 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.architectures.agentic_guidelines.manager import DynamicGuidelinesManager
+from src.architectures.agentic_guidelines.manager import DynamicGuidebookManager, DynamicGuidelinesManager
 
-DEFAULT_GUIDELINES_PATH = PROJECT_ROOT / "output" / "bertized_ace" / "dynamicGuidelines.json"
+DEFAULT_GUIDELINES_PATH = (
+    PROJECT_ROOT / "data" / "guidelines" / "dynamicGuidebook.json"
+    if (PROJECT_ROOT / "data" / "guidelines" / "dynamicGuidebook.json").exists()
+    else PROJECT_ROOT / "output" / "bertized_ace" / "dynamicGuidelines.json"
+)
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Manage, export, and inspect Dynamic Guidelines.")
+    parser = argparse.ArgumentParser(description="Manage, export, and inspect Dynamic Guidebook records.")
     parser.add_argument(
+        "--guidebook-path",
         "--guidelines-path",
+        dest="guidelines_path",
         type=str,
         default=str(DEFAULT_GUIDELINES_PATH),
-        help="Path to dynamicGuidelines.json file"
+        help="Path to dynamicGuidebook.json file"
     )
-    parser.add_argument("--stats", action="store_true", help="Print summary statistics of all active guidelines")
-    parser.add_argument("--export-md", type=str, help="Export guidelines to human-readable Markdown file")
-    parser.add_argument("--export-csv", type=str, help="Export guidelines to tabular CSV file")
+    parser.add_argument("--stats", action="store_true", help="Print summary statistics of all active guidebook records")
+    parser.add_argument("--export-md", type=str, help="Export guidebook to human-readable Markdown file")
+    parser.add_argument("--export-csv", type=str, help="Export guidebook to tabular CSV file")
     parser.add_argument("--snapshot", type=str, help="Create a labeled backup snapshot in the backup/ directory")
     return parser.parse_args()
 
@@ -46,38 +52,39 @@ def main():
     guidelines_file = Path(args.guidelines_path)
 
     if not guidelines_file.exists():
-        print(f"⚠️ Warning: Guidelines file not found at: {guidelines_file}")
+        print(f"⚠️ Warning: Guidebook file not found at: {guidelines_file}")
         print("Initializing new empty manager to inspect schema...")
 
-    mgr = DynamicGuidelinesManager(dynamicGuidelines_file_path=str(guidelines_file))
+    mgr = DynamicGuidebookManager(guidebook_file_path=str(guidelines_file))
 
     # 1. Print Stats
     if args.stats or (not args.export_md and not args.export_csv and not args.snapshot):
-        total_bullets = 0
-        section_counts = {}
+        total_records = 0
+        category_counts = {}
         total_helpful = 0
         total_harmful = 0
         total_usage = 0
 
         for bullet, supercategory, section_name in mgr.store.iter_bullets():
-            total_bullets += 1
-            section_counts[section_name] = section_counts.get(section_name, 0) + 1
-            total_helpful += bullet.get("helpful", 0)
-            total_harmful += bullet.get("harmful", 0)
-            total_usage += bullet.get("usage_count", 0)
+            total_records += 1
+            category_counts[section_name] = category_counts.get(section_name, 0) + 1
+            metrics = bullet.get("usage_metrics", {})
+            total_helpful += metrics.get("helpful", bullet.get("helpful", 0))
+            total_harmful += metrics.get("harmful", bullet.get("harmful", 0))
+            total_usage += metrics.get("usage_count", bullet.get("usage_count", 0))
 
         print("=" * 80)
-        print("📚 DYNAMIC GUIDELINES REPOSITORY STATISTICS")
+        print("📚 DYNAMIC GUIDEBOOK REPOSITORY STATISTICS")
         print("=" * 80)
         print(f"  • Source File         : {guidelines_file}")
-        print(f"  • Total Active Bullets: {total_bullets}")
+        print(f"  • Total Active Records: {total_records}")
         print(f"  • Total Usages        : {total_usage}")
         print(f"  • Helpful Markings    : {total_helpful} (Green)")
         print(f"  • Harmful Markings    : {total_harmful} (Red / Pruning Candidates)")
         print("-" * 80)
-        print(f"{'Section Name':<45} | {'Active Bullets':<15}")
+        print(f"{'Category / Label':<45} | {'Active Records':<15}")
         print("-" * 80)
-        for sec, cnt in sorted(section_counts.items()):
+        for sec, cnt in sorted(category_counts.items()):
             print(f"{sec:<45} | {cnt:<15}")
         print("=" * 80)
 
@@ -96,17 +103,18 @@ def main():
         out_path.parent.mkdir(parents=True, exist_ok=True)
         with open(out_path, "w", encoding="utf-8", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow(["bullet_id", "section", "supercategory", "content", "usage_count", "helpful", "harmful", "modifications"])
+            writer.writerow(["id", "section", "supercategory", "guideline", "usage_count", "helpful", "harmful", "modifications"])
             for bullet, supercategory, section_name in mgr.store.iter_bullets():
+                metrics = bullet.get("usage_metrics", {})
                 writer.writerow([
-                    bullet.get("bullet_id", ""),
+                    bullet.get("id", bullet.get("bullet_id", "")),
                     section_name,
                     supercategory,
-                    bullet.get("content", ""),
-                    bullet.get("usage_count", 0),
-                    bullet.get("helpful", 0),
-                    bullet.get("harmful", 0),
-                    bullet.get("modification_count", 0)
+                    bullet.get("guideline", bullet.get("content", "")),
+                    metrics.get("usage_count", bullet.get("usage_count", 0)),
+                    metrics.get("helpful", bullet.get("helpful", 0)),
+                    metrics.get("harmful", bullet.get("harmful", 0)),
+                    metrics.get("modification_count", bullet.get("modification_count", 0))
                 ])
         print(f"✅ Exported Tabular CSV guidelines to: {out_path}")
 

@@ -1,0 +1,368 @@
+{
+  "doc_id": "15967030",
+  "dataset_split": "400/val",
+  "text": "Washing our hands of the congenital cytomegalovirus disease epidemic. \nBACKGROUND: Each year in the United States, an estimated 40,000 children are born with congenital cytomegalovirus (CMV) infection, causing an estimated 400 deaths and leaving approximately 8000 children with permanent disabilities such as hearing or vision loss, or mental retardation. More children are affected by serious CMV-related disabilities than by several better-known childhood maladies, including Down syndrome, fetal alcohol syndrome, and spina bifida. DISCUSSION: Congenital CMV is a prime target for prevention not only because of its substantial disease burden but also because the biology and epidemiology of CMV suggest that there are ways to reduce viral transmission. Because exposure to the saliva or urine of young children is a major cause of CMV infection among pregnant women, it is likely that good personal hygiene, especially hand-washing, can reduce the risk of CMV acquisition. Experts agree that such measures are likely to be efficacious (i.e., they will work if consistently followed) and the American College of Obstetricians and Gynecologists recommends that physicians counsel pregnant women about preventing CMV acquisition through careful attention to hygiene. However, because of concerns about effectiveness (i.e., Will women consistently follow hygienic practices as the result of interventions?), the medical and public health communities appear reluctant to embrace primary CMV prevention via improved hygienic practices, and educational interventions are rare. Current data on the effectiveness of such measures in preventing CMV infection are promising, but limited. There is strong evidence, however, that educational interventions can prevent other infectious diseases with similar transmission modes, suggesting that effective interventions can also be found for CMV. Until a CMV vaccine becomes available, effective educational interventions are needed to inform women about congenital CMV prevention. SUMMARY: Perhaps no single cause of birth defects and developmental disabilities in the United States currently provides greater opportunity for improved outcomes in more children than congenital CMV. Given the present state of knowledge, women deserve to be informed about how they can reduce their risk of CMV infection during pregnancy, and trials are needed to identify effective educational interventions. \n",
+  "total_candidates": 6,
+  "spans": [
+    {
+      "span_id": "15967030_s000",
+      "abstract_id": "15967030",
+      "span_text": "hygiene",
+      "boundaries": {
+        "start_char": 1260,
+        "end_char": 1267,
+        "token_start": 229,
+        "token_end": 229,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.4643,
+        "novelty_score": 0.2931,
+        "margin": 0.4426,
+        "top1_prob": 0.6668,
+        "top2_prob": 0.2242,
+        "p_background_o": 0.2242
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2931,
+        "novelty_lof": 0.9964,
+        "novelty_knn_dist": 0.1356
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4643,
+        "least_confidence": 0.3332,
+        "margin_uncertainty": 0.5574
+      },
+      "probabilities": {
+        "O": 0.2242,
+        "Personal_care_products_and_cosmetic_procedures": 0.6668,
+        "Substance_use": 0.012,
+        "Environmental_exposures": 0.0215,
+        "Mental_health_practices": 0.0135,
+        "Non_physical_leisure_time_activities": 0.0097,
+        "Nutrition": 0.0181,
+        "Physical_activities": 0.0091,
+        "Sleep": 0.0103,
+        "Socioeconomic_factors": 0.0149
+      },
+      "logits": {
+        "O": 1.9285,
+        "Personal_care_products_and_cosmetic_procedures": 3.0185,
+        "Substance_use": -0.9989,
+        "Environmental_exposures": -0.4142,
+        "Mental_health_practices": -0.8824,
+        "Non_physical_leisure_time_activities": -1.2167,
+        "Nutrition": -0.5899,
+        "Physical_activities": -1.2741,
+        "Sleep": -1.1557,
+        "Socioeconomic_factors": -0.7813
+      }
+    },
+    {
+      "span_id": "15967030_s001",
+      "abstract_id": "15967030",
+      "span_text": "personal hygiene",
+      "boundaries": {
+        "start_char": 895,
+        "end_char": 911,
+        "token_start": 164,
+        "token_end": 165,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.5087,
+        "novelty_score": 0.344,
+        "margin": 0.1511,
+        "top1_prob": 0.5184,
+        "top2_prob": 0.3673,
+        "p_background_o": 0.3673
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.344,
+        "novelty_lof": 0.9929,
+        "novelty_knn_dist": 0.1759
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5087,
+        "least_confidence": 0.4816,
+        "margin_uncertainty": 0.8489
+      },
+      "probabilities": {
+        "O": 0.3673,
+        "Personal_care_products_and_cosmetic_procedures": 0.5184,
+        "Substance_use": 0.0074,
+        "Environmental_exposures": 0.0227,
+        "Mental_health_practices": 0.0073,
+        "Non_physical_leisure_time_activities": 0.0086,
+        "Nutrition": 0.0114,
+        "Physical_activities": 0.0083,
+        "Sleep": 0.0111,
+        "Socioeconomic_factors": 0.0376
+      },
+      "logits": {
+        "O": 2.3739,
+        "Personal_care_products_and_cosmetic_procedures": 2.7186,
+        "Substance_use": -1.534,
+        "Environmental_exposures": -0.4114,
+        "Mental_health_practices": -1.5397,
+        "Non_physical_leisure_time_activities": -1.383,
+        "Nutrition": -1.1022,
+        "Physical_activities": -1.4139,
+        "Sleep": -1.1222,
+        "Socioeconomic_factors": 0.0935
+      }
+    },
+    {
+      "span_id": "15967030_s002",
+      "abstract_id": "15967030",
+      "span_text": "hygienic practices",
+      "boundaries": {
+        "start_char": 1356,
+        "end_char": 1374,
+        "token_start": 247,
+        "token_end": 248,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "Socioeconomic_factors",
+        "uncertainty": 0.425,
+        "novelty_score": 0.3373,
+        "margin": 0.6901,
+        "top1_prob": 0.7668,
+        "top2_prob": 0.0767,
+        "p_background_o": 0.0372
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3373,
+        "novelty_lof": 0.9864,
+        "novelty_knn_dist": 0.1777
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.425,
+        "least_confidence": 0.2332,
+        "margin_uncertainty": 0.3099
+      },
+      "probabilities": {
+        "O": 0.0372,
+        "Personal_care_products_and_cosmetic_procedures": 0.7668,
+        "Substance_use": 0.0093,
+        "Environmental_exposures": 0.0509,
+        "Mental_health_practices": 0.013,
+        "Non_physical_leisure_time_activities": 0.0105,
+        "Nutrition": 0.0168,
+        "Physical_activities": 0.0097,
+        "Sleep": 0.0091,
+        "Socioeconomic_factors": 0.0767
+      },
+      "logits": {
+        "O": -0.0217,
+        "Personal_care_products_and_cosmetic_procedures": 3.0032,
+        "Substance_use": -1.4141,
+        "Environmental_exposures": 0.2913,
+        "Mental_health_practices": -1.0729,
+        "Non_physical_leisure_time_activities": -1.2918,
+        "Nutrition": -0.8181,
+        "Physical_activities": -1.3661,
+        "Sleep": -1.4284,
+        "Socioeconomic_factors": 0.7009
+      }
+    },
+    {
+      "span_id": "15967030_s003",
+      "abstract_id": "15967030",
+      "span_text": "hygienic practices",
+      "boundaries": {
+        "start_char": 1515,
+        "end_char": 1533,
+        "token_start": 271,
+        "token_end": 272,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "Socioeconomic_factors",
+        "uncertainty": 0.5144,
+        "novelty_score": 0.3373,
+        "margin": 0.574,
+        "top1_prob": 0.6843,
+        "top2_prob": 0.1103,
+        "p_background_o": 0.0658
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3373,
+        "novelty_lof": 0.9864,
+        "novelty_knn_dist": 0.1777
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5144,
+        "least_confidence": 0.3157,
+        "margin_uncertainty": 0.426
+      },
+      "probabilities": {
+        "O": 0.0658,
+        "Personal_care_products_and_cosmetic_procedures": 0.6843,
+        "Substance_use": 0.0097,
+        "Environmental_exposures": 0.0644,
+        "Mental_health_practices": 0.0142,
+        "Non_physical_leisure_time_activities": 0.0104,
+        "Nutrition": 0.0204,
+        "Physical_activities": 0.0102,
+        "Sleep": 0.0103,
+        "Socioeconomic_factors": 0.1103
+      },
+      "logits": {
+        "O": 0.4009,
+        "Personal_care_products_and_cosmetic_procedures": 2.7424,
+        "Substance_use": -1.5187,
+        "Environmental_exposures": 0.3785,
+        "Mental_health_practices": -1.1336,
+        "Non_physical_leisure_time_activities": -1.4441,
+        "Nutrition": -0.7702,
+        "Physical_activities": -1.4612,
+        "Sleep": -1.453,
+        "Socioeconomic_factors": 0.9172
+      }
+    },
+    {
+      "span_id": "15967030_s004",
+      "abstract_id": "15967030",
+      "span_text": "good personal hygiene",
+      "boundaries": {
+        "start_char": 890,
+        "end_char": 911,
+        "token_start": 163,
+        "token_end": 165,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.5816,
+        "novelty_score": 0.4443,
+        "margin": 0.1197,
+        "top1_prob": 0.4749,
+        "top2_prob": 0.3552,
+        "p_background_o": 0.3552
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4443,
+        "novelty_lof": 1.0238,
+        "novelty_knn_dist": 0.2112
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5816,
+        "least_confidence": 0.5251,
+        "margin_uncertainty": 0.8803
+      },
+      "probabilities": {
+        "O": 0.3552,
+        "Personal_care_products_and_cosmetic_procedures": 0.4749,
+        "Substance_use": 0.0106,
+        "Environmental_exposures": 0.0189,
+        "Mental_health_practices": 0.013,
+        "Non_physical_leisure_time_activities": 0.0152,
+        "Nutrition": 0.0153,
+        "Physical_activities": 0.0161,
+        "Sleep": 0.0166,
+        "Socioeconomic_factors": 0.0642
+      },
+      "logits": {
+        "O": 2.0527,
+        "Personal_care_products_and_cosmetic_procedures": 2.3432,
+        "Substance_use": -1.4555,
+        "Environmental_exposures": -0.8808,
+        "Mental_health_practices": -1.2575,
+        "Non_physical_leisure_time_activities": -1.0965,
+        "Nutrition": -1.0924,
+        "Physical_activities": -1.0412,
+        "Sleep": -1.0118,
+        "Socioeconomic_factors": 0.3413
+      }
+    },
+    {
+      "span_id": "15967030_s005",
+      "abstract_id": "15967030",
+      "span_text": "hand-washing",
+      "boundaries": {
+        "start_char": 924,
+        "end_char": 936,
+        "token_start": 168,
+        "token_end": 171,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.4987,
+        "novelty_score": 0.3632,
+        "margin": 0.6523,
+        "top1_prob": 0.7244,
+        "top2_prob": 0.0721,
+        "p_background_o": 0.0721
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3632,
+        "novelty_lof": 1.0089,
+        "novelty_knn_dist": 0.1731
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4987,
+        "least_confidence": 0.2756,
+        "margin_uncertainty": 0.3477
+      },
+      "probabilities": {
+        "O": 0.0721,
+        "Personal_care_products_and_cosmetic_procedures": 0.7244,
+        "Substance_use": 0.0246,
+        "Environmental_exposures": 0.021,
+        "Mental_health_practices": 0.0157,
+        "Non_physical_leisure_time_activities": 0.019,
+        "Nutrition": 0.0175,
+        "Physical_activities": 0.0252,
+        "Sleep": 0.0208,
+        "Socioeconomic_factors": 0.0595
+      },
+      "logits": {
+        "O": 0.3174,
+        "Personal_care_products_and_cosmetic_procedures": 2.6244,
+        "Substance_use": -0.7569,
+        "Environmental_exposures": -0.9162,
+        "Mental_health_practices": -1.2045,
+        "Non_physical_leisure_time_activities": -1.0172,
+        "Nutrition": -1.0966,
+        "Physical_activities": -0.7327,
+        "Sleep": -0.9265,
+        "Socioeconomic_factors": 0.1252
+      }
+    }
+  ]
+}

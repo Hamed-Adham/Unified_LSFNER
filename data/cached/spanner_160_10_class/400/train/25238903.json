@@ -1,0 +1,188 @@
+{
+  "doc_id": "25238903",
+  "dataset_split": "400/train",
+  "text": "[Therapeutic management of bipolar disorder in France and Europe: a multinational longitudinal study (WAVE-bd)]. \nBACKGROUND: Bipolar disorder is a complex disease which requires multiple healthcare resources and complex medical care programs including pharmacological and non pharmacological treatment. If mood stabilizers remain the corner stone for bipolar disorder treatment, the development of atypical antipsychotics and their use as mood stabilizers has significantly modified therapeutic care. At the present time, psychiatrists have a large variety of psychotropic drugs for bipolar disorder: mood stabilizers, atypical antipsychotics, antidepressants, anxiolytics... However, despite the publication of guidelines on pharmacological treatment, with a high degree of consensus, everyday clinical practices remain heterogeneous. Moreover, there are few longitudinal studies to describe therapeutic management of bipolar disorder, whatever the phase of the disease is. Indeed, most of the studies are carried out on a specific phase of the disease or treatment. And there is no study comparing French and European practices. OBJECTIVES: In this paper, we aim to present the comparison of the management of pharmacological treatments of bipolar disorder between France and Europe, using the data of the observational Wide AmbispectiVE study of the clinical management and burden of bipolar disorder (WAVE-bd study). METHODS: The WAVE-bd study is a multinational, multicentre and non-interventional cohort study of patients diagnosed with BD type I or type II, according to DSM IV-TR criteria, in any phase of the disorder, who have experienced at least one mood event during the 12 months before enrolment. In total, 2507 patients have been included across 8 countries of Europe (480 in France). Data collection was retrospective (from 3 to 12 months), but also prospective (from 9 to 15 months) for a total study length of 12 to 27 months. Main outcome measures were the healthcare resource use and pharmacological treatments. RESULTS: Our results show differences in the therapeutic management of bipolar disorder between France and other European countries. Regarding healthcare resource use, our results show that French patients consult more frequently a psychiatrist or a psychologist and less frequently a general practitioner or the emergency ward in comparison with patients from other European countries. In the whole European population, including France, atypical antipsychotics are widely used. Only 25% of the patients receive lithium and more than 50% of the patients receive antidepressants, while their use in bipolar disorder remains controversial. Most of the patients receive polymedication. Considering all phases of the disease pooled, less lithium and less atypical antipsychotics are prescribed to French patients, whereas they receive more antidepressants and more benzodiazepines than patients from other European countries. On the over hand, prescription of anticonvulsants and electroconvulsive therapy are equal. Moreover, data analyses by polarity of the episodes globally confirm these trends. There are a few exceptions: mixed states, in which lithium is twice more prescribed in France in comparison to other countries; depressive states, in which antidepressants are even more prescribed in other countries than in France; and less prescription of anticonvulsants in manic, mixed and euthymic phases in France. CONCLUSION: The WAVE-bd study is the first observational study conducted on a large sample of bipolar I and II patients that compares therapeutic management between France and other European countries. The differences observed in therapeutic care across the different phases of the disease show that treatments differ depending on the countries studied, but also according to the preventive or curative phases, polarity of the bipolar disorder, comorbidities, impact of guidelines, and care organization. Although French patients have been treated by less lithium and less atypical antipsychotics than other European patients, they receive more antidepressants and more benzodiazepines. Finally, patients generally receive polymedication and the diversity in prescriptions shows how bipolar disorder is a complex disorder. \n",
+  "total_candidates": 3,
+  "spans": [
+    {
+      "span_id": "25238903_s000",
+      "abstract_id": "25238903",
+      "span_text": "antidepressants",
+      "boundaries": {
+        "start_char": 2597,
+        "end_char": 2612,
+        "token_start": 462,
+        "token_end": 462,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.5798,
+        "novelty_score": 0.8023,
+        "margin": 0.0532,
+        "top1_prob": 0.3827,
+        "top2_prob": 0.3296,
+        "p_background_o": 0.3296
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8023,
+        "novelty_lof": 1.2006,
+        "novelty_knn_dist": 0.2891
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5798,
+        "least_confidence": 0.6173,
+        "margin_uncertainty": 0.9468
+      },
+      "probabilities": {
+        "O": 0.3296,
+        "Personal_care_products_and_cosmetic_procedures": 0.0073,
+        "Substance_use": 0.3827,
+        "Environmental_exposures": 0.0149,
+        "Mental_health_practices": 0.232,
+        "Non_physical_leisure_time_activities": 0.0102,
+        "Nutrition": 0.0056,
+        "Physical_activities": 0.0024,
+        "Sleep": 0.0058,
+        "Socioeconomic_factors": 0.0094
+      },
+      "logits": {
+        "O": 2.4345,
+        "Personal_care_products_and_cosmetic_procedures": -1.3814,
+        "Substance_use": 2.584,
+        "Environmental_exposures": -0.6613,
+        "Mental_health_practices": 2.0836,
+        "Non_physical_leisure_time_activities": -1.0432,
+        "Nutrition": -1.6357,
+        "Physical_activities": -2.4867,
+        "Sleep": -1.6041,
+        "Socioeconomic_factors": -1.1175
+      }
+    },
+    {
+      "span_id": "25238903_s001",
+      "abstract_id": "25238903",
+      "span_text": "psychotropic drugs",
+      "boundaries": {
+        "start_char": 561,
+        "end_char": 579,
+        "token_start": 93,
+        "token_end": 94,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.5962,
+        "novelty_score": 0.4908,
+        "margin": 0.035,
+        "top1_prob": 0.3902,
+        "top2_prob": 0.3551,
+        "p_background_o": 0.3551
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4908,
+        "novelty_lof": 1.0544,
+        "novelty_knn_dist": 0.2098
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5962,
+        "least_confidence": 0.6098,
+        "margin_uncertainty": 0.965
+      },
+      "probabilities": {
+        "O": 0.3551,
+        "Personal_care_products_and_cosmetic_procedures": 0.0076,
+        "Substance_use": 0.3902,
+        "Environmental_exposures": 0.1788,
+        "Mental_health_practices": 0.0251,
+        "Non_physical_leisure_time_activities": 0.0071,
+        "Nutrition": 0.0103,
+        "Physical_activities": 0.0027,
+        "Sleep": 0.0144,
+        "Socioeconomic_factors": 0.0087
+      },
+      "logits": {
+        "O": 2.1434,
+        "Personal_care_products_and_cosmetic_procedures": -1.7024,
+        "Substance_use": 2.2374,
+        "Environmental_exposures": 1.4573,
+        "Mental_health_practices": -0.5078,
+        "Non_physical_leisure_time_activities": -1.7726,
+        "Nutrition": -1.3981,
+        "Physical_activities": -2.7372,
+        "Sleep": -1.0591,
+        "Socioeconomic_factors": -1.5612
+      }
+    },
+    {
+      "span_id": "25238903_s002",
+      "abstract_id": "25238903",
+      "span_text": "polymedication",
+      "boundaries": {
+        "start_char": 2702,
+        "end_char": 2716,
+        "token_start": 478,
+        "token_end": 480,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.6497,
+        "novelty_score": 0.8496,
+        "margin": 0.0108,
+        "top1_prob": 0.3828,
+        "top2_prob": 0.372,
+        "p_background_o": 0.372
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8496,
+        "novelty_lof": 1.2241,
+        "novelty_knn_dist": 0.3174
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.6497,
+        "least_confidence": 0.6172,
+        "margin_uncertainty": 0.9892
+      },
+      "probabilities": {
+        "O": 0.372,
+        "Personal_care_products_and_cosmetic_procedures": 0.01,
+        "Substance_use": 0.3828,
+        "Environmental_exposures": 0.1056,
+        "Mental_health_practices": 0.025,
+        "Non_physical_leisure_time_activities": 0.0167,
+        "Nutrition": 0.0476,
+        "Physical_activities": 0.0076,
+        "Sleep": 0.0177,
+        "Socioeconomic_factors": 0.0149
+      },
+      "logits": {
+        "O": 1.7578,
+        "Personal_care_products_and_cosmetic_procedures": -1.8556,
+        "Substance_use": 1.7865,
+        "Environmental_exposures": 0.4991,
+        "Mental_health_practices": -0.9414,
+        "Non_physical_leisure_time_activities": -1.3462,
+        "Nutrition": -0.2972,
+        "Physical_activities": -2.1341,
+        "Sleep": -1.2853,
+        "Socioeconomic_factors": -1.4599
+      }
+    }
+  ]
+}

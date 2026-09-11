@@ -1,0 +1,128 @@
+{
+  "doc_id": "7313394",
+  "dataset_split": "200/train",
+  "text": "Sensorimotor electroencephalogram rhythmic activity: a functional gate mechanism. \nNeurophysiological evidence for a negative feedback loop in somatosensory thalamic nuclei has provided a basis for understanding the origins of rhythmic activity in the electroencephalogram (EEG) of sensorimotor cortex. Studies reviewed here suggest that state-specific activation of this mechanism is responsible both for a variable pattern of rhythmic frequencies during wakefulness and the spindle burst pattern during sleep. It is proposed further that these rhythms index immobility and a common set of physiological changes in sensorimotor function, including reduced excitability in both afferent and efferent pathways. It is hypothesized, therefore, that the closing of a thalamic \"inhibitory gate\" is indicated by the occurrence of these rhythms. While a greater resolution of specific relationships is necessary, the study of these EEG patterns clearly provides a measure of complex physiological events in the nervous system, and can be also useful in identifying functional abnormalities. \n",
+  "total_candidates": 2,
+  "spans": [
+    {
+      "span_id": "7313394_s000",
+      "abstract_id": "7313394",
+      "span_text": "wakefulness",
+      "boundaries": {
+        "start_char": 456,
+        "end_char": 467,
+        "token_start": 72,
+        "token_end": 72,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Sleep",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Sleep",
+        "second_best_label": "O",
+        "uncertainty": 0.0189,
+        "novelty_score": 0.6823,
+        "margin": 0.9922,
+        "top1_prob": 0.9946,
+        "top2_prob": 0.0023,
+        "p_background_o": 0.0023
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6823,
+        "novelty_lof": 1.1832,
+        "novelty_knn_dist": 0.2067
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0189,
+        "least_confidence": 0.0054,
+        "margin_uncertainty": 0.0078
+      },
+      "probabilities": {
+        "O": 0.0023,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0007,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.9946,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 0.4772,
+        "Personal_care_products_and_cosmetic_procedures": -1.5843,
+        "Substance_use": -0.7062,
+        "Environmental_exposures": -1.6676,
+        "Mental_health_practices": -1.7103,
+        "Non_physical_leisure_time_activities": -0.8169,
+        "Nutrition": -1.4958,
+        "Physical_activities": -1.6144,
+        "Sleep": 6.5309,
+        "Socioeconomic_factors": -1.616
+      }
+    },
+    {
+      "span_id": "7313394_s001",
+      "abstract_id": "7313394",
+      "span_text": "sleep",
+      "boundaries": {
+        "start_char": 505,
+        "end_char": 510,
+        "token_start": 79,
+        "token_end": 79,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Sleep",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Sleep",
+        "second_best_label": "O",
+        "uncertainty": 0.0193,
+        "novelty_score": 0.2375,
+        "margin": 0.9919,
+        "top1_prob": 0.9944,
+        "top2_prob": 0.0025,
+        "p_background_o": 0.0025
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2375,
+        "novelty_lof": 0.9877,
+        "novelty_knn_dist": 0.0994
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0193,
+        "least_confidence": 0.0056,
+        "margin_uncertainty": 0.0081
+      },
+      "probabilities": {
+        "O": 0.0025,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0007,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.9944,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 0.5239,
+        "Personal_care_products_and_cosmetic_procedures": -1.6026,
+        "Substance_use": -0.7754,
+        "Environmental_exposures": -1.7551,
+        "Mental_health_practices": -1.8132,
+        "Non_physical_leisure_time_activities": -0.7849,
+        "Nutrition": -1.6184,
+        "Physical_activities": -1.5472,
+        "Sleep": 6.5031,
+        "Socioeconomic_factors": -1.6185
+      }
+    }
+  ]
+}

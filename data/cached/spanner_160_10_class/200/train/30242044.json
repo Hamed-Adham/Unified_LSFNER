@@ -1,0 +1,68 @@
+{
+  "doc_id": "30242044",
+  "dataset_split": "200/train",
+  "text": "Philip Morris International-funded 'Foundation for a Smoke-Free World': analysing its claims of independence. \nThe Foundation for a Smoke-Free World was launched in September 2017 with an announced 12-year funding commitment of $1 billion from Philip Morris International (PMI). The Foundation claims that its governing documents (certificate of incorporation, bylaws and a pledge agreement) ensure that it has an independent research agenda and stringent protections from conflicts of interest. We analysed the text of these governing documents. Their provisions have multiple loopholes, particularly regarding conflicts of interest. Further, these documents cannot substitute for other important documentation such as information about PMI's internal business case for investing $1 billion in the Foundation, an unwaivable conflict of interest policy, annual disclosure statements, copies of pre-Foundation establishment correspondence between key individuals, all signed contracts or salary information, none of which, as of July 2018, the Foundation has made publicly available. Even if these were released, however, it is problematic that the Foundation's fundamental purpose was decided on and its leader selected following a tobacco company-paid, privately negotiated arrangement with the Foundation's president. It cannot be regarded as independent. \n",
+  "total_candidates": 1,
+  "spans": [
+    {
+      "span_id": "30242044_s000",
+      "abstract_id": "30242044",
+      "span_text": "salary",
+      "boundaries": {
+        "start_char": 987,
+        "end_char": 993,
+        "token_start": 186,
+        "token_end": 186,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0209,
+        "novelty_score": 0.7808,
+        "margin": 0.9882,
+        "top1_prob": 0.9932,
+        "top2_prob": 0.005,
+        "p_background_o": 0.005
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7808,
+        "novelty_lof": 1.193,
+        "novelty_knn_dist": 0.2763
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0209,
+        "least_confidence": 0.0068,
+        "margin_uncertainty": 0.0118
+      },
+      "probabilities": {
+        "O": 0.005,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.9932
+      },
+      "logits": {
+        "O": 1.5898,
+        "Personal_care_products_and_cosmetic_procedures": -1.3641,
+        "Substance_use": -1.8367,
+        "Environmental_exposures": -2.1664,
+        "Mental_health_practices": -1.5661,
+        "Non_physical_leisure_time_activities": -1.3552,
+        "Nutrition": -1.5316,
+        "Physical_activities": -1.053,
+        "Sleep": -1.6276,
+        "Socioeconomic_factors": 6.8844
+      }
+    }
+  ]
+}

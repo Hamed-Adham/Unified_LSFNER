@@ -1,0 +1,668 @@
+{
+  "doc_id": "27107610",
+  "dataset_split": "400/train",
+  "text": "Low bacterial diet versus control diet to prevent infection in cancer patients treated with chemotherapy causing episodes of neutropenia. \nBACKGROUND: Neutropenia is a potentially serious side effect of chemotherapy and a major risk factor for infection, which can be life-threatening. It has been hypothesised that a low bacterial diet (LBD) can prevent infection and (infection-related) mortality in cancer patients receiving chemotherapy that causes episodes of neutropenia, but much remains unclear. This review is an update of a previously published Cochrane review. OBJECTIVES: The primary objective of this review was to determine the efficacy of an LBD versus a control diet in preventing infection and in decreasing (infection-related) mortality in adult and paediatric cancer patients receiving chemotherapy that causes episodes of neutropenia. Secondary objectives were to assess time to first febrile episode, need for empirical antibiotic therapy, diet acceptability and quality of life. SEARCH METHODS: We searched the following electronic databases: the Cochrane Central Register of Controlled Trials (CENTRAL) (2015, Issue 4), the Database of Abstracts of Reviews of Effects (DARE) (2015, Issue 4), PubMed (from 1946 to 4 May 2015), EMBASE (from 1980 to 4 May 2015) and the Cumulative Index to Nursing and Allied Health Literature (CINAHL) (from 1981 to 4 May 2015).In addition, we searched the reference lists of relevant articles and conference proceedings of American Society of Hematology (ASH; from 2000 to 2015), European Bone Marrow Transplantation (EBMT; from 2000 to 2015), Oncology Nurses Society (ONS; from 2000 to 2015), International Society for Paediatric Oncology (SIOP; from 2000 to 2014), Multinational Association of Supportive Care in Cancer (MASCC; from 2000 to 2015), American Society of Clinical Oncology (ASCO; from 2000 to 2015), Interscience Conference of Antimicrobial Agents and Chemotherapy (ICAAC; from 2000 to 2015), European Society for Clinical Nutrition and Metabolism (ESPEN; from 2000 to 2015), American Society for Parenteral and Enteral Nutrition (ASPEN; from 2000 to 2015) and European Hematology Association (EHA; from 2000 to 2015). In May 2015, we scanned the National Institutes of Health Register via clinicaltrials.gov and the International Standard Randomised Controlled Trial Number (ISRCTN) Register (www.controlled-trials.com). SELECTION CRITERIA: Randomised controlled trials (RCTs) comparing use of an LBD versus a control diet with regard to infection rate, (infection-related) mortality, time to first febrile episode, need for empirical antibiotic therapy, diet acceptability and quality of life in adult and paediatric cancer patients receiving chemotherapy causing episodes of neutropenia. DATA COLLECTION AND ANALYSIS: Two review authors independently performed study selection, 'Risk of bias' assessment and data extraction. We performed analyses according to the guidelines of the Cochrane Handbook for Systematic Reviews of Interventions. MAIN RESULTS: In the original version of this review, we identified three RCTs that assessed different intervention and control diets in 192 participants (97 randomised to intervention diet; 95 to control diet) with different types of malignancies. For the update, we identified no eligible new studies. Co-interventions (e.g. protective environment, antimicrobial prophylaxis, central venous catheter care, oral care, hygiene practices, colony-stimulating factors) and outcome definitions also differed between studies. In all included studies, it was standard policy to give empirical antibiotics (and sometimes also antimycotics) to (some of) the participants diagnosed with an infection. Two studies included adults and one study included children. In all studies, only a scant description of treatment regimens was provided. All studies had methodological limitations. Pooling of results of included studies was not possible. In two individual studies, no statistically significant differences in infection rate were identified between intervention and control diets; another study showed no significant differences between treatment groups in the number of chemotherapy cycles with an infection. None of the studies mentioned infection-related mortality, but in one study, no significant difference in overall survival was observed between treatment groups. Time from onset of neutropenia to fever, duration of empirical antibiotics and antimycotics, diet acceptability (i.e. following the diet easily and following the diet throughout all chemotherapy cycles) and quality of life were all evaluated by only one study; for all outcomes, no statistically significant differences between treatment arms were identified. AUTHORS' CONCLUSIONS: At the moment, no evidence from individual RCTs in children and adults with different malignancies underscores use of an LBD for prevention of infection and related outcomes. All studies differed with regard to co-interventions, outcome definitions and intervention and control diets. As pooling of results was not possible, and as all studies had serious methodological limitations, we could reach no definitive conclusions. It should be noted that 'no evidence of effect', as identified in this review, is not the same as 'evidence of no effect'. On the basis of currently available evidence, we are not able to provide recommendations for clinical practice. Additional high-quality research is needed. \n",
+  "total_candidates": 11,
+  "spans": [
+    {
+      "span_id": "27107610_s000",
+      "abstract_id": "27107610",
+      "span_text": "diet",
+      "boundaries": {
+        "start_char": 961,
+        "end_char": 965,
+        "token_start": 166,
+        "token_end": 166,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1127,
+        "novelty_score": 0.2632,
+        "margin": 0.8643,
+        "top1_prob": 0.9315,
+        "top2_prob": 0.0671,
+        "p_background_o": 0.0671
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2632,
+        "novelty_lof": 0.9532,
+        "novelty_knn_dist": 0.1554
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1127,
+        "least_confidence": 0.0685,
+        "margin_uncertainty": 0.1357
+      },
+      "probabilities": {
+        "O": 0.0671,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9315,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 4.1039,
+        "Personal_care_products_and_cosmetic_procedures": -1.9355,
+        "Substance_use": -1.5778,
+        "Environmental_exposures": -1.9367,
+        "Mental_health_practices": -2.82,
+        "Non_physical_leisure_time_activities": -1.5597,
+        "Nutrition": 6.7338,
+        "Physical_activities": -1.9243,
+        "Sleep": -1.5433,
+        "Socioeconomic_factors": -1.9415
+      }
+    },
+    {
+      "span_id": "27107610_s001",
+      "abstract_id": "27107610",
+      "span_text": "LBD",
+      "boundaries": {
+        "start_char": 2468,
+        "end_char": 2471,
+        "token_start": 493,
+        "token_end": 493,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.302,
+        "novelty_score": 0.7149,
+        "margin": 0.1564,
+        "top1_prob": 0.5774,
+        "top2_prob": 0.421,
+        "p_background_o": 0.421
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7149,
+        "novelty_lof": 1.1353,
+        "novelty_knn_dist": 0.2789
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.302,
+        "least_confidence": 0.4226,
+        "margin_uncertainty": 0.8436
+      },
+      "probabilities": {
+        "O": 0.421,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.5774,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 5.6306,
+        "Personal_care_products_and_cosmetic_procedures": -2.3857,
+        "Substance_use": -1.9463,
+        "Environmental_exposures": -1.9959,
+        "Mental_health_practices": -2.994,
+        "Non_physical_leisure_time_activities": -1.5006,
+        "Nutrition": 5.9465,
+        "Physical_activities": -2.4089,
+        "Sleep": -1.6825,
+        "Socioeconomic_factors": -1.68
+      }
+    },
+    {
+      "span_id": "27107610_s002",
+      "abstract_id": "27107610",
+      "span_text": "control diet",
+      "boundaries": {
+        "start_char": 26,
+        "end_char": 38,
+        "token_start": 5,
+        "token_end": 6,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0414,
+        "novelty_score": 0.4166,
+        "margin": 0.9689,
+        "top1_prob": 0.9834,
+        "top2_prob": 0.0144,
+        "p_background_o": 0.0144
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4166,
+        "novelty_lof": 1.0038,
+        "novelty_knn_dist": 0.2135
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0414,
+        "least_confidence": 0.0166,
+        "margin_uncertainty": 0.0311
+      },
+      "probabilities": {
+        "O": 0.0144,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.9834,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 2.2386,
+        "Personal_care_products_and_cosmetic_procedures": -1.7492,
+        "Substance_use": -1.8707,
+        "Environmental_exposures": -1.708,
+        "Mental_health_practices": -2.5693,
+        "Non_physical_leisure_time_activities": -1.7543,
+        "Nutrition": 6.4591,
+        "Physical_activities": -1.6114,
+        "Sleep": -1.3106,
+        "Socioeconomic_factors": -1.7228
+      }
+    },
+    {
+      "span_id": "27107610_s003",
+      "abstract_id": "27107610",
+      "span_text": "LBD",
+      "boundaries": {
+        "start_char": 338,
+        "end_char": 341,
+        "token_start": 62,
+        "token_end": 63,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3127,
+        "novelty_score": 0.7148,
+        "margin": 0.1276,
+        "top1_prob": 0.5615,
+        "top2_prob": 0.4339,
+        "p_background_o": 0.4339
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7148,
+        "novelty_lof": 1.1353,
+        "novelty_knn_dist": 0.2788
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3127,
+        "least_confidence": 0.4385,
+        "margin_uncertainty": 0.8724
+      },
+      "probabilities": {
+        "O": 0.4339,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.0009,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.5615,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 4.8074,
+        "Personal_care_products_and_cosmetic_procedures": -2.2532,
+        "Substance_use": -1.9818,
+        "Environmental_exposures": -1.4138,
+        "Mental_health_practices": -2.9682,
+        "Non_physical_leisure_time_activities": -1.8112,
+        "Nutrition": 5.0652,
+        "Physical_activities": -1.6551,
+        "Sleep": -1.5555,
+        "Socioeconomic_factors": -1.6817
+      }
+    },
+    {
+      "span_id": "27107610_s004",
+      "abstract_id": "27107610",
+      "span_text": "control diet",
+      "boundaries": {
+        "start_char": 670,
+        "end_char": 682,
+        "token_start": 121,
+        "token_end": 122,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0779,
+        "novelty_score": 0.4166,
+        "margin": 0.9253,
+        "top1_prob": 0.9613,
+        "top2_prob": 0.036,
+        "p_background_o": 0.036
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4166,
+        "novelty_lof": 1.0038,
+        "novelty_knn_dist": 0.2135
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0779,
+        "least_confidence": 0.0387,
+        "margin_uncertainty": 0.0747
+      },
+      "probabilities": {
+        "O": 0.036,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9613,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 2.87,
+        "Personal_care_products_and_cosmetic_procedures": -1.8317,
+        "Substance_use": -2.0454,
+        "Environmental_exposures": -1.7964,
+        "Mental_health_practices": -2.5174,
+        "Non_physical_leisure_time_activities": -1.6935,
+        "Nutrition": 6.1549,
+        "Physical_activities": -1.7186,
+        "Sleep": -1.3318,
+        "Socioeconomic_factors": -1.7467
+      }
+    },
+    {
+      "span_id": "27107610_s005",
+      "abstract_id": "27107610",
+      "span_text": "control diet",
+      "boundaries": {
+        "start_char": 2481,
+        "end_char": 2493,
+        "token_start": 496,
+        "token_end": 497,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0469,
+        "novelty_score": 0.4166,
+        "margin": 0.9629,
+        "top1_prob": 0.9804,
+        "top2_prob": 0.0175,
+        "p_background_o": 0.0175
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4166,
+        "novelty_lof": 1.0038,
+        "novelty_knn_dist": 0.2135
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0469,
+        "least_confidence": 0.0196,
+        "margin_uncertainty": 0.0371
+      },
+      "probabilities": {
+        "O": 0.0175,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.9804,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 2.4217,
+        "Personal_care_products_and_cosmetic_procedures": -1.7074,
+        "Substance_use": -1.9919,
+        "Environmental_exposures": -1.8005,
+        "Mental_health_practices": -2.4774,
+        "Non_physical_leisure_time_activities": -1.6337,
+        "Nutrition": 6.4503,
+        "Physical_activities": -1.5888,
+        "Sleep": -1.2486,
+        "Socioeconomic_factors": -1.8103
+      }
+    },
+    {
+      "span_id": "27107610_s006",
+      "abstract_id": "27107610",
+      "span_text": "Low bacterial diet",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 18,
+        "token_start": 1,
+        "token_end": 3,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0506,
+        "novelty_score": 0.8206,
+        "margin": 0.9586,
+        "top1_prob": 0.9782,
+        "top2_prob": 0.0196,
+        "p_background_o": 0.0196
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8206,
+        "novelty_lof": 1.2231,
+        "novelty_knn_dist": 0.2854
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0506,
+        "least_confidence": 0.0218,
+        "margin_uncertainty": 0.0414
+      },
+      "probabilities": {
+        "O": 0.0196,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.9782,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 2.5959,
+        "Personal_care_products_and_cosmetic_procedures": -2.0415,
+        "Substance_use": -1.8827,
+        "Environmental_exposures": -1.6112,
+        "Mental_health_practices": -2.7545,
+        "Non_physical_leisure_time_activities": -1.5734,
+        "Nutrition": 6.5074,
+        "Physical_activities": -1.4325,
+        "Sleep": -1.3787,
+        "Socioeconomic_factors": -1.2879
+      }
+    },
+    {
+      "span_id": "27107610_s007",
+      "abstract_id": "27107610",
+      "span_text": "low bacterial diet",
+      "boundaries": {
+        "start_char": 318,
+        "end_char": 336,
+        "token_start": 58,
+        "token_end": 60,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0365,
+        "novelty_score": 0.5918,
+        "margin": 0.9735,
+        "top1_prob": 0.9858,
+        "top2_prob": 0.0123,
+        "p_background_o": 0.0123
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5918,
+        "novelty_lof": 1.0886,
+        "novelty_knn_dist": 0.2397
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0365,
+        "least_confidence": 0.0142,
+        "margin_uncertainty": 0.0265
+      },
+      "probabilities": {
+        "O": 0.0123,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9858,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 2.2882,
+        "Personal_care_products_and_cosmetic_procedures": -1.928,
+        "Substance_use": -1.9662,
+        "Environmental_exposures": -1.6669,
+        "Mental_health_practices": -2.6847,
+        "Non_physical_leisure_time_activities": -1.61,
+        "Nutrition": 6.6734,
+        "Physical_activities": -1.3974,
+        "Sleep": -1.1936,
+        "Socioeconomic_factors": -1.3785
+      }
+    },
+    {
+      "span_id": "27107610_s008",
+      "abstract_id": "27107610",
+      "span_text": "LBD versus a control diet",
+      "boundaries": {
+        "start_char": 657,
+        "end_char": 682,
+        "token_start": 118,
+        "token_end": 122,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0779,
+        "novelty_score": 0.8694,
+        "margin": 0.919,
+        "top1_prob": 0.9589,
+        "top2_prob": 0.0399,
+        "p_background_o": 0.0399
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8694,
+        "novelty_lof": 1.2905,
+        "novelty_knn_dist": 0.2768
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0779,
+        "least_confidence": 0.0411,
+        "margin_uncertainty": 0.081
+      },
+      "probabilities": {
+        "O": 0.0399,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9589,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 3.742,
+        "Personal_care_products_and_cosmetic_procedures": -1.9056,
+        "Substance_use": -2.0642,
+        "Environmental_exposures": -2.097,
+        "Mental_health_practices": -2.4984,
+        "Non_physical_leisure_time_activities": -1.4694,
+        "Nutrition": 6.9216,
+        "Physical_activities": -1.9459,
+        "Sleep": -1.5403,
+        "Socioeconomic_factors": -1.56
+      }
+    },
+    {
+      "span_id": "27107610_s009",
+      "abstract_id": "27107610",
+      "span_text": "LBD versus a control diet",
+      "boundaries": {
+        "start_char": 2468,
+        "end_char": 2493,
+        "token_start": 493,
+        "token_end": 497,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0591,
+        "novelty_score": 0.8694,
+        "margin": 0.9442,
+        "top1_prob": 0.9716,
+        "top2_prob": 0.0273,
+        "p_background_o": 0.0273
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8694,
+        "novelty_lof": 1.2905,
+        "novelty_knn_dist": 0.2768
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0591,
+        "least_confidence": 0.0284,
+        "margin_uncertainty": 0.0558
+      },
+      "probabilities": {
+        "O": 0.0273,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9716,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 3.4917,
+        "Personal_care_products_and_cosmetic_procedures": -1.8374,
+        "Substance_use": -2.0621,
+        "Environmental_exposures": -2.137,
+        "Mental_health_practices": -2.4446,
+        "Non_physical_leisure_time_activities": -1.4314,
+        "Nutrition": 7.0622,
+        "Physical_activities": -1.8627,
+        "Sleep": -1.4928,
+        "Socioeconomic_factors": -1.5863
+      }
+    },
+    {
+      "span_id": "27107610_s010",
+      "abstract_id": "27107610",
+      "span_text": "Low bacterial diet versus control diet",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 38,
+        "token_start": 1,
+        "token_end": 6,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.081,
+        "novelty_score": 0.8218,
+        "margin": 0.9182,
+        "top1_prob": 0.9581,
+        "top2_prob": 0.0399,
+        "p_background_o": 0.0399
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8218,
+        "novelty_lof": 1.2401,
+        "novelty_knn_dist": 0.2696
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.081,
+        "least_confidence": 0.0419,
+        "margin_uncertainty": 0.0818
+      },
+      "probabilities": {
+        "O": 0.0399,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.9581,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 3.2575,
+        "Personal_care_products_and_cosmetic_procedures": -2.1504,
+        "Substance_use": -1.8565,
+        "Environmental_exposures": -1.9019,
+        "Mental_health_practices": -2.7464,
+        "Non_physical_leisure_time_activities": -1.6672,
+        "Nutrition": 6.4368,
+        "Physical_activities": -1.5943,
+        "Sleep": -1.4438,
+        "Socioeconomic_factors": -1.4464
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Graphify ignore rules for Unified_Test
+
+# Large raw datasets, BRAT annotations, and vector db files
+data/
+
+# Heavy experiment outputs and logs
+output/
+
+# Secondary nested clones and archival runs
+Babak update/
+models/
+
+# Environment and git
+.venv/
+.git/
+.agents/
+scratch/
+
+# Whitelist research paper PDFs
+!*.pdf
+

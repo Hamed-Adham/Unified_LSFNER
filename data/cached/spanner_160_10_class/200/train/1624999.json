@@ -1,0 +1,68 @@
+{
+  "doc_id": "1624999",
+  "dataset_split": "200/train",
+  "text": "Effectiveness of a continuing education course in local anesthesia for dental hygienists. \nThe knowledge, skill level, and clinical practice habits of 97 dental hygienists were assessed after the hygienists completed a 24-hour continuing education course in local anesthesia. Three survey methods were used to assess changes: a written pretest/posttest, self-reports, and employer-reported behavior change. The self-report was completed prior to the course and again one month and six months after completion of the course. The dentists/employers completed the survey after six months. Data were analyzed by paired t-tests. There was a significant improvement in knowledge between the pretest and posttest, an increase in the number of dental hygienists administering local anesthesia, and an increased frequency of its use in the practice setting at both one and six months after the course. The majority of the dentists/employers stated that completion of the course by the dental hygienists had a positive impact on their practices as demonstrated by the practice running more smoothly, improved quality of dental hygiene services, more satisfied patients, and increased productivity of the dental hygienists. \n",
+  "total_candidates": 1,
+  "spans": [
+    {
+      "span_id": "1624999_s000",
+      "abstract_id": "1624999",
+      "span_text": "dental hygiene",
+      "boundaries": {
+        "start_char": 1110,
+        "end_char": 1124,
+        "token_start": 212,
+        "token_end": 213,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.0524,
+        "novelty_score": 0.5045,
+        "margin": 0.9754,
+        "top1_prob": 0.9825,
+        "top2_prob": 0.0071,
+        "p_background_o": 0.0071
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5045,
+        "novelty_lof": 1.0418,
+        "novelty_knn_dist": 0.231
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0524,
+        "least_confidence": 0.0175,
+        "margin_uncertainty": 0.0246
+      },
+      "probabilities": {
+        "O": 0.0071,
+        "Personal_care_products_and_cosmetic_procedures": 0.9825,
+        "Substance_use": 0.0013,
+        "Environmental_exposures": 0.0013,
+        "Mental_health_practices": 0.0025,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.001,
+        "Physical_activities": 0.001,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.001
+      },
+      "logits": {
+        "O": 0.557,
+        "Personal_care_products_and_cosmetic_procedures": 5.4838,
+        "Substance_use": -1.1101,
+        "Environmental_exposures": -1.1272,
+        "Mental_health_practices": -0.4789,
+        "Non_physical_leisure_time_activities": -1.6585,
+        "Nutrition": -1.4042,
+        "Physical_activities": -1.3669,
+        "Sleep": -1.1214,
+        "Socioeconomic_factors": -1.3934
+      }
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "doc_id": "20590434",
+  "dataset_split": "200/train",
+  "text": "Group therapy module to enhance self-esteem in patients with borderline personality disorder: a pilot study. \nPsychotherapeutic treatments of borderline personality disorder (BPD) often focus on severe behavioral problems. Until now, few techniques have been developed to specifically address low self-esteem in BPD. We developed a 6-session psychoeducative group therapy module to treat low self-esteem in BPD patients. After developing and piloting the therapy module, a controlled outpatient pilot study was performed. Nineteen female BPD patients participated in the group module after discharge from an inpatient DBT program. Twenty-four female BPD patients served as controls. Outcome was assessed by different self-esteem measures. Results showed a greater improvement in self-esteem in the intervention group. The findings suggest that the therapy module is an effective adjunctive treatment in increasing self-esteem in BPD. \n",
+  "total_candidates": 2,
+  "spans": [
+    {
+      "span_id": "20590434_s000",
+      "abstract_id": "20590434",
+      "span_text": "Group therapy",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 13,
+        "token_start": 1,
+        "token_end": 2,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0807,
+        "novelty_score": 0.6292,
+        "margin": 0.9344,
+        "top1_prob": 0.9638,
+        "top2_prob": 0.0294,
+        "p_background_o": 0.0294
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6292,
+        "novelty_lof": 1.0971,
+        "novelty_knn_dist": 0.2559
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0807,
+        "least_confidence": 0.0362,
+        "margin_uncertainty": 0.0656
+      },
+      "probabilities": {
+        "O": 0.0294,
+        "Personal_care_products_and_cosmetic_procedures": 0.0014,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.9638,
+        "Non_physical_leisure_time_activities": 0.002,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 2.2428,
+        "Personal_care_products_and_cosmetic_procedures": -0.788,
+        "Substance_use": -1.6137,
+        "Environmental_exposures": -1.4325,
+        "Mental_health_practices": 5.7326,
+        "Non_physical_leisure_time_activities": -0.46,
+        "Nutrition": -2.8665,
+        "Physical_activities": -1.8445,
+        "Sleep": -1.72,
+        "Socioeconomic_factors": -1.376
+      }
+    },
+    {
+      "span_id": "20590434_s001",
+      "abstract_id": "20590434",
+      "span_text": "Psychotherapeutic treatments",
+      "boundaries": {
+        "start_char": 110,
+        "end_char": 138,
+        "token_start": 22,
+        "token_end": 24,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0416,
+        "novelty_score": 0.4037,
+        "margin": 0.9779,
+        "top1_prob": 0.9859,
+        "top2_prob": 0.008,
+        "p_background_o": 0.008
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4037,
+        "novelty_lof": 0.9998,
+        "novelty_knn_dist": 0.2091
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0416,
+        "least_confidence": 0.0141,
+        "margin_uncertainty": 0.0221
+      },
+      "probabilities": {
+        "O": 0.008,
+        "Personal_care_products_and_cosmetic_procedures": 0.0012,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.0008,
+        "Mental_health_practices": 0.9859,
+        "Non_physical_leisure_time_activities": 0.0011,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0011
+      },
+      "logits": {
+        "O": 1.1594,
+        "Personal_care_products_and_cosmetic_procedures": -0.7732,
+        "Substance_use": -1.1735,
+        "Environmental_exposures": -1.087,
+        "Mental_health_practices": 5.974,
+        "Non_physical_leisure_time_activities": -0.8295,
+        "Nutrition": -2.2378,
+        "Physical_activities": -1.7558,
+        "Sleep": -1.8622,
+        "Socioeconomic_factors": -0.7837
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "doc_id": "24740024",
+  "dataset_split": "400/train",
+  "text": "Outcomes of breast reconstruction in breast cancer patients with a history of mantle radiation for Hodgkin lymphoma. \nBACKGROUND: Although mantle radiation (ie, extended field radiation) represented the standard of care in the past for Hodgkin disease, contemporary treatment of lymphoma consists of a multimodal approach with chemotherapy. Patients who were exposed to mantle radiation have a higher risk of breast cancer and are more susceptible to postoperative complications after breast reconstruction due to radiation. In this study, we present postoperative outcomes in patients with a history of mantle radiation who underwent mastectomy and breast reconstruction. METHODS: All patients at Stanford University Medical Center between January 2006 and December 2012 with a history of Hodgkin lymphoma treated with mantle radiation who received breast reconstruction were identified. A retrospective chart review was conducted analyzing patient demographics, history of Hodgkin treatment, type of reconstruction, follow-up, and complications. Complications were further classified into medical complications, donor-site complications, and recipient-site complications. RESULTS: Sixteen patients with a history of Hodgkin disease and mantle radiation received breast reconstruction. The average age of the patients at their mastectomy was 46 (33-60) years, with the average age at the time of their mantle radiation of 20.5 (10-33) years with an average interval of radiation to breast cancer treatment of 24.8 (16-38) years. There were five unilateral and 11 bilateral reconstructions. All patients had immediate reconstruction with tissue expanders (14 patients) or autologous tissue (one muscle-sparing transverse rectus abdominis myocutaneous and one transverse upper gracilis flap). Eleven (69%) patients had postoperative complications. In the patients who had tissue expander reconstruction, there was an overall complication rate of 64%, which included capsular contracture (n=5, 56%), mastectomy flap necrosis (n=5, 56%), cellulitis (n=4, 44%), seroma (n=3, 33%), hematoma (n=1, 11%), and chronic pain (n=1, 11%). Three (two unilateral and one bilateral) tissue expander infections required removal of the expander and delayed reconstruction with a latissimus dorsi flap, whereas one patient with chronic pain and capsular contracture required a muscle-sparing transverse rectus abdominis myocutaneous for a unilateral implant failure. CONCLUSIONS: Although the risk of complications associated with preoperative radiation is well documented, physicians and patients should be cognizant of the increased risk of complications after mantle radiation as it represents a unique modality of radiation exposure. \n",
+  "total_candidates": 1,
+  "spans": [
+    {
+      "span_id": "24740024_s000",
+      "abstract_id": "24740024",
+      "span_text": "radiation exposure",
+      "boundaries": {
+        "start_char": 2700,
+        "end_char": 2718,
+        "token_start": 483,
+        "token_end": 484,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.3391,
+        "novelty_score": 0.3128,
+        "margin": 0.2005,
+        "top1_prob": 0.5917,
+        "top2_prob": 0.3912,
+        "p_background_o": 0.3912
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3128,
+        "novelty_lof": 0.9769,
+        "novelty_knn_dist": 0.1698
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3391,
+        "least_confidence": 0.4083,
+        "margin_uncertainty": 0.7995
+      },
+      "probabilities": {
+        "O": 0.3912,
+        "Personal_care_products_and_cosmetic_procedures": 0.0018,
+        "Substance_use": 0.0034,
+        "Environmental_exposures": 0.5917,
+        "Mental_health_practices": 0.004,
+        "Non_physical_leisure_time_activities": 0.0011,
+        "Nutrition": 0.0018,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.0012,
+        "Socioeconomic_factors": 0.003
+      },
+      "logits": {
+        "O": 3.8765,
+        "Personal_care_products_and_cosmetic_procedures": -1.492,
+        "Substance_use": -0.8815,
+        "Environmental_exposures": 4.2902,
+        "Mental_health_practices": -0.7084,
+        "Non_physical_leisure_time_activities": -2.0317,
+        "Nutrition": -1.4963,
+        "Physical_activities": -2.2483,
+        "Sleep": -1.9208,
+        "Socioeconomic_factors": -0.984
+      }
+    }
+  ]
+}

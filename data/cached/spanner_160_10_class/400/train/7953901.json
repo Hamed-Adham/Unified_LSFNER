@@ -1,0 +1,848 @@
+{
+  "doc_id": "7953901",
+  "dataset_split": "400/train",
+  "text": "Childhood abuse, body image disturbance, and eating disorders. \nStudies have suggested that women who experience child sexual abuse are at risk for developing symptoms related to anorexia nervosa and bulimia. The purpose of the present study was to examine the relationships among childhood sexual and physical abuse, body image disturbance, and eating disorder symptomatology. Of 670 female college students screened for childhood abuse, 29 sexually abused, 32 physically abused, and 29 nonabused women completed measures of eating disorder symptoms, psychological factors thought to be related to eating disorders, and body image distortion. Contrary to previous reports, there was no evidence that child sexual or physical abuse was associated with the development of body image disturbance. Furthermore, the results did not support the hypothesis that child sexual and physical abuse are related to eating disorder symptomatology. It is suggested that subjects who are victims of child sexual abuse and who are receiving psychotherapy manifest higher rates of a number of different types of psychopathology, including eating disorders. \n",
+  "total_candidates": 14,
+  "spans": [
+    {
+      "span_id": "7953901_s000",
+      "abstract_id": "7953901",
+      "span_text": "psychotherapy",
+      "boundaries": {
+        "start_char": 1025,
+        "end_char": 1038,
+        "token_start": 174,
+        "token_end": 174,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0163,
+        "novelty_score": 0.3097,
+        "margin": 0.9922,
+        "top1_prob": 0.9951,
+        "top2_prob": 0.003,
+        "p_background_o": 0.003
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3097,
+        "novelty_lof": 0.9915,
+        "novelty_knn_dist": 0.1528
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0163,
+        "least_confidence": 0.0049,
+        "margin_uncertainty": 0.0078
+      },
+      "probabilities": {
+        "O": 0.003,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.9951,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.0001
+      },
+      "logits": {
+        "O": 1.2604,
+        "Personal_care_products_and_cosmetic_procedures": -0.8448,
+        "Substance_use": -0.8671,
+        "Environmental_exposures": -1.1533,
+        "Mental_health_practices": 7.0791,
+        "Non_physical_leisure_time_activities": -0.5973,
+        "Nutrition": -2.8307,
+        "Physical_activities": -1.9028,
+        "Sleep": -1.7656,
+        "Socioeconomic_factors": -1.7718
+      }
+    },
+    {
+      "span_id": "7953901_s001",
+      "abstract_id": "7953901",
+      "span_text": "Childhood abuse",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 15,
+        "token_start": 1,
+        "token_end": 2,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0436,
+        "novelty_score": 0.9097,
+        "margin": 0.9639,
+        "top1_prob": 0.9813,
+        "top2_prob": 0.0174,
+        "p_background_o": 0.0174
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9097,
+        "novelty_lof": 1.3087,
+        "novelty_knn_dist": 0.3236
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0436,
+        "least_confidence": 0.0187,
+        "margin_uncertainty": 0.0361
+      },
+      "probabilities": {
+        "O": 0.0174,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9813
+      },
+      "logits": {
+        "O": 2.8567,
+        "Personal_care_products_and_cosmetic_procedures": -1.3917,
+        "Substance_use": -2.376,
+        "Environmental_exposures": -1.6651,
+        "Mental_health_practices": -2.1284,
+        "Non_physical_leisure_time_activities": -1.4001,
+        "Nutrition": -2.1028,
+        "Physical_activities": -1.7106,
+        "Sleep": -2.1187,
+        "Socioeconomic_factors": 6.8898
+      }
+    },
+    {
+      "span_id": "7953901_s002",
+      "abstract_id": "7953901",
+      "span_text": "physical abuse",
+      "boundaries": {
+        "start_char": 302,
+        "end_char": 316,
+        "token_start": 53,
+        "token_end": 54,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2202,
+        "novelty_score": 0.9318,
+        "margin": 0.6112,
+        "top1_prob": 0.8048,
+        "top2_prob": 0.1935,
+        "p_background_o": 0.1935
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9318,
+        "novelty_lof": 1.3923,
+        "novelty_knn_dist": 0.2877
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2202,
+        "least_confidence": 0.1952,
+        "margin_uncertainty": 0.3888
+      },
+      "probabilities": {
+        "O": 0.1935,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.8048
+      },
+      "logits": {
+        "O": 4.7988,
+        "Personal_care_products_and_cosmetic_procedures": -1.8714,
+        "Substance_use": -2.5569,
+        "Environmental_exposures": -1.6422,
+        "Mental_health_practices": -2.5386,
+        "Non_physical_leisure_time_activities": -1.8088,
+        "Nutrition": -2.0396,
+        "Physical_activities": -1.6502,
+        "Sleep": -2.4313,
+        "Socioeconomic_factors": 6.2239
+      }
+    },
+    {
+      "span_id": "7953901_s003",
+      "abstract_id": "7953901",
+      "span_text": "childhood abuse",
+      "boundaries": {
+        "start_char": 422,
+        "end_char": 437,
+        "token_start": 72,
+        "token_end": 73,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0229,
+        "novelty_score": 0.8129,
+        "margin": 0.984,
+        "top1_prob": 0.9916,
+        "top2_prob": 0.0076,
+        "p_background_o": 0.0076
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8129,
+        "novelty_lof": 1.2255,
+        "novelty_knn_dist": 0.2749
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0229,
+        "least_confidence": 0.0084,
+        "margin_uncertainty": 0.016
+      },
+      "probabilities": {
+        "O": 0.0076,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9916
+      },
+      "logits": {
+        "O": 2.5419,
+        "Personal_care_products_and_cosmetic_procedures": -1.2588,
+        "Substance_use": -2.41,
+        "Environmental_exposures": -1.7039,
+        "Mental_health_practices": -2.0122,
+        "Non_physical_leisure_time_activities": -1.7187,
+        "Nutrition": -1.986,
+        "Physical_activities": -1.8741,
+        "Sleep": -2.1484,
+        "Socioeconomic_factors": 7.4079
+      }
+    },
+    {
+      "span_id": "7953901_s004",
+      "abstract_id": "7953901",
+      "span_text": "sexually abused",
+      "boundaries": {
+        "start_char": 442,
+        "end_char": 457,
+        "token_start": 76,
+        "token_end": 77,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2892,
+        "novelty_score": 0.8344,
+        "margin": 0.2692,
+        "top1_prob": 0.6341,
+        "top2_prob": 0.3649,
+        "p_background_o": 0.3649
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8344,
+        "novelty_lof": 1.2069,
+        "novelty_knn_dist": 0.3167
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2892,
+        "least_confidence": 0.3659,
+        "margin_uncertainty": 0.7308
+      },
+      "probabilities": {
+        "O": 0.3649,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.6341
+      },
+      "logits": {
+        "O": 5.8019,
+        "Personal_care_products_and_cosmetic_procedures": -1.876,
+        "Substance_use": -2.5068,
+        "Environmental_exposures": -1.813,
+        "Mental_health_practices": -2.7876,
+        "Non_physical_leisure_time_activities": -1.7966,
+        "Nutrition": -1.98,
+        "Physical_activities": -2.3094,
+        "Sleep": -2.7512,
+        "Socioeconomic_factors": 6.3544
+      }
+    },
+    {
+      "span_id": "7953901_s005",
+      "abstract_id": "7953901",
+      "span_text": "physically abused",
+      "boundaries": {
+        "start_char": 462,
+        "end_char": 479,
+        "token_start": 80,
+        "token_end": 81,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.3003,
+        "novelty_score": 0.937,
+        "margin": 0.1497,
+        "top1_prob": 0.5743,
+        "top2_prob": 0.4246,
+        "p_background_o": 0.4246
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.937,
+        "novelty_lof": 1.3866,
+        "novelty_knn_dist": 0.3068
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3003,
+        "least_confidence": 0.4257,
+        "margin_uncertainty": 0.8503
+      },
+      "probabilities": {
+        "O": 0.4246,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.5743
+      },
+      "logits": {
+        "O": 5.9351,
+        "Personal_care_products_and_cosmetic_procedures": -1.9239,
+        "Substance_use": -2.6141,
+        "Environmental_exposures": -1.6688,
+        "Mental_health_practices": -2.828,
+        "Non_physical_leisure_time_activities": -1.8777,
+        "Nutrition": -2.0014,
+        "Physical_activities": -2.1808,
+        "Sleep": -2.8033,
+        "Socioeconomic_factors": 6.2371
+      }
+    },
+    {
+      "span_id": "7953901_s006",
+      "abstract_id": "7953901",
+      "span_text": "physical abuse",
+      "boundaries": {
+        "start_char": 717,
+        "end_char": 731,
+        "token_start": 124,
+        "token_end": 125,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.1192,
+        "novelty_score": 0.9318,
+        "margin": 0.8531,
+        "top1_prob": 0.9258,
+        "top2_prob": 0.0727,
+        "p_background_o": 0.0727
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9318,
+        "novelty_lof": 1.3923,
+        "novelty_knn_dist": 0.2877
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1192,
+        "least_confidence": 0.0742,
+        "margin_uncertainty": 0.1469
+      },
+      "probabilities": {
+        "O": 0.0727,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9258
+      },
+      "logits": {
+        "O": 4.014,
+        "Personal_care_products_and_cosmetic_procedures": -1.7227,
+        "Substance_use": -2.4142,
+        "Environmental_exposures": -1.6148,
+        "Mental_health_practices": -2.4212,
+        "Non_physical_leisure_time_activities": -1.8757,
+        "Nutrition": -1.9452,
+        "Physical_activities": -1.6728,
+        "Sleep": -2.4581,
+        "Socioeconomic_factors": 6.5584
+      }
+    },
+    {
+      "span_id": "7953901_s007",
+      "abstract_id": "7953901",
+      "span_text": "physical abuse",
+      "boundaries": {
+        "start_char": 873,
+        "end_char": 887,
+        "token_start": 149,
+        "token_end": 150,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.051,
+        "novelty_score": 0.9318,
+        "margin": 0.9559,
+        "top1_prob": 0.9772,
+        "top2_prob": 0.0213,
+        "p_background_o": 0.0213
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9318,
+        "novelty_lof": 1.3923,
+        "novelty_knn_dist": 0.2877
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.051,
+        "least_confidence": 0.0228,
+        "margin_uncertainty": 0.0441
+      },
+      "probabilities": {
+        "O": 0.0213,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9772
+      },
+      "logits": {
+        "O": 2.8751,
+        "Personal_care_products_and_cosmetic_procedures": -1.5099,
+        "Substance_use": -2.4105,
+        "Environmental_exposures": -1.4309,
+        "Mental_health_practices": -2.1941,
+        "Non_physical_leisure_time_activities": -1.8663,
+        "Nutrition": -1.801,
+        "Physical_activities": -1.614,
+        "Sleep": -2.3229,
+        "Socioeconomic_factors": 6.7029
+      }
+    },
+    {
+      "span_id": "7953901_s008",
+      "abstract_id": "7953901",
+      "span_text": "child sexual abuse",
+      "boundaries": {
+        "start_char": 113,
+        "end_char": 131,
+        "token_start": 21,
+        "token_end": 23,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0168,
+        "novelty_score": 0.7793,
+        "margin": 0.989,
+        "top1_prob": 0.9942,
+        "top2_prob": 0.0052,
+        "p_background_o": 0.0052
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7793,
+        "novelty_lof": 1.1518,
+        "novelty_knn_dist": 0.3161
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0168,
+        "least_confidence": 0.0058,
+        "margin_uncertainty": 0.011
+      },
+      "probabilities": {
+        "O": 0.0052,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9942
+      },
+      "logits": {
+        "O": 2.4284,
+        "Personal_care_products_and_cosmetic_procedures": -1.5193,
+        "Substance_use": -2.2569,
+        "Environmental_exposures": -2.0166,
+        "Mental_health_practices": -1.8464,
+        "Non_physical_leisure_time_activities": -1.7546,
+        "Nutrition": -1.8374,
+        "Physical_activities": -1.6229,
+        "Sleep": -2.1791,
+        "Socioeconomic_factors": 7.6797
+      }
+    },
+    {
+      "span_id": "7953901_s009",
+      "abstract_id": "7953901",
+      "span_text": "female college students",
+      "boundaries": {
+        "start_char": 385,
+        "end_char": 408,
+        "token_start": 67,
+        "token_end": 69,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0588,
+        "novelty_score": 0.9728,
+        "margin": 0.943,
+        "top1_prob": 0.9712,
+        "top2_prob": 0.0281,
+        "p_background_o": 0.0281
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9728,
+        "novelty_lof": 1.4869,
+        "novelty_knn_dist": 0.344
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0588,
+        "least_confidence": 0.0288,
+        "margin_uncertainty": 0.057
+      },
+      "probabilities": {
+        "O": 0.0281,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9712
+      },
+      "logits": {
+        "O": 3.7547,
+        "Personal_care_products_and_cosmetic_procedures": -1.8879,
+        "Substance_use": -2.3775,
+        "Environmental_exposures": -2.0534,
+        "Mental_health_practices": -2.0488,
+        "Non_physical_leisure_time_activities": -1.7315,
+        "Nutrition": -1.8436,
+        "Physical_activities": -1.8287,
+        "Sleep": -2.5561,
+        "Socioeconomic_factors": 7.2962
+      }
+    },
+    {
+      "span_id": "7953901_s010",
+      "abstract_id": "7953901",
+      "span_text": "child sexual abuse",
+      "boundaries": {
+        "start_char": 984,
+        "end_char": 1002,
+        "token_start": 167,
+        "token_end": 169,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0141,
+        "novelty_score": 0.7793,
+        "margin": 0.9914,
+        "top1_prob": 0.9954,
+        "top2_prob": 0.004,
+        "p_background_o": 0.004
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7793,
+        "novelty_lof": 1.1518,
+        "novelty_knn_dist": 0.3161
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0141,
+        "least_confidence": 0.0046,
+        "margin_uncertainty": 0.0086
+      },
+      "probabilities": {
+        "O": 0.004,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9954
+      },
+      "logits": {
+        "O": 2.163,
+        "Personal_care_products_and_cosmetic_procedures": -1.4686,
+        "Substance_use": -2.2804,
+        "Environmental_exposures": -1.9147,
+        "Mental_health_practices": -1.7702,
+        "Non_physical_leisure_time_activities": -1.6523,
+        "Nutrition": -1.7749,
+        "Physical_activities": -1.6307,
+        "Sleep": -2.1773,
+        "Socioeconomic_factors": 7.6775
+      }
+    },
+    {
+      "span_id": "7953901_s011",
+      "abstract_id": "7953901",
+      "span_text": "childhood sexual and physical abuse",
+      "boundaries": {
+        "start_char": 281,
+        "end_char": 316,
+        "token_start": 50,
+        "token_end": 54,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.027,
+        "novelty_score": 0.8469,
+        "margin": 0.9795,
+        "top1_prob": 0.9894,
+        "top2_prob": 0.01,
+        "p_background_o": 0.01
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8469,
+        "novelty_lof": 1.224,
+        "novelty_knn_dist": 0.3143
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.027,
+        "least_confidence": 0.0106,
+        "margin_uncertainty": 0.0205
+      },
+      "probabilities": {
+        "O": 0.01,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0,
+        "Socioeconomic_factors": 0.9894
+      },
+      "logits": {
+        "O": 2.9945,
+        "Personal_care_products_and_cosmetic_procedures": -1.558,
+        "Substance_use": -2.4008,
+        "Environmental_exposures": -1.858,
+        "Mental_health_practices": -1.8669,
+        "Non_physical_leisure_time_activities": -1.7068,
+        "Nutrition": -2.0841,
+        "Physical_activities": -1.6996,
+        "Sleep": -2.3223,
+        "Socioeconomic_factors": 7.592
+      }
+    },
+    {
+      "span_id": "7953901_s012",
+      "abstract_id": "7953901",
+      "span_text": "child sexual or physical abuse",
+      "boundaries": {
+        "start_char": 701,
+        "end_char": 731,
+        "token_start": 121,
+        "token_end": 125,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0353,
+        "novelty_score": 0.8871,
+        "margin": 0.9714,
+        "top1_prob": 0.9853,
+        "top2_prob": 0.0139,
+        "p_background_o": 0.0139
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8871,
+        "novelty_lof": 1.2887,
+        "novelty_knn_dist": 0.3046
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0353,
+        "least_confidence": 0.0147,
+        "margin_uncertainty": 0.0286
+      },
+      "probabilities": {
+        "O": 0.0139,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9853
+      },
+      "logits": {
+        "O": 3.0402,
+        "Personal_care_products_and_cosmetic_procedures": -1.5696,
+        "Substance_use": -2.3375,
+        "Environmental_exposures": -1.8941,
+        "Mental_health_practices": -1.7796,
+        "Non_physical_leisure_time_activities": -1.6974,
+        "Nutrition": -2.0815,
+        "Physical_activities": -1.8014,
+        "Sleep": -2.3924,
+        "Socioeconomic_factors": 7.2995
+      }
+    },
+    {
+      "span_id": "7953901_s013",
+      "abstract_id": "7953901",
+      "span_text": "child sexual and physical abuse",
+      "boundaries": {
+        "start_char": 856,
+        "end_char": 887,
+        "token_start": 146,
+        "token_end": 150,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0437,
+        "novelty_score": 0.8859,
+        "margin": 0.9629,
+        "top1_prob": 0.9809,
+        "top2_prob": 0.018,
+        "p_background_o": 0.018
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8859,
+        "novelty_lof": 1.2675,
+        "novelty_knn_dist": 0.324
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0437,
+        "least_confidence": 0.0191,
+        "margin_uncertainty": 0.0371
+      },
+      "probabilities": {
+        "O": 0.018,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9809
+      },
+      "logits": {
+        "O": 3.0386,
+        "Personal_care_products_and_cosmetic_procedures": -1.5811,
+        "Substance_use": -2.3246,
+        "Environmental_exposures": -1.797,
+        "Mental_health_practices": -1.7672,
+        "Non_physical_leisure_time_activities": -1.6437,
+        "Nutrition": -1.9935,
+        "Physical_activities": -1.7839,
+        "Sleep": -2.3431,
+        "Socioeconomic_factors": 7.037
+      }
+    }
+  ]
+}

@@ -1,0 +1,908 @@
+{
+  "doc_id": "30994479",
+  "dataset_split": "400/val",
+  "text": "Leisure-time cross-country skiing is associated with lower incidence of hypertension: a prospective cohort study. \nOBJECTIVE: The prospective relationship between cross-country skiing and hypertension is uncertain. We aimed to assess the associations of leisure time cross-country skiing habits with incident hypertension in a general population. METHODS: The frequency, average duration, and intensity of leisure cross-country skiing were assessed at baseline using a 12-month physical activity questionnaire in the Kuopio Ischemic Heart Disease prospective study of 1809 middle-aged men without hypertension. Hazard ratios [95% confidence intervals (CIs)] were calculated. RESULTS: New onset diagnosis of hypertension was observed in 279 participants during a median (interquartile range) follow-up of 24.7 (18.1-26.8) years. Total volume and duration of cross-country skiing were continuously associated with hypertension risk. In analyses adjusted for hypertension risk factors, when compared with men with no cross-country skiing activity, the hazard ratios (95% CIs) of incident hypertension were 0.75 (0.57-0.99) and 0.57 (0.41-0.79) for men who did 1-200 and more than 200 MET hours/year of cross-country skiing, respectively. Compared with men with no cross-country skiing activity, the corresponding adjusted hazard ratios (95% CIs) for incident hypertension were 0.72 (0.55-0.94) and 0.62 (0.44-0.86) for men who did 1-60 min/week and more than 60 min/week of cross-country skiing, respectively. In subsidiary analyses, there were age-adjusted associations of cross-country skiing habits with risk of stroke and acute coronary events, but these were attenuated on further adjustment for several confounders. Cross-country skiing habits were associated with reduced risk of type 2 diabetes. CONCLUSION: Total volume as well as duration of leisure time cross-country skiing are each continuously, inversely, and independently associated with future risk of hypertension in a white male population. \n",
+  "total_candidates": 15,
+  "spans": [
+    {
+      "span_id": "30994479_s000",
+      "abstract_id": "30994479",
+      "span_text": "physical activity",
+      "boundaries": {
+        "start_char": 478,
+        "end_char": 495,
+        "token_start": 90,
+        "token_end": 91,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0336,
+        "novelty_score": 0.2005,
+        "margin": 0.979,
+        "top1_prob": 0.988,
+        "top2_prob": 0.009,
+        "p_background_o": 0.009
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2005,
+        "novelty_lof": 0.9433,
+        "novelty_knn_dist": 0.1098
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0336,
+        "least_confidence": 0.012,
+        "margin_uncertainty": 0.021
+      },
+      "probabilities": {
+        "O": 0.009,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.988,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 1.6148,
+        "Personal_care_products_and_cosmetic_procedures": -1.888,
+        "Substance_use": -3.1037,
+        "Environmental_exposures": -2.0693,
+        "Mental_health_practices": -1.7241,
+        "Non_physical_leisure_time_activities": -1.1533,
+        "Nutrition": -1.3784,
+        "Physical_activities": 6.3119,
+        "Sleep": -1.1043,
+        "Socioeconomic_factors": -1.3786
+      }
+    },
+    {
+      "span_id": "30994479_s001",
+      "abstract_id": "30994479",
+      "span_text": "cross-country skiing",
+      "boundaries": {
+        "start_char": 13,
+        "end_char": 33,
+        "token_start": 5,
+        "token_end": 9,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0952,
+        "novelty_score": 0.5917,
+        "margin": 0.9055,
+        "top1_prob": 0.9506,
+        "top2_prob": 0.045,
+        "p_background_o": 0.045
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5917,
+        "novelty_lof": 1.0357,
+        "novelty_knn_dist": 0.2926
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0952,
+        "least_confidence": 0.0494,
+        "margin_uncertainty": 0.0945
+      },
+      "probabilities": {
+        "O": 0.045,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0017,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.9506,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 2.9426,
+        "Personal_care_products_and_cosmetic_procedures": -2.2492,
+        "Substance_use": -3.1976,
+        "Environmental_exposures": -2.3957,
+        "Mental_health_practices": -1.8125,
+        "Non_physical_leisure_time_activities": -0.3534,
+        "Nutrition": -2.0324,
+        "Physical_activities": 5.9922,
+        "Sleep": -1.4686,
+        "Socioeconomic_factors": -0.9599
+      }
+    },
+    {
+      "span_id": "30994479_s002",
+      "abstract_id": "30994479",
+      "span_text": "cross-country skiing",
+      "boundaries": {
+        "start_char": 163,
+        "end_char": 183,
+        "token_start": 31,
+        "token_end": 35,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0418,
+        "novelty_score": 0.5917,
+        "margin": 0.9728,
+        "top1_prob": 0.9844,
+        "top2_prob": 0.0116,
+        "p_background_o": 0.0116
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5917,
+        "novelty_lof": 1.0357,
+        "novelty_knn_dist": 0.2926
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0418,
+        "least_confidence": 0.0156,
+        "margin_uncertainty": 0.0272
+      },
+      "probabilities": {
+        "O": 0.0116,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0015,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.9844,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 1.7943,
+        "Personal_care_products_and_cosmetic_procedures": -2.0477,
+        "Substance_use": -3.131,
+        "Environmental_exposures": -2.3003,
+        "Mental_health_practices": -1.554,
+        "Non_physical_leisure_time_activities": -0.2809,
+        "Nutrition": -1.7736,
+        "Physical_activities": 6.2335,
+        "Sleep": -1.4464,
+        "Socioeconomic_factors": -0.8892
+      }
+    },
+    {
+      "span_id": "30994479_s003",
+      "abstract_id": "30994479",
+      "span_text": "cross-country skiing",
+      "boundaries": {
+        "start_char": 267,
+        "end_char": 287,
+        "token_start": 50,
+        "token_end": 54,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.1228,
+        "novelty_score": 0.5917,
+        "margin": 0.8621,
+        "top1_prob": 0.9287,
+        "top2_prob": 0.0666,
+        "p_background_o": 0.0666
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5917,
+        "novelty_lof": 1.0357,
+        "novelty_knn_dist": 0.2926
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1228,
+        "least_confidence": 0.0713,
+        "margin_uncertainty": 0.1379
+      },
+      "probabilities": {
+        "O": 0.0666,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0018,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.9287,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 3.2278,
+        "Personal_care_products_and_cosmetic_procedures": -2.3032,
+        "Substance_use": -3.1174,
+        "Environmental_exposures": -2.325,
+        "Mental_health_practices": -1.9163,
+        "Non_physical_leisure_time_activities": -0.3807,
+        "Nutrition": -1.8905,
+        "Physical_activities": 5.8633,
+        "Sleep": -1.5572,
+        "Socioeconomic_factors": -1.0421
+      }
+    },
+    {
+      "span_id": "30994479_s004",
+      "abstract_id": "30994479",
+      "span_text": "cross-country skiing",
+      "boundaries": {
+        "start_char": 857,
+        "end_char": 877,
+        "token_start": 169,
+        "token_end": 173,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0376,
+        "novelty_score": 0.5917,
+        "margin": 0.9758,
+        "top1_prob": 0.9862,
+        "top2_prob": 0.0104,
+        "p_background_o": 0.0104
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5917,
+        "novelty_lof": 1.0357,
+        "novelty_knn_dist": 0.2926
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0376,
+        "least_confidence": 0.0138,
+        "margin_uncertainty": 0.0242
+      },
+      "probabilities": {
+        "O": 0.0104,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0012,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.9862,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 1.784,
+        "Personal_care_products_and_cosmetic_procedures": -2.0604,
+        "Substance_use": -3.1371,
+        "Environmental_exposures": -2.2677,
+        "Mental_health_practices": -1.5658,
+        "Non_physical_leisure_time_activities": -0.3604,
+        "Nutrition": -1.7357,
+        "Physical_activities": 6.3396,
+        "Sleep": -1.5029,
+        "Socioeconomic_factors": -0.944
+      }
+    },
+    {
+      "span_id": "30994479_s005",
+      "abstract_id": "30994479",
+      "span_text": "cross-country skiing",
+      "boundaries": {
+        "start_char": 1014,
+        "end_char": 1034,
+        "token_start": 195,
+        "token_end": 199,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0842,
+        "novelty_score": 0.5917,
+        "margin": 0.9185,
+        "top1_prob": 0.9575,
+        "top2_prob": 0.039,
+        "p_background_o": 0.039
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5917,
+        "novelty_lof": 1.0357,
+        "novelty_knn_dist": 0.2926
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0842,
+        "least_confidence": 0.0425,
+        "margin_uncertainty": 0.0815
+      },
+      "probabilities": {
+        "O": 0.039,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0012,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.9575,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 2.9527,
+        "Personal_care_products_and_cosmetic_procedures": -2.3547,
+        "Substance_use": -3.2899,
+        "Environmental_exposures": -2.2669,
+        "Mental_health_practices": -1.8002,
+        "Non_physical_leisure_time_activities": -0.5169,
+        "Nutrition": -1.9232,
+        "Physical_activities": 6.1529,
+        "Sleep": -1.6531,
+        "Socioeconomic_factors": -1.0137
+      }
+    },
+    {
+      "span_id": "30994479_s006",
+      "abstract_id": "30994479",
+      "span_text": "cross-country skiing",
+      "boundaries": {
+        "start_char": 1199,
+        "end_char": 1219,
+        "token_start": 255,
+        "token_end": 259,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0357,
+        "novelty_score": 0.5917,
+        "margin": 0.9765,
+        "top1_prob": 0.9868,
+        "top2_prob": 0.0103,
+        "p_background_o": 0.0103
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5917,
+        "novelty_lof": 1.0357,
+        "novelty_knn_dist": 0.2926
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0357,
+        "least_confidence": 0.0132,
+        "margin_uncertainty": 0.0235
+      },
+      "probabilities": {
+        "O": 0.0103,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.001,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.9868,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 1.9101,
+        "Personal_care_products_and_cosmetic_procedures": -2.0854,
+        "Substance_use": -3.1868,
+        "Environmental_exposures": -2.2738,
+        "Mental_health_practices": -1.5831,
+        "Non_physical_leisure_time_activities": -0.4577,
+        "Nutrition": -1.8041,
+        "Physical_activities": 6.4702,
+        "Sleep": -1.5185,
+        "Socioeconomic_factors": -0.9791
+      }
+    },
+    {
+      "span_id": "30994479_s007",
+      "abstract_id": "30994479",
+      "span_text": "cross-country skiing",
+      "boundaries": {
+        "start_char": 1261,
+        "end_char": 1281,
+        "token_start": 268,
+        "token_end": 272,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.082,
+        "novelty_score": 0.5917,
+        "margin": 0.9225,
+        "top1_prob": 0.9594,
+        "top2_prob": 0.0369,
+        "p_background_o": 0.0369
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5917,
+        "novelty_lof": 1.0357,
+        "novelty_knn_dist": 0.2926
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.082,
+        "least_confidence": 0.0406,
+        "margin_uncertainty": 0.0775
+      },
+      "probabilities": {
+        "O": 0.0369,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.9594,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 2.8674,
+        "Personal_care_products_and_cosmetic_procedures": -2.3237,
+        "Substance_use": -3.3327,
+        "Environmental_exposures": -2.2804,
+        "Mental_health_practices": -1.797,
+        "Non_physical_leisure_time_activities": -0.469,
+        "Nutrition": -1.8731,
+        "Physical_activities": 6.1248,
+        "Sleep": -1.635,
+        "Socioeconomic_factors": -0.9639
+      }
+    },
+    {
+      "span_id": "30994479_s008",
+      "abstract_id": "30994479",
+      "span_text": "cross-country skiing",
+      "boundaries": {
+        "start_char": 1471,
+        "end_char": 1491,
+        "token_start": 332,
+        "token_end": 336,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0324,
+        "novelty_score": 0.5917,
+        "margin": 0.9796,
+        "top1_prob": 0.9884,
+        "top2_prob": 0.0088,
+        "p_background_o": 0.0088
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5917,
+        "novelty_lof": 1.0357,
+        "novelty_knn_dist": 0.2926
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0324,
+        "least_confidence": 0.0116,
+        "margin_uncertainty": 0.0204
+      },
+      "probabilities": {
+        "O": 0.0088,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0009,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.9884,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 1.7712,
+        "Personal_care_products_and_cosmetic_procedures": -2.0708,
+        "Substance_use": -3.167,
+        "Environmental_exposures": -2.2789,
+        "Mental_health_practices": -1.5295,
+        "Non_physical_leisure_time_activities": -0.4816,
+        "Nutrition": -1.7935,
+        "Physical_activities": 6.4933,
+        "Sleep": -1.5137,
+        "Socioeconomic_factors": -0.9825
+      }
+    },
+    {
+      "span_id": "30994479_s009",
+      "abstract_id": "30994479",
+      "span_text": "cross-country skiing",
+      "boundaries": {
+        "start_char": 1571,
+        "end_char": 1591,
+        "token_start": 353,
+        "token_end": 357,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0302,
+        "novelty_score": 0.5917,
+        "margin": 0.9815,
+        "top1_prob": 0.9894,
+        "top2_prob": 0.0079,
+        "p_background_o": 0.0079
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5917,
+        "novelty_lof": 1.0357,
+        "novelty_knn_dist": 0.2926
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0302,
+        "least_confidence": 0.0106,
+        "margin_uncertainty": 0.0185
+      },
+      "probabilities": {
+        "O": 0.0079,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.001,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.9894,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 1.7317,
+        "Personal_care_products_and_cosmetic_procedures": -2.0997,
+        "Substance_use": -3.2103,
+        "Environmental_exposures": -2.2721,
+        "Mental_health_practices": -1.5446,
+        "Non_physical_leisure_time_activities": -0.357,
+        "Nutrition": -1.8321,
+        "Physical_activities": 6.5635,
+        "Sleep": -1.5152,
+        "Socioeconomic_factors": -0.9941
+      }
+    },
+    {
+      "span_id": "30994479_s010",
+      "abstract_id": "30994479",
+      "span_text": "Cross-country skiing",
+      "boundaries": {
+        "start_char": 1719,
+        "end_char": 1739,
+        "token_start": 379,
+        "token_end": 383,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0373,
+        "novelty_score": 0.6877,
+        "margin": 0.9762,
+        "top1_prob": 0.9864,
+        "top2_prob": 0.0102,
+        "p_background_o": 0.0102
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6877,
+        "novelty_lof": 1.0733,
+        "novelty_knn_dist": 0.3205
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0373,
+        "least_confidence": 0.0136,
+        "margin_uncertainty": 0.0238
+      },
+      "probabilities": {
+        "O": 0.0102,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.9864,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 1.7878,
+        "Personal_care_products_and_cosmetic_procedures": -2.1072,
+        "Substance_use": -3.247,
+        "Environmental_exposures": -2.3243,
+        "Mental_health_practices": -1.5902,
+        "Non_physical_leisure_time_activities": -0.2799,
+        "Nutrition": -1.6982,
+        "Physical_activities": 6.3635,
+        "Sleep": -1.5164,
+        "Socioeconomic_factors": -0.8919
+      }
+    },
+    {
+      "span_id": "30994479_s011",
+      "abstract_id": "30994479",
+      "span_text": "cross-country skiing",
+      "boundaries": {
+        "start_char": 1862,
+        "end_char": 1882,
+        "token_start": 406,
+        "token_end": 410,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0892,
+        "novelty_score": 0.5917,
+        "margin": 0.9122,
+        "top1_prob": 0.9543,
+        "top2_prob": 0.042,
+        "p_background_o": 0.042
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5917,
+        "novelty_lof": 1.0357,
+        "novelty_knn_dist": 0.2926
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0892,
+        "least_confidence": 0.0457,
+        "margin_uncertainty": 0.0878
+      },
+      "probabilities": {
+        "O": 0.042,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0014,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.9543,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 2.9853,
+        "Personal_care_products_and_cosmetic_procedures": -2.2902,
+        "Substance_use": -3.1219,
+        "Environmental_exposures": -2.3486,
+        "Mental_health_practices": -1.8218,
+        "Non_physical_leisure_time_activities": -0.4004,
+        "Nutrition": -2.0603,
+        "Physical_activities": 6.1083,
+        "Sleep": -1.5577,
+        "Socioeconomic_factors": -1.0472
+      }
+    },
+    {
+      "span_id": "30994479_s012",
+      "abstract_id": "30994479",
+      "span_text": "leisure cross-country skiing",
+      "boundaries": {
+        "start_char": 406,
+        "end_char": 434,
+        "token_start": 75,
+        "token_end": 80,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0811,
+        "novelty_score": 0.7475,
+        "margin": 0.939,
+        "top1_prob": 0.965,
+        "top2_prob": 0.0261,
+        "p_background_o": 0.0261
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7475,
+        "novelty_lof": 1.1707,
+        "novelty_knn_dist": 0.2696
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0811,
+        "least_confidence": 0.035,
+        "margin_uncertainty": 0.061
+      },
+      "probabilities": {
+        "O": 0.0261,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0007,
+        "Non_physical_leisure_time_activities": 0.0035,
+        "Nutrition": 0.0007,
+        "Physical_activities": 0.965,
+        "Sleep": 0.0014,
+        "Socioeconomic_factors": 0.0017
+      },
+      "logits": {
+        "O": 1.9513,
+        "Personal_care_products_and_cosmetic_procedures": -2.2711,
+        "Substance_use": -2.7751,
+        "Environmental_exposures": -2.4787,
+        "Mental_health_practices": -1.7364,
+        "Non_physical_leisure_time_activities": -0.0512,
+        "Nutrition": -1.6176,
+        "Physical_activities": 5.5629,
+        "Sleep": -0.9859,
+        "Socioeconomic_factors": -0.7718
+      }
+    },
+    {
+      "span_id": "30994479_s013",
+      "abstract_id": "30994479",
+      "span_text": "cross-country skiing activity",
+      "boundaries": {
+        "start_char": 1014,
+        "end_char": 1043,
+        "token_start": 195,
+        "token_end": 200,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0803,
+        "novelty_score": 0.8311,
+        "margin": 0.9182,
+        "top1_prob": 0.9582,
+        "top2_prob": 0.0399,
+        "p_background_o": 0.0399
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8311,
+        "novelty_lof": 1.1991,
+        "novelty_knn_dist": 0.3209
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0803,
+        "least_confidence": 0.0418,
+        "margin_uncertainty": 0.0818
+      },
+      "probabilities": {
+        "O": 0.0399,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.9582,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 3.4195,
+        "Personal_care_products_and_cosmetic_procedures": -2.6051,
+        "Substance_use": -3.3213,
+        "Environmental_exposures": -2.3525,
+        "Mental_health_practices": -1.7501,
+        "Non_physical_leisure_time_activities": -0.681,
+        "Nutrition": -2.2775,
+        "Physical_activities": 6.5969,
+        "Sleep": -1.6248,
+        "Socioeconomic_factors": -1.345
+      }
+    },
+    {
+      "span_id": "30994479_s014",
+      "abstract_id": "30994479",
+      "span_text": "cross-country skiing activity",
+      "boundaries": {
+        "start_char": 1261,
+        "end_char": 1290,
+        "token_start": 268,
+        "token_end": 273,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.1448,
+        "novelty_score": 0.8312,
+        "margin": 0.8101,
+        "top1_prob": 0.9037,
+        "top2_prob": 0.0937,
+        "p_background_o": 0.0937
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8312,
+        "novelty_lof": 1.1991,
+        "novelty_knn_dist": 0.321
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1448,
+        "least_confidence": 0.0963,
+        "margin_uncertainty": 0.1899
+      },
+      "probabilities": {
+        "O": 0.0937,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0009,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.9037,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 3.9434,
+        "Personal_care_products_and_cosmetic_procedures": -2.6399,
+        "Substance_use": -3.384,
+        "Environmental_exposures": -2.3211,
+        "Mental_health_practices": -1.7742,
+        "Non_physical_leisure_time_activities": -0.7067,
+        "Nutrition": -2.3384,
+        "Physical_activities": 6.2103,
+        "Sleep": -1.6627,
+        "Socioeconomic_factors": -1.2565
+      }
+    }
+  ]
+}

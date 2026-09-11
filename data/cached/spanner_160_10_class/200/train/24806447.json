@@ -1,0 +1,128 @@
+{
+  "doc_id": "24806447",
+  "dataset_split": "200/train",
+  "text": "Integrated testing strategy (ITS) for bioaccumulation assessment under REACH. \nREACH (registration, evaluation, authorisation and restriction of chemicals) regulation requires that all the chemicals produced or imported in Europe above 1 tonne/year are registered. To register a chemical, physicochemical, toxicological and ecotoxicological information needs to be reported in a dossier. REACH promotes the use of alternative methods to replace, refine and reduce the use of animal (eco)toxicity testing. Within the EU OSIRIS project, integrated testing strategies (ITSs) have been developed for the rational use of non-animal testing approaches in chemical hazard assessment. Here we present an ITS for evaluating the bioaccumulation potential of organic chemicals. The scheme includes the use of all available data (also the non-optimal ones), waiving schemes, analysis of physicochemical properties related to the end point and alternative methods (both in silico and in vitro). In vivo methods are used only as last resort. Using the ITS, in vivo testing could be waived for about 67% of the examined compounds, but bioaccumulation potential could be estimated on the basis of non-animal methods. The presented ITS is freely available through a web tool. \n",
+  "total_candidates": 2,
+  "spans": [
+    {
+      "span_id": "24806447_s000",
+      "abstract_id": "24806447",
+      "span_text": "chemicals",
+      "boundaries": {
+        "start_char": 189,
+        "end_char": 198,
+        "token_start": 35,
+        "token_end": 35,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.3098,
+        "novelty_score": 0.4713,
+        "margin": 0.1496,
+        "top1_prob": 0.5728,
+        "top2_prob": 0.4232,
+        "p_background_o": 0.4232
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4713,
+        "novelty_lof": 1.0292,
+        "novelty_knn_dist": 0.2228
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3098,
+        "least_confidence": 0.4272,
+        "margin_uncertainty": 0.8504
+      },
+      "probabilities": {
+        "O": 0.4232,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.001,
+        "Environmental_exposures": 0.5728,
+        "Mental_health_practices": 0.0007,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 5.0819,
+        "Personal_care_products_and_cosmetic_procedures": -1.7589,
+        "Substance_use": -0.9209,
+        "Environmental_exposures": 5.3847,
+        "Mental_health_practices": -1.3793,
+        "Non_physical_leisure_time_activities": -1.5884,
+        "Nutrition": -1.8776,
+        "Physical_activities": -2.393,
+        "Sleep": -2.1561,
+        "Socioeconomic_factors": -1.9115
+      }
+    },
+    {
+      "span_id": "24806447_s001",
+      "abstract_id": "24806447",
+      "span_text": "organic chemicals",
+      "boundaries": {
+        "start_char": 748,
+        "end_char": 765,
+        "token_start": 142,
+        "token_end": 143,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0253,
+        "novelty_score": 0.4369,
+        "margin": 0.9881,
+        "top1_prob": 0.9922,
+        "top2_prob": 0.0041,
+        "p_background_o": 0.0041
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4369,
+        "novelty_lof": 0.9957,
+        "novelty_knn_dist": 0.2346
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0253,
+        "least_confidence": 0.0078,
+        "margin_uncertainty": 0.0119
+      },
+      "probabilities": {
+        "O": 0.0041,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0007,
+        "Environmental_exposures": 0.9922,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 0.8068,
+        "Personal_care_products_and_cosmetic_procedures": -0.8718,
+        "Substance_use": -0.9676,
+        "Environmental_exposures": 6.2925,
+        "Mental_health_practices": -1.4116,
+        "Non_physical_leisure_time_activities": -2.2397,
+        "Nutrition": -1.3815,
+        "Physical_activities": -2.0344,
+        "Sleep": -1.9636,
+        "Socioeconomic_factors": -1.1139
+      }
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "doc_id": "9739624",
+  "dataset_split": "200/train",
+  "text": "Managing the uncertainties of low-level radioactive waste disposal. \nThe disposal of low-level radioactive waste (LLRW) entails financial and safety risks not common to most market commodities. This manifests debilitating uncertainty regarding future waste volume and disposal technology performance in the market for waste disposal services. Dealing with the publicly perceived risks of LLRW disposal increases the total cost of the technology by an order of magnitude, relative to traditional shallow land burial. Therefore, this analysis first examines five proposed disposal facility designs and quantifies the costs associated with these two important sources of uncertainty. Based upon this analysis, a marketable disposal permit mechanism is proposed and analyzed for the purpose of reducing market uncertainty and thereby facilitating a market solution to the waste disposal problem. In addition to quantifying the costs, the results illustrate the ways in which the design of a technology is influenced by its institutional environment, and vice versa. \n",
+  "total_candidates": 2,
+  "spans": [
+    {
+      "span_id": "9739624_s000",
+      "abstract_id": "9739624",
+      "span_text": "radioactive waste",
+      "boundaries": {
+        "start_char": 40,
+        "end_char": 57,
+        "token_start": 9,
+        "token_end": 10,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0343,
+        "novelty_score": 0.6145,
+        "margin": 0.9803,
+        "top1_prob": 0.9882,
+        "top2_prob": 0.0079,
+        "p_background_o": 0.0079
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6145,
+        "novelty_lof": 1.0543,
+        "novelty_knn_dist": 0.2889
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0343,
+        "least_confidence": 0.0118,
+        "margin_uncertainty": 0.0197
+      },
+      "probabilities": {
+        "O": 0.0079,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.9882,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0007,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 1.3379,
+        "Personal_care_products_and_cosmetic_procedures": -1.1804,
+        "Substance_use": -1.4789,
+        "Environmental_exposures": 6.1671,
+        "Mental_health_practices": -1.9222,
+        "Non_physical_leisure_time_activities": -2.2698,
+        "Nutrition": -1.0443,
+        "Physical_activities": -1.891,
+        "Sleep": -1.9482,
+        "Socioeconomic_factors": -0.8277
+      }
+    },
+    {
+      "span_id": "9739624_s001",
+      "abstract_id": "9739624",
+      "span_text": "radioactive waste",
+      "boundaries": {
+        "start_char": 95,
+        "end_char": 112,
+        "token_start": 21,
+        "token_end": 22,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0302,
+        "novelty_score": 0.6145,
+        "margin": 0.9836,
+        "top1_prob": 0.99,
+        "top2_prob": 0.0065,
+        "p_background_o": 0.0065
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6145,
+        "novelty_lof": 1.0543,
+        "novelty_knn_dist": 0.2889
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0302,
+        "least_confidence": 0.01,
+        "margin_uncertainty": 0.0164
+      },
+      "probabilities": {
+        "O": 0.0065,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.99,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0007,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 1.2277,
+        "Personal_care_products_and_cosmetic_procedures": -1.1784,
+        "Substance_use": -1.4804,
+        "Environmental_exposures": 6.2611,
+        "Mental_health_practices": -1.9413,
+        "Non_physical_leisure_time_activities": -2.2499,
+        "Nutrition": -1.052,
+        "Physical_activities": -1.9448,
+        "Sleep": -1.9378,
+        "Socioeconomic_factors": -0.7894
+      }
+    }
+  ]
+}

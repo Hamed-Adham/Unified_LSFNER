@@ -1,0 +1,128 @@
+{
+  "doc_id": "10607166",
+  "dataset_split": "200/train",
+  "text": "Cardiorespiratory control: an integrated view. H.-P. Koepchen in memoriam. \nH.-P. Koepchen's presence at this symposium on cardiocirculatory function during sleep would have given us an inspiring impetus. His death has meant a severe loss for all of us. Koepchen's integrated view on cardiorespiratory control and rhythmicity has been the content of his late work. His considerations as documented in various papers are used for this contribution. They are based on earlier experimental studies of spontaneous coordinations of rhythmic activities in anaesthetized dogs, conscious men, and microelectrode recordings and local cooling experiments in the brain stem of anaesthetized dogs and cats, which he had worked on together with his students. \n",
+  "total_candidates": 2,
+  "spans": [
+    {
+      "span_id": "10607166_s000",
+      "abstract_id": "10607166",
+      "span_text": "sleep",
+      "boundaries": {
+        "start_char": 157,
+        "end_char": 162,
+        "token_start": 43,
+        "token_end": 43,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Sleep",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Sleep",
+        "second_best_label": "O",
+        "uncertainty": 0.0184,
+        "novelty_score": 0.2375,
+        "margin": 0.9928,
+        "top1_prob": 0.9948,
+        "top2_prob": 0.002,
+        "p_background_o": 0.002
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2375,
+        "novelty_lof": 0.9877,
+        "novelty_knn_dist": 0.0994
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0184,
+        "least_confidence": 0.0052,
+        "margin_uncertainty": 0.0072
+      },
+      "probabilities": {
+        "O": 0.002,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.9948,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 0.2628,
+        "Personal_care_products_and_cosmetic_procedures": -1.534,
+        "Substance_use": -0.9908,
+        "Environmental_exposures": -1.8005,
+        "Mental_health_practices": -1.671,
+        "Non_physical_leisure_time_activities": -0.7498,
+        "Nutrition": -1.6789,
+        "Physical_activities": -1.2721,
+        "Sleep": 6.4732,
+        "Socioeconomic_factors": -1.6079
+      }
+    },
+    {
+      "span_id": "10607166_s001",
+      "abstract_id": "10607166",
+      "span_text": "rhythmic activities",
+      "boundaries": {
+        "start_char": 527,
+        "end_char": 546,
+        "token_start": 112,
+        "token_end": 113,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0348,
+        "novelty_score": 0.6227,
+        "margin": 0.981,
+        "top1_prob": 0.9883,
+        "top2_prob": 0.0073,
+        "p_background_o": 0.0073
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6227,
+        "novelty_lof": 1.0973,
+        "novelty_knn_dist": 0.2513
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0348,
+        "least_confidence": 0.0117,
+        "margin_uncertainty": 0.019
+      },
+      "probabilities": {
+        "O": 0.0073,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.9883,
+        "Sleep": 0.0011,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 1.0972,
+        "Personal_care_products_and_cosmetic_procedures": -1.6387,
+        "Substance_use": -2.8603,
+        "Environmental_exposures": -1.8387,
+        "Mental_health_practices": -1.4994,
+        "Non_physical_leisure_time_activities": -1.4571,
+        "Nutrition": -1.8504,
+        "Physical_activities": 6.0059,
+        "Sleep": -0.7682,
+        "Socioeconomic_factors": -1.1249
+      }
+    }
+  ]
+}

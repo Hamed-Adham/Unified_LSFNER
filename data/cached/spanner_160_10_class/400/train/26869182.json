@@ -1,0 +1,548 @@
+{
+  "doc_id": "26869182",
+  "dataset_split": "400/train",
+  "text": "Clinical effectiveness and cost-effectiveness of body psychotherapy in the treatment of negative symptoms of schizophrenia: a multicentre randomised controlled trial. \nBACKGROUND: The negative symptoms of schizophrenia significantly impact on quality of life and social functioning, and current treatment options are limited. In this study the clinical effectiveness and cost-effectiveness of group body psychotherapy as a treatment for negative symptoms were compared with an active control. DESIGN: A parallel-arm, multisite randomised controlled trial. Randomisation was conducted independently of the research team, using a 1 : 1 computer-generated sequence. Assessors and statisticians were blinded to treatment allocation. Analysis was conducted following the intention-to-treat principle. In the cost-effectiveness analysis, a health and social care perspective was adopted. ELIGIBILITY CRITERIA: age 18-65 years; diagnosis of schizophrenia with symptoms present at > 6 months; score of >= 18 on Positive and Negative Syndrome Scale (PANSS) negative symptoms subscale; no change in medication type in past 6 weeks; willingness to participate; ability to give informed consent; and community outpatient. EXCLUSION CRITERIA: inability to participate in the groups and insufficient command of English. SETTINGS: Participants were recruited from NHS mental health community services in five different Trusts. All groups took place in local community spaces. INTERVENTIONS: Control intervention: a 10-week, 90-minute, 20-session group beginners' Pilates class, run by a qualified Pilates instructor. Treatment intervention: a 10-week, 90-minute, 20-session manualised group body psychotherapy group, run by a qualified dance movement psychotherapist. OUTCOMES: The primary outcome was the PANSS negative symptoms subscale score at end of treatment. Secondary outcomes included measures of psychopathology, functional, social, service use and treatment satisfaction outcomes, both at treatment end and at 6-month follow-up. RESULTS: A total of 275 participants were randomised (140 body psychotherapy group, 135 Pilates group). At the end of treatment, 264 participants were assessed (137 body psychotherapy group, 127 Pilates group). The adjusted difference in means of the PANSS negative subscale at the end of treatment was 0.03 [95% confidence interval (CI) -1.11 to 1.17], showing no advantage of the intervention. In the secondary outcomes, the mean difference in the Clinical Assessment Interview for negative symptoms expression subscale at the end of treatment was 0.62 (95% CI -1.23 to 0.00), and in extrapyramidal movement disorder symptoms -0.65 (95% CI -1.13 to -0.16) at the end of treatment and -0.58 (95% CI -1.07 to -0.09) at 6 months' follow-up, showing a small significant advantage of body psychotherapy. No serious adverse events related to the interventions were reported. The total costs of the intervention were comparable with the control, with no clear evidence of cost-effectiveness for either condition. LIMITATIONS: Owing to the absence of a treatment-as-usual arm, it is difficult to determine whether or not both arms are an improvement over routine care. CONCLUSIONS: In comparison with an active control, group body psychotherapy does not have a clinically relevant beneficial effect in the treatment of patients with negative symptoms of schizophrenia. These findings conflict with the review that led to the current National Institute for Health and Care Excellence guidelines suggesting that arts therapies may be an effective treatment for negative symptoms. FUTURE WORK: Determining whether or not this lack of effectiveness extends to all types of art therapies would be informative. TRIAL REGISTRATION: Current Controlled Trials ISRCTN842165587. FUNDING: This project was funded by the National Institute for Health Research (NIHR) Health Technology Assessment programme and will be published in full in Health Technology Assessment; Vol. 20, No. 11. See the NIHR Journals Library website for further project information. \n",
+  "total_candidates": 9,
+  "spans": [
+    {
+      "span_id": "26869182_s000",
+      "abstract_id": "26869182",
+      "span_text": "body psychotherapy",
+      "boundaries": {
+        "start_char": 49,
+        "end_char": 67,
+        "token_start": 8,
+        "token_end": 9,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0591,
+        "novelty_score": 0.7834,
+        "margin": 0.9697,
+        "top1_prob": 0.9793,
+        "top2_prob": 0.0096,
+        "p_background_o": 0.0096
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7834,
+        "novelty_lof": 1.157,
+        "novelty_knn_dist": 0.3147
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0591,
+        "least_confidence": 0.0207,
+        "margin_uncertainty": 0.0303
+      },
+      "probabilities": {
+        "O": 0.0096,
+        "Personal_care_products_and_cosmetic_procedures": 0.0019,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.9793,
+        "Non_physical_leisure_time_activities": 0.0025,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0029,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.0012
+      },
+      "logits": {
+        "O": 0.8554,
+        "Personal_care_products_and_cosmetic_procedures": -0.7507,
+        "Substance_use": -1.6487,
+        "Environmental_exposures": -1.8131,
+        "Mental_health_practices": 5.4848,
+        "Non_physical_leisure_time_activities": -0.4861,
+        "Nutrition": -2.7457,
+        "Physical_activities": -0.3458,
+        "Sleep": -1.4507,
+        "Socioeconomic_factors": -1.208
+      }
+    },
+    {
+      "span_id": "26869182_s001",
+      "abstract_id": "26869182",
+      "span_text": "social functioning",
+      "boundaries": {
+        "start_char": 263,
+        "end_char": 281,
+        "token_start": 41,
+        "token_end": 42,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.1456,
+        "novelty_score": 0.9718,
+        "margin": 0.8194,
+        "top1_prob": 0.9075,
+        "top2_prob": 0.0881,
+        "p_background_o": 0.0881
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9718,
+        "novelty_lof": 1.5298,
+        "novelty_knn_dist": 0.2955
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1456,
+        "least_confidence": 0.0925,
+        "margin_uncertainty": 0.1806
+      },
+      "probabilities": {
+        "O": 0.0881,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.9075
+      },
+      "logits": {
+        "O": 3.4474,
+        "Personal_care_products_and_cosmetic_procedures": -1.5361,
+        "Substance_use": -2.1449,
+        "Environmental_exposures": -1.9652,
+        "Mental_health_practices": -1.2981,
+        "Non_physical_leisure_time_activities": -1.4373,
+        "Nutrition": -2.2109,
+        "Physical_activities": -1.2457,
+        "Sleep": -1.538,
+        "Socioeconomic_factors": 5.78
+      }
+    },
+    {
+      "span_id": "26869182_s002",
+      "abstract_id": "26869182",
+      "span_text": "Pilates",
+      "boundaries": {
+        "start_char": 1548,
+        "end_char": 1555,
+        "token_start": 284,
+        "token_end": 285,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0797,
+        "novelty_score": 0.8808,
+        "margin": 0.9307,
+        "top1_prob": 0.9628,
+        "top2_prob": 0.0321,
+        "p_background_o": 0.0321
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8808,
+        "novelty_lof": 1.2612,
+        "novelty_knn_dist": 0.3225
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0797,
+        "least_confidence": 0.0372,
+        "margin_uncertainty": 0.0693
+      },
+      "probabilities": {
+        "O": 0.0321,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0012,
+        "Non_physical_leisure_time_activities": 0.0014,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.9628,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 2.4539,
+        "Personal_care_products_and_cosmetic_procedures": -1.9272,
+        "Substance_use": -3.0578,
+        "Environmental_exposures": -2.3383,
+        "Mental_health_practices": -0.7982,
+        "Non_physical_leisure_time_activities": -0.7048,
+        "Nutrition": -1.4743,
+        "Physical_activities": 5.8558,
+        "Sleep": -1.5081,
+        "Socioeconomic_factors": -1.7521
+      }
+    },
+    {
+      "span_id": "26869182_s003",
+      "abstract_id": "26869182",
+      "span_text": "Pilates",
+      "boundaries": {
+        "start_char": 1582,
+        "end_char": 1589,
+        "token_start": 292,
+        "token_end": 293,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0999,
+        "novelty_score": 0.8808,
+        "margin": 0.8999,
+        "top1_prob": 0.9476,
+        "top2_prob": 0.0477,
+        "p_background_o": 0.0477
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8808,
+        "novelty_lof": 1.2612,
+        "novelty_knn_dist": 0.3225
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0999,
+        "least_confidence": 0.0524,
+        "margin_uncertainty": 0.1001
+      },
+      "probabilities": {
+        "O": 0.0477,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0009,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.9476,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 2.8621,
+        "Personal_care_products_and_cosmetic_procedures": -2.0253,
+        "Substance_use": -3.0263,
+        "Environmental_exposures": -2.2738,
+        "Mental_health_practices": -1.0922,
+        "Non_physical_leisure_time_activities": -0.7789,
+        "Nutrition": -1.4974,
+        "Physical_activities": 5.8501,
+        "Sleep": -1.582,
+        "Socioeconomic_factors": -1.6707
+      }
+    },
+    {
+      "span_id": "26869182_s004",
+      "abstract_id": "26869182",
+      "span_text": "body psychotherapy",
+      "boundaries": {
+        "start_char": 2083,
+        "end_char": 2101,
+        "token_start": 388,
+        "token_end": 389,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0577,
+        "novelty_score": 0.7834,
+        "margin": 0.9702,
+        "top1_prob": 0.9798,
+        "top2_prob": 0.0096,
+        "p_background_o": 0.0096
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7834,
+        "novelty_lof": 1.157,
+        "novelty_knn_dist": 0.3147
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0577,
+        "least_confidence": 0.0202,
+        "margin_uncertainty": 0.0298
+      },
+      "probabilities": {
+        "O": 0.0096,
+        "Personal_care_products_and_cosmetic_procedures": 0.0019,
+        "Substance_use": 0.0007,
+        "Environmental_exposures": 0.0006,
+        "Mental_health_practices": 0.9798,
+        "Non_physical_leisure_time_activities": 0.0023,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0027,
+        "Sleep": 0.0009,
+        "Socioeconomic_factors": 0.0012
+      },
+      "logits": {
+        "O": 0.8756,
+        "Personal_care_products_and_cosmetic_procedures": -0.7523,
+        "Substance_use": -1.7186,
+        "Environmental_exposures": -1.8546,
+        "Mental_health_practices": 5.5043,
+        "Non_physical_leisure_time_activities": -0.5331,
+        "Nutrition": -2.6044,
+        "Physical_activities": -0.3984,
+        "Sleep": -1.4888,
+        "Socioeconomic_factors": -1.1938
+      }
+    },
+    {
+      "span_id": "26869182_s005",
+      "abstract_id": "26869182",
+      "span_text": "Pilates",
+      "boundaries": {
+        "start_char": 2113,
+        "end_char": 2120,
+        "token_start": 393,
+        "token_end": 394,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.1149,
+        "novelty_score": 0.8808,
+        "margin": 0.9095,
+        "top1_prob": 0.9467,
+        "top2_prob": 0.0372,
+        "p_background_o": 0.0372
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8808,
+        "novelty_lof": 1.2612,
+        "novelty_knn_dist": 0.3225
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1149,
+        "least_confidence": 0.0533,
+        "margin_uncertainty": 0.0905
+      },
+      "probabilities": {
+        "O": 0.0372,
+        "Personal_care_products_and_cosmetic_procedures": 0.001,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0084,
+        "Non_physical_leisure_time_activities": 0.0031,
+        "Nutrition": 0.0008,
+        "Physical_activities": 0.9467,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.001
+      },
+      "logits": {
+        "O": 1.9864,
+        "Personal_care_products_and_cosmetic_procedures": -1.6389,
+        "Substance_use": -2.9786,
+        "Environmental_exposures": -2.3929,
+        "Mental_health_practices": 0.4946,
+        "Non_physical_leisure_time_activities": -0.4854,
+        "Nutrition": -1.895,
+        "Physical_activities": 5.2218,
+        "Sleep": -1.6071,
+        "Socioeconomic_factors": -1.6543
+      }
+    },
+    {
+      "span_id": "26869182_s006",
+      "abstract_id": "26869182",
+      "span_text": "body psychotherapy",
+      "boundaries": {
+        "start_char": 2190,
+        "end_char": 2208,
+        "token_start": 409,
+        "token_end": 410,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0747,
+        "novelty_score": 0.7834,
+        "margin": 0.9588,
+        "top1_prob": 0.9723,
+        "top2_prob": 0.0135,
+        "p_background_o": 0.0135
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7834,
+        "novelty_lof": 1.157,
+        "novelty_knn_dist": 0.3147
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0747,
+        "least_confidence": 0.0277,
+        "margin_uncertainty": 0.0412
+      },
+      "probabilities": {
+        "O": 0.0135,
+        "Personal_care_products_and_cosmetic_procedures": 0.0022,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.0008,
+        "Mental_health_practices": 0.9723,
+        "Non_physical_leisure_time_activities": 0.003,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0043,
+        "Sleep": 0.0012,
+        "Socioeconomic_factors": 0.0015
+      },
+      "logits": {
+        "O": 0.9829,
+        "Personal_care_products_and_cosmetic_procedures": -0.8212,
+        "Substance_use": -1.7673,
+        "Environmental_exposures": -1.8886,
+        "Mental_health_practices": 5.258,
+        "Non_physical_leisure_time_activities": -0.5268,
+        "Nutrition": -2.5644,
+        "Physical_activities": -0.1657,
+        "Sleep": -1.4627,
+        "Socioeconomic_factors": -1.2351
+      }
+    },
+    {
+      "span_id": "26869182_s007",
+      "abstract_id": "26869182",
+      "span_text": "Pilates",
+      "boundaries": {
+        "start_char": 2220,
+        "end_char": 2227,
+        "token_start": 414,
+        "token_end": 415,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0772,
+        "novelty_score": 0.8808,
+        "margin": 0.9375,
+        "top1_prob": 0.9655,
+        "top2_prob": 0.0281,
+        "p_background_o": 0.0281
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8808,
+        "novelty_lof": 1.2612,
+        "novelty_knn_dist": 0.3225
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0772,
+        "least_confidence": 0.0345,
+        "margin_uncertainty": 0.0625
+      },
+      "probabilities": {
+        "O": 0.0281,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0022,
+        "Non_physical_leisure_time_activities": 0.0016,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.9655,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 2.254,
+        "Personal_care_products_and_cosmetic_procedures": -1.8218,
+        "Substance_use": -3.0205,
+        "Environmental_exposures": -2.3569,
+        "Mental_health_practices": -0.2769,
+        "Non_physical_leisure_time_activities": -0.6022,
+        "Nutrition": -1.7865,
+        "Physical_activities": 5.7925,
+        "Sleep": -1.5979,
+        "Socioeconomic_factors": -1.6331
+      }
+    },
+    {
+      "span_id": "26869182_s008",
+      "abstract_id": "26869182",
+      "span_text": "group body psychotherapy",
+      "boundaries": {
+        "start_char": 393,
+        "end_char": 417,
+        "token_start": 62,
+        "token_end": 64,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0453,
+        "novelty_score": 0.6659,
+        "margin": 0.9767,
+        "top1_prob": 0.9846,
+        "top2_prob": 0.0078,
+        "p_background_o": 0.0078
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6659,
+        "novelty_lof": 1.1158,
+        "novelty_knn_dist": 0.2624
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0453,
+        "least_confidence": 0.0154,
+        "margin_uncertainty": 0.0233
+      },
+      "probabilities": {
+        "O": 0.0078,
+        "Personal_care_products_and_cosmetic_procedures": 0.0011,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.9846,
+        "Non_physical_leisure_time_activities": 0.002,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0018,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 1.0759,
+        "Personal_care_products_and_cosmetic_procedures": -0.8591,
+        "Substance_use": -1.7718,
+        "Environmental_exposures": -1.9276,
+        "Mental_health_practices": 5.9079,
+        "Non_physical_leisure_time_activities": -0.2751,
+        "Nutrition": -2.8203,
+        "Physical_activities": -0.4245,
+        "Sleep": -1.3351,
+        "Socioeconomic_factors": -1.0522
+      }
+    }
+  ]
+}

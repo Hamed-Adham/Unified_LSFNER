@@ -1,0 +1,1268 @@
+{
+  "doc_id": "31654913",
+  "dataset_split": "400/val",
+  "text": "Association of water fluoride and urinary fluoride concentrations with attention deficit hyperactivity disorder in Canadian youth. \nBACKGROUND: Exposure to fluoride has been linked with increased prevalence of attention deficit hyperactivity disorder (ADHD) in the United States and symptoms of inattention in Mexican children. We examined the association between fluoride exposure and attention outcomes among youth living in Canada. METHOD: We used cross-sectional data collected from youth 6 to 17 years of age from the Canadian Health Measures Survey (Cycles 2 and 3). Urinary fluoride concentration adjusted for specific gravity (UFSG) was available for 1877 participants. Water fluoride concentration measured in tap water samples was available for 980 participants. Community water fluoridation (CWF) status was determined by viewing reports on each city's website or contacting the water treatment plant. We used logistic regression to test the association between the three measures of fluoride exposure and ADHD diagnosis. Linear regression was used to examine the relationship between the three measures of fluoride exposure and the hyperactivity/inattention score on the Strengths and Difficulties Questionnaire (SDQ). RESULTS: UFSG did not significantly predict ADHD diagnosis or hyperactive/inattentive symptoms. A 1 mg/L increase in tap water fluoride level was associated with a 6.1 times higher odds of an ADHD diagnosis (95% CI = 1.60, 22.8). A significant interaction between age and tap water fluoride level (p = .03) indicated a stronger association between tap water fluoride and hyperactivity/inattention symptoms among older youth. A 1 mg/L increase in water fluoride level was associated with a 1.5 SDQ score increase (95% CI: 0.23, 2.68, p = .02) for youth at the 75th percentile of age (14 years old). Similarly, there was a significant interaction between age and CWF. At the 75th percentile of age (14 years old), those living in a fluoridated region had a 0.7-point higher SDQ score (95% CI = 0.34, 1.06, p < .01) and the predicted odds of an ADHD diagnosis was 2.8 times greater compared with youth in a non-fluoridated region (aOR = 2.84, 95% CI: 1.40, 5.76, p < .01). DISCUSSION: Exposure to higher levels of fluoride in tap water is associated with an increased risk of ADHD symptoms and diagnosis of ADHD among Canadian youth, particularly among adolescents. Prospective studies are needed to confirm these results. \n",
+  "total_candidates": 21,
+  "spans": [
+    {
+      "span_id": "31654913_s000",
+      "abstract_id": "31654913",
+      "span_text": "fluoride",
+      "boundaries": {
+        "start_char": 2242,
+        "end_char": 2250,
+        "token_start": 473,
+        "token_end": 473,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1162,
+        "novelty_score": 0.3202,
+        "margin": 0.8688,
+        "top1_prob": 0.9326,
+        "top2_prob": 0.0637,
+        "p_background_o": 0.0637
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3202,
+        "novelty_lof": 0.9977,
+        "novelty_knn_dist": 0.1543
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1162,
+        "least_confidence": 0.0674,
+        "margin_uncertainty": 0.1312
+      },
+      "probabilities": {
+        "O": 0.0637,
+        "Personal_care_products_and_cosmetic_procedures": 0.0017,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.9326,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0001
+      },
+      "logits": {
+        "O": 3.6595,
+        "Personal_care_products_and_cosmetic_procedures": 0.0319,
+        "Substance_use": -0.9523,
+        "Environmental_exposures": 6.3429,
+        "Mental_health_practices": -1.6968,
+        "Non_physical_leisure_time_activities": -2.0885,
+        "Nutrition": -1.6544,
+        "Physical_activities": -2.3954,
+        "Sleep": -1.6921,
+        "Socioeconomic_factors": -2.622
+      }
+    },
+    {
+      "span_id": "31654913_s001",
+      "abstract_id": "31654913",
+      "span_text": "water fluoride",
+      "boundaries": {
+        "start_char": 15,
+        "end_char": 29,
+        "token_start": 3,
+        "token_end": 4,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0559,
+        "novelty_score": 0.3616,
+        "margin": 0.9609,
+        "top1_prob": 0.9777,
+        "top2_prob": 0.0169,
+        "p_background_o": 0.0169
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3616,
+        "novelty_lof": 1.0474,
+        "novelty_knn_dist": 0.1335
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0559,
+        "least_confidence": 0.0223,
+        "margin_uncertainty": 0.0391
+      },
+      "probabilities": {
+        "O": 0.0169,
+        "Personal_care_products_and_cosmetic_procedures": 0.0018,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.9777,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0013,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 1.8701,
+        "Personal_care_products_and_cosmetic_procedures": -0.367,
+        "Substance_use": -1.0967,
+        "Environmental_exposures": 5.9298,
+        "Mental_health_practices": -2.2021,
+        "Non_physical_leisure_time_activities": -2.478,
+        "Nutrition": -0.6964,
+        "Physical_activities": -2.357,
+        "Sleep": -1.8983,
+        "Socioeconomic_factors": -2.1754
+      }
+    },
+    {
+      "span_id": "31654913_s002",
+      "abstract_id": "31654913",
+      "span_text": "urinary fluoride",
+      "boundaries": {
+        "start_char": 34,
+        "end_char": 50,
+        "token_start": 6,
+        "token_end": 7,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.122,
+        "novelty_score": 0.496,
+        "margin": 0.8615,
+        "top1_prob": 0.9286,
+        "top2_prob": 0.0671,
+        "p_background_o": 0.0671
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.496,
+        "novelty_lof": 1.0299,
+        "novelty_knn_dist": 0.2377
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.122,
+        "least_confidence": 0.0714,
+        "margin_uncertainty": 0.1385
+      },
+      "probabilities": {
+        "O": 0.0671,
+        "Personal_care_products_and_cosmetic_procedures": 0.0012,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.9286,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.001,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 3.3424,
+        "Personal_care_products_and_cosmetic_procedures": -0.6712,
+        "Substance_use": -1.1084,
+        "Environmental_exposures": 5.9693,
+        "Mental_health_practices": -2.4412,
+        "Non_physical_leisure_time_activities": -2.5845,
+        "Nutrition": -0.8709,
+        "Physical_activities": -2.5888,
+        "Sleep": -1.9716,
+        "Socioeconomic_factors": -1.9406
+      }
+    },
+    {
+      "span_id": "31654913_s003",
+      "abstract_id": "31654913",
+      "span_text": "fluoride exposure",
+      "boundaries": {
+        "start_char": 364,
+        "end_char": 381,
+        "token_start": 57,
+        "token_end": 58,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0231,
+        "novelty_score": 0.3935,
+        "margin": 0.9888,
+        "top1_prob": 0.9928,
+        "top2_prob": 0.004,
+        "p_background_o": 0.004
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3935,
+        "novelty_lof": 1.01,
+        "novelty_knn_dist": 0.1922
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0231,
+        "least_confidence": 0.0072,
+        "margin_uncertainty": 0.0112
+      },
+      "probabilities": {
+        "O": 0.004,
+        "Personal_care_products_and_cosmetic_procedures": 0.0015,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.9928,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 1.0319,
+        "Personal_care_products_and_cosmetic_procedures": 0.0237,
+        "Substance_use": -1.2248,
+        "Environmental_exposures": 6.5518,
+        "Mental_health_practices": -1.9436,
+        "Non_physical_leisure_time_activities": -2.4382,
+        "Nutrition": -1.0461,
+        "Physical_activities": -2.2242,
+        "Sleep": -1.8298,
+        "Socioeconomic_factors": -2.1273
+      }
+    },
+    {
+      "span_id": "31654913_s004",
+      "abstract_id": "31654913",
+      "span_text": "Urinary fluoride",
+      "boundaries": {
+        "start_char": 573,
+        "end_char": 589,
+        "token_start": 98,
+        "token_end": 99,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.2059,
+        "novelty_score": 0.5074,
+        "margin": 0.6793,
+        "top1_prob": 0.8373,
+        "top2_prob": 0.158,
+        "p_background_o": 0.158
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5074,
+        "novelty_lof": 1.0337,
+        "novelty_knn_dist": 0.2409
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2059,
+        "least_confidence": 0.1627,
+        "margin_uncertainty": 0.3207
+      },
+      "probabilities": {
+        "O": 0.158,
+        "Personal_care_products_and_cosmetic_procedures": 0.0012,
+        "Substance_use": 0.001,
+        "Environmental_exposures": 0.8373,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0011,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 3.9945,
+        "Personal_care_products_and_cosmetic_procedures": -0.8948,
+        "Substance_use": -1.0956,
+        "Environmental_exposures": 5.6619,
+        "Mental_health_practices": -2.5451,
+        "Non_physical_leisure_time_activities": -2.4822,
+        "Nutrition": -1.0031,
+        "Physical_activities": -2.5924,
+        "Sleep": -2.0487,
+        "Socioeconomic_factors": -1.9818
+      }
+    },
+    {
+      "span_id": "31654913_s005",
+      "abstract_id": "31654913",
+      "span_text": "Water fluoride",
+      "boundaries": {
+        "start_char": 678,
+        "end_char": 692,
+        "token_start": 117,
+        "token_end": 118,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1533,
+        "novelty_score": 0.3849,
+        "margin": 0.8108,
+        "top1_prob": 0.9024,
+        "top2_prob": 0.0916,
+        "p_background_o": 0.0916
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3849,
+        "novelty_lof": 1.0375,
+        "novelty_knn_dist": 0.1591
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1533,
+        "least_confidence": 0.0976,
+        "margin_uncertainty": 0.1892
+      },
+      "probabilities": {
+        "O": 0.0916,
+        "Personal_care_products_and_cosmetic_procedures": 0.0016,
+        "Substance_use": 0.0011,
+        "Environmental_exposures": 0.9024,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0016,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 3.3414,
+        "Personal_care_products_and_cosmetic_procedures": -0.6953,
+        "Substance_use": -1.0752,
+        "Environmental_exposures": 5.6291,
+        "Mental_health_practices": -2.5123,
+        "Non_physical_leisure_time_activities": -2.5218,
+        "Nutrition": -0.6843,
+        "Physical_activities": -2.4683,
+        "Sleep": -1.9832,
+        "Socioeconomic_factors": -2.1405
+      }
+    },
+    {
+      "span_id": "31654913_s006",
+      "abstract_id": "31654913",
+      "span_text": "tap water",
+      "boundaries": {
+        "start_char": 719,
+        "end_char": 728,
+        "token_start": 122,
+        "token_end": 123,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.3339,
+        "novelty_score": 0.2795,
+        "margin": 0.6151,
+        "top1_prob": 0.7693,
+        "top2_prob": 0.1542,
+        "p_background_o": 0.1542
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2795,
+        "novelty_lof": 0.98,
+        "novelty_knn_dist": 0.1415
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3339,
+        "least_confidence": 0.2307,
+        "margin_uncertainty": 0.3849
+      },
+      "probabilities": {
+        "O": 0.1542,
+        "Personal_care_products_and_cosmetic_procedures": 0.0098,
+        "Substance_use": 0.0034,
+        "Environmental_exposures": 0.7693,
+        "Mental_health_practices": 0.001,
+        "Non_physical_leisure_time_activities": 0.0014,
+        "Nutrition": 0.0543,
+        "Physical_activities": 0.0015,
+        "Sleep": 0.0023,
+        "Socioeconomic_factors": 0.0028
+      },
+      "logits": {
+        "O": 2.2965,
+        "Personal_care_products_and_cosmetic_procedures": -0.4574,
+        "Substance_use": -1.5168,
+        "Environmental_exposures": 3.9036,
+        "Mental_health_practices": -2.7701,
+        "Non_physical_leisure_time_activities": -2.3763,
+        "Nutrition": 1.2519,
+        "Physical_activities": -2.3335,
+        "Sleep": -1.9236,
+        "Socioeconomic_factors": -1.7285
+      }
+    },
+    {
+      "span_id": "31654913_s007",
+      "abstract_id": "31654913",
+      "span_text": "fluoride exposure",
+      "boundaries": {
+        "start_char": 995,
+        "end_char": 1012,
+        "token_start": 171,
+        "token_end": 172,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0243,
+        "novelty_score": 0.3935,
+        "margin": 0.9884,
+        "top1_prob": 0.9924,
+        "top2_prob": 0.004,
+        "p_background_o": 0.004
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3935,
+        "novelty_lof": 1.01,
+        "novelty_knn_dist": 0.1922
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0243,
+        "least_confidence": 0.0076,
+        "margin_uncertainty": 0.0116
+      },
+      "probabilities": {
+        "O": 0.004,
+        "Personal_care_products_and_cosmetic_procedures": 0.0016,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.9924,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 0.9564,
+        "Personal_care_products_and_cosmetic_procedures": 0.0055,
+        "Substance_use": -1.2347,
+        "Environmental_exposures": 6.4642,
+        "Mental_health_practices": -1.9705,
+        "Non_physical_leisure_time_activities": -2.4431,
+        "Nutrition": -0.907,
+        "Physical_activities": -2.2219,
+        "Sleep": -1.8577,
+        "Socioeconomic_factors": -2.077
+      }
+    },
+    {
+      "span_id": "31654913_s008",
+      "abstract_id": "31654913",
+      "span_text": "fluoride exposure",
+      "boundaries": {
+        "start_char": 1118,
+        "end_char": 1135,
+        "token_start": 190,
+        "token_end": 191,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0226,
+        "novelty_score": 0.3935,
+        "margin": 0.9893,
+        "top1_prob": 0.993,
+        "top2_prob": 0.0037,
+        "p_background_o": 0.0037
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3935,
+        "novelty_lof": 1.01,
+        "novelty_knn_dist": 0.1922
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0226,
+        "least_confidence": 0.007,
+        "margin_uncertainty": 0.0107
+      },
+      "probabilities": {
+        "O": 0.0037,
+        "Personal_care_products_and_cosmetic_procedures": 0.0015,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.993,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 0.9523,
+        "Personal_care_products_and_cosmetic_procedures": 0.0231,
+        "Substance_use": -1.2206,
+        "Environmental_exposures": 6.5509,
+        "Mental_health_practices": -1.9461,
+        "Non_physical_leisure_time_activities": -2.4471,
+        "Nutrition": -0.9532,
+        "Physical_activities": -2.2233,
+        "Sleep": -1.8426,
+        "Socioeconomic_factors": -2.0957
+      }
+    },
+    {
+      "span_id": "31654913_s009",
+      "abstract_id": "31654913",
+      "span_text": "water fluoride",
+      "boundaries": {
+        "start_char": 1677,
+        "end_char": 1691,
+        "token_start": 310,
+        "token_end": 311,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1012,
+        "novelty_score": 0.3616,
+        "margin": 0.901,
+        "top1_prob": 0.9477,
+        "top2_prob": 0.0467,
+        "p_background_o": 0.0467
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3616,
+        "novelty_lof": 1.0474,
+        "novelty_knn_dist": 0.1335
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1012,
+        "least_confidence": 0.0523,
+        "margin_uncertainty": 0.099
+      },
+      "probabilities": {
+        "O": 0.0467,
+        "Personal_care_products_and_cosmetic_procedures": 0.0017,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.9477,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0015,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 2.7669,
+        "Personal_care_products_and_cosmetic_procedures": -0.5547,
+        "Substance_use": -1.2014,
+        "Environmental_exposures": 5.777,
+        "Mental_health_practices": -2.4464,
+        "Non_physical_leisure_time_activities": -2.5581,
+        "Nutrition": -0.6458,
+        "Physical_activities": -2.3604,
+        "Sleep": -1.9256,
+        "Socioeconomic_factors": -2.2347
+      }
+    },
+    {
+      "span_id": "31654913_s010",
+      "abstract_id": "31654913",
+      "span_text": "CWF",
+      "boundaries": {
+        "start_char": 1892,
+        "end_char": 1895,
+        "token_start": 366,
+        "token_end": 367,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1756,
+        "novelty_score": 0.9058,
+        "margin": 0.7712,
+        "top1_prob": 0.8819,
+        "top2_prob": 0.1107,
+        "p_background_o": 0.1107
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9058,
+        "novelty_lof": 1.2434,
+        "novelty_knn_dist": 0.3816
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1756,
+        "least_confidence": 0.1181,
+        "margin_uncertainty": 0.2288
+      },
+      "probabilities": {
+        "O": 0.1107,
+        "Personal_care_products_and_cosmetic_procedures": 0.0018,
+        "Substance_use": 0.001,
+        "Environmental_exposures": 0.8819,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0024,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 3.2992,
+        "Personal_care_products_and_cosmetic_procedures": -0.8062,
+        "Substance_use": -1.4488,
+        "Environmental_exposures": 5.3746,
+        "Mental_health_practices": -2.2874,
+        "Non_physical_leisure_time_activities": -2.1469,
+        "Nutrition": -0.5449,
+        "Physical_activities": -2.6369,
+        "Sleep": -2.2709,
+        "Socioeconomic_factors": -1.8188
+      }
+    },
+    {
+      "span_id": "31654913_s011",
+      "abstract_id": "31654913",
+      "span_text": "tap water",
+      "boundaries": {
+        "start_char": 2254,
+        "end_char": 2263,
+        "token_start": 475,
+        "token_end": 476,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1793,
+        "novelty_score": 0.2795,
+        "margin": 0.8234,
+        "top1_prob": 0.9001,
+        "top2_prob": 0.0767,
+        "p_background_o": 0.0767
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2795,
+        "novelty_lof": 0.98,
+        "novelty_knn_dist": 0.1415
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1793,
+        "least_confidence": 0.0999,
+        "margin_uncertainty": 0.1766
+      },
+      "probabilities": {
+        "O": 0.0767,
+        "Personal_care_products_and_cosmetic_procedures": 0.0049,
+        "Substance_use": 0.0018,
+        "Environmental_exposures": 0.9001,
+        "Mental_health_practices": 0.0006,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0121,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.0012,
+        "Socioeconomic_factors": 0.0011
+      },
+      "logits": {
+        "O": 2.2959,
+        "Personal_care_products_and_cosmetic_procedures": -0.4489,
+        "Substance_use": -1.4452,
+        "Environmental_exposures": 4.7586,
+        "Mental_health_practices": -2.621,
+        "Non_physical_leisure_time_activities": -2.4214,
+        "Nutrition": 0.4513,
+        "Physical_activities": -2.2618,
+        "Sleep": -1.8812,
+        "Socioeconomic_factors": -1.9932
+      }
+    },
+    {
+      "span_id": "31654913_s012",
+      "abstract_id": "31654913",
+      "span_text": "Exposure to fluoride",
+      "boundaries": {
+        "start_char": 144,
+        "end_char": 164,
+        "token_start": 22,
+        "token_end": 24,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.024,
+        "novelty_score": 0.4151,
+        "margin": 0.9848,
+        "top1_prob": 0.9916,
+        "top2_prob": 0.0068,
+        "p_background_o": 0.0068
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4151,
+        "novelty_lof": 1.0231,
+        "novelty_knn_dist": 0.1932
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.024,
+        "least_confidence": 0.0084,
+        "margin_uncertainty": 0.0152
+      },
+      "probabilities": {
+        "O": 0.0068,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.9916,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.0001
+      },
+      "logits": {
+        "O": 2.0932,
+        "Personal_care_products_and_cosmetic_procedures": -0.3734,
+        "Substance_use": -0.936,
+        "Environmental_exposures": 7.0771,
+        "Mental_health_practices": -1.8684,
+        "Non_physical_leisure_time_activities": -2.3531,
+        "Nutrition": -1.673,
+        "Physical_activities": -2.3087,
+        "Sleep": -2.18,
+        "Socioeconomic_factors": -1.9309
+      }
+    },
+    {
+      "span_id": "31654913_s013",
+      "abstract_id": "31654913",
+      "span_text": "water treatment plant",
+      "boundaries": {
+        "start_char": 890,
+        "end_char": 911,
+        "token_start": 154,
+        "token_end": 156,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.3136,
+        "novelty_score": 0.6602,
+        "margin": 0.0983,
+        "top1_prob": 0.547,
+        "top2_prob": 0.4486,
+        "p_background_o": 0.4486
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6602,
+        "novelty_lof": 1.1387,
+        "novelty_knn_dist": 0.2355
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3136,
+        "least_confidence": 0.453,
+        "margin_uncertainty": 0.9017
+      },
+      "probabilities": {
+        "O": 0.4486,
+        "Personal_care_products_and_cosmetic_procedures": 0.0007,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.547,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0011,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 4.9491,
+        "Personal_care_products_and_cosmetic_procedures": -1.4795,
+        "Substance_use": -1.8225,
+        "Environmental_exposures": 5.1473,
+        "Mental_health_practices": -2.3599,
+        "Non_physical_leisure_time_activities": -2.1625,
+        "Nutrition": -1.0567,
+        "Physical_activities": -2.428,
+        "Sleep": -2.2559,
+        "Socioeconomic_factors": -1.4243
+      }
+    },
+    {
+      "span_id": "31654913_s014",
+      "abstract_id": "31654913",
+      "span_text": "tap water fluoride",
+      "boundaries": {
+        "start_char": 1348,
+        "end_char": 1366,
+        "token_start": 238,
+        "token_end": 240,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1236,
+        "novelty_score": 0.3899,
+        "margin": 0.8674,
+        "top1_prob": 0.9306,
+        "top2_prob": 0.0631,
+        "p_background_o": 0.0631
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3899,
+        "novelty_lof": 1.0508,
+        "novelty_knn_dist": 0.149
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1236,
+        "least_confidence": 0.0694,
+        "margin_uncertainty": 0.1326
+      },
+      "probabilities": {
+        "O": 0.0631,
+        "Personal_care_products_and_cosmetic_procedures": 0.0014,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.9306,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0022,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 2.9731,
+        "Personal_care_products_and_cosmetic_procedures": -0.8086,
+        "Substance_use": -1.2894,
+        "Environmental_exposures": 5.6637,
+        "Mental_health_practices": -2.4219,
+        "Non_physical_leisure_time_activities": -2.54,
+        "Nutrition": -0.3971,
+        "Physical_activities": -2.3336,
+        "Sleep": -2.2171,
+        "Socioeconomic_factors": -1.6736
+      }
+    },
+    {
+      "span_id": "31654913_s015",
+      "abstract_id": "31654913",
+      "span_text": "tap water fluoride",
+      "boundaries": {
+        "start_char": 1503,
+        "end_char": 1521,
+        "token_start": 275,
+        "token_end": 277,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.2098,
+        "novelty_score": 0.3899,
+        "margin": 0.6791,
+        "top1_prob": 0.8364,
+        "top2_prob": 0.1574,
+        "p_background_o": 0.1574
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3899,
+        "novelty_lof": 1.0508,
+        "novelty_knn_dist": 0.149
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2098,
+        "least_confidence": 0.1636,
+        "margin_uncertainty": 0.3209
+      },
+      "probabilities": {
+        "O": 0.1574,
+        "Personal_care_products_and_cosmetic_procedures": 0.0013,
+        "Substance_use": 0.001,
+        "Environmental_exposures": 0.8364,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0021,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 3.7925,
+        "Personal_care_products_and_cosmetic_procedures": -1.0079,
+        "Substance_use": -1.273,
+        "Environmental_exposures": 5.463,
+        "Mental_health_practices": -2.4829,
+        "Non_physical_leisure_time_activities": -2.6436,
+        "Nutrition": -0.5128,
+        "Physical_activities": -2.5358,
+        "Sleep": -2.2987,
+        "Socioeconomic_factors": -1.779
+      }
+    },
+    {
+      "span_id": "31654913_s016",
+      "abstract_id": "31654913",
+      "span_text": "tap water fluoride",
+      "boundaries": {
+        "start_char": 1579,
+        "end_char": 1597,
+        "token_start": 290,
+        "token_end": 292,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0764,
+        "novelty_score": 0.3899,
+        "margin": 0.9403,
+        "top1_prob": 0.9667,
+        "top2_prob": 0.0263,
+        "p_background_o": 0.0263
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3899,
+        "novelty_lof": 1.0508,
+        "novelty_knn_dist": 0.149
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0764,
+        "least_confidence": 0.0333,
+        "margin_uncertainty": 0.0597
+      },
+      "probabilities": {
+        "O": 0.0263,
+        "Personal_care_products_and_cosmetic_procedures": 0.0016,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.9667,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0022,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 2.0708,
+        "Personal_care_products_and_cosmetic_procedures": -0.7196,
+        "Substance_use": -1.2535,
+        "Environmental_exposures": 5.6734,
+        "Mental_health_practices": -2.1815,
+        "Non_physical_leisure_time_activities": -2.5272,
+        "Nutrition": -0.3923,
+        "Physical_activities": -2.1309,
+        "Sleep": -2.176,
+        "Socioeconomic_factors": -1.4928
+      }
+    },
+    {
+      "span_id": "31654913_s017",
+      "abstract_id": "31654913",
+      "span_text": "fluoridated region",
+      "boundaries": {
+        "start_char": 1961,
+        "end_char": 1979,
+        "token_start": 385,
+        "token_end": 387,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.3243,
+        "novelty_score": 0.4364,
+        "margin": 0.1181,
+        "top1_prob": 0.5545,
+        "top2_prob": 0.4364,
+        "p_background_o": 0.4364
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4364,
+        "novelty_lof": 1.0245,
+        "novelty_knn_dist": 0.2054
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3243,
+        "least_confidence": 0.4455,
+        "margin_uncertainty": 0.8819
+      },
+      "probabilities": {
+        "O": 0.4364,
+        "Personal_care_products_and_cosmetic_procedures": 0.0012,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.5545,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.001,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0044
+      },
+      "logits": {
+        "O": 4.5636,
+        "Personal_care_products_and_cosmetic_procedures": -1.2932,
+        "Substance_use": -1.6033,
+        "Environmental_exposures": 4.803,
+        "Mental_health_practices": -2.1661,
+        "Non_physical_leisure_time_activities": -2.5922,
+        "Nutrition": -1.4981,
+        "Physical_activities": -2.8456,
+        "Sleep": -2.3451,
+        "Socioeconomic_factors": -0.0375
+      }
+    },
+    {
+      "span_id": "31654913_s018",
+      "abstract_id": "31654913",
+      "span_text": "Community water fluoridation",
+      "boundaries": {
+        "start_char": 773,
+        "end_char": 801,
+        "token_start": 132,
+        "token_end": 135,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0804,
+        "novelty_score": 0.5779,
+        "margin": 0.936,
+        "top1_prob": 0.9644,
+        "top2_prob": 0.0284,
+        "p_background_o": 0.0284
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5779,
+        "novelty_lof": 1.0973,
+        "novelty_knn_dist": 0.2221
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0804,
+        "least_confidence": 0.0356,
+        "margin_uncertainty": 0.064
+      },
+      "probabilities": {
+        "O": 0.0284,
+        "Personal_care_products_and_cosmetic_procedures": 0.0013,
+        "Substance_use": 0.0014,
+        "Environmental_exposures": 0.9644,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0019,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.001
+      },
+      "logits": {
+        "O": 2.0833,
+        "Personal_care_products_and_cosmetic_procedures": -0.9917,
+        "Substance_use": -0.9581,
+        "Environmental_exposures": 5.6085,
+        "Mental_health_practices": -2.1862,
+        "Non_physical_leisure_time_activities": -2.2982,
+        "Nutrition": -0.5956,
+        "Physical_activities": -2.1282,
+        "Sleep": -2.3141,
+        "Socioeconomic_factors": -1.2193
+      }
+    },
+    {
+      "span_id": "31654913_s019",
+      "abstract_id": "31654913",
+      "span_text": "fluoride in tap water",
+      "boundaries": {
+        "start_char": 2242,
+        "end_char": 2263,
+        "token_start": 473,
+        "token_end": 476,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0911,
+        "novelty_score": 0.4356,
+        "margin": 0.9181,
+        "top1_prob": 0.9559,
+        "top2_prob": 0.0378,
+        "p_background_o": 0.0378
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4356,
+        "novelty_lof": 1.0796,
+        "novelty_knn_dist": 0.1499
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0911,
+        "least_confidence": 0.0441,
+        "margin_uncertainty": 0.0819
+      },
+      "probabilities": {
+        "O": 0.0378,
+        "Personal_care_products_and_cosmetic_procedures": 0.0027,
+        "Substance_use": 0.001,
+        "Environmental_exposures": 0.9559,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.001,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 2.7003,
+        "Personal_care_products_and_cosmetic_procedures": 0.0738,
+        "Substance_use": -0.8885,
+        "Environmental_exposures": 5.9316,
+        "Mental_health_practices": -1.7582,
+        "Non_physical_leisure_time_activities": -2.2121,
+        "Nutrition": -0.9691,
+        "Physical_activities": -2.2832,
+        "Sleep": -1.9407,
+        "Socioeconomic_factors": -2.2652
+      }
+    },
+    {
+      "span_id": "31654913_s020",
+      "abstract_id": "31654913",
+      "span_text": "water fluoride and urinary fluoride",
+      "boundaries": {
+        "start_char": 15,
+        "end_char": 50,
+        "token_start": 3,
+        "token_end": 7,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1278,
+        "novelty_score": 0.5419,
+        "margin": 0.8471,
+        "top1_prob": 0.9219,
+        "top2_prob": 0.0748,
+        "p_background_o": 0.0748
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5419,
+        "novelty_lof": 1.0554,
+        "novelty_knn_dist": 0.241
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1278,
+        "least_confidence": 0.0781,
+        "margin_uncertainty": 0.1529
+      },
+      "probabilities": {
+        "O": 0.0748,
+        "Personal_care_products_and_cosmetic_procedures": 0.0011,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.9219,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 3.5913,
+        "Personal_care_products_and_cosmetic_procedures": -0.5838,
+        "Substance_use": -1.3057,
+        "Environmental_exposures": 6.1029,
+        "Mental_health_practices": -2.1523,
+        "Non_physical_leisure_time_activities": -2.3981,
+        "Nutrition": -1.3041,
+        "Physical_activities": -2.6634,
+        "Sleep": -2.1482,
+        "Socioeconomic_factors": -2.0587
+      }
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "guidebook": [
+    {
+      "id": "DG-0001",
+      "span": "second-hand smoke",
+      "span_sentence": "Non-smokers exposed to second-hand smoke at home showed significantly higher urinary cotinine levels.",
+      "ground_truth_label": "Substance_use",
+      "bert_label": "Environmental_exposures",
+      "llm_label": "Environmental_exposures",
+      "triad": {
+        "type": "GT_X_BERT_Y_LLM_Y",
+        "description": "BERT proposed an incorrect LSF category (Environmental_exposures), and the LLM uncritically adopted BERT's error instead of correcting to Ground Truth (Substance_use)."
+      },
+      "guideline": "Passive, involuntary, or second-hand tobacco exposures, smoke residues, and chemical markers of tobacco combustion (e.g., ETS, second-hand smoke, environmental tobacco smoke, nicotine markers) belong strictly to Substance_use due to tobacco-product ontology precedence, rather than Environmental_exposures.",
+      "challenge_types": [
+        "TOP2_COMPETITION"
+      ],
+      "bert_info": {
+        "top1": {
+          "label": "Environmental_exposures",
+          "prob": 0.51
+        },
+        "top2": {
+          "label": "Substance_use",
+          "prob": 0.44
+        },
+        "margin": 0.07,
+        "uncertainty": 0.54,
+        "novelty": 0.18,
+        "prob_o": 0.05
+      },
+      "similar_spans": [
+        {
+          "span": "environmental tobacco smoke",
+          "labels": {
+            "gt": "Substance_use",
+            "bert": "Environmental_exposures",
+            "llm": "Substance_use"
+          }
+        },
+        {
+          "span": "ETS exposure",
+          "labels": {
+            "gt": "Substance_use",
+            "bert": "Environmental_exposures",
+            "llm": "Substance_use"
+          }
+        },
+        {
+          "span": "passive smoking",
+          "labels": {
+            "gt": "Substance_use",
+            "bert": "Substance_use",
+            "llm": "Substance_use"
+          }
+        }
+      ],
+      "usage_metrics": {
+        "helpful": 11,
+        "harmful": 0,
+        "neutral": 24,
+        "usage_count": 0,
+        "modification_count": 0
+      },
+      "history": []
+    },
+    {
+      "id": "DG-0002",
+      "span": "sexually abused children",
+      "span_sentence": "Mental health outcomes and behavioral interventions were assessed in sexually abused children.",
+      "ground_truth_label": "Socioeconomic_factors",
+      "bert_label": "Socioeconomic_factors",
+      "llm_label": "O",
+      "triad": {
+        "type": "GT_X_BERT_X_LLM_O",
+        "description": "BERT proposed the correct category (Socioeconomic_factors), but the LLM incorrectly rejected it as Non-LSF by treating adverse childhood trauma as an excluded demographic cohort."
+      },
+      "guideline": "When BERT predicts Socioeconomic_factors on spans describing adverse childhood experiences, interpersonal maltreatment, or household trauma (e.g., sexually abused children, childhood physical abuse, domestic violence exposure, severe child neglect), confirm BERT and preserve Socioeconomic_factors; do not override to O under demographic filtering rules, as interpersonal and household trauma constitutes an established social determinant of health rather than an unmodifiable demographic attribute.",
+      "challenge_types": [
+        "TOP2_COMPETITION"
+      ],
+      "bert_info": {},
+      "similar_spans": [
+        {
+          "span": "childhood physical abuse",
+          "label": "Socioeconomic_factors"
+        },
+        {
+          "span": "domestic violence exposure",
+          "label": "Socioeconomic_factors"
+        },
+        {
+          "span": "neglected adolescents",
+          "label": "Socioeconomic_factors"
+        }
+      ],
+      "usage_metrics": {
+        "helpful": 0,
+        "harmful": 0,
+        "neutral": 0,
+        "usage_count": 0,
+        "modification_count": 0
+      },
+      "history": []
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "doc_id": "7890451",
+  "dataset_split": "200/train",
+  "text": "\"Experience-sharing\" as an antidote to dependence-making behavior of general practitioners. \nThis article explores how group-dynamic interventions can be used to teach health professionals to counter impulses to make clients dependent on them. The basic assumption, derived from Kohut's work on narcissism, is that dependence-making behavior is connected with deep-rooted feelings of insufficiency resulting from a defective autonomy. A part of the standard Dutch General Practice (GP) training program, experience-sharing in groups of 12 GP trainees, offers opportunities to explore these feelings. The format of this experience-sharing (well-defined boundaries, minimal structure, facilitating leaders) often evokes behavior in which the peculiarities of the dependence-making behavior of the GP's vis-a-vis patients are mirrored: that is, dependent behavior. In order to analyze and influence this behavior, use can be made of Levine's model of group psychotherapy, which focuses on enhancing autonomy. In this paper we show, by means of four group cases, how Levine's framework can be used to enhance autonomy, lessen dependence, and thus diminish the tendency of GP's toward dependence-making behavior. \n",
+  "total_candidates": 1,
+  "spans": [
+    {
+      "span_id": "7890451_s000",
+      "abstract_id": "7890451",
+      "span_text": "group psychotherapy",
+      "boundaries": {
+        "start_char": 948,
+        "end_char": 967,
+        "token_start": 185,
+        "token_end": 186,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.017,
+        "novelty_score": 0.396,
+        "margin": 0.9938,
+        "top1_prob": 0.9953,
+        "top2_prob": 0.0015,
+        "p_background_o": 0.0015
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.396,
+        "novelty_lof": 0.991,
+        "novelty_knn_dist": 0.2129
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.017,
+        "least_confidence": 0.0047,
+        "margin_uncertainty": 0.0062
+      },
+      "probabilities": {
+        "O": 0.0015,
+        "Personal_care_products_and_cosmetic_procedures": 0.001,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.9953,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 0.1926,
+        "Personal_care_products_and_cosmetic_procedures": -0.147,
+        "Substance_use": -1.3924,
+        "Environmental_exposures": -1.1153,
+        "Mental_health_practices": 6.7139,
+        "Non_physical_leisure_time_activities": -0.8114,
+        "Nutrition": -2.8618,
+        "Physical_activities": -1.6192,
+        "Sleep": -1.3429,
+        "Socioeconomic_factors": -1.2099
+      }
+    }
+  ]
+}

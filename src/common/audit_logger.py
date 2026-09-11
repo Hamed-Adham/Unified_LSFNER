@@ -81,46 +81,82 @@ def canonicalize_label(label: str, use_new_labels: bool = True) -> str:
     from src.common.label_mapping import canonicalize_label as c_lbl
     return c_lbl(label, use_new_labels=use_new_labels)
 
-def classify_8_outcome_str(gt_label: str, spanner_label: str, final_label: str, escalated: bool = True) -> str:
+def classify_10_outcome_str(gt_label: str, spanner_label: str, final_label: str, escalated: bool = True) -> str:
+    """
+    Classify pipeline span decision into the canonical 10-outcome diagnostic taxonomy:
+    1. GT_X_BERT_Y_LLM_X: BERT proposed an incorrect LSF category, but the Generator successfully corrected it to the Ground Truth LSF category.
+    2. GT_O_BERT_X_LLM_O: BERT made a mistake and labeled a Non-LSF span as an LSF span, but the Generator correctly dropped it.
+    3. GT_X_BERT_X_LLM_X: BERT proposed the correct LSF category, and the Generator preserved it.
+    4. GT_X_BERT_X_LLM_Y: BERT proposed the correct LSF category, but the Generator mislabeled it as a different LSF category.
+    5. GT_O_BERT_X_LLM_X: Both BERT and the LLM agreed and labeled the span as the same LSF category, but the span is Non-LSF.
+    6. GT_O_BERT_X_LLM_Y: Both BERT and the LLM labeled the span as different incorrect LSF categories, whereas the Ground Truth is Non-LSF.
+    7. GT_X_BERT_X_LLM_O: BERT proposed the correct LSF category, but the LLM made a mistake and labeled it as Non-LSF.
+    8. GT_X_BERT_Y_LLM_O: Both BERT and the LLM made mistakes. BERT proposed an incorrect LSF category, and the LLM labeled the span as Non-LSF.
+    9. GT_X_BERT_Y_LLM_Z: Both BERT and the LLM labeled the span as different incorrect LSF categories, and neither matched the Ground Truth LSF category.
+    10. GT_X_BERT_Y_LLM_Y: Both BERT and the LLM agreed and labeled the span as the same incorrect LSF categories, and neither matched the Ground Truth LSF category.
+    """
     g = canonicalize_label(gt_label)
     s = canonicalize_label(spanner_label)
     f = canonicalize_label(final_label)
 
-    is_g_pos = (g != "O" and g != "Non_LSF" and g != "LSF_out_of_context")
-    is_s_pos = (s != "O" and s != "Non_LSF" and s != "LSF_out_of_context")
-    is_f_pos = (f != "O" and f != "Non_LSF" and f != "LSF_out_of_context")
+    is_g_pos = (g != "O" and g != "Non_LSF" and g != "Non-LSF" and g != "LSF_out_of_context")
+    is_s_pos = (s != "O" and s != "Non_LSF" and s != "Non-LSF" and s != "LSF_out_of_context")
+    is_f_pos = (f != "O" and f != "Non_LSF" and f != "Non-LSF" and f != "LSF_out_of_context")
 
     if not escalated:
         if is_s_pos and s == g:
-            return "UNESCALATED_CORRECT (GT_X_SPAN_X)"
+            return "GT_X_BERT_X"
         elif not is_s_pos and not is_g_pos:
-            return "UNESCALATED_TN (GT_O_SPAN_O)"
+            return "GT_O_BERT_O"
+        elif is_s_pos and not is_g_pos:
+            return "GT_O_BERT_X"
         else:
-            return "UNESCALATED_WRONG (GT_X_SPAN_Y)"
+            return "GT_X_BERT_Y"
 
     if is_g_pos:
-        if s != g and f == g:
-            return "FIXED_ENTITY (GT_X_SPAN_Y_LLM_X)"
-        elif s == g and f == g:
-            return "PRESERVED_CORRECT (GT_X_SPAN_X_LLM_X)"
-        elif s == g and f != g:
-            return "RUINED (GT_X_SPAN_X_LLM_Y)"
-        elif s != g and is_f_pos and f != g:
-            return "CONFUSED_CATEGORY (GT_X_SPAN_Y_LLM_Z)"
-        elif s != g and not is_f_pos:
-            return "DROPPED_ENTITY (GT_X_SPAN_X_LLM_O)"
-    else:
-        if is_s_pos and not is_f_pos:
-            return "FILTERED_FP (GT_O_SPAN_X_LLM_O)"
-        elif is_s_pos and is_f_pos:
-            return "RETAINED_FP (GT_O_SPAN_X_LLM_X)"
-        else:
-            return "CONFIRMED_NEGATIVE (GT_O_SPAN_O_LLM_O)"
-    return "OTHER"
+        if is_s_pos:
+            if s == g:
+                if is_f_pos and f == g:
+                    return "GT_X_BERT_X_LLM_X"
+                elif is_f_pos and f != g:
+                    return "GT_X_BERT_X_LLM_Y"
+                else:  # not is_f_pos
+                    return "GT_X_BERT_X_LLM_O"
+            else:  # s != g
+                if is_f_pos and f == g:
+                    return "GT_X_BERT_Y_LLM_X"
+                elif is_f_pos and f != g:
+                    if f == s:
+                        return "GT_X_BERT_Y_LLM_Y"
+                    else:
+                        return "GT_X_BERT_Y_LLM_Z"
+                else:  # not is_f_pos
+                    return "GT_X_BERT_Y_LLM_O"
+        else:  # s was O
+            if is_f_pos and f == g:
+                return "GT_X_BERT_O_LLM_X"
+            elif is_f_pos and f != g:
+                return "GT_X_BERT_O_LLM_Y"
+            else:
+                return "GT_X_BERT_O_LLM_O"
+    else:  # Ground Truth is Non-LSF (O)
+        if is_s_pos:
+            if not is_f_pos:
+                return "GT_O_BERT_X_LLM_O"
+            else:  # is_f_pos
+                if f == s:
+                    return "GT_O_BERT_X_LLM_X"
+                else:
+                    return "GT_O_BERT_X_LLM_Y"
+        else:  # s was O
+            if not is_f_pos:
+                return "GT_O_BERT_O_LLM_O"
+            else:
+                return "GT_O_BERT_O_LLM_X"
 
-def classify_outcome(gt_label: str, spanner_label: str, final_label: str, escalated: bool = True) -> str:
-    """Classify 8-outcome escalation diagnostic result string."""
-    return classify_8_outcome_str(gt_label, spanner_label, final_label, escalated)
+# Backward-compatibility aliases
+classify_8_outcome_str = classify_10_outcome_str
+classify_outcome = classify_10_outcome_str
 
 
 
@@ -612,45 +648,22 @@ from typing import Dict, List, Tuple, Any
 
 AUDIT_CATEGORIES = [
     {
-        "key": "CATEGORY_CORRECTION",
-        "name": "🚀 Category Correction",
-        "description": "Fixes SpanNER classification error",
-    },
-    {
-        "key": "FALSE_NEGATIVE_RECOVERY",
-        "name": "🚀 False Negative Recovery",
-        "description": "Discovers entity missed by SpanNER",
-    },
-    {
-        "key": "FALSE_POSITIVE_FILTER",
-        "name": "🧹 False Positive Filter",
-        "description": "Filters out SpanNER false alarm",
-    },
-    {
-        "key": "CLASS_OVERRIDE_ERROR",
-        "name": "❌ Class Override Error",
-        "description": "Swaps correct SpanNER to wrong class",
-    },
-    {
-        "key": "DROPPED_ENTITY",
-        "name": "❌ Dropped Entity",
-        "description": "Discards true entity into background",
-    },
-    {
-        "key": "ARBITRATION_SHIELD",
-        "name": "🛡️ Arbitration Shield",
-        "description": "Uncertainty check prevented LLM error",
-    },
-    {
-        "key": "CONFIRMED_ENTITY",
-        "name": "✅ Confirmed Entity",
-        "description": "Both agreed on correct entity",
-    },
-    {
-        "key": "CONFUSED_CATEGORY",
-        "name": "⚠️ Confused Category",
-        "description": "Both predicted wrong classes",
-    },
+        "key": cat[0],
+        "name": cat[0],
+        "description": cat[1],
+    }
+    for cat in [
+        ("GT_X_BERT_Y_LLM_X", "BERT proposed an incorrect LSF category, but the Generator successfully corrected it to the Ground Truth LSF category"),
+        ("GT_O_BERT_X_LLM_O", "BERT made a mistake and labeled a Non-LSF span as an LSF span, but the Generator correctly dropped it"),
+        ("GT_X_BERT_X_LLM_X", "BERT proposed the correct LSF category, and the Generator preserved it"),
+        ("GT_X_BERT_X_LLM_Y", "BERT proposed the correct LSF category, but the Generator mislabeled it as a different LSF category"),
+        ("GT_O_BERT_X_LLM_X", "Both BERT and the LLM agreed and labeled the span as the same LSF category, but the span is Non-LSF"),
+        ("GT_O_BERT_X_LLM_Y", "Both BERT and the LLM labeled the span as different incorrect LSF categories, whereas the Ground Truth is Non-LSF"),
+        ("GT_X_BERT_X_LLM_O", "BERT proposed the correct LSF category, but the LLM made a mistake and labeled it as Non-LSF"),
+        ("GT_X_BERT_Y_LLM_O", "Both BERT and the LLM made mistakes. BERT proposed an incorrect LSF category, and the LLM labeled the span as Non-LSF"),
+        ("GT_X_BERT_Y_LLM_Z", "Both BERT and the LLM labeled the span as different incorrect LSF categories, and neither matched the Ground Truth LSF category"),
+        ("GT_X_BERT_Y_LLM_Y", "Both BERT and the LLM agreed and labeled the span as the same incorrect LSF categories, and neither matched the Ground Truth LSF category"),
+    ]
 ]
 
 
@@ -661,61 +674,21 @@ def classify_audit_outcome(
     gt_label: str,
 ) -> Tuple[str, str, str, str]:
     """
-    Classify an escalated span decision into one of 8 fine-grained audit categories,
+    Classify an escalated span decision into one of 10 canonical audit categories,
     and produce a natural-language diagnostic explanation.
 
     Returns:
-        (category_key, category_name_with_badge, category_description, outcome_explanation)
+        (category_code, category_code, category_description, outcome_explanation)
     """
-    s = (spanner_label or "O").lower().strip()
-    l = (llm_label or "O").lower().strip()
-    f = (final_label or "O").lower().strip()
-    g = (gt_label or "O").lower().strip()
-
-    if f == g:
-        if s == g:
-            if l != g:
-                cat_key = "ARBITRATION_SHIELD"
-                cat_name = "🛡️ Arbitration Shield"
-                cat_desc = "Uncertainty check prevented LLM error"
-            else:
-                cat_key = "CONFIRMED_ENTITY"
-                cat_name = "✅ Confirmed Entity"
-                cat_desc = "Both agreed on correct entity"
-        else:  # s != g, final is correct
-            if g == "o":
-                cat_key = "FALSE_POSITIVE_FILTER"
-                cat_name = "🧹 False Positive Filter"
-                cat_desc = "Filters out SpanNER false alarm"
-            elif s == "o":
-                cat_key = "FALSE_NEGATIVE_RECOVERY"
-                cat_name = "🚀 False Negative Recovery"
-                cat_desc = "Discovers entity missed by SpanNER"
-            else:
-                cat_key = "CATEGORY_CORRECTION"
-                cat_name = "🚀 Category Correction"
-                cat_desc = "Fixes SpanNER classification error"
-    else:  # f != g (final prediction is incorrect)
-        if s == g and g != "o":
-            if f == "o":
-                cat_key = "DROPPED_ENTITY"
-                cat_name = "❌ Dropped Entity"
-                cat_desc = "Discards true entity into background"
-            else:
-                cat_key = "CLASS_OVERRIDE_ERROR"
-                cat_name = "❌ Class Override Error"
-                cat_desc = "Swaps correct SpanNER to wrong class"
-        elif g != "o" and f == "o":
-            cat_key = "DROPPED_ENTITY"
-            cat_name = "❌ Dropped Entity"
-            cat_desc = "Discards true entity into background"
-        else:  # s != g and f != g (or s == g == 'o' but f != 'o')
-            cat_key = "CONFUSED_CATEGORY"
-            cat_name = "⚠️ Confused Category"
-            cat_desc = "Both predicted wrong classes"
-
-    explanation = generate_outcome_explanation(spanner_label, llm_label, final_label, gt_label, cat_key)
-    return (cat_key, cat_name, cat_desc, explanation)
+    cat_code = classify_10_outcome_str(
+        gt_label=gt_label,
+        spanner_label=spanner_label,
+        final_label=final_label,
+        escalated=True
+    )
+    desc = dict(CANONICAL_OUTCOME_CATEGORIES).get(cat_code, "Pipeline diagnostic outcome")
+    explanation = generate_outcome_explanation(spanner_label, llm_label, final_label, gt_label, cat_code)
+    return (cat_code, cat_code, desc, explanation)
 
 
 def generate_outcome_explanation(
@@ -734,53 +707,47 @@ def generate_outcome_explanation(
     f_raw = final_label or "O"
     g_raw = gt_label or "O"
 
-    s = s_raw.lower().strip()
-    l = l_raw.lower().strip()
-    f = f_raw.lower().strip()
-    g = g_raw.lower().strip()
-
     if not category_key:
         category_key, _, _, _ = classify_audit_outcome(s_raw, l_raw, f_raw, g_raw)
 
-    if category_key == "CATEGORY_CORRECTION":
-        return f"SpanNER was uncertain and predicted wrong class '{s_raw}', but LLM successfully corrected it to true class '{g_raw}'."
-    elif category_key == "FALSE_NEGATIVE_RECOVERY":
-        return f"SpanNER missed this entity as background 'O', but LLM successfully discovered and classified it as true class '{g_raw}'."
-    elif category_key == "FALSE_POSITIVE_FILTER":
-        return f"SpanNER falsely predicted entity '{s_raw}', but LLM correctly identified it as non-entity background text ('O')."
-    elif category_key == "CLASS_OVERRIDE_ERROR":
-        return f"SpanNER correctly predicted '{s_raw}' (though uncertain/novel), but LLM incorrectly overrode it with wrong class '{l_raw}'."
-    elif category_key == "DROPPED_ENTITY":
-        if s == g:
-            return f"SpanNER correctly predicted '{s_raw}', but LLM dropped the true entity into background 'O' (Out of categories)."
-        else:
-            return f"True entity '{g_raw}' was discarded by LLM into background 'O' (Out of categories)."
-    elif category_key == "CONFIRMED_ENTITY":
-        return f"Both SpanNER and LLM agreed on the prediction and correctly classified true class '{g_raw}'."
-    elif category_key == "CONFUSED_CATEGORY":
-        if g == "o":
-            return f"SpanNER and LLM produced an unconfirmed prediction: Ground Truth is background 'O', but LLM predicted '{l_raw}'."
-        return f"Both models were confused: SpanNER predicted '{s_raw}' and LLM predicted '{l_raw}', both missing true class '{g_raw}'."
-    elif category_key == "ARBITRATION_SHIELD":
-        return f"Arbitration safeguard prevented an LLM error (LLM predicted wrong class '{l_raw}', preserving correct SpanNER class '{s_raw}')."
+    if category_key == "GT_X_BERT_Y_LLM_X":
+        return f"BERT proposed incorrect LSF category '{s_raw}', but Generator successfully corrected it to Ground Truth '{g_raw}'."
+    elif category_key == "GT_O_BERT_X_LLM_O":
+        return f"BERT falsely labeled Non-LSF span as '{s_raw}', but Generator correctly dropped it to 'O'."
+    elif category_key == "GT_X_BERT_X_LLM_X":
+        return f"BERT proposed correct LSF category '{s_raw}', and Generator preserved it."
+    elif category_key == "GT_X_BERT_X_LLM_Y":
+        return f"BERT proposed correct LSF category '{s_raw}', but Generator mislabeled it as different LSF category '{l_raw}'."
+    elif category_key == "GT_O_BERT_X_LLM_X":
+        return f"Both BERT and Generator agreed on '{l_raw}', but Ground Truth is Non-LSF ('O')."
+    elif category_key == "GT_O_BERT_X_LLM_Y":
+        return f"Both models labeled different incorrect LSF categories (BERT: '{s_raw}', Generator: '{l_raw}'), whereas Ground Truth is Non-LSF."
+    elif category_key == "GT_X_BERT_X_LLM_O":
+        return f"BERT proposed correct LSF category '{s_raw}', but Generator made a mistake and labeled it as Non-LSF ('O')."
+    elif category_key == "GT_X_BERT_Y_LLM_O":
+        return f"Both made mistakes: BERT proposed incorrect LSF '{s_raw}', and Generator labeled it as Non-LSF ('O') instead of true class '{g_raw}'."
+    elif category_key == "GT_X_BERT_Y_LLM_Z":
+        return f"Both models labeled different incorrect LSF categories (BERT: '{s_raw}', Generator: '{l_raw}'), and neither matched Ground Truth '{g_raw}'."
+    elif category_key == "GT_X_BERT_Y_LLM_Y":
+        return f"Both BERT and Generator agreed on the same incorrect LSF category '{l_raw}', and neither matched Ground Truth '{g_raw}'."
     else:
-        return f"SpanNER: '{s_raw}', LLM: '{l_raw}', Final: '{f_raw}', Ground Truth: '{g_raw}'."
+        return f"BERT: '{s_raw}', LLM: '{l_raw}', Final: '{f_raw}', Ground Truth: '{g_raw}'."
 
 
 def get_audit_status(category_key: str) -> str:
     """
-    Maps fine-grained 8 audit categories to high-level 4 diagnostic statuses:
-    - FIXED: Category Correction, False Negative Recovery, False Positive Filter
-    - RUINED: Class Override Error, Dropped Entity
-    - CONFIRMED_CORRECT: Confirmed Entity, Arbitration Shield
-    - NOT_FIXED: Confused Category
+    Maps fine-grained 10 audit categories to high-level 4 diagnostic statuses:
+    - LLM_CORRECTED: GT_X_BERT_Y_LLM_X, GT_O_BERT_X_LLM_O
+    - LLM_RUINED: GT_X_BERT_X_LLM_Y, GT_X_BERT_X_LLM_O
+    - PRESERVED_CORRECT: GT_X_BERT_X_LLM_X
+    - BOTH_FAILED: GT_O_BERT_X_LLM_X, GT_O_BERT_X_LLM_Y, GT_X_BERT_Y_LLM_O, GT_X_BERT_Y_LLM_Z, GT_X_BERT_Y_LLM_Y
     """
     norm_key = str(category_key).upper().strip()
-    if norm_key in ("CATEGORY_CORRECTION", "FALSE_NEGATIVE_RECOVERY", "FALSE_POSITIVE_FILTER", "FN_RECOVERY", "FP_FILTER"):
+    if norm_key in ("GT_X_BERT_Y_LLM_X", "GT_O_BERT_X_LLM_O", "CATEGORY_CORRECTION", "FALSE_NEGATIVE_RECOVERY", "FALSE_POSITIVE_FILTER", "FN_RECOVERY", "FP_FILTER"):
         return "FIXED"
-    elif norm_key in ("CLASS_OVERRIDE_ERROR", "DROPPED_ENTITY"):
+    elif norm_key in ("GT_X_BERT_X_LLM_Y", "GT_X_BERT_X_LLM_O", "CLASS_OVERRIDE_ERROR", "DROPPED_ENTITY"):
         return "RUINED"
-    elif norm_key in ("CONFIRMED_ENTITY", "ARBITRATION_SHIELD"):
+    elif norm_key in ("GT_X_BERT_X_LLM_X", "CONFIRMED_ENTITY", "ARBITRATION_SHIELD"):
         return "CONFIRMED_CORRECT"
     else:
         return "NOT_FIXED"
@@ -933,15 +900,16 @@ def format_audit_breakdown_table(
 
 
 CANONICAL_OUTCOME_CATEGORIES = [
-    ("PRESERVED_CORRECT (GT_X_SPAN_X_LLM_X)", "Both SpanNER & LLM agreed on correct entity"),
-    ("UNESCALATED_CORRECT (GT_X_SPAN_X)", "SpanNER confident & correct (Accepted locally)"),
-    ("RETAINED_FP (GT_0_SPAN_X_LLM_X)", "SpanNER false positive retained by LLM"),
-    ("CONFUSED_CATEGORY (GT_X_SPAN_Y_LLM_Z)", "Both predicted wrong entity categories"),
-    ("UNESCALATED_WRONG (GT_X_SPAN_Y)", "SpanNER confident but wrong (Missed escalation)"),
-    ("FILTERED_FP (GT_0_SPAN_X_LLM_0)", "SpanNER false positive successfully filtered by LLM"),
-    ("RUINED (GT_X_SPAN_X_LLM_Y)", "SpanNER correct entity corrupted by LLM to wrong class"),
-    ("FIXED_ENTITY (GT_X_SPAN_Y_LLM_X)", "SpanNER error successfully corrected by LLM"),
-    ("DROPPED_ENTITY (GT_X_SPAN_X_LLM_0)", "True entity falsely discarded into background 'O'")
+    ("GT_X_BERT_Y_LLM_X", "BERT proposed an incorrect LSF category, but the Generator successfully corrected it to the Ground Truth LSF category"),
+    ("GT_O_BERT_X_LLM_O", "BERT made a mistake and labeled a Non-LSF span as an LSF span, but the Generator correctly dropped it"),
+    ("GT_X_BERT_X_LLM_X", "BERT proposed the correct LSF category, and the Generator preserved it"),
+    ("GT_X_BERT_X_LLM_Y", "BERT proposed the correct LSF category, but the Generator mislabeled it as a different LSF category"),
+    ("GT_O_BERT_X_LLM_X", "Both BERT and the LLM agreed and labeled the span as the same LSF category, but the span is Non-LSF"),
+    ("GT_O_BERT_X_LLM_Y", "Both BERT and the LLM labeled the span as different incorrect LSF categories, whereas the Ground Truth is Non-LSF"),
+    ("GT_X_BERT_X_LLM_O", "BERT proposed the correct LSF category, but the LLM made a mistake and labeled it as Non-LSF"),
+    ("GT_X_BERT_Y_LLM_O", "Both BERT and the LLM made mistakes. BERT proposed an incorrect LSF category, and the LLM labeled the span as Non-LSF"),
+    ("GT_X_BERT_Y_LLM_Z", "Both BERT and the LLM labeled the span as different incorrect LSF categories, and neither matched the Ground Truth LSF category"),
+    ("GT_X_BERT_Y_LLM_Y", "Both BERT and the LLM agreed and labeled the span as the same incorrect LSF categories, and neither matched the Ground Truth LSF category"),
 ]
 
 def compute_canonical_audit_breakdown(
@@ -950,7 +918,7 @@ def compute_canonical_audit_breakdown(
     use_new_labels: bool = True
 ) -> Dict[str, Any]:
     """
-    Computes canonical 9-outcome diagnostic breakdowns across all candidate spans (escalated and unescalated).
+    Computes canonical 10-outcome diagnostic breakdowns across all candidate spans (escalated and unescalated).
     Works universally across all architectures (Single-Call, Dinasor/DinGenerator, Sweep Engine, etc.).
     """
     all_outcomes = []
@@ -964,7 +932,7 @@ def compute_canonical_audit_breakdown(
             s_lbl = p.get("spanner_label", p.get("label", "O"))
             f_lbl = p.get("label", "O")
 
-            outcome_str = classify_8_outcome_str(
+            outcome_str = classify_10_outcome_str(
                 gt_label=gt_lbl,
                 spanner_label=s_lbl,
                 final_label=f_lbl,
@@ -979,13 +947,9 @@ def compute_canonical_audit_breakdown(
     counts = Counter(all_outcomes)
     total = len(all_outcomes)
 
-    def get_count(key):
-        alt_key = key.replace("GT_0_", "GT_O_").replace("LLM_0", "LLM_O")
-        return counts[key] + (counts[alt_key] if alt_key != key else 0)
-
     category_summary = []
     for cat_name, desc in CANONICAL_OUTCOME_CATEGORIES:
-        c = get_count(cat_name)
+        c = counts[cat_name]
         pct = (c / total * 100.0) if total > 0 else 0.0
         category_summary.append({
             "category": cat_name,
@@ -1009,7 +973,7 @@ def format_canonical_audit_table(
     use_new_labels: bool = True
 ) -> str:
     """
-    Formats the canonical 9-outcome diagnostic table matching the academic publication taxonomy.
+    Formats the canonical 10-outcome diagnostic table matching the academic publication taxonomy.
     """
     if isinstance(breakdown_or_preds, dict) and "categories" in breakdown_or_preds:
         b = breakdown_or_preds
@@ -1032,14 +996,14 @@ def format_canonical_audit_table(
     lines.append(f"  • Locally Accepted Spans (Unescalated) : {unesc} ({unesc_pct:.1f}%)")
     lines.append(f"  • Escalated to Generative LLM         : {esc} ({esc_pct:.1f}%)")
     lines.append("-" * 110)
-    lines.append(f"  {'Outcome Category':<45} | {'Count':<6} | {'Percentage':<10} | Description")
+    lines.append(f"  {'Outcome Category':<25} | {'Count':<6} | {'Percentage':<10} | Description")
     lines.append("-" * 110)
     for row in b["categories"]:
         c_name = row["category"]
         c_cnt = row["count"]
         c_pct = row["percentage"]
         c_desc = row["description"]
-        lines.append(f"  • {c_name:<43} | {c_cnt:<6} | {c_pct:>6.1f}%    | {c_desc}")
+        lines.append(f"  • {c_name:<23} | {c_cnt:<6} | {c_pct:>6.1f}%    | {c_desc}")
     lines.append("=" * 110)
     return "\n".join(lines)
 
@@ -1193,7 +1157,7 @@ def export_pipeline_run_artifacts(
     # 3. Per-Class Strict Stats
     class_names = sorted(list(set(
         g["label"] for gts in all_doc_gts for g in gts
-        if canonicalize_label(g.get("label", "O"), use_new_labels=use_new_labels) not in {"O", "Lifestyle_factor", "lifestyle_factor", "LSF_out_of_context", "Non_LSF"}
+        if canonicalize_label(g.get("label", "O"), use_new_labels=use_new_labels) not in {"O", "Lifestyle_factor", "lifestyle_factor", "LSF_out_of_context", "Non_LSF", "Non-LSF"}
     )))
     per_class_summary = []
     for c in class_names:

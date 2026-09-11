@@ -1,0 +1,68 @@
+{
+  "doc_id": "34348394",
+  "dataset_split": "400/train",
+  "text": "Should Insulin-dependent Diabetic Patients Be Screened for Malnutrition Before Total Joint Arthroplasty? A Cohort at Risk. \nINTRODUCTION: The association of malnutrition in the morbidly obese cohort has led to recommendations for preoperative screening before total joint arthroplasty (TJA). However, despite the connection between diabetes and poor nutrition, preoperative screening in the diabetic cohort has not been closely examined. This study compared malnutrition risk between diabetic patients and morbidly obese patients undergoing TJA and investigated the association of malnutrition on 30-day postoperative TJA outcomes in the diabetic cohort. METHODS: The National Surgical Quality Improvement Program database was queried, and primary TJA patients were identified for inclusion. Patients were stratified by body mass index and diabetes, and outcomes were reported as two composite groups: complications and infections in the 30-day postoperative period. Univariate and multivariate regressions were used for the analysis. RESULTS: Patients with insulin-dependent diabetes mellitus (IDDM) were at a high risk of being malnourished in both the morbidly obese and nonmorbidly obese populations (frequencies of 11.9% and 9.9%, respectively). Patients with IDDM, but without morbid obesity, were 1.5x more often malnourished than morbidly obese patients without diabetes mellitus (9.9% versus 6.4%, respectively, P < 0.001). In a multivariate analysis among patients with co-occurring diabetes and malnutrition, patients with IDDM were at greatest risk for postoperative complications and infection (odds ratio 2.081 [1.652, 2.621]; P < 0.001 and odds ratio 1.894 [1.231, 2.913]; P = 0.004, respectively). DISCUSSION: Patients with IDDM are at high risk for malnutrition, and increased vigilance should be maintained in this cohort before TJA to optimize outcomes. Future studies should further investigate the utility of preoperative malnutrition screening in this cohort. \n",
+  "total_candidates": 1,
+  "spans": [
+    {
+      "span_id": "34348394_s000",
+      "abstract_id": "34348394",
+      "span_text": "poor nutrition",
+      "boundaries": {
+        "start_char": 345,
+        "end_char": 359,
+        "token_start": 62,
+        "token_end": 63,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0992,
+        "novelty_score": 0.2369,
+        "margin": 0.9156,
+        "top1_prob": 0.9534,
+        "top2_prob": 0.0377,
+        "p_background_o": 0.0377
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2369,
+        "novelty_lof": 0.9616,
+        "novelty_knn_dist": 0.125
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0992,
+        "least_confidence": 0.0466,
+        "margin_uncertainty": 0.0844
+      },
+      "probabilities": {
+        "O": 0.0377,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0012,
+        "Environmental_exposures": 0.002,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.9534,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0017,
+        "Socioeconomic_factors": 0.0016
+      },
+      "logits": {
+        "O": 2.106,
+        "Personal_care_products_and_cosmetic_procedures": -1.7927,
+        "Substance_use": -1.3762,
+        "Environmental_exposures": -0.8121,
+        "Mental_health_practices": -2.5831,
+        "Non_physical_leisure_time_activities": -2.0517,
+        "Nutrition": 5.3354,
+        "Physical_activities": -1.9617,
+        "Sleep": -0.9706,
+        "Socioeconomic_factors": -1.0444
+      }
+    }
+  ]
+}

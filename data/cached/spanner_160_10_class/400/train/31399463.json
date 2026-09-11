@@ -1,0 +1,608 @@
+{
+  "doc_id": "31399463",
+  "dataset_split": "400/train",
+  "text": "Coronary heart disease, hypertension and use of biomass fuel among women: comparative cross-sectional study. \nOBJECTIVES: To explore the associations of hypertension and coronary heart disease (CHD) with use of biomass fuel for cooking. DESIGN: Comparative cross-sectional study. SETTING: Rural villages in Sindh, Pakistan. PARTICIPANTS: Women aged >=40 years who had used biomass fuel for cooking for at least the last year (n=436), and a comparison group (n=414) who had cooked only with non-biomass fuel during the last year were recruited through door-to-door visits. None of those who were invited to take part declined. PRIMARY AND SECONDARY OUTCOME MEASURES: Hypertension was determined from blood pressure measurements and use of medication. CHD was assessed by three measures: history of angina (Rose angina questionnaire), previous history of 'heart attack', and definite or probable changes of CHD on ECG. Potentially confounding risk factors were ascertained by questionnaire and anthropometry. Associations of hypertension and CHD with use of biomass and other risk factors were assessed by logistic regression, and summarised by ORs with 95% CIs. RESULTS: After adjustment for potential confounders, there was no association of hypertension (OR: 1.0, 95% CI 0.8 to 1.4) angina (OR: 1.0, 95% CI 0.8 to 1.4), heart attack (OR: 1.2, 95% 0.7 to 2.2) or ECG changes of CHD (OR: 0.8, 95% CI 0.6 to 1.2) with current use of biomass for cooking. Nor were any associations apparent when analyses were restricted to long-term (>=10 years) users and non-users of biomass fuel. CONCLUSIONS: A linked air monitoring study indicated substantially higher airborne concentrations of fine particulate matter in kitchens where biomass was used for cooking. It is possible that associations with CHD and hypertension were missed because most of the comparison group had used biomass for cooking at some time in the past, and risk remains elevated for many years after last exposure. \n",
+  "total_candidates": 10,
+  "spans": [
+    {
+      "span_id": "31399463_s000",
+      "abstract_id": "31399463",
+      "span_text": "biomass fuel",
+      "boundaries": {
+        "start_char": 48,
+        "end_char": 60,
+        "token_start": 9,
+        "token_end": 10,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1995,
+        "novelty_score": 0.3782,
+        "margin": 0.848,
+        "top1_prob": 0.8992,
+        "top2_prob": 0.0512,
+        "p_background_o": 0.0512
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3782,
+        "novelty_lof": 1.0192,
+        "novelty_knn_dist": 0.1729
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1995,
+        "least_confidence": 0.1008,
+        "margin_uncertainty": 0.152
+      },
+      "probabilities": {
+        "O": 0.0512,
+        "Personal_care_products_and_cosmetic_procedures": 0.0011,
+        "Substance_use": 0.008,
+        "Environmental_exposures": 0.8992,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.0308,
+        "Physical_activities": 0.0017,
+        "Sleep": 0.0017,
+        "Socioeconomic_factors": 0.0045
+      },
+      "logits": {
+        "O": 1.5705,
+        "Personal_care_products_and_cosmetic_procedures": -2.2287,
+        "Substance_use": -0.2916,
+        "Environmental_exposures": 4.4357,
+        "Mental_health_practices": -3.0803,
+        "Non_physical_leisure_time_activities": -2.1042,
+        "Nutrition": 1.0608,
+        "Physical_activities": -1.8408,
+        "Sleep": -1.8506,
+        "Socioeconomic_factors": -0.8555
+      }
+    },
+    {
+      "span_id": "31399463_s001",
+      "abstract_id": "31399463",
+      "span_text": "biomass fuel",
+      "boundaries": {
+        "start_char": 211,
+        "end_char": 223,
+        "token_start": 40,
+        "token_end": 41,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.2169,
+        "novelty_score": 0.3783,
+        "margin": 0.8378,
+        "top1_prob": 0.8889,
+        "top2_prob": 0.0511,
+        "p_background_o": 0.0511
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3783,
+        "novelty_lof": 1.0192,
+        "novelty_knn_dist": 0.1729
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2169,
+        "least_confidence": 0.1111,
+        "margin_uncertainty": 0.1622
+      },
+      "probabilities": {
+        "O": 0.0511,
+        "Personal_care_products_and_cosmetic_procedures": 0.0014,
+        "Substance_use": 0.0087,
+        "Environmental_exposures": 0.8889,
+        "Mental_health_practices": 0.0006,
+        "Non_physical_leisure_time_activities": 0.0015,
+        "Nutrition": 0.0383,
+        "Physical_activities": 0.0019,
+        "Sleep": 0.0019,
+        "Socioeconomic_factors": 0.0056
+      },
+      "logits": {
+        "O": 1.4201,
+        "Personal_care_products_and_cosmetic_procedures": -2.1761,
+        "Substance_use": -0.3548,
+        "Environmental_exposures": 4.2766,
+        "Mental_health_practices": -3.0049,
+        "Non_physical_leisure_time_activities": -2.1097,
+        "Nutrition": 1.1325,
+        "Physical_activities": -1.8614,
+        "Sleep": -1.848,
+        "Socioeconomic_factors": -0.786
+      }
+    },
+    {
+      "span_id": "31399463_s002",
+      "abstract_id": "31399463",
+      "span_text": "Rural villages",
+      "boundaries": {
+        "start_char": 289,
+        "end_char": 303,
+        "token_start": 55,
+        "token_end": 56,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.1165,
+        "novelty_score": 0.7644,
+        "margin": 0.8624,
+        "top1_prob": 0.9301,
+        "top2_prob": 0.0676,
+        "p_background_o": 0.0676
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7644,
+        "novelty_lof": 1.1941,
+        "novelty_knn_dist": 0.2606
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1165,
+        "least_confidence": 0.0699,
+        "margin_uncertainty": 0.1376
+      },
+      "probabilities": {
+        "O": 0.0676,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.9301
+      },
+      "logits": {
+        "O": 3.752,
+        "Personal_care_products_and_cosmetic_procedures": -1.4321,
+        "Substance_use": -2.3931,
+        "Environmental_exposures": -1.5637,
+        "Mental_health_practices": -1.983,
+        "Non_physical_leisure_time_activities": -1.4836,
+        "Nutrition": -1.9058,
+        "Physical_activities": -1.4277,
+        "Sleep": -1.7938,
+        "Socioeconomic_factors": 6.3734
+      }
+    },
+    {
+      "span_id": "31399463_s003",
+      "abstract_id": "31399463",
+      "span_text": "biomass fuel",
+      "boundaries": {
+        "start_char": 373,
+        "end_char": 385,
+        "token_start": 75,
+        "token_end": 76,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.2771,
+        "novelty_score": 0.3783,
+        "margin": 0.7221,
+        "top1_prob": 0.8319,
+        "top2_prob": 0.1097,
+        "p_background_o": 0.1097
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3783,
+        "novelty_lof": 1.0192,
+        "novelty_knn_dist": 0.173
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2771,
+        "least_confidence": 0.1681,
+        "margin_uncertainty": 0.2779
+      },
+      "probabilities": {
+        "O": 0.1097,
+        "Personal_care_products_and_cosmetic_procedures": 0.0012,
+        "Substance_use": 0.0108,
+        "Environmental_exposures": 0.8319,
+        "Mental_health_practices": 0.0006,
+        "Non_physical_leisure_time_activities": 0.0017,
+        "Nutrition": 0.0344,
+        "Physical_activities": 0.0017,
+        "Sleep": 0.0021,
+        "Socioeconomic_factors": 0.006
+      },
+      "logits": {
+        "O": 2.1481,
+        "Personal_care_products_and_cosmetic_procedures": -2.352,
+        "Substance_use": -0.1732,
+        "Environmental_exposures": 4.1738,
+        "Mental_health_practices": -3.1171,
+        "Non_physical_leisure_time_activities": -2.0279,
+        "Nutrition": 0.9868,
+        "Physical_activities": -1.9913,
+        "Sleep": -1.8305,
+        "Socioeconomic_factors": -0.7558
+      }
+    },
+    {
+      "span_id": "31399463_s004",
+      "abstract_id": "31399463",
+      "span_text": "biomass fuel",
+      "boundaries": {
+        "start_char": 1566,
+        "end_char": 1578,
+        "token_start": 356,
+        "token_end": 357,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "Nutrition",
+        "uncertainty": 0.1118,
+        "novelty_score": 0.3783,
+        "margin": 0.9337,
+        "top1_prob": 0.9534,
+        "top2_prob": 0.0198,
+        "p_background_o": 0.0152
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3783,
+        "novelty_lof": 1.0192,
+        "novelty_knn_dist": 0.1729
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1118,
+        "least_confidence": 0.0466,
+        "margin_uncertainty": 0.0663
+      },
+      "probabilities": {
+        "O": 0.0152,
+        "Personal_care_products_and_cosmetic_procedures": 0.001,
+        "Substance_use": 0.0049,
+        "Environmental_exposures": 0.9534,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0009,
+        "Nutrition": 0.0198,
+        "Physical_activities": 0.0011,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.0023
+      },
+      "logits": {
+        "O": 0.771,
+        "Personal_care_products_and_cosmetic_procedures": -1.9993,
+        "Substance_use": -0.3587,
+        "Environmental_exposures": 4.9088,
+        "Mental_health_practices": -2.8078,
+        "Non_physical_leisure_time_activities": -2.0282,
+        "Nutrition": 1.0326,
+        "Physical_activities": -1.888,
+        "Sleep": -1.9335,
+        "Socioeconomic_factors": -1.1306
+      }
+    },
+    {
+      "span_id": "31399463_s005",
+      "abstract_id": "31399463",
+      "span_text": "air monitoring",
+      "boundaries": {
+        "start_char": 1602,
+        "end_char": 1616,
+        "token_start": 363,
+        "token_end": 364,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.2274,
+        "novelty_score": 0.3874,
+        "margin": 0.5903,
+        "top1_prob": 0.7941,
+        "top2_prob": 0.2039,
+        "p_background_o": 0.2039
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3874,
+        "novelty_lof": 1.0104,
+        "novelty_knn_dist": 0.1878
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2274,
+        "least_confidence": 0.2059,
+        "margin_uncertainty": 0.4097
+      },
+      "probabilities": {
+        "O": 0.2039,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0007,
+        "Environmental_exposures": 0.7941,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 4.8872,
+        "Personal_care_products_and_cosmetic_procedures": -1.8872,
+        "Substance_use": -0.7687,
+        "Environmental_exposures": 6.247,
+        "Mental_health_practices": -2.1613,
+        "Non_physical_leisure_time_activities": -2.1097,
+        "Nutrition": -1.8352,
+        "Physical_activities": -2.6351,
+        "Sleep": -2.1196,
+        "Socioeconomic_factors": -2.1253
+      }
+    },
+    {
+      "span_id": "31399463_s006",
+      "abstract_id": "31399463",
+      "span_text": "biomass for cooking",
+      "boundaries": {
+        "start_char": 1431,
+        "end_char": 1450,
+        "token_start": 328,
+        "token_end": 330,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.4806,
+        "novelty_score": 0.468,
+        "margin": 0.2518,
+        "top1_prob": 0.542,
+        "top2_prob": 0.2902,
+        "p_background_o": 0.2902
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.468,
+        "novelty_lof": 1.0628,
+        "novelty_knn_dist": 0.1872
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4806,
+        "least_confidence": 0.458,
+        "margin_uncertainty": 0.7482
+      },
+      "probabilities": {
+        "O": 0.2902,
+        "Personal_care_products_and_cosmetic_procedures": 0.0024,
+        "Substance_use": 0.0093,
+        "Environmental_exposures": 0.542,
+        "Mental_health_practices": 0.0009,
+        "Non_physical_leisure_time_activities": 0.004,
+        "Nutrition": 0.1419,
+        "Physical_activities": 0.0017,
+        "Sleep": 0.0017,
+        "Socioeconomic_factors": 0.006
+      },
+      "logits": {
+        "O": 2.7889,
+        "Personal_care_products_and_cosmetic_procedures": -1.9913,
+        "Substance_use": -0.6501,
+        "Environmental_exposures": 3.4135,
+        "Mental_health_practices": -3.0318,
+        "Non_physical_leisure_time_activities": -1.5052,
+        "Nutrition": 2.0732,
+        "Physical_activities": -2.3616,
+        "Sleep": -2.3406,
+        "Socioeconomic_factors": -1.0913
+      }
+    },
+    {
+      "span_id": "31399463_s007",
+      "abstract_id": "31399463",
+      "span_text": "fine particulate matter",
+      "boundaries": {
+        "start_char": 1681,
+        "end_char": 1704,
+        "token_start": 372,
+        "token_end": 374,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0388,
+        "novelty_score": 0.3187,
+        "margin": 0.9756,
+        "top1_prob": 0.9859,
+        "top2_prob": 0.0103,
+        "p_background_o": 0.0103
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3187,
+        "novelty_lof": 1.007,
+        "novelty_knn_dist": 0.1439
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0388,
+        "least_confidence": 0.0141,
+        "margin_uncertainty": 0.0244
+      },
+      "probabilities": {
+        "O": 0.0103,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.9859,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.001,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 1.6729,
+        "Personal_care_products_and_cosmetic_procedures": -1.9719,
+        "Substance_use": -0.7401,
+        "Environmental_exposures": 6.2362,
+        "Mental_health_practices": -2.0614,
+        "Non_physical_leisure_time_activities": -2.1616,
+        "Nutrition": -0.6571,
+        "Physical_activities": -1.9245,
+        "Sleep": -1.8809,
+        "Socioeconomic_factors": -1.223
+      }
+    },
+    {
+      "span_id": "31399463_s008",
+      "abstract_id": "31399463",
+      "span_text": "biomass for cooking",
+      "boundaries": {
+        "start_char": 1870,
+        "end_char": 1889,
+        "token_start": 405,
+        "token_end": 407,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.4713,
+        "novelty_score": 0.468,
+        "margin": 0.3732,
+        "top1_prob": 0.5943,
+        "top2_prob": 0.221,
+        "p_background_o": 0.221
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.468,
+        "novelty_lof": 1.0628,
+        "novelty_knn_dist": 0.1872
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4713,
+        "least_confidence": 0.4057,
+        "margin_uncertainty": 0.6268
+      },
+      "probabilities": {
+        "O": 0.221,
+        "Personal_care_products_and_cosmetic_procedures": 0.0025,
+        "Substance_use": 0.0123,
+        "Environmental_exposures": 0.5943,
+        "Mental_health_practices": 0.0009,
+        "Non_physical_leisure_time_activities": 0.0042,
+        "Nutrition": 0.1547,
+        "Physical_activities": 0.0019,
+        "Sleep": 0.0016,
+        "Socioeconomic_factors": 0.0067
+      },
+      "logits": {
+        "O": 2.5008,
+        "Personal_care_products_and_cosmetic_procedures": -1.9731,
+        "Substance_use": -0.3909,
+        "Environmental_exposures": 3.4898,
+        "Mental_health_practices": -3.0449,
+        "Non_physical_leisure_time_activities": -1.4724,
+        "Nutrition": 2.1442,
+        "Physical_activities": -2.2645,
+        "Sleep": -2.4499,
+        "Socioeconomic_factors": -0.9927
+      }
+    },
+    {
+      "span_id": "31399463_s009",
+      "abstract_id": "31399463",
+      "span_text": "non-biomass fuel",
+      "boundaries": {
+        "start_char": 490,
+        "end_char": 506,
+        "token_start": 104,
+        "token_end": 108,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.3539,
+        "novelty_score": 0.5303,
+        "margin": 0.6017,
+        "top1_prob": 0.763,
+        "top2_prob": 0.1614,
+        "p_background_o": 0.1614
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5303,
+        "novelty_lof": 1.055,
+        "novelty_knn_dist": 0.234
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3539,
+        "least_confidence": 0.237,
+        "margin_uncertainty": 0.3983
+      },
+      "probabilities": {
+        "O": 0.1614,
+        "Personal_care_products_and_cosmetic_procedures": 0.0021,
+        "Substance_use": 0.0163,
+        "Environmental_exposures": 0.763,
+        "Mental_health_practices": 0.0014,
+        "Non_physical_leisure_time_activities": 0.0031,
+        "Nutrition": 0.0319,
+        "Physical_activities": 0.0031,
+        "Sleep": 0.0027,
+        "Socioeconomic_factors": 0.0149
+      },
+      "logits": {
+        "O": 2.1315,
+        "Personal_care_products_and_cosmetic_procedures": -2.2031,
+        "Substance_use": -0.1617,
+        "Environmental_exposures": 3.685,
+        "Mental_health_practices": -2.5945,
+        "Non_physical_leisure_time_activities": -1.815,
+        "Nutrition": 0.51,
+        "Physical_activities": -1.8232,
+        "Sleep": -1.9413,
+        "Socioeconomic_factors": -0.2512
+      }
+    }
+  ]
+}

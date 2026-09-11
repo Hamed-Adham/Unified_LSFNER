@@ -1,0 +1,488 @@
+{
+  "doc_id": "14740505",
+  "dataset_split": "400/val",
+  "text": "Risk of transmission of leptospirosis from infected cattle to dairy workers in southern Israel. \nBACKGROUND: Leptospirosis is a zoonotic disease that occurs worldwide, found predominantly in agricultural workers, port workers and dairy workers. OBJECTIVE: To investigate the risk of disease transmission to dairy workers following an outbreak in 1999 of Leptospirosis hardjo in the dairy herds of two kibbutzim in southern Israel. METHODS: A seroepidemiologic survey of all the dairy workers from these two kibbutzim was conducted, including individual interview and examination. Data were collected on the presence of clinical symptoms of leptospirosis during the previous month. One month later the medical personnel on the two kibbutzim were contacted in order to determine if any worker had subsequently developed clinical signs or symptoms of leptospirosis. All dairy workers had blood drawn for serology. Those workers whose initial serology had been borderline for leptospirosis had a repeated serology test between 2 and 4 weeks later. Doxycycline was given prophylactically to all dairy workers on one kibbutz only. RESULTS: Either with or without chemoprophylaxis, no dairy workers exposed to herds infected with Leptospira hardjo showed evidence of seroconversion or disease. This indicated a low risk of transmission of this serovar from cows to dairy workers. CONCLUSION: Since human illness with leptospirae can cause illness associated with significant morbidity, we recommend that physicians make an informed decision regarding doxycycline prophylaxsis for dairy workers exposed to cattle herds infected with Leptospira hardjo. \n",
+  "total_candidates": 8,
+  "spans": [
+    {
+      "span_id": "14740505_s000",
+      "abstract_id": "14740505",
+      "span_text": "dairy workers",
+      "boundaries": {
+        "start_char": 62,
+        "end_char": 75,
+        "token_start": 10,
+        "token_end": 11,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.3343,
+        "novelty_score": 0.4282,
+        "margin": 0.2036,
+        "top1_prob": 0.5941,
+        "top2_prob": 0.3905,
+        "p_background_o": 0.3905
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4282,
+        "novelty_lof": 1.0042,
+        "novelty_knn_dist": 0.2205
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3343,
+        "least_confidence": 0.4059,
+        "margin_uncertainty": 0.7964
+      },
+      "probabilities": {
+        "O": 0.3905,
+        "Personal_care_products_and_cosmetic_procedures": 0.0024,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.0039,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0022,
+        "Nutrition": 0.0033,
+        "Physical_activities": 0.0014,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.5941
+      },
+      "logits": {
+        "O": 3.8513,
+        "Personal_care_products_and_cosmetic_procedures": -1.2541,
+        "Substance_use": -2.7381,
+        "Environmental_exposures": -0.7555,
+        "Mental_health_practices": -2.2938,
+        "Non_physical_leisure_time_activities": -1.3086,
+        "Nutrition": -0.9253,
+        "Physical_activities": -1.7469,
+        "Sleep": -2.4279,
+        "Socioeconomic_factors": 4.2709
+      }
+    },
+    {
+      "span_id": "14740505_s001",
+      "abstract_id": "14740505",
+      "span_text": "agricultural workers",
+      "boundaries": {
+        "start_char": 191,
+        "end_char": 211,
+        "token_start": 34,
+        "token_end": 35,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2053,
+        "novelty_score": 0.5052,
+        "margin": 0.7475,
+        "top1_prob": 0.8653,
+        "top2_prob": 0.1179,
+        "p_background_o": 0.1179
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5052,
+        "novelty_lof": 1.0357,
+        "novelty_knn_dist": 0.2377
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2053,
+        "least_confidence": 0.1347,
+        "margin_uncertainty": 0.2525
+      },
+      "probabilities": {
+        "O": 0.1179,
+        "Personal_care_products_and_cosmetic_procedures": 0.0018,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0086,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0018,
+        "Nutrition": 0.0015,
+        "Physical_activities": 0.0011,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.8653
+      },
+      "logits": {
+        "O": 2.8646,
+        "Personal_care_products_and_cosmetic_procedures": -1.2924,
+        "Substance_use": -2.8355,
+        "Environmental_exposures": 0.2432,
+        "Mental_health_practices": -2.0776,
+        "Non_physical_leisure_time_activities": -1.3011,
+        "Nutrition": -1.5332,
+        "Physical_activities": -1.7748,
+        "Sleep": -2.2236,
+        "Socioeconomic_factors": 4.8581
+      }
+    },
+    {
+      "span_id": "14740505_s002",
+      "abstract_id": "14740505",
+      "span_text": "port workers",
+      "boundaries": {
+        "start_char": 213,
+        "end_char": 225,
+        "token_start": 37,
+        "token_end": 38,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2964,
+        "novelty_score": 0.7321,
+        "margin": 0.3958,
+        "top1_prob": 0.6925,
+        "top2_prob": 0.2967,
+        "p_background_o": 0.2967
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7321,
+        "novelty_lof": 1.1545,
+        "novelty_knn_dist": 0.2732
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2964,
+        "least_confidence": 0.3075,
+        "margin_uncertainty": 0.6042
+      },
+      "probabilities": {
+        "O": 0.2967,
+        "Personal_care_products_and_cosmetic_procedures": 0.0012,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0046,
+        "Mental_health_practices": 0.0006,
+        "Non_physical_leisure_time_activities": 0.0017,
+        "Nutrition": 0.0008,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.6925
+      },
+      "logits": {
+        "O": 3.9201,
+        "Personal_care_products_and_cosmetic_procedures": -1.5523,
+        "Substance_use": -2.7496,
+        "Environmental_exposures": -0.2516,
+        "Mental_health_practices": -2.2739,
+        "Non_physical_leisure_time_activities": -1.2237,
+        "Nutrition": -1.94,
+        "Physical_activities": -1.9567,
+        "Sleep": -2.3244,
+        "Socioeconomic_factors": 4.7677
+      }
+    },
+    {
+      "span_id": "14740505_s003",
+      "abstract_id": "14740505",
+      "span_text": "dairy workers",
+      "boundaries": {
+        "start_char": 230,
+        "end_char": 243,
+        "token_start": 40,
+        "token_end": 41,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2911,
+        "novelty_score": 0.4282,
+        "margin": 0.4688,
+        "top1_prob": 0.7271,
+        "top2_prob": 0.2583,
+        "p_background_o": 0.2583
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4282,
+        "novelty_lof": 1.0042,
+        "novelty_knn_dist": 0.2205
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2911,
+        "least_confidence": 0.2729,
+        "margin_uncertainty": 0.5312
+      },
+      "probabilities": {
+        "O": 0.2583,
+        "Personal_care_products_and_cosmetic_procedures": 0.0021,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.0043,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0021,
+        "Nutrition": 0.0028,
+        "Physical_activities": 0.0013,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.7271
+      },
+      "logits": {
+        "O": 3.519,
+        "Personal_care_products_and_cosmetic_procedures": -1.2764,
+        "Substance_use": -2.7437,
+        "Environmental_exposures": -0.5873,
+        "Mental_health_practices": -2.2731,
+        "Non_physical_leisure_time_activities": -1.2842,
+        "Nutrition": -1.0097,
+        "Physical_activities": -1.778,
+        "Sleep": -2.3771,
+        "Socioeconomic_factors": 4.5541
+      }
+    },
+    {
+      "span_id": "14740505_s004",
+      "abstract_id": "14740505",
+      "span_text": "dairy workers",
+      "boundaries": {
+        "start_char": 307,
+        "end_char": 320,
+        "token_start": 53,
+        "token_end": 54,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.3473,
+        "novelty_score": 0.4281,
+        "margin": 0.0848,
+        "top1_prob": 0.5335,
+        "top2_prob": 0.4487,
+        "p_background_o": 0.4487
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4281,
+        "novelty_lof": 1.0042,
+        "novelty_knn_dist": 0.2205
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3473,
+        "least_confidence": 0.4665,
+        "margin_uncertainty": 0.9152
+      },
+      "probabilities": {
+        "O": 0.4487,
+        "Personal_care_products_and_cosmetic_procedures": 0.0027,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.0045,
+        "Mental_health_practices": 0.0009,
+        "Non_physical_leisure_time_activities": 0.0026,
+        "Nutrition": 0.0039,
+        "Physical_activities": 0.0017,
+        "Sleep": 0.0008,
+        "Socioeconomic_factors": 0.5335
+      },
+      "logits": {
+        "O": 3.876,
+        "Personal_care_products_and_cosmetic_procedures": -1.2293,
+        "Substance_use": -2.7683,
+        "Environmental_exposures": -0.7303,
+        "Mental_health_practices": -2.3021,
+        "Non_physical_leisure_time_activities": -1.2747,
+        "Nutrition": -0.8775,
+        "Physical_activities": -1.6811,
+        "Sleep": -2.4294,
+        "Socioeconomic_factors": 4.0492
+      }
+    },
+    {
+      "span_id": "14740505_s005",
+      "abstract_id": "14740505",
+      "span_text": "dairy workers",
+      "boundaries": {
+        "start_char": 478,
+        "end_char": 491,
+        "token_start": 91,
+        "token_end": 92,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.3333,
+        "novelty_score": 0.4281,
+        "margin": 0.2634,
+        "top1_prob": 0.6229,
+        "top2_prob": 0.3595,
+        "p_background_o": 0.3595
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4281,
+        "novelty_lof": 1.0042,
+        "novelty_knn_dist": 0.2205
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3333,
+        "least_confidence": 0.3771,
+        "margin_uncertainty": 0.7366
+      },
+      "probabilities": {
+        "O": 0.3595,
+        "Personal_care_products_and_cosmetic_procedures": 0.0028,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.0047,
+        "Mental_health_practices": 0.001,
+        "Non_physical_leisure_time_activities": 0.0025,
+        "Nutrition": 0.0035,
+        "Physical_activities": 0.0017,
+        "Sleep": 0.0008,
+        "Socioeconomic_factors": 0.6229
+      },
+      "logits": {
+        "O": 3.6762,
+        "Personal_care_products_and_cosmetic_procedures": -1.1621,
+        "Substance_use": -2.6737,
+        "Environmental_exposures": -0.6606,
+        "Mental_health_practices": -2.2264,
+        "Non_physical_leisure_time_activities": -1.2804,
+        "Nutrition": -0.9618,
+        "Physical_activities": -1.6833,
+        "Sleep": -2.416,
+        "Socioeconomic_factors": 4.2259
+      }
+    },
+    {
+      "span_id": "14740505_s006",
+      "abstract_id": "14740505",
+      "span_text": "agricultural workers, port workers",
+      "boundaries": {
+        "start_char": 191,
+        "end_char": 225,
+        "token_start": 34,
+        "token_end": 38,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.3286,
+        "novelty_score": 0.8954,
+        "margin": 0.1814,
+        "top1_prob": 0.5843,
+        "top2_prob": 0.4028,
+        "p_background_o": 0.4028
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8954,
+        "novelty_lof": 1.2956,
+        "novelty_knn_dist": 0.3112
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3286,
+        "least_confidence": 0.4157,
+        "margin_uncertainty": 0.8186
+      },
+      "probabilities": {
+        "O": 0.4028,
+        "Personal_care_products_and_cosmetic_procedures": 0.0014,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0066,
+        "Mental_health_practices": 0.0007,
+        "Non_physical_leisure_time_activities": 0.0018,
+        "Nutrition": 0.0009,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.5843
+      },
+      "logits": {
+        "O": 4.2589,
+        "Personal_care_products_and_cosmetic_procedures": -1.3761,
+        "Substance_use": -2.9002,
+        "Environmental_exposures": 0.1426,
+        "Mental_health_practices": -2.1471,
+        "Non_physical_leisure_time_activities": -1.1472,
+        "Nutrition": -1.7989,
+        "Physical_activities": -2.0641,
+        "Sleep": -2.5934,
+        "Socioeconomic_factors": 4.6307
+      }
+    },
+    {
+      "span_id": "14740505_s007",
+      "abstract_id": "14740505",
+      "span_text": "port workers and dairy workers",
+      "boundaries": {
+        "start_char": 213,
+        "end_char": 243,
+        "token_start": 37,
+        "token_end": 41,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.3228,
+        "novelty_score": 0.8191,
+        "margin": 0.12,
+        "top1_prob": 0.5558,
+        "top2_prob": 0.4358,
+        "p_background_o": 0.4358
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8191,
+        "novelty_lof": 1.2196,
+        "novelty_knn_dist": 0.2873
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3228,
+        "least_confidence": 0.4442,
+        "margin_uncertainty": 0.88
+      },
+      "probabilities": {
+        "O": 0.4358,
+        "Personal_care_products_and_cosmetic_procedures": 0.001,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0035,
+        "Mental_health_practices": 0.0006,
+        "Non_physical_leisure_time_activities": 0.0015,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.5558
+      },
+      "logits": {
+        "O": 4.5234,
+        "Personal_care_products_and_cosmetic_procedures": -1.582,
+        "Substance_use": -2.7677,
+        "Environmental_exposures": -0.3061,
+        "Mental_health_practices": -2.0996,
+        "Non_physical_leisure_time_activities": -1.1321,
+        "Nutrition": -1.9993,
+        "Physical_activities": -2.1462,
+        "Sleep": -2.5443,
+        "Socioeconomic_factors": 4.7666
+      }
+    }
+  ]
+}

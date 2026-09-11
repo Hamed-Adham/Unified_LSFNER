@@ -1,0 +1,68 @@
+{
+  "doc_id": "25561966",
+  "dataset_split": "400/train",
+  "text": "Lipid and glucose serum levels in children with congenital heart disease. \nINTRODUCTION: Coronary artery disease is one of the most common causes of morbidity and mortality in developed countries. Atherosclerosis begins in early childhood and progresses through life. With advances in pediatric cardiology, the prevalence of congenital heart disease in adults has increased in relation to children. A great deal of research has been conducted on serum glucose and lipid concentrations in patients with congenital heart disease, but comparison has yet to be made between congenital patients and the general population, especially in pediatric groups. The aim of this study was to compare the serum concentrations of glucose and lipids between pediatric congenital heart disease patients and a healthy age and sex-matched control group. METHODS: We measured and compared the total cholesterol, low-density lipoprotein (LDL) cholesterol, high-density lipoprotein (HDL) cholesterol, triglyceride (TG), and plasma glucose concentrations of 100 pediatric congenital heart disease patients (cases) and 100 individuals matched for age and sex (controls) during a period of 7 months between November 2011 and June 2012. RESULTS: Total cholesterol, triglyceride, HDL cholesterol, and LDL cholesterol concentrations were significantly higher in the patients than in the control group (p value < 0.05). Blood sugar levels in both groups had no significant difference (p value = 0.25). In the case group, the cholesterol level was higher in the males than in the females (p value = 0.30); moreover, the TG and HDL cholesterol levels were lower in the males than in the females and the LDL cholesterol and blood sugar levels had no statistically significant difference. In the control group, there was no difference between the males and females in terms of the cholesterol, HDL cholesterol, LDL cholesterol, TG, and blood sugar levels. CONCLUSION: The results of this study showed that our pediatric congenital heart disease patients had significantly higher levels of serum lipids than did their age and sex-matched controls. In light of these results, we recommend that the lipid profile be screened in children with congenital heart disease so as to reduce the risk of atherosclerosis. \n",
+  "total_candidates": 1,
+  "spans": [
+    {
+      "span_id": "25561966_s000",
+      "abstract_id": "25561966",
+      "span_text": "developed countries",
+      "boundaries": {
+        "start_char": 176,
+        "end_char": 195,
+        "token_start": 32,
+        "token_end": 33,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0369,
+        "novelty_score": 0.4671,
+        "margin": 0.9705,
+        "top1_prob": 0.9847,
+        "top2_prob": 0.0142,
+        "p_background_o": 0.0142
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4671,
+        "novelty_lof": 1.0947,
+        "novelty_knn_dist": 0.1546
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0369,
+        "least_confidence": 0.0153,
+        "margin_uncertainty": 0.0295
+      },
+      "probabilities": {
+        "O": 0.0142,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9847
+      },
+      "logits": {
+        "O": 2.9022,
+        "Personal_care_products_and_cosmetic_procedures": -1.2372,
+        "Substance_use": -2.4243,
+        "Environmental_exposures": -1.867,
+        "Mental_health_practices": -1.982,
+        "Non_physical_leisure_time_activities": -1.6293,
+        "Nutrition": -1.5432,
+        "Physical_activities": -1.7134,
+        "Sleep": -2.1824,
+        "Socioeconomic_factors": 7.1414
+      }
+    }
+  ]
+}

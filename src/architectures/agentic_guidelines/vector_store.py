@@ -1,5 +1,6 @@
 import os
 import torch
+from typing import Dict, List, Optional, Any, Union
 try:
     from sentence_transformers import SentenceTransformer
 except ImportError:
@@ -11,22 +12,31 @@ except ImportError:
 
 
 class VectorStore:
-    def __init__(self, persist_directory):
-        self.persist_directory = persist_directory
+    def __init__(self, persist_directory: str):
+        self.persist_directory = str(persist_directory)
         self.backup_directory = str(os.path.join(self.persist_directory, "backup"))
         
         os.makedirs(self.persist_directory, exist_ok=True)
         os.makedirs(self.backup_directory, exist_ok=True)
         
         device = 'cuda' if torch.cuda.is_available() else 'cpu'
-        self.model = SentenceTransformer('all-MiniLM-L6-v2', device=device)
-        print(f"Initialized SentenceTransformer on device: {device}")
-        
-        self.chroma_client = chromadb.PersistentClient(path=self.persist_directory)
-        self.collection = self._init_collection()
+        if SentenceTransformer:
+            self.model = SentenceTransformer('all-MiniLM-L6-v2', device=device)
+            print(f"Initialized SentenceTransformer on device: {device}")
+        else:
+            self.model = None
+            print("Warning: SentenceTransformer not available.")
+            
+        if chromadb:
+            self.chroma_client = chromadb.PersistentClient(path=self.persist_directory)
+            self.collection = self._init_collection()
+        else:
+            self.chroma_client = None
+            self.collection = None
+            print("Warning: ChromaDB not available.")
 
     def _init_collection(self):
-        COLLECTION_NAME = "dynamicGuidelines_bullets"
+        COLLECTION_NAME = "dynamicGuidebook_collection"
         try:
             collection = self.chroma_client.get_collection(COLLECTION_NAME)
             print(f"Loaded existing ChromaDB collection: {COLLECTION_NAME}")
@@ -38,127 +48,163 @@ class VectorStore:
             print(f"Created new ChromaDB collection: {COLLECTION_NAME}")
             return collection
 
-    def _make_metadata(self, bullet_id, section_name, supercategory, helpful=0, harmful=0, usage_count=0, modification_count=0):
+    @staticmethod
+    def construct_embedding_text(guideline: Dict[str, Any]) -> str:
+        """
+        Builds the Composite Triad representation:
+        Span + Sentence Context + Guideline Text
+        """
+        span = guideline.get("span", "")
+        sentence = guideline.get("span_sentence", "")
+        rule = guideline.get("guideline", guideline.get("content", ""))
+        
+        parts = []
+        if span:
+            parts.append(f"Span: {span}")
+        if sentence:
+            parts.append(f"Sentence: {sentence}")
+        if rule:
+            parts.append(f"Guideline: {rule}")
+            
+        return " | ".join(parts) if parts else str(guideline)
+
+    def _make_metadata(self, guideline: Dict[str, Any]) -> Dict[str, Any]:
+        gid = guideline.get("id", guideline.get("bullet_id", ""))
+        ch_types = guideline.get("challenge_types", [])
+        if isinstance(ch_types, list):
+            ch_str = ",".join(str(c) for c in ch_types)
+        else:
+            ch_str = str(ch_types or "")
+
+        metrics = guideline.get("usage_metrics", {})
+        rule_text = str(guideline.get("guideline", guideline.get("content", "")))
         return {
-            "bullet_id": bullet_id, "section_name": section_name, "supercategory": supercategory,
-            "helpful": helpful, "harmful": harmful, "usage_count": usage_count, "modification_count": modification_count
+            "id": str(gid),
+            "bullet_id": str(gid),
+            "span": str(guideline.get("span", "")),
+            "ground_truth_label": str(guideline.get("ground_truth_label", "")),
+            "bert_label": str(guideline.get("bert_label", "")),
+            "guideline": rule_text,
+            "challenge_types": ch_str,
+            "helpful": int(metrics.get("helpful", guideline.get("helpful", 0))),
+            "harmful": int(metrics.get("harmful", guideline.get("harmful", 0))),
+            "usage_count": int(metrics.get("usage_count", guideline.get("usage_count", 0)))
         }
 
     def sync_with_store(self, store):
         """
-        Bi-directional sync between dynamicGuidelines.json and ChromaDB:
+        Bi-directional sync between dynamicGuidebook.json and ChromaDB:
         1. Remove ChromaDB entries that no longer exist in JSON
-        2. Add embeddings for JSON bullets missing from ChromaDB
+        2. Add embeddings for JSON guidelines missing from ChromaDB
         """
-        # Get all bullet IDs from JSON
-        json_bullet_ids = set()
-        json_bullets_map = {}  # bullet_id -> (bullet, supercategory, section_name)
-        for bullet, supercategory, section_name in store.iter_bullets():
-            bullet_id = bullet["bullet_id"]
-            json_bullet_ids.add(bullet_id)
-            json_bullets_map[bullet_id] = (bullet, supercategory, section_name)
-        
-        # Get all bullet IDs from ChromaDB
+        if not self.collection or not self.model:
+            return
+
+        json_guidelines_map = {}
+        for g in store.iter_guidelines():
+            gid = str(g.get("id", g.get("bullet_id", "")))
+            if gid:
+                json_guidelines_map[gid] = g
+
+        json_ids = set(json_guidelines_map.keys())
+
         try:
             chroma_ids = set(self.collection.get(include=[])['ids'])
         except Exception:
             chroma_ids = set()
-        
-        # 1. Remove stale ChromaDB entries (in ChromaDB but not in JSON)
-        stale_ids = chroma_ids - json_bullet_ids
+
+        # 1. Remove stale ChromaDB entries
+        stale_ids = chroma_ids - json_ids
         if stale_ids:
             self.collection.delete(ids=list(stale_ids))
             print(f"Removed {len(stale_ids)} stale entries from ChromaDB.")
-        
-        # 2. Add missing embeddings (in JSON but not in ChromaDB)
-        missing_ids = json_bullet_ids - chroma_ids
+
+        # 2. Add missing embeddings
+        missing_ids = json_ids - chroma_ids
         if missing_ids:
-            contents, metadatas, ids = [], [], []
-            for bullet_id in missing_ids:
-                bullet, supercategory, section_name = json_bullets_map[bullet_id]
-                contents.append(bullet["content"])
-                metadatas.append(self._make_metadata(
-                    bullet_id, section_name, supercategory,
-                    bullet.get("helpful", 0), bullet.get("harmful", 0), bullet.get("usage_count", 0)
-                ))
-                ids.append(bullet_id)
-            
+            documents, metadatas, ids = [], [], []
+            for gid in missing_ids:
+                g = json_guidelines_map[gid]
+                doc_text = self.construct_embedding_text(g)
+                documents.append(doc_text)
+                metadatas.append(self._make_metadata(g))
+                ids.append(gid)
+
+            embeddings = self.model.encode(documents, batch_size=32).tolist()
             self.collection.add(
-                embeddings=self.model.encode(contents, batch_size=32).tolist(),
-                documents=contents, metadatas=metadatas, ids=ids
+                embeddings=embeddings,
+                documents=documents,
+                metadatas=metadatas,
+                ids=ids
             )
             print(f"Added {len(ids)} missing embeddings to ChromaDB.")
-        
-        if not stale_ids and not missing_ids:
-            print("ChromaDB and dynamicGuidelines.json are in sync.")
 
-    def find_similar(self, query, section_name=None, n_results=5, threshold=None):
+        if not stale_ids and not missing_ids:
+            print("ChromaDB and dynamicGuidebook are in sync.")
+
+    def find_similar(
+        self,
+        query: Union[str, List[float]],
+        category: Optional[str] = None,
+        challenge_type: Optional[str] = None,
+        n_results: int = 5,
+        threshold: Optional[float] = None
+    ) -> List[Dict[str, Any]]:
         """
-        Query ChromaDB for similar bullets.
-        query: can be a string (text) or a precomputed embedding (list/numpy array).
-        section_name: optional filter for a specific section.
-        n_results: number of results to retrieve.
-        threshold: if set, will also check if the top result meets the similarity threshold,
-                   returning a dict with 'is_similar', 'similarity', 'similar_bullet', etc.
+        Query ChromaDB for similar guidelines based on Composite Triad similarity.
         """
+        if not self.collection or not self.model:
+            return []
+
         if isinstance(query, str):
             query_embedding = self.model.encode(query).tolist()
         else:
             query_embedding = query
 
-        where_filter = {"section_name": section_name} if section_name else None
-        
+        where_filter = {}
+        if category:
+            where_filter["ground_truth_label"] = category
+        if challenge_type:
+            where_filter["challenge_types"] = challenge_type
+            
+        where = where_filter if where_filter else None
+
         count = self.collection.count()
         if count == 0:
-            if threshold is not None:
-                return {"is_similar": False, "similarity": 0.0, "similar_bullet": None}
             return []
-            
+
         n_results = min(n_results, count)
-        
+
         query_results = self.collection.query(
             query_embeddings=[query_embedding],
             n_results=n_results,
-            where=where_filter,
+            where=where,
             include=["metadatas", "distances", "documents"]
         )
-        
+
         results_list = []
         if query_results["ids"] and query_results["ids"][0]:
             for i in range(len(query_results["ids"][0])):
-                bullet_id = query_results["ids"][0][i]
+                gid = query_results["ids"][0][i]
                 doc = query_results["documents"][0][i]
                 meta = query_results["metadatas"][0][i]
                 dist = query_results["distances"][0][i]
-                similarity = float(1 - dist)
+                similarity = float(1.0 - dist)
+                
+                if threshold is not None and similarity < threshold:
+                    continue
+
                 results_list.append({
-                    "bullet_id": bullet_id,
-                    "content": doc,
-                    "section_name": meta.get("section_name"),
-                    "supercategory": meta.get("supercategory"),
-                    "helpful": meta.get("helpful", 0),
-                    "harmful": meta.get("harmful", 0),
-                    "usage_count": meta.get("usage_count", 0),
-                    "modification_count": meta.get("modification_count", 0),
+                    "id": gid,
+                    "bullet_id": gid,
+                    "span": meta.get("span", ""),
+                    "ground_truth_label": meta.get("ground_truth_label", ""),
+                    "bert_label": meta.get("bert_label", ""),
+                    "guideline": meta.get("guideline", ""),
+                    "content": meta.get("guideline", ""),
+                    "challenge_types": meta.get("challenge_types", "").split(",") if meta.get("challenge_types") else [],
+                    "document": doc,
                     "similarity": similarity
                 })
-        
-        if threshold is not None:
-            is_similar = False
-            top_similarity = 0.0
-            similar_bullet = None
-            if results_list:
-                top_similarity = results_list[0]["similarity"]
-                if top_similarity >= threshold:
-                    is_similar = True
-                    similar_bullet = {
-                        "bullet_id": results_list[0]["bullet_id"],
-                        "content": results_list[0]["content"]
-                    }
-            return {
-                "is_similar": is_similar,
-                "similarity": top_similarity,
-                "similar_bullet": similar_bullet
-            }
-            
+
         return results_list

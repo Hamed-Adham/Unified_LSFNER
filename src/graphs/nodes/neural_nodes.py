@@ -129,6 +129,38 @@ def spanner_inference_node(
     if "candidate_spans" in state and state["candidate_spans"]:
         return {"candidate_spans": state["candidate_spans"]}
 
+    if "precomputed_candidates" in state and state["precomputed_candidates"]:
+        raw_cands = state["precomputed_candidates"]
+        if isinstance(raw_cands, dict) and "candidates" in raw_cands:
+            raw_cands = raw_cands["candidates"]
+        formatted_cands: List[CandidateSpan] = []
+        for c in raw_cands:
+            s_text = c.get("span_text", c.get("entity", "")).strip()
+            if not s_text:
+                continue
+            lbl = to_new_label(c.get("predicted_label", c.get("spanner_label", "O"))) if use_new_labels else c.get("predicted_label", c.get("spanner_label", "O"))
+            top2_lbl = to_new_label(c.get("second_best_label", c.get("top2_label", "O"))) if use_new_labels else c.get("second_best_label", c.get("top2_label", "O"))
+            formatted_cands.append({
+                "start_char": int(c.get("start_char", c.get("char_start", 0))),
+                "end_char": int(c.get("end_char", c.get("char_end", 0))),
+                "span_text": s_text,
+                "predicted_tag": lbl,
+                "spanner_label": lbl,
+                "top1_label": lbl,
+                "top2_label": top2_lbl,
+                "confidence": float(c.get("prob", c.get("confidence", 1.0))),
+                "prob": float(c.get("prob", c.get("confidence", 1.0))),
+                "top2_prob": float(c.get("top2_prob", 0.0)),
+                "margin": float(c.get("margin", 1.0)),
+                "p_o": float(c.get("p_background_o", c.get("p_o", 0.0))),
+                "u_score": float(c.get("uncertainty", c.get("u_score", 0.0))),
+                "novelty": float(c.get("novelty_score", c.get("novelty", 0.0))),
+                "source": "spanner_cache"
+            })
+        if apply_nms:
+            formatted_cands = run_nms(formatted_cands)
+        return {"candidate_spans": formatted_cands}
+
     if spanner_model is None or tokenizer is None:
         # Fallback / Mock candidate generator for lightweight unit tests & decoupled execution
         words = text.split()
@@ -243,6 +275,13 @@ def novelty_scoring_node(
     candidates = state.get("candidate_spans", [])
     if not candidates:
         return {"novelty_scored_spans": [], "candidate_spans": []}
+
+    # If all candidates already have valid novelty scores (e.g. from precomputed cache), reuse directly
+    if all("novelty" in c and c.get("novelty") is not None for c in candidates) and state.get("precomputed_candidates"):
+        return {
+            "novelty_scored_spans": candidates,
+            "candidate_spans": candidates
+        }
 
     cfg = (config or {}).get("configurable", {})
     novelty_scorer = cfg.get("novelty_scorer")

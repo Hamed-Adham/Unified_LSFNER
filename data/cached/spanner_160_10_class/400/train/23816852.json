@@ -1,0 +1,668 @@
+{
+  "doc_id": "23816852",
+  "dataset_split": "400/train",
+  "text": "Analysis of the prevalence of and risk factors for atopic dermatitis using an ISAAC questionnaire in 8,750 Korean children. \nBACKGROUND: Since 1995, epidemiologic studies of atopic disorders using the International Study of Asthma and Allergies in Childhood (ISAAC) questionnaire have been performed in many countries, including the Republic of Korea. The prevalence, burden and risk factors of atopic dermatitis were surveyed in these studies, which helped to enhance their comparability among different areas and age groups, as well as to clarify the nature of atopic dermatitis and other atopic disorders. METHODS: From 21 facilities, 8,750 children were enrolled in this cross-sectional study. The data were collected via the Internet using a questionnaire based on the Korean-language version of the ISAAC study format. RESULTS: The prevalence of atopic dermatitis over the previous 12 months was 14.4%. The prevalence in preschool children was significantly higher than in elementary school children. Family history of atopic diseases, diagnosis of allergic conjunctivitis and diagnosis of food allergy were positively associated with atopic dermatitis in both preschool and elementary school children. In addition, raising pets was positively associated with atopic dermatitis in preschool children. In elementary school children, female gender, secondhand smoking, breastfeeding, changing the parents' house to a newly built one during the first year of life, diagnosis of asthma and diagnosis of allergic rhinitis were positively associated with atopic dermatitis. CONCLUSION: The prevalence of atopic dermatitis in preschool and elementary school children in Korea is similar to that of children in other developing countries. The risk factors for atopic dermatitis are different in preschool and elementary school children. More detailed strategies will be necessary to reduce atopic dermatitis in both age groups. \n",
+  "total_candidates": 11,
+  "spans": [
+    {
+      "span_id": "23816852_s000",
+      "abstract_id": "23816852",
+      "span_text": "preschool children",
+      "boundaries": {
+        "start_char": 927,
+        "end_char": 945,
+        "token_start": 173,
+        "token_end": 174,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2683,
+        "novelty_score": 0.5831,
+        "margin": 0.4683,
+        "top1_prob": 0.7316,
+        "top2_prob": 0.2632,
+        "p_background_o": 0.2632
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5831,
+        "novelty_lof": 1.107,
+        "novelty_knn_dist": 0.2156
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2683,
+        "least_confidence": 0.2684,
+        "margin_uncertainty": 0.5317
+      },
+      "probabilities": {
+        "O": 0.2632,
+        "Personal_care_products_and_cosmetic_procedures": 0.001,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0006,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.0011,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.7316
+      },
+      "logits": {
+        "O": 4.2868,
+        "Personal_care_products_and_cosmetic_procedures": -1.2745,
+        "Substance_use": -2.204,
+        "Environmental_exposures": -2.0006,
+        "Mental_health_practices": -1.869,
+        "Non_physical_leisure_time_activities": -1.5363,
+        "Nutrition": -1.1972,
+        "Physical_activities": -2.1075,
+        "Sleep": -2.1217,
+        "Socioeconomic_factors": 5.309
+      }
+    },
+    {
+      "span_id": "23816852_s001",
+      "abstract_id": "23816852",
+      "span_text": "developing countries",
+      "boundaries": {
+        "start_char": 1715,
+        "end_char": 1735,
+        "token_start": 297,
+        "token_end": 298,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0169,
+        "novelty_score": 0.2765,
+        "margin": 0.9903,
+        "top1_prob": 0.9946,
+        "top2_prob": 0.0043,
+        "p_background_o": 0.0043
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2765,
+        "novelty_lof": 0.9727,
+        "novelty_knn_dist": 0.1466
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0169,
+        "least_confidence": 0.0054,
+        "margin_uncertainty": 0.0097
+      },
+      "probabilities": {
+        "O": 0.0043,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9946
+      },
+      "logits": {
+        "O": 1.7816,
+        "Personal_care_products_and_cosmetic_procedures": -1.0697,
+        "Substance_use": -1.9645,
+        "Environmental_exposures": -1.4412,
+        "Mental_health_practices": -2.0797,
+        "Non_physical_leisure_time_activities": -1.758,
+        "Nutrition": -1.1802,
+        "Physical_activities": -1.7298,
+        "Sleep": -2.172,
+        "Socioeconomic_factors": 7.2318
+      }
+    },
+    {
+      "span_id": "23816852_s002",
+      "abstract_id": "23816852",
+      "span_text": "elementary school children",
+      "boundaries": {
+        "start_char": 979,
+        "end_char": 1005,
+        "token_start": 180,
+        "token_end": 182,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.19,
+        "novelty_score": 0.4523,
+        "margin": 0.7191,
+        "top1_prob": 0.8574,
+        "top2_prob": 0.1383,
+        "p_background_o": 0.1383
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4523,
+        "novelty_lof": 1.0418,
+        "novelty_knn_dist": 0.1983
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.19,
+        "least_confidence": 0.1426,
+        "margin_uncertainty": 0.2809
+      },
+      "probabilities": {
+        "O": 0.1383,
+        "Personal_care_products_and_cosmetic_procedures": 0.0009,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.001,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.8574
+      },
+      "logits": {
+        "O": 3.8751,
+        "Personal_care_products_and_cosmetic_procedures": -1.174,
+        "Substance_use": -2.2042,
+        "Environmental_exposures": -1.8635,
+        "Mental_health_practices": -1.6945,
+        "Non_physical_leisure_time_activities": -1.6451,
+        "Nutrition": -1.0862,
+        "Physical_activities": -2.1101,
+        "Sleep": -2.4636,
+        "Socioeconomic_factors": 5.6995
+      }
+    },
+    {
+      "span_id": "23816852_s003",
+      "abstract_id": "23816852",
+      "span_text": "elementary school children",
+      "boundaries": {
+        "start_char": 1181,
+        "end_char": 1207,
+        "token_start": 209,
+        "token_end": 211,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2028,
+        "novelty_score": 0.4523,
+        "margin": 0.6818,
+        "top1_prob": 0.839,
+        "top2_prob": 0.1572,
+        "p_background_o": 0.1572
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4523,
+        "novelty_lof": 1.0418,
+        "novelty_knn_dist": 0.1982
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2028,
+        "least_confidence": 0.161,
+        "margin_uncertainty": 0.3182
+      },
+      "probabilities": {
+        "O": 0.1572,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0008,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.839
+      },
+      "logits": {
+        "O": 4.0801,
+        "Personal_care_products_and_cosmetic_procedures": -1.237,
+        "Substance_use": -2.2564,
+        "Environmental_exposures": -1.8772,
+        "Mental_health_practices": -1.6769,
+        "Non_physical_leisure_time_activities": -1.6165,
+        "Nutrition": -1.2195,
+        "Physical_activities": -2.1616,
+        "Sleep": -2.4152,
+        "Socioeconomic_factors": 5.7547
+      }
+    },
+    {
+      "span_id": "23816852_s004",
+      "abstract_id": "23816852",
+      "span_text": "elementary school children",
+      "boundaries": {
+        "start_char": 1310,
+        "end_char": 1336,
+        "token_start": 229,
+        "token_end": 231,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2876,
+        "novelty_score": 0.4523,
+        "margin": 0.3513,
+        "top1_prob": 0.6736,
+        "top2_prob": 0.3223,
+        "p_background_o": 0.3223
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4523,
+        "novelty_lof": 1.0418,
+        "novelty_knn_dist": 0.1983
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2876,
+        "least_confidence": 0.3264,
+        "margin_uncertainty": 0.6487
+      },
+      "probabilities": {
+        "O": 0.3223,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0008,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.6736
+      },
+      "logits": {
+        "O": 4.6481,
+        "Personal_care_products_and_cosmetic_procedures": -1.36,
+        "Substance_use": -2.2362,
+        "Environmental_exposures": -1.8783,
+        "Mental_health_practices": -1.8035,
+        "Non_physical_leisure_time_activities": -1.5824,
+        "Nutrition": -1.2975,
+        "Physical_activities": -2.2223,
+        "Sleep": -2.4999,
+        "Socioeconomic_factors": 5.3853
+      }
+    },
+    {
+      "span_id": "23816852_s005",
+      "abstract_id": "23816852",
+      "span_text": "secondhand smoking",
+      "boundaries": {
+        "start_char": 1353,
+        "end_char": 1371,
+        "token_start": 236,
+        "token_end": 238,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.579,
+        "novelty_score": 0.2815,
+        "margin": 0.3192,
+        "top1_prob": 0.5316,
+        "top2_prob": 0.2123,
+        "p_background_o": 0.1608
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2815,
+        "novelty_lof": 1.0409,
+        "novelty_knn_dist": 0.0823
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.579,
+        "least_confidence": 0.4684,
+        "margin_uncertainty": 0.6808
+      },
+      "probabilities": {
+        "O": 0.1608,
+        "Personal_care_products_and_cosmetic_procedures": 0.0046,
+        "Substance_use": 0.5316,
+        "Environmental_exposures": 0.2123,
+        "Mental_health_practices": 0.004,
+        "Non_physical_leisure_time_activities": 0.0141,
+        "Nutrition": 0.0144,
+        "Physical_activities": 0.0039,
+        "Sleep": 0.0104,
+        "Socioeconomic_factors": 0.0438
+      },
+      "logits": {
+        "O": 1.3952,
+        "Personal_care_products_and_cosmetic_procedures": -2.1488,
+        "Substance_use": 2.5909,
+        "Environmental_exposures": 1.6733,
+        "Mental_health_practices": -2.2911,
+        "Non_physical_leisure_time_activities": -1.0355,
+        "Nutrition": -1.021,
+        "Physical_activities": -2.3212,
+        "Sleep": -1.3453,
+        "Socioeconomic_factors": 0.0953
+      }
+    },
+    {
+      "span_id": "23816852_s006",
+      "abstract_id": "23816852",
+      "span_text": "elementary school children",
+      "boundaries": {
+        "start_char": 1639,
+        "end_char": 1665,
+        "token_start": 284,
+        "token_end": 286,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.1873,
+        "novelty_score": 0.4523,
+        "margin": 0.7213,
+        "top1_prob": 0.8588,
+        "top2_prob": 0.1375,
+        "p_background_o": 0.1375
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4523,
+        "novelty_lof": 1.0418,
+        "novelty_knn_dist": 0.1983
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1873,
+        "least_confidence": 0.1412,
+        "margin_uncertainty": 0.2787
+      },
+      "probabilities": {
+        "O": 0.1375,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0007,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.8588
+      },
+      "logits": {
+        "O": 3.9653,
+        "Personal_care_products_and_cosmetic_procedures": -1.2257,
+        "Substance_use": -2.2905,
+        "Environmental_exposures": -1.9329,
+        "Mental_health_practices": -1.7343,
+        "Non_physical_leisure_time_activities": -1.6379,
+        "Nutrition": -1.2851,
+        "Physical_activities": -2.0394,
+        "Sleep": -2.4316,
+        "Socioeconomic_factors": 5.7973
+      }
+    },
+    {
+      "span_id": "23816852_s007",
+      "abstract_id": "23816852",
+      "span_text": "elementary school children",
+      "boundaries": {
+        "start_char": 1807,
+        "end_char": 1833,
+        "token_start": 311,
+        "token_end": 313,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.1713,
+        "novelty_score": 0.4523,
+        "margin": 0.7598,
+        "top1_prob": 0.8781,
+        "top2_prob": 0.1183,
+        "p_background_o": 0.1183
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4523,
+        "novelty_lof": 1.0418,
+        "novelty_knn_dist": 0.1983
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1713,
+        "least_confidence": 0.1219,
+        "margin_uncertainty": 0.2402
+      },
+      "probabilities": {
+        "O": 0.1183,
+        "Personal_care_products_and_cosmetic_procedures": 0.0007,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0008,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.8781
+      },
+      "logits": {
+        "O": 3.8477,
+        "Personal_care_products_and_cosmetic_procedures": -1.2294,
+        "Substance_use": -2.3153,
+        "Environmental_exposures": -1.9741,
+        "Mental_health_practices": -1.6624,
+        "Non_physical_leisure_time_activities": -1.6289,
+        "Nutrition": -1.1837,
+        "Physical_activities": -2.0582,
+        "Sleep": -2.4017,
+        "Socioeconomic_factors": 5.8522
+      }
+    },
+    {
+      "span_id": "23816852_s008",
+      "abstract_id": "23816852",
+      "span_text": "preschool and elementary school children",
+      "boundaries": {
+        "start_char": 1167,
+        "end_char": 1207,
+        "token_start": 207,
+        "token_end": 211,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2357,
+        "novelty_score": 0.6192,
+        "margin": 0.5803,
+        "top1_prob": 0.7883,
+        "top2_prob": 0.208,
+        "p_background_o": 0.208
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6192,
+        "novelty_lof": 1.0961,
+        "novelty_knn_dist": 0.2502
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2357,
+        "least_confidence": 0.2117,
+        "margin_uncertainty": 0.4197
+      },
+      "probabilities": {
+        "O": 0.208,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0007,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.7883
+      },
+      "logits": {
+        "O": 4.4256,
+        "Personal_care_products_and_cosmetic_procedures": -1.1711,
+        "Substance_use": -2.2468,
+        "Environmental_exposures": -2.2996,
+        "Mental_health_practices": -1.3337,
+        "Non_physical_leisure_time_activities": -1.3012,
+        "Nutrition": -1.595,
+        "Physical_activities": -1.9472,
+        "Sleep": -2.17,
+        "Socioeconomic_factors": 5.758
+      }
+    },
+    {
+      "span_id": "23816852_s009",
+      "abstract_id": "23816852",
+      "span_text": "preschool and elementary school children",
+      "boundaries": {
+        "start_char": 1625,
+        "end_char": 1665,
+        "token_start": 282,
+        "token_end": 286,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2156,
+        "novelty_score": 0.6191,
+        "margin": 0.6456,
+        "top1_prob": 0.8209,
+        "top2_prob": 0.1753,
+        "p_background_o": 0.1753
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6191,
+        "novelty_lof": 1.0961,
+        "novelty_knn_dist": 0.2502
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2156,
+        "least_confidence": 0.1791,
+        "margin_uncertainty": 0.3544
+      },
+      "probabilities": {
+        "O": 0.1753,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0007,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.8209
+      },
+      "logits": {
+        "O": 4.2294,
+        "Personal_care_products_and_cosmetic_procedures": -1.1948,
+        "Substance_use": -2.2543,
+        "Environmental_exposures": -2.333,
+        "Mental_health_practices": -1.3482,
+        "Non_physical_leisure_time_activities": -1.2987,
+        "Nutrition": -1.603,
+        "Physical_activities": -1.8625,
+        "Sleep": -2.1271,
+        "Socioeconomic_factors": 5.7735
+      }
+    },
+    {
+      "span_id": "23816852_s010",
+      "abstract_id": "23816852",
+      "span_text": "preschool and elementary school children",
+      "boundaries": {
+        "start_char": 1793,
+        "end_char": 1833,
+        "token_start": 309,
+        "token_end": 313,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2074,
+        "novelty_score": 0.6192,
+        "margin": 0.6706,
+        "top1_prob": 0.8333,
+        "top2_prob": 0.1627,
+        "p_background_o": 0.1627
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6192,
+        "novelty_lof": 1.0961,
+        "novelty_knn_dist": 0.2502
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2074,
+        "least_confidence": 0.1667,
+        "margin_uncertainty": 0.3294
+      },
+      "probabilities": {
+        "O": 0.1627,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0007,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.8333
+      },
+      "logits": {
+        "O": 4.1381,
+        "Personal_care_products_and_cosmetic_procedures": -1.1809,
+        "Substance_use": -2.2873,
+        "Environmental_exposures": -2.4051,
+        "Mental_health_practices": -1.2705,
+        "Non_physical_leisure_time_activities": -1.2824,
+        "Nutrition": -1.5481,
+        "Physical_activities": -1.8135,
+        "Sleep": -2.09,
+        "Socioeconomic_factors": 5.7719
+      }
+    }
+  ]
+}

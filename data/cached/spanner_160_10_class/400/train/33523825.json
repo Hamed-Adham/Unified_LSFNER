@@ -1,0 +1,608 @@
+{
+  "doc_id": "33523825",
+  "dataset_split": "400/train",
+  "text": "Consuming Information Related to COVID-19 on Social Media Among Older Adults and Its Association With Anxiety, Social Trust in Information, and COVID-Safe Behaviors: Cross-sectional Telephone Survey. \nBACKGROUND: COVID-19-related information on social media is overabundant and sometimes questionable, resulting in an \"infodemic\" during the pandemic. While previous studies suggest social media usage increases the risk of developing anxiety symptoms, how induced anxiety affects attitudes and behaviors is less discussed, let alone during a global pandemic. Little is known about the relationship between older adults using social media during a pandemic and their anxiety, their attitudes toward social trust in information, and behaviors to avoid contracting COVID-19. OBJECTIVE: The goal of this study was to investigate the associations between using social media for COVID-19-related information and anxiety symptoms as well as the mediation effect of anxiety symptoms on social trust in information and COVID-safe behaviors among older adults. METHODS: A cross-sectional telephone survey was conducted in Hong Kong between May and August 2020. A rapid warm-call protocol was developed to train social workers and volunteers from participant nongovernmental organizations to conduct the telephone surveys. Questions related to COVID-safe behaviors, social trust in information, social media use, anxiety and depressive symptoms, and sociodemographic information were asked. The number of confirmed COVID-19 cases at the community level was used to account for the risk of contracting COVID-19. Ordinary least squares regressions examined the associations between social media use and anxiety symptoms, and how they were associated with social trust in information and COVID-safe behaviors. Structural equation modeling further mapped out these relationships to identify the mediation effects of anxiety symptoms. RESULTS: This study collected information regarding 3421 adults aged 60 years and older. Use of social media for COVID-19-related information was associated with more anxiety symptoms and lower social trust in information but had no significant relationship with COVID-safe behaviors. Anxiety symptoms predicted lower social trust in information and higher COVID-safe behaviors. Lower social trust in information was predicted by using social media for COVID-19 information, mediated by anxiety symptoms, while no mediation effect was found for COVID-safe behaviors. CONCLUSIONS: Older adults who rely on social media for COVID-19-related information exhibited more anxiety symptoms, while showing mixed effects on attitudes and behaviors. Social trust in information may be challenged by unverified and contradictory information online. The negligible impact on COVID-safe behaviors suggested that social media may have caused more confusion than consolidating a consistent effort against the pandemic. Media literacy education is recommended to promote critical evaluation of COVID-19-related information and responsible sharing among older adults. \n",
+  "total_candidates": 10,
+  "spans": [
+    {
+      "span_id": "33523825_s000",
+      "abstract_id": "33523825",
+      "span_text": "social media",
+      "boundaries": {
+        "start_char": 625,
+        "end_char": 637,
+        "token_start": 120,
+        "token_end": 121,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Non_physical_leisure_time_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.2973,
+        "novelty_score": 0.3689,
+        "margin": 0.4398,
+        "top1_prob": 0.7127,
+        "top2_prob": 0.2729,
+        "p_background_o": 0.2729
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3689,
+        "novelty_lof": 1.0177,
+        "novelty_knn_dist": 0.1681
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2973,
+        "least_confidence": 0.2873,
+        "margin_uncertainty": 0.5602
+      },
+      "probabilities": {
+        "O": 0.2729,
+        "Personal_care_products_and_cosmetic_procedures": 0.0007,
+        "Substance_use": 0.002,
+        "Environmental_exposures": 0.0011,
+        "Mental_health_practices": 0.002,
+        "Non_physical_leisure_time_activities": 0.7127,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.0017,
+        "Sleep": 0.0019,
+        "Socioeconomic_factors": 0.0043
+      },
+      "logits": {
+        "O": 3.8376,
+        "Personal_care_products_and_cosmetic_procedures": -2.0711,
+        "Substance_use": -1.0561,
+        "Environmental_exposures": -1.6364,
+        "Mental_health_practices": -1.0641,
+        "Non_physical_leisure_time_activities": 4.7975,
+        "Nutrition": -2.3575,
+        "Physical_activities": -1.249,
+        "Sleep": -1.1267,
+        "Socioeconomic_factors": -0.3066
+      }
+    },
+    {
+      "span_id": "33523825_s001",
+      "abstract_id": "33523825",
+      "span_text": "sociodemographic information",
+      "boundaries": {
+        "start_char": 1439,
+        "end_char": 1467,
+        "token_start": 269,
+        "token_end": 270,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0739,
+        "novelty_score": 0.9164,
+        "margin": 0.9251,
+        "top1_prob": 0.9619,
+        "top2_prob": 0.0368,
+        "p_background_o": 0.0368
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9164,
+        "novelty_lof": 1.428,
+        "novelty_knn_dist": 0.2176
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0739,
+        "least_confidence": 0.0381,
+        "margin_uncertainty": 0.0749
+      },
+      "probabilities": {
+        "O": 0.0368,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9619
+      },
+      "logits": {
+        "O": 3.5842,
+        "Personal_care_products_and_cosmetic_procedures": -1.4849,
+        "Substance_use": -2.0931,
+        "Environmental_exposures": -1.7075,
+        "Mental_health_practices": -2.0066,
+        "Non_physical_leisure_time_activities": -1.2919,
+        "Nutrition": -2.0729,
+        "Physical_activities": -2.2036,
+        "Sleep": -2.3879,
+        "Socioeconomic_factors": 6.8474
+      }
+    },
+    {
+      "span_id": "33523825_s002",
+      "abstract_id": "33523825",
+      "span_text": "social media",
+      "boundaries": {
+        "start_char": 2015,
+        "end_char": 2027,
+        "token_start": 370,
+        "token_end": 371,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.3279,
+        "novelty_score": 0.3689,
+        "margin": 0.0823,
+        "top1_prob": 0.5364,
+        "top2_prob": 0.4541,
+        "p_background_o": 0.4541
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3689,
+        "novelty_lof": 1.0177,
+        "novelty_knn_dist": 0.1681
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3279,
+        "least_confidence": 0.4636,
+        "margin_uncertainty": 0.9177
+      },
+      "probabilities": {
+        "O": 0.4541,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0013,
+        "Environmental_exposures": 0.0008,
+        "Mental_health_practices": 0.0013,
+        "Non_physical_leisure_time_activities": 0.5364,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0011,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0028
+      },
+      "logits": {
+        "O": 4.64,
+        "Personal_care_products_and_cosmetic_procedures": -2.2625,
+        "Substance_use": -1.2292,
+        "Environmental_exposures": -1.6574,
+        "Mental_health_practices": -1.2326,
+        "Non_physical_leisure_time_activities": 4.8065,
+        "Nutrition": -2.402,
+        "Physical_activities": -1.361,
+        "Sleep": -1.2269,
+        "Socioeconomic_factors": -0.4341
+      }
+    },
+    {
+      "span_id": "33523825_s003",
+      "abstract_id": "33523825",
+      "span_text": "social media",
+      "boundaries": {
+        "start_char": 2524,
+        "end_char": 2536,
+        "token_start": 466,
+        "token_end": 467,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.2565,
+        "novelty_score": 0.3689,
+        "margin": 0.581,
+        "top1_prob": 0.7845,
+        "top2_prob": 0.2035,
+        "p_background_o": 0.2035
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3689,
+        "novelty_lof": 1.0177,
+        "novelty_knn_dist": 0.1681
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2565,
+        "least_confidence": 0.2155,
+        "margin_uncertainty": 0.419
+      },
+      "probabilities": {
+        "O": 0.2035,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0016,
+        "Environmental_exposures": 0.001,
+        "Mental_health_practices": 0.0018,
+        "Non_physical_leisure_time_activities": 0.7845,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0015,
+        "Sleep": 0.0017,
+        "Socioeconomic_factors": 0.0033
+      },
+      "logits": {
+        "O": 3.7247,
+        "Personal_care_products_and_cosmetic_procedures": -2.0742,
+        "Substance_use": -1.0986,
+        "Environmental_exposures": -1.5766,
+        "Mental_health_practices": -0.9846,
+        "Non_physical_leisure_time_activities": 5.074,
+        "Nutrition": -2.4627,
+        "Physical_activities": -1.1778,
+        "Sleep": -1.0861,
+        "Socioeconomic_factors": -0.3956
+      }
+    },
+    {
+      "span_id": "33523825_s004",
+      "abstract_id": "33523825",
+      "span_text": "social media usage",
+      "boundaries": {
+        "start_char": 382,
+        "end_char": 400,
+        "token_start": 81,
+        "token_end": 83,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Non_physical_leisure_time_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.1233,
+        "novelty_score": 0.4063,
+        "margin": 0.8859,
+        "top1_prob": 0.9374,
+        "top2_prob": 0.0515,
+        "p_background_o": 0.0515
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4063,
+        "novelty_lof": 1.0317,
+        "novelty_knn_dist": 0.1789
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1233,
+        "least_confidence": 0.0626,
+        "margin_uncertainty": 0.1141
+      },
+      "probabilities": {
+        "O": 0.0515,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0018,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.0014,
+        "Non_physical_leisure_time_activities": 0.9374,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0013,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0035
+      },
+      "logits": {
+        "O": 2.5258,
+        "Personal_care_products_and_cosmetic_procedures": -1.9093,
+        "Substance_use": -0.8049,
+        "Environmental_exposures": -1.771,
+        "Mental_health_practices": -1.0528,
+        "Non_physical_leisure_time_activities": 5.4274,
+        "Nutrition": -2.4964,
+        "Physical_activities": -1.1454,
+        "Sleep": -1.1279,
+        "Socioeconomic_factors": -0.1673
+      }
+    },
+    {
+      "span_id": "33523825_s005",
+      "abstract_id": "33523825",
+      "span_text": "using social media",
+      "boundaries": {
+        "start_char": 850,
+        "end_char": 868,
+        "token_start": 160,
+        "token_end": 162,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.2887,
+        "novelty_score": 0.3331,
+        "margin": 0.4631,
+        "top1_prob": 0.725,
+        "top2_prob": 0.262,
+        "p_background_o": 0.262
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3331,
+        "novelty_lof": 0.9856,
+        "novelty_knn_dist": 0.1756
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2887,
+        "least_confidence": 0.275,
+        "margin_uncertainty": 0.5369
+      },
+      "probabilities": {
+        "O": 0.262,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0016,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.002,
+        "Non_physical_leisure_time_activities": 0.725,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0021,
+        "Sleep": 0.0015,
+        "Socioeconomic_factors": 0.0041
+      },
+      "logits": {
+        "O": 3.9366,
+        "Personal_care_products_and_cosmetic_procedures": -2.2659,
+        "Substance_use": -1.1681,
+        "Environmental_exposures": -1.929,
+        "Mental_health_practices": -0.9435,
+        "Non_physical_leisure_time_activities": 4.9545,
+        "Nutrition": -2.3374,
+        "Physical_activities": -0.8803,
+        "Sleep": -1.2535,
+        "Socioeconomic_factors": -0.2314
+      }
+    },
+    {
+      "span_id": "33523825_s006",
+      "abstract_id": "33523825",
+      "span_text": "social media use",
+      "boundaries": {
+        "start_char": 1384,
+        "end_char": 1400,
+        "token_start": 259,
+        "token_end": 261,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Non_physical_leisure_time_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.1149,
+        "novelty_score": 0.392,
+        "margin": 0.9097,
+        "top1_prob": 0.9473,
+        "top2_prob": 0.0376,
+        "p_background_o": 0.0376
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.392,
+        "novelty_lof": 1.0292,
+        "novelty_knn_dist": 0.1721
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1149,
+        "least_confidence": 0.0527,
+        "margin_uncertainty": 0.0903
+      },
+      "probabilities": {
+        "O": 0.0376,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0024,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.0016,
+        "Non_physical_leisure_time_activities": 0.9473,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0016,
+        "Sleep": 0.0015,
+        "Socioeconomic_factors": 0.0061
+      },
+      "logits": {
+        "O": 2.0625,
+        "Personal_care_products_and_cosmetic_procedures": -1.8358,
+        "Substance_use": -0.6865,
+        "Environmental_exposures": -1.9668,
+        "Mental_health_practices": -1.0712,
+        "Non_physical_leisure_time_activities": 5.2894,
+        "Nutrition": -2.3706,
+        "Physical_activities": -1.0917,
+        "Sleep": -1.1523,
+        "Socioeconomic_factors": 0.2431
+      }
+    },
+    {
+      "span_id": "33523825_s007",
+      "abstract_id": "33523825",
+      "span_text": "social media use",
+      "boundaries": {
+        "start_char": 1669,
+        "end_char": 1685,
+        "token_start": 310,
+        "token_end": 312,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Non_physical_leisure_time_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0787,
+        "novelty_score": 0.392,
+        "margin": 0.946,
+        "top1_prob": 0.9678,
+        "top2_prob": 0.0219,
+        "p_background_o": 0.0219
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.392,
+        "novelty_lof": 1.0292,
+        "novelty_knn_dist": 0.1721
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0787,
+        "least_confidence": 0.0322,
+        "margin_uncertainty": 0.054
+      },
+      "probabilities": {
+        "O": 0.0219,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0018,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0015,
+        "Non_physical_leisure_time_activities": 0.9678,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0012,
+        "Sleep": 0.0011,
+        "Socioeconomic_factors": 0.0033
+      },
+      "logits": {
+        "O": 1.85,
+        "Personal_care_products_and_cosmetic_procedures": -1.834,
+        "Substance_use": -0.6443,
+        "Environmental_exposures": -1.971,
+        "Mental_health_practices": -0.8548,
+        "Non_physical_leisure_time_activities": 5.6405,
+        "Nutrition": -2.4754,
+        "Physical_activities": -1.012,
+        "Sleep": -1.0982,
+        "Socioeconomic_factors": -0.0359
+      }
+    },
+    {
+      "span_id": "33523825_s008",
+      "abstract_id": "33523825",
+      "span_text": "using social media",
+      "boundaries": {
+        "start_char": 2349,
+        "end_char": 2367,
+        "token_start": 430,
+        "token_end": 432,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.3182,
+        "novelty_score": 0.3331,
+        "margin": 0.2849,
+        "top1_prob": 0.6362,
+        "top2_prob": 0.3513,
+        "p_background_o": 0.3513
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3331,
+        "novelty_lof": 0.9856,
+        "novelty_knn_dist": 0.1756
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3182,
+        "least_confidence": 0.3638,
+        "margin_uncertainty": 0.7151
+      },
+      "probabilities": {
+        "O": 0.3513,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0013,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.0019,
+        "Non_physical_leisure_time_activities": 0.6362,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.002,
+        "Sleep": 0.0014,
+        "Socioeconomic_factors": 0.0043
+      },
+      "logits": {
+        "O": 4.2545,
+        "Personal_care_products_and_cosmetic_procedures": -2.308,
+        "Substance_use": -1.3333,
+        "Environmental_exposures": -2.0243,
+        "Mental_health_practices": -0.9511,
+        "Non_physical_leisure_time_activities": 4.8484,
+        "Nutrition": -2.3811,
+        "Physical_activities": -0.9234,
+        "Sleep": -1.2986,
+        "Socioeconomic_factors": -0.1588
+      }
+    },
+    {
+      "span_id": "33523825_s009",
+      "abstract_id": "33523825",
+      "span_text": "Use of social media",
+      "boundaries": {
+        "start_char": 2008,
+        "end_char": 2027,
+        "token_start": 368,
+        "token_end": 371,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Non_physical_leisure_time_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.2599,
+        "novelty_score": 0.3767,
+        "margin": 0.5796,
+        "top1_prob": 0.7831,
+        "top2_prob": 0.2034,
+        "p_background_o": 0.2034
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3767,
+        "novelty_lof": 0.9913,
+        "novelty_knn_dist": 0.1997
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2599,
+        "least_confidence": 0.2169,
+        "margin_uncertainty": 0.4204
+      },
+      "probabilities": {
+        "O": 0.2034,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0022,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.0022,
+        "Non_physical_leisure_time_activities": 0.7831,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0018,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0044
+      },
+      "logits": {
+        "O": 3.7032,
+        "Personal_care_products_and_cosmetic_procedures": -2.3889,
+        "Substance_use": -0.809,
+        "Environmental_exposures": -1.9912,
+        "Mental_health_practices": -0.8311,
+        "Non_physical_leisure_time_activities": 5.0511,
+        "Nutrition": -2.3478,
+        "Physical_activities": -1.0402,
+        "Sleep": -1.3299,
+        "Socioeconomic_factors": -0.1376
+      }
+    }
+  ]
+}

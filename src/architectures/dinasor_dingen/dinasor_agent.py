@@ -84,8 +84,18 @@ class Dinasor:
             The generated new hints (parsed list or dict from LLM response),
             or a tuple (hints, prompt, raw_response) depending on flags.
         """
-        if dynamicGuidelines is None:
-            dynamicGuidelines = {}
+        # Format dynamicGuidebook / dynamicGuidelines (support DynamicGuidebookManager, list, dict, or string)
+        if hasattr(dynamicGuidelines, "get_guidelines_for_dinasor"):
+            dynamicGuidelines = dynamicGuidelines.get_guidelines_for_dinasor(query_text=abstract, as_json_str=True)
+        elif isinstance(dynamicGuidelines, (list, dict)):
+            if dynamicGuidelines:
+                dynamicGuidelines = json.dumps(dynamicGuidelines, indent=2, ensure_ascii=False)
+            else:
+                dynamicGuidelines = "None provided."
+        elif not dynamicGuidelines:
+            dynamicGuidelines = "None provided."
+
+        dynamicGuidebook = dynamicGuidelines
 
         # Format uncertain_entities
         if isinstance(uncertain_entities, list):

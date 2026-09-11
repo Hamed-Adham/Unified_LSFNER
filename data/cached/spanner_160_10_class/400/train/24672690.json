@@ -1,0 +1,368 @@
+{
+  "doc_id": "24672690",
+  "dataset_split": "400/train",
+  "text": "Preoperative evaluation for lung cancer resection. \nDuring the last decades lung cancer is the leading cause of death worldwide for both sexes. Even though cigarette smoking has been proved to be the main causative factor, many other agents (e.g., occupational exposure to asbestos or heavy metals, indoor exposure to radon gas radiation, particulate air pollution) have been associated with its development. Recently screening programs proved to reduce mortality among heavy-smokers although establishment of such strategies in everyday clinical practice is much more difficult and unknown if it is cost effective compared to other neoplasms (e.g., breast or prostate cancer). Adding severe comorbidities (coronary heart disease, COPD) to the above reasons as cigarette smoking is a common causative factor, we could explain the low surgical resection rates (approximately 20-30%) for lung cancer patients. Three clinical guidelines reports of different associations have been published (American College of Chest Physisians, British Thoracic Society and European Respiratory Society/European Society of Thoracic Surgery) providing detailed algorithms for preoperative assessment. In the current mini review, we will comment on the preoperative evaluation of lung cancer patients. \n",
+  "total_candidates": 6,
+  "spans": [
+    {
+      "span_id": "24672690_s000",
+      "abstract_id": "24672690",
+      "span_text": "cigarette smoking",
+      "boundaries": {
+        "start_char": 156,
+        "end_char": 173,
+        "token_start": 29,
+        "token_end": 30,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1212,
+        "novelty_score": 0.1822,
+        "margin": 0.9345,
+        "top1_prob": 0.9517,
+        "top2_prob": 0.0172,
+        "p_background_o": 0.0172
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.1822,
+        "novelty_lof": 0.958,
+        "novelty_knn_dist": 0.0766
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1212,
+        "least_confidence": 0.0483,
+        "margin_uncertainty": 0.0655
+      },
+      "probabilities": {
+        "O": 0.0172,
+        "Personal_care_products_and_cosmetic_procedures": 0.0013,
+        "Substance_use": 0.9517,
+        "Environmental_exposures": 0.0121,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0031,
+        "Nutrition": 0.0048,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0046,
+        "Socioeconomic_factors": 0.0036
+      },
+      "logits": {
+        "O": 0.6177,
+        "Personal_care_products_and_cosmetic_procedures": -1.959,
+        "Substance_use": 4.6301,
+        "Environmental_exposures": 0.2654,
+        "Mental_health_practices": -2.4087,
+        "Non_physical_leisure_time_activities": -1.0855,
+        "Nutrition": -0.6556,
+        "Physical_activities": -2.5255,
+        "Sleep": -0.7047,
+        "Socioeconomic_factors": -0.9596
+      }
+    },
+    {
+      "span_id": "24672690_s001",
+      "abstract_id": "24672690",
+      "span_text": "heavy metals",
+      "boundaries": {
+        "start_char": 285,
+        "end_char": 297,
+        "token_start": 54,
+        "token_end": 55,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0448,
+        "novelty_score": 0.5534,
+        "margin": 0.9671,
+        "top1_prob": 0.9821,
+        "top2_prob": 0.015,
+        "p_background_o": 0.015
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5534,
+        "novelty_lof": 1.0482,
+        "novelty_knn_dist": 0.2555
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0448,
+        "least_confidence": 0.0179,
+        "margin_uncertainty": 0.0329
+      },
+      "probabilities": {
+        "O": 0.015,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.9821,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.001
+      },
+      "logits": {
+        "O": 2.1862,
+        "Personal_care_products_and_cosmetic_procedures": -1.8018,
+        "Substance_use": -1.3895,
+        "Environmental_exposures": 6.3662,
+        "Mental_health_practices": -1.9338,
+        "Non_physical_leisure_time_activities": -2.4359,
+        "Nutrition": -1.505,
+        "Physical_activities": -2.1412,
+        "Sleep": -1.9576,
+        "Socioeconomic_factors": -0.5265
+      }
+    },
+    {
+      "span_id": "24672690_s002",
+      "abstract_id": "24672690",
+      "span_text": "cigarette smoking",
+      "boundaries": {
+        "start_char": 761,
+        "end_char": 778,
+        "token_start": 135,
+        "token_end": 136,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1139,
+        "novelty_score": 0.1822,
+        "margin": 0.942,
+        "top1_prob": 0.9557,
+        "top2_prob": 0.0137,
+        "p_background_o": 0.0137
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.1822,
+        "novelty_lof": 0.958,
+        "novelty_knn_dist": 0.0766
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1139,
+        "least_confidence": 0.0443,
+        "margin_uncertainty": 0.058
+      },
+      "probabilities": {
+        "O": 0.0137,
+        "Personal_care_products_and_cosmetic_procedures": 0.0013,
+        "Substance_use": 0.9557,
+        "Environmental_exposures": 0.0116,
+        "Mental_health_practices": 0.0009,
+        "Non_physical_leisure_time_activities": 0.0033,
+        "Nutrition": 0.0051,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0044,
+        "Socioeconomic_factors": 0.0035
+      },
+      "logits": {
+        "O": 0.4036,
+        "Personal_care_products_and_cosmetic_procedures": -1.9873,
+        "Substance_use": 4.652,
+        "Environmental_exposures": 0.2384,
+        "Mental_health_practices": -2.3596,
+        "Non_physical_leisure_time_activities": -1.0249,
+        "Nutrition": -0.589,
+        "Physical_activities": -2.5239,
+        "Sleep": -0.7233,
+        "Socioeconomic_factors": -0.9675
+      }
+    },
+    {
+      "span_id": "24672690_s003",
+      "abstract_id": "24672690",
+      "span_text": "particulate air pollution",
+      "boundaries": {
+        "start_char": 339,
+        "end_char": 364,
+        "token_start": 64,
+        "token_end": 66,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0326,
+        "novelty_score": 0.2375,
+        "margin": 0.9823,
+        "top1_prob": 0.9891,
+        "top2_prob": 0.0067,
+        "p_background_o": 0.0067
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2375,
+        "novelty_lof": 0.971,
+        "novelty_knn_dist": 0.1161
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0326,
+        "least_confidence": 0.0109,
+        "margin_uncertainty": 0.0177
+      },
+      "probabilities": {
+        "O": 0.0067,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.9891,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0016
+      },
+      "logits": {
+        "O": 1.2559,
+        "Personal_care_products_and_cosmetic_procedures": -1.663,
+        "Substance_use": -1.0817,
+        "Environmental_exposures": 6.2466,
+        "Mental_health_practices": -1.871,
+        "Non_physical_leisure_time_activities": -2.4337,
+        "Nutrition": -1.1601,
+        "Physical_activities": -1.7626,
+        "Sleep": -2.0712,
+        "Socioeconomic_factors": -0.2112
+      }
+    },
+    {
+      "span_id": "24672690_s004",
+      "abstract_id": "24672690",
+      "span_text": "occupational exposure to asbestos",
+      "boundaries": {
+        "start_char": 248,
+        "end_char": 281,
+        "token_start": 49,
+        "token_end": 52,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0595,
+        "novelty_score": 0.3328,
+        "margin": 0.9558,
+        "top1_prob": 0.9752,
+        "top2_prob": 0.0194,
+        "p_background_o": 0.0194
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3328,
+        "novelty_lof": 0.9968,
+        "novelty_knn_dist": 0.1642
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0595,
+        "least_confidence": 0.0248,
+        "margin_uncertainty": 0.0442
+      },
+      "probabilities": {
+        "O": 0.0194,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0007,
+        "Environmental_exposures": 0.9752,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.003
+      },
+      "logits": {
+        "O": 2.1964,
+        "Personal_care_products_and_cosmetic_procedures": -2.1151,
+        "Substance_use": -1.1624,
+        "Environmental_exposures": 6.1133,
+        "Mental_health_practices": -2.0361,
+        "Non_physical_leisure_time_activities": -2.4043,
+        "Nutrition": -1.6094,
+        "Physical_activities": -2.2515,
+        "Sleep": -2.1351,
+        "Socioeconomic_factors": 0.3363
+      }
+    },
+    {
+      "span_id": "24672690_s005",
+      "abstract_id": "24672690",
+      "span_text": "indoor exposure to radon gas radiation",
+      "boundaries": {
+        "start_char": 299,
+        "end_char": 337,
+        "token_start": 57,
+        "token_end": 62,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.2755,
+        "novelty_score": 0.5834,
+        "margin": 0.4024,
+        "top1_prob": 0.6996,
+        "top2_prob": 0.2973,
+        "p_background_o": 0.2973
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5834,
+        "novelty_lof": 1.0973,
+        "novelty_knn_dist": 0.2256
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2755,
+        "least_confidence": 0.3004,
+        "margin_uncertainty": 0.5976
+      },
+      "probabilities": {
+        "O": 0.2973,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.6996,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0012
+      },
+      "logits": {
+        "O": 4.9337,
+        "Personal_care_products_and_cosmetic_procedures": -2.416,
+        "Substance_use": -1.5298,
+        "Environmental_exposures": 5.7897,
+        "Mental_health_practices": -2.0974,
+        "Non_physical_leisure_time_activities": -2.452,
+        "Nutrition": -1.8187,
+        "Physical_activities": -2.3531,
+        "Sleep": -2.0494,
+        "Socioeconomic_factors": -0.5743
+      }
+    }
+  ]
+}

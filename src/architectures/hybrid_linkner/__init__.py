@@ -4,6 +4,7 @@ Foundational SpanNER neural span classification + Single-pass LLM arbitration + 
 """
 
 from src.architectures.hybrid_linkner.spanner_model import SpanNERModel
+from src.architectures.hybrid_linkner.two_stage_spanner_model import TwoStageSpanNERModel
 from src.architectures.hybrid_linkner.novelty_detector import (
     LOFNoveltyDetector,
     build_lof_novelty_detector,
@@ -24,6 +25,7 @@ from src.architectures.hybrid_linkner.pipeline import (
 
 __all__ = [
     "SpanNERModel",
+    "TwoStageSpanNERModel",
     "LOFNoveltyDetector",
     "build_lof_novelty_detector",
     "get_default_embedder",

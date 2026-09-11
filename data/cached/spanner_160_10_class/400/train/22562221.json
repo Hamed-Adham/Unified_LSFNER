@@ -1,0 +1,668 @@
+{
+  "doc_id": "22562221",
+  "dataset_split": "400/train",
+  "text": "Resistance training and the risk of colon and rectal cancers. \nPURPOSE: Although there is convincing evidence that physical activity reduces colon cancer risk, research in this area has focused on aerobic activity. We conducted a case-control study to investigate whether resistance training was associated with the risk of colon and rectal cancers. METHODS: Data were collected on various colorectal cancer risk factors, including recreational physical activity performed during three age periods, from 870 cases and 996 controls in Western Australia in 2005-2007. Participants were classified as having never, possibly, or definitely performed resistance training in each age period and over the adult lifetime. The association between resistance training and colon and rectal cancer risk was analyzed using multinomial logistic regression. RESULTS: Participants who definitely performed resistance training in their lifetime had a non-significant reduced risk of colon cancer compared with those who did no resistance training (adjusted odds ratio (AOR) = 0.70, 95 % confidence interval (CI) = 0.45-1.11). No association was found for rectal cancer risk (AOR = 1.16, 95 % CI = 0.71-1.87). Performing resistance training was associated with a lower risk of colon cancer in each age period, although none of the relationships were statistically significant. CONCLUSION: This study provides some initial evidence, albeit inconclusive, that resistance training may be inversely associated with colon cancer risk. \n",
+  "total_candidates": 11,
+  "spans": [
+    {
+      "span_id": "22562221_s000",
+      "abstract_id": "22562221",
+      "span_text": "Resistance training",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 19,
+        "token_start": 1,
+        "token_end": 2,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0387,
+        "novelty_score": 0.7179,
+        "margin": 0.9766,
+        "top1_prob": 0.9862,
+        "top2_prob": 0.0096,
+        "p_background_o": 0.0096
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7179,
+        "novelty_lof": 1.1496,
+        "novelty_knn_dist": 0.2669
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0387,
+        "least_confidence": 0.0138,
+        "margin_uncertainty": 0.0234
+      },
+      "probabilities": {
+        "O": 0.0096,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.0009,
+        "Physical_activities": 0.9862,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 1.393,
+        "Personal_care_products_and_cosmetic_procedures": -1.9469,
+        "Substance_use": -3.0685,
+        "Environmental_exposures": -2.1064,
+        "Mental_health_practices": -1.7936,
+        "Non_physical_leisure_time_activities": -1.0824,
+        "Nutrition": -0.972,
+        "Physical_activities": 6.0214,
+        "Sleep": -1.2229,
+        "Socioeconomic_factors": -1.4469
+      }
+    },
+    {
+      "span_id": "22562221_s001",
+      "abstract_id": "22562221",
+      "span_text": "physical activity",
+      "boundaries": {
+        "start_char": 115,
+        "end_char": 132,
+        "token_start": 22,
+        "token_end": 23,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0356,
+        "novelty_score": 0.2005,
+        "margin": 0.9796,
+        "top1_prob": 0.9878,
+        "top2_prob": 0.0081,
+        "p_background_o": 0.0081
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2005,
+        "novelty_lof": 0.9433,
+        "novelty_knn_dist": 0.1098
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0356,
+        "least_confidence": 0.0122,
+        "margin_uncertainty": 0.0204
+      },
+      "probabilities": {
+        "O": 0.0081,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0008,
+        "Physical_activities": 0.9878,
+        "Sleep": 0.0009,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 1.2282,
+        "Personal_care_products_and_cosmetic_procedures": -1.8494,
+        "Substance_use": -2.9347,
+        "Environmental_exposures": -2.0022,
+        "Mental_health_practices": -1.7149,
+        "Non_physical_leisure_time_activities": -1.4617,
+        "Nutrition": -1.1424,
+        "Physical_activities": 6.0302,
+        "Sleep": -1.0067,
+        "Socioeconomic_factors": -1.2076
+      }
+    },
+    {
+      "span_id": "22562221_s002",
+      "abstract_id": "22562221",
+      "span_text": "aerobic activity",
+      "boundaries": {
+        "start_char": 197,
+        "end_char": 213,
+        "token_start": 36,
+        "token_end": 37,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0335,
+        "novelty_score": 0.4575,
+        "margin": 0.9814,
+        "top1_prob": 0.9887,
+        "top2_prob": 0.0073,
+        "p_background_o": 0.0073
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4575,
+        "novelty_lof": 1.0389,
+        "novelty_knn_dist": 0.2045
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0335,
+        "least_confidence": 0.0113,
+        "margin_uncertainty": 0.0186
+      },
+      "probabilities": {
+        "O": 0.0073,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0009,
+        "Physical_activities": 0.9887,
+        "Sleep": 0.0008,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 1.1656,
+        "Personal_care_products_and_cosmetic_procedures": -1.8332,
+        "Substance_use": -3.0379,
+        "Environmental_exposures": -2.028,
+        "Mental_health_practices": -1.6881,
+        "Non_physical_leisure_time_activities": -1.419,
+        "Nutrition": -0.9062,
+        "Physical_activities": 6.0764,
+        "Sleep": -1.039,
+        "Socioeconomic_factors": -1.3834
+      }
+    },
+    {
+      "span_id": "22562221_s003",
+      "abstract_id": "22562221",
+      "span_text": "resistance training",
+      "boundaries": {
+        "start_char": 272,
+        "end_char": 291,
+        "token_start": 49,
+        "token_end": 50,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0318,
+        "novelty_score": 0.5708,
+        "margin": 0.9819,
+        "top1_prob": 0.9892,
+        "top2_prob": 0.0073,
+        "p_background_o": 0.0073
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5708,
+        "novelty_lof": 1.0744,
+        "novelty_knn_dist": 0.2404
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0318,
+        "least_confidence": 0.0108,
+        "margin_uncertainty": 0.0181
+      },
+      "probabilities": {
+        "O": 0.0073,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0007,
+        "Physical_activities": 0.9892,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 1.2716,
+        "Personal_care_products_and_cosmetic_procedures": -1.8161,
+        "Substance_use": -3.1608,
+        "Environmental_exposures": -2.0876,
+        "Mental_health_practices": -1.7073,
+        "Non_physical_leisure_time_activities": -1.2464,
+        "Nutrition": -1.0458,
+        "Physical_activities": 6.1806,
+        "Sleep": -1.1384,
+        "Socioeconomic_factors": -1.4333
+      }
+    },
+    {
+      "span_id": "22562221_s004",
+      "abstract_id": "22562221",
+      "span_text": "resistance training",
+      "boundaries": {
+        "start_char": 646,
+        "end_char": 665,
+        "token_start": 112,
+        "token_end": 113,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0283,
+        "novelty_score": 0.5708,
+        "margin": 0.9847,
+        "top1_prob": 0.9907,
+        "top2_prob": 0.006,
+        "p_background_o": 0.006
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5708,
+        "novelty_lof": 1.0744,
+        "novelty_knn_dist": 0.2404
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0283,
+        "least_confidence": 0.0093,
+        "margin_uncertainty": 0.0153
+      },
+      "probabilities": {
+        "O": 0.006,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0007,
+        "Physical_activities": 0.9907,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 1.1478,
+        "Personal_care_products_and_cosmetic_procedures": -1.834,
+        "Substance_use": -3.1117,
+        "Environmental_exposures": -2.0605,
+        "Mental_health_practices": -1.641,
+        "Non_physical_leisure_time_activities": -1.2595,
+        "Nutrition": -1.0636,
+        "Physical_activities": 6.2515,
+        "Sleep": -1.1107,
+        "Socioeconomic_factors": -1.4531
+      }
+    },
+    {
+      "span_id": "22562221_s005",
+      "abstract_id": "22562221",
+      "span_text": "resistance training",
+      "boundaries": {
+        "start_char": 738,
+        "end_char": 757,
+        "token_start": 127,
+        "token_end": 128,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0299,
+        "novelty_score": 0.5708,
+        "margin": 0.9839,
+        "top1_prob": 0.9901,
+        "top2_prob": 0.0063,
+        "p_background_o": 0.0063
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5708,
+        "novelty_lof": 1.0744,
+        "novelty_knn_dist": 0.2404
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0299,
+        "least_confidence": 0.0099,
+        "margin_uncertainty": 0.0161
+      },
+      "probabilities": {
+        "O": 0.0063,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0008,
+        "Physical_activities": 0.9901,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 1.1079,
+        "Personal_care_products_and_cosmetic_procedures": -1.7991,
+        "Substance_use": -3.0923,
+        "Environmental_exposures": -2.0492,
+        "Mental_health_practices": -1.7298,
+        "Non_physical_leisure_time_activities": -1.2914,
+        "Nutrition": -0.9476,
+        "Physical_activities": 6.1712,
+        "Sleep": -1.1251,
+        "Socioeconomic_factors": -1.4546
+      }
+    },
+    {
+      "span_id": "22562221_s006",
+      "abstract_id": "22562221",
+      "span_text": "resistance training",
+      "boundaries": {
+        "start_char": 890,
+        "end_char": 909,
+        "token_start": 148,
+        "token_end": 149,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0289,
+        "novelty_score": 0.5708,
+        "margin": 0.9848,
+        "top1_prob": 0.9906,
+        "top2_prob": 0.0058,
+        "p_background_o": 0.0058
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5708,
+        "novelty_lof": 1.0744,
+        "novelty_knn_dist": 0.2404
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0289,
+        "least_confidence": 0.0094,
+        "margin_uncertainty": 0.0152
+      },
+      "probabilities": {
+        "O": 0.0058,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0007,
+        "Physical_activities": 0.9906,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 1.0375,
+        "Personal_care_products_and_cosmetic_procedures": -1.7814,
+        "Substance_use": -3.0972,
+        "Environmental_exposures": -2.0966,
+        "Mental_health_practices": -1.5985,
+        "Non_physical_leisure_time_activities": -1.2709,
+        "Nutrition": -1.0415,
+        "Physical_activities": 6.1731,
+        "Sleep": -1.1078,
+        "Socioeconomic_factors": -1.4368
+      }
+    },
+    {
+      "span_id": "22562221_s007",
+      "abstract_id": "22562221",
+      "span_text": "resistance training",
+      "boundaries": {
+        "start_char": 1010,
+        "end_char": 1029,
+        "token_start": 169,
+        "token_end": 170,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0296,
+        "novelty_score": 0.5708,
+        "margin": 0.9844,
+        "top1_prob": 0.9903,
+        "top2_prob": 0.006,
+        "p_background_o": 0.006
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5708,
+        "novelty_lof": 1.0744,
+        "novelty_knn_dist": 0.2404
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0296,
+        "least_confidence": 0.0097,
+        "margin_uncertainty": 0.0156
+      },
+      "probabilities": {
+        "O": 0.006,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0008,
+        "Physical_activities": 0.9903,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 1.0384,
+        "Personal_care_products_and_cosmetic_procedures": -1.7777,
+        "Substance_use": -3.0526,
+        "Environmental_exposures": -2.0428,
+        "Mental_health_practices": -1.6239,
+        "Non_physical_leisure_time_activities": -1.291,
+        "Nutrition": -0.9973,
+        "Physical_activities": 6.1503,
+        "Sleep": -1.1071,
+        "Socioeconomic_factors": -1.4393
+      }
+    },
+    {
+      "span_id": "22562221_s008",
+      "abstract_id": "22562221",
+      "span_text": "resistance training",
+      "boundaries": {
+        "start_char": 1203,
+        "end_char": 1222,
+        "token_start": 228,
+        "token_end": 229,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0288,
+        "novelty_score": 0.5708,
+        "margin": 0.9848,
+        "top1_prob": 0.9906,
+        "top2_prob": 0.0058,
+        "p_background_o": 0.0058
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5708,
+        "novelty_lof": 1.0744,
+        "novelty_knn_dist": 0.2404
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0288,
+        "least_confidence": 0.0094,
+        "margin_uncertainty": 0.0152
+      },
+      "probabilities": {
+        "O": 0.0058,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0007,
+        "Physical_activities": 0.9906,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 1.0361,
+        "Personal_care_products_and_cosmetic_procedures": -1.8062,
+        "Substance_use": -3.079,
+        "Environmental_exposures": -2.0376,
+        "Mental_health_practices": -1.6413,
+        "Non_physical_leisure_time_activities": -1.2486,
+        "Nutrition": -1.0393,
+        "Physical_activities": 6.175,
+        "Sleep": -1.1475,
+        "Socioeconomic_factors": -1.454
+      }
+    },
+    {
+      "span_id": "22562221_s009",
+      "abstract_id": "22562221",
+      "span_text": "resistance training",
+      "boundaries": {
+        "start_char": 1440,
+        "end_char": 1459,
+        "token_start": 266,
+        "token_end": 267,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0271,
+        "novelty_score": 0.5708,
+        "margin": 0.9855,
+        "top1_prob": 0.9912,
+        "top2_prob": 0.0057,
+        "p_background_o": 0.0057
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5708,
+        "novelty_lof": 1.0744,
+        "novelty_knn_dist": 0.2404
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0271,
+        "least_confidence": 0.0088,
+        "margin_uncertainty": 0.0145
+      },
+      "probabilities": {
+        "O": 0.0057,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.9912,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 1.1271,
+        "Personal_care_products_and_cosmetic_procedures": -1.8201,
+        "Substance_use": -3.0931,
+        "Environmental_exposures": -2.0966,
+        "Mental_health_practices": -1.6738,
+        "Non_physical_leisure_time_activities": -1.313,
+        "Nutrition": -1.0815,
+        "Physical_activities": 6.2812,
+        "Sleep": -1.1637,
+        "Socioeconomic_factors": -1.4646
+      }
+    },
+    {
+      "span_id": "22562221_s010",
+      "abstract_id": "22562221",
+      "span_text": "recreational physical activity",
+      "boundaries": {
+        "start_char": 432,
+        "end_char": 462,
+        "token_start": 75,
+        "token_end": 77,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0276,
+        "novelty_score": 0.253,
+        "margin": 0.9875,
+        "top1_prob": 0.9915,
+        "top2_prob": 0.004,
+        "p_background_o": 0.004
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.253,
+        "novelty_lof": 0.971,
+        "novelty_knn_dist": 0.1292
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0276,
+        "least_confidence": 0.0085,
+        "margin_uncertainty": 0.0125
+      },
+      "probabilities": {
+        "O": 0.004,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0006,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.9915,
+        "Sleep": 0.0008,
+        "Socioeconomic_factors": 0.0012
+      },
+      "logits": {
+        "O": 0.6381,
+        "Personal_care_products_and_cosmetic_procedures": -1.8393,
+        "Substance_use": -2.7546,
+        "Environmental_exposures": -2.0401,
+        "Mental_health_practices": -1.2001,
+        "Non_physical_leisure_time_activities": -1.1544,
+        "Nutrition": -1.5796,
+        "Physical_activities": 6.1469,
+        "Sleep": -0.9474,
+        "Socioeconomic_factors": -0.5902
+      }
+    }
+  ]
+}

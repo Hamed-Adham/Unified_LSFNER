@@ -1,0 +1,848 @@
+{
+  "doc_id": "28766851",
+  "dataset_split": "400/train",
+  "text": "Folate deficiency in north Indian children undergoing maintenance chemotherapy for acute lymphoblastic leukemia-Implications and outcome. \nBACKGROUND: Treatment-related toxicity and mortality are not uncommon during maintenance chemotherapy for childhood acute lymphoblastic leukemia (ALL), especially in the low- and middle-income countries (LMIC). Undernutrition and micronutrient deficiencies are commonly seen in children from LMICs undergoing treatment for ALL. The present study examines the prevalence and clinical implications of folate deficiency in north Indian children with ALL during the maintenance phase of treatment in view of prolonged antifolate treatment and high population prevalence of folate deficiency. PROCEDURES: Pre-cycle folate levels/deficiency as well as weight for age z-score and serum albumin level were determined and correlated with complications of treatment and mortality encountered during the maintenance phase of treatment. RESULTS: Twenty-nine of 52 children enrolled in the study had folate deficiency at some point during maintenance chemotherapy. Neutropenia (18 of 29 vs. 4 of 23; P = 0.002), thrombocytopenia (17 of 29 vs. 4 of 23; P = 0.005), febrile neutropenia (17 of 29 vs. 4 of 23; P = 0.005), and need for chemotherapy dose reduction (20 of 29 vs. 7 of 21; P = 0.01) were more common in folate-deficient children. Maintenance deaths were higher (8 of 29 vs. 1 of 23; P = 0.03) and survival lower (P = 0.02) in deficient children. In multivariate analysis, hypoalbuminemia (P = 0.02) and folate deficiency (P = 0.01) were associated with febrile neutropenia, and folate deficiency with maintenance deaths (P = 0.03). CONCLUSIONS: Folate deficiency was associated with treatment-related complications and adverse outcome in our patients. The risks and benefits of folate supplementation in deficient children during maintenance chemotherapy need to be explored with properly designed randomized studies in similar settings. \n",
+  "total_candidates": 14,
+  "spans": [
+    {
+      "span_id": "28766851_s000",
+      "abstract_id": "28766851",
+      "span_text": "folate",
+      "boundaries": {
+        "start_char": 749,
+        "end_char": 755,
+        "token_start": 121,
+        "token_end": 121,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2259,
+        "novelty_score": 0.5103,
+        "margin": 0.5947,
+        "top1_prob": 0.7964,
+        "top2_prob": 0.2017,
+        "p_background_o": 0.2017
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5103,
+        "novelty_lof": 1.0991,
+        "novelty_knn_dist": 0.1775
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2259,
+        "least_confidence": 0.2036,
+        "margin_uncertainty": 0.4053
+      },
+      "probabilities": {
+        "O": 0.2017,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.7964,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 4.9546,
+        "Personal_care_products_and_cosmetic_procedures": -2.2427,
+        "Substance_use": -1.473,
+        "Environmental_exposures": -1.0856,
+        "Mental_health_practices": -2.7632,
+        "Non_physical_leisure_time_activities": -2.1182,
+        "Nutrition": 6.3279,
+        "Physical_activities": -2.3407,
+        "Sleep": -1.4388,
+        "Socioeconomic_factors": -1.8001
+      }
+    },
+    {
+      "span_id": "28766851_s001",
+      "abstract_id": "28766851",
+      "span_text": "LMIC",
+      "boundaries": {
+        "start_char": 343,
+        "end_char": 347,
+        "token_start": 55,
+        "token_end": 56,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.1823,
+        "novelty_score": 0.6608,
+        "margin": 0.7277,
+        "top1_prob": 0.8625,
+        "top2_prob": 0.1347,
+        "p_background_o": 0.1347
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6608,
+        "novelty_lof": 1.1825,
+        "novelty_knn_dist": 0.1921
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1823,
+        "least_confidence": 0.1375,
+        "margin_uncertainty": 0.2723
+      },
+      "probabilities": {
+        "O": 0.1347,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.8625
+      },
+      "logits": {
+        "O": 4.1392,
+        "Personal_care_products_and_cosmetic_procedures": -2.0513,
+        "Substance_use": -2.2472,
+        "Environmental_exposures": -1.5149,
+        "Mental_health_practices": -2.1109,
+        "Non_physical_leisure_time_activities": -1.6818,
+        "Nutrition": -1.4892,
+        "Physical_activities": -1.6961,
+        "Sleep": -1.9988,
+        "Socioeconomic_factors": 5.9957
+      }
+    },
+    {
+      "span_id": "28766851_s002",
+      "abstract_id": "28766851",
+      "span_text": "Undernutrition",
+      "boundaries": {
+        "start_char": 350,
+        "end_char": 364,
+        "token_start": 58,
+        "token_end": 59,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1369,
+        "novelty_score": 0.274,
+        "margin": 0.875,
+        "top1_prob": 0.93,
+        "top2_prob": 0.055,
+        "p_background_o": 0.055
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.274,
+        "novelty_lof": 0.9858,
+        "novelty_knn_dist": 0.1314
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1369,
+        "least_confidence": 0.07,
+        "margin_uncertainty": 0.125
+      },
+      "probabilities": {
+        "O": 0.055,
+        "Personal_care_products_and_cosmetic_procedures": 0.0009,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.0032,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.93,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.0016,
+        "Socioeconomic_factors": 0.0066
+      },
+      "logits": {
+        "O": 2.315,
+        "Personal_care_products_and_cosmetic_procedures": -1.816,
+        "Substance_use": -1.7484,
+        "Environmental_exposures": -0.5359,
+        "Mental_health_practices": -2.5953,
+        "Non_physical_leisure_time_activities": -2.1521,
+        "Nutrition": 5.1432,
+        "Physical_activities": -1.8854,
+        "Sleep": -1.2212,
+        "Socioeconomic_factors": 0.1929
+      }
+    },
+    {
+      "span_id": "28766851_s003",
+      "abstract_id": "28766851",
+      "span_text": "micronutrient deficiencies",
+      "boundaries": {
+        "start_char": 369,
+        "end_char": 395,
+        "token_start": 61,
+        "token_end": 62,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0294,
+        "novelty_score": 0.5609,
+        "margin": 0.9828,
+        "top1_prob": 0.9899,
+        "top2_prob": 0.0071,
+        "p_background_o": 0.0071
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5609,
+        "novelty_lof": 1.0644,
+        "novelty_knn_dist": 0.244
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0294,
+        "least_confidence": 0.0101,
+        "margin_uncertainty": 0.0172
+      },
+      "probabilities": {
+        "O": 0.0071,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.9899,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 1.5875,
+        "Personal_care_products_and_cosmetic_procedures": -1.8015,
+        "Substance_use": -1.7897,
+        "Environmental_exposures": -0.4105,
+        "Mental_health_practices": -2.6667,
+        "Non_physical_leisure_time_activities": -2.2842,
+        "Nutrition": 6.5198,
+        "Physical_activities": -1.9311,
+        "Sleep": -1.0609,
+        "Socioeconomic_factors": -1.066
+      }
+    },
+    {
+      "span_id": "28766851_s004",
+      "abstract_id": "28766851",
+      "span_text": "folate deficiency",
+      "boundaries": {
+        "start_char": 538,
+        "end_char": 555,
+        "token_start": 85,
+        "token_end": 86,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0502,
+        "novelty_score": 0.8168,
+        "margin": 0.9592,
+        "top1_prob": 0.9785,
+        "top2_prob": 0.0193,
+        "p_background_o": 0.0193
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8168,
+        "novelty_lof": 1.2455,
+        "novelty_knn_dist": 0.259
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0502,
+        "least_confidence": 0.0215,
+        "margin_uncertainty": 0.0408
+      },
+      "probabilities": {
+        "O": 0.0193,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.9785,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 2.6434,
+        "Personal_care_products_and_cosmetic_procedures": -2.1306,
+        "Substance_use": -1.827,
+        "Environmental_exposures": -0.6591,
+        "Mental_health_practices": -2.8435,
+        "Non_physical_leisure_time_activities": -2.2812,
+        "Nutrition": 6.5707,
+        "Physical_activities": -1.8744,
+        "Sleep": -1.0389,
+        "Socioeconomic_factors": -1.6379
+      }
+    },
+    {
+      "span_id": "28766851_s005",
+      "abstract_id": "28766851",
+      "span_text": "folate deficiency",
+      "boundaries": {
+        "start_char": 708,
+        "end_char": 725,
+        "token_start": 111,
+        "token_end": 112,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0594,
+        "novelty_score": 0.8168,
+        "margin": 0.9492,
+        "top1_prob": 0.9733,
+        "top2_prob": 0.0241,
+        "p_background_o": 0.0241
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8168,
+        "novelty_lof": 1.2455,
+        "novelty_knn_dist": 0.259
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0594,
+        "least_confidence": 0.0267,
+        "margin_uncertainty": 0.0508
+      },
+      "probabilities": {
+        "O": 0.0241,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0008,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9733,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 2.7394,
+        "Personal_care_products_and_cosmetic_procedures": -2.0482,
+        "Substance_use": -1.7252,
+        "Environmental_exposures": -0.6135,
+        "Mental_health_practices": -2.7805,
+        "Non_physical_leisure_time_activities": -2.2891,
+        "Nutrition": 6.4378,
+        "Physical_activities": -1.8842,
+        "Sleep": -1.1106,
+        "Socioeconomic_factors": -1.6442
+      }
+    },
+    {
+      "span_id": "28766851_s006",
+      "abstract_id": "28766851",
+      "span_text": "folate deficiency",
+      "boundaries": {
+        "start_char": 1026,
+        "end_char": 1043,
+        "token_start": 169,
+        "token_end": 170,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0879,
+        "novelty_score": 0.8168,
+        "margin": 0.9102,
+        "top1_prob": 0.9538,
+        "top2_prob": 0.0436,
+        "p_background_o": 0.0436
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8168,
+        "novelty_lof": 1.2455,
+        "novelty_knn_dist": 0.259
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0879,
+        "least_confidence": 0.0462,
+        "margin_uncertainty": 0.0898
+      },
+      "probabilities": {
+        "O": 0.0436,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0009,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9538,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 3.2773,
+        "Personal_care_products_and_cosmetic_procedures": -2.1758,
+        "Substance_use": -1.7609,
+        "Environmental_exposures": -0.6348,
+        "Mental_health_practices": -2.8891,
+        "Non_physical_leisure_time_activities": -2.3123,
+        "Nutrition": 6.3629,
+        "Physical_activities": -1.9397,
+        "Sleep": -1.1812,
+        "Socioeconomic_factors": -1.6401
+      }
+    },
+    {
+      "span_id": "28766851_s007",
+      "abstract_id": "28766851",
+      "span_text": "folate deficiency",
+      "boundaries": {
+        "start_char": 1539,
+        "end_char": 1556,
+        "token_start": 312,
+        "token_end": 313,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0979,
+        "novelty_score": 0.8168,
+        "margin": 0.8976,
+        "top1_prob": 0.9472,
+        "top2_prob": 0.0495,
+        "p_background_o": 0.0495
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8168,
+        "novelty_lof": 1.2455,
+        "novelty_knn_dist": 0.259
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0979,
+        "least_confidence": 0.0528,
+        "margin_uncertainty": 0.1024
+      },
+      "probabilities": {
+        "O": 0.0495,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0012,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9472,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 3.2044,
+        "Personal_care_products_and_cosmetic_procedures": -2.1954,
+        "Substance_use": -1.8966,
+        "Environmental_exposures": -0.5319,
+        "Mental_health_practices": -2.8847,
+        "Non_physical_leisure_time_activities": -2.335,
+        "Nutrition": 6.1555,
+        "Physical_activities": -1.9648,
+        "Sleep": -1.1775,
+        "Socioeconomic_factors": -1.5712
+      }
+    },
+    {
+      "span_id": "28766851_s008",
+      "abstract_id": "28766851",
+      "span_text": "folate deficiency",
+      "boundaries": {
+        "start_char": 1614,
+        "end_char": 1631,
+        "token_start": 328,
+        "token_end": 329,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0978,
+        "novelty_score": 0.8168,
+        "margin": 0.8978,
+        "top1_prob": 0.9472,
+        "top2_prob": 0.0494,
+        "p_background_o": 0.0494
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8168,
+        "novelty_lof": 1.2455,
+        "novelty_knn_dist": 0.259
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0978,
+        "least_confidence": 0.0528,
+        "margin_uncertainty": 0.1022
+      },
+      "probabilities": {
+        "O": 0.0494,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0012,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9472,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 3.2014,
+        "Personal_care_products_and_cosmetic_procedures": -2.1634,
+        "Substance_use": -1.9254,
+        "Environmental_exposures": -0.5483,
+        "Mental_health_practices": -2.9419,
+        "Non_physical_leisure_time_activities": -2.3193,
+        "Nutrition": 6.1546,
+        "Physical_activities": -1.986,
+        "Sleep": -1.2122,
+        "Socioeconomic_factors": -1.4167
+      }
+    },
+    {
+      "span_id": "28766851_s009",
+      "abstract_id": "28766851",
+      "span_text": "folate supplementation",
+      "boundaries": {
+        "start_char": 1814,
+        "end_char": 1836,
+        "token_start": 364,
+        "token_end": 365,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.05,
+        "novelty_score": 0.586,
+        "margin": 0.9586,
+        "top1_prob": 0.9783,
+        "top2_prob": 0.0197,
+        "p_background_o": 0.0197
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.586,
+        "novelty_lof": 1.1313,
+        "novelty_knn_dist": 0.1932
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.05,
+        "least_confidence": 0.0217,
+        "margin_uncertainty": 0.0414
+      },
+      "probabilities": {
+        "O": 0.0197,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.9783,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 2.7492,
+        "Personal_care_products_and_cosmetic_procedures": -2.0073,
+        "Substance_use": -1.643,
+        "Environmental_exposures": -0.8607,
+        "Mental_health_practices": -2.6919,
+        "Non_physical_leisure_time_activities": -2.1551,
+        "Nutrition": 6.6545,
+        "Physical_activities": -1.8169,
+        "Sleep": -1.1217,
+        "Socioeconomic_factors": -1.781
+      }
+    },
+    {
+      "span_id": "28766851_s010",
+      "abstract_id": "28766851",
+      "span_text": "Folate deficiency",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 17,
+        "token_start": 1,
+        "token_end": 3,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2415,
+        "novelty_score": 0.966,
+        "margin": 0.616,
+        "top1_prob": 0.8028,
+        "top2_prob": 0.1868,
+        "p_background_o": 0.1868
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.966,
+        "novelty_lof": 1.451,
+        "novelty_knn_dist": 0.344
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2415,
+        "least_confidence": 0.1972,
+        "margin_uncertainty": 0.384
+      },
+      "probabilities": {
+        "O": 0.1868,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0015,
+        "Environmental_exposures": 0.0037,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.8028,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.0014,
+        "Socioeconomic_factors": 0.0013
+      },
+      "logits": {
+        "O": 3.5451,
+        "Personal_care_products_and_cosmetic_procedures": -2.3985,
+        "Substance_use": -1.3027,
+        "Environmental_exposures": -0.3736,
+        "Mental_health_practices": -2.7588,
+        "Non_physical_leisure_time_activities": -2.0642,
+        "Nutrition": 5.0031,
+        "Physical_activities": -1.7689,
+        "Sleep": -1.3163,
+        "Socioeconomic_factors": -1.4174
+      }
+    },
+    {
+      "span_id": "28766851_s011",
+      "abstract_id": "28766851",
+      "span_text": "Folate deficiency",
+      "boundaries": {
+        "start_char": 1681,
+        "end_char": 1698,
+        "token_start": 342,
+        "token_end": 344,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.196,
+        "novelty_score": 0.966,
+        "margin": 0.7258,
+        "top1_prob": 0.859,
+        "top2_prob": 0.1332,
+        "p_background_o": 0.1332
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.966,
+        "novelty_lof": 1.451,
+        "novelty_knn_dist": 0.344
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.196,
+        "least_confidence": 0.141,
+        "margin_uncertainty": 0.2742
+      },
+      "probabilities": {
+        "O": 0.1332,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.0027,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.859,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0012,
+        "Socioeconomic_factors": 0.0011
+      },
+      "logits": {
+        "O": 3.429,
+        "Personal_care_products_and_cosmetic_procedures": -2.3454,
+        "Substance_use": -1.5594,
+        "Environmental_exposures": -0.4656,
+        "Mental_health_practices": -2.6976,
+        "Non_physical_leisure_time_activities": -2.1665,
+        "Nutrition": 5.2928,
+        "Physical_activities": -1.8808,
+        "Sleep": -1.3183,
+        "Socioeconomic_factors": -1.3287
+      }
+    },
+    {
+      "span_id": "28766851_s012",
+      "abstract_id": "28766851",
+      "span_text": "middle-income countries",
+      "boundaries": {
+        "start_char": 318,
+        "end_char": 341,
+        "token_start": 50,
+        "token_end": 53,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2192,
+        "novelty_score": 0.2002,
+        "margin": 0.6186,
+        "top1_prob": 0.8082,
+        "top2_prob": 0.1896,
+        "p_background_o": 0.1896
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2002,
+        "novelty_lof": 0.9779,
+        "novelty_knn_dist": 0.0749
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2192,
+        "least_confidence": 0.1918,
+        "margin_uncertainty": 0.3814
+      },
+      "probabilities": {
+        "O": 0.1896,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.8082
+      },
+      "logits": {
+        "O": 4.7587,
+        "Personal_care_products_and_cosmetic_procedures": -2.2379,
+        "Substance_use": -2.3662,
+        "Environmental_exposures": -1.3061,
+        "Mental_health_practices": -2.5177,
+        "Non_physical_leisure_time_activities": -1.9509,
+        "Nutrition": -1.2288,
+        "Physical_activities": -1.5588,
+        "Sleep": -2.1747,
+        "Socioeconomic_factors": 6.2084
+      }
+    },
+    {
+      "span_id": "28766851_s013",
+      "abstract_id": "28766851",
+      "span_text": "Undernutrition and micronutrient deficiencies",
+      "boundaries": {
+        "start_char": 350,
+        "end_char": 395,
+        "token_start": 58,
+        "token_end": 62,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1203,
+        "novelty_score": 0.3528,
+        "margin": 0.889,
+        "top1_prob": 0.9391,
+        "top2_prob": 0.0501,
+        "p_background_o": 0.0501
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3528,
+        "novelty_lof": 0.9972,
+        "novelty_knn_dist": 0.1777
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1203,
+        "least_confidence": 0.0609,
+        "margin_uncertainty": 0.111
+      },
+      "probabilities": {
+        "O": 0.0501,
+        "Personal_care_products_and_cosmetic_procedures": 0.0007,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.0033,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.9391,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0011,
+        "Socioeconomic_factors": 0.0032
+      },
+      "logits": {
+        "O": 2.4331,
+        "Personal_care_products_and_cosmetic_procedures": -1.7902,
+        "Substance_use": -1.7636,
+        "Environmental_exposures": -0.2824,
+        "Mental_health_practices": -2.4264,
+        "Non_physical_leisure_time_activities": -1.9848,
+        "Nutrition": 5.3643,
+        "Physical_activities": -1.923,
+        "Sleep": -1.3536,
+        "Socioeconomic_factors": -0.3137
+      }
+    }
+  ]
+}

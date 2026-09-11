@@ -1,0 +1,188 @@
+{
+  "doc_id": "26315001",
+  "dataset_split": "400/train",
+  "text": "Cocaine use as an independent predictor of seizures after aneurysmal subarachnoid hemorrhage. \nOBJECTIVE: Seizures are relatively common after aneurysmal subarachnoid hemorrhage (aSAH). Seizure prophylaxis is controversial and is often based on risk stratification; middle cerebral artery (MCA) aneurysms, associated intracerebral hemorrhage (ICH), poor neurological grade, increased clot thickness, and cerebral infarction are considered highest risk for seizures. The purpose of this study was to evaluate the impact of recent cocaine use on seizure incidence following aSAH. METHODS: Prospectively collected data from aSAH patients admitted to 2 institutional neuroscience critical care units between 1991 and 2009 were reviewed. The authors analyzed factors that potentially affected the incidence of seizures, including patient demographic characteristics, poor clinical grade (Hunt and Hess Grade IV or V), medical comorbidities, associated ICH, intraventricular hemorrhage (IVH), hydrocephalus, aneurysm location, surgical clipping and cocaine use. They further studied the impact of these factors on \"early\" and \"late\" seizures (defined, respectively, as occurring before and after clipping/coiling). RESULTS: Of 1134 aSAH patients studied, 182 (16%) had seizures; 81 patients (7.1%) had early and 127 (11.2%) late seizures, with 26 having both. The seizure rate was significantly higher in cocaine users (37 [26%] of 142 patients) than in non-cocaine users (151 [15.2%] of 992 patients, p = 0.001). Eighteen cocaine-positive patients (12.7%) had early seizures compared with 6.6% of cocaine-negative patients (p = 0.003); 27 cocaine users (19%) had late seizures compared with 10.5% non-cocaine users (p = 0.001). Factors that showed a significant association with increased risk for seizure (early or late) on univariate analysis included younger age (< 40 years) (p = 0.009), poor clinical grade (p = 0.029), associated ICH (p = 0.007), and MCA aneurysm location (p < 0.001); surgical clipping was associated with late seizures (p = 0.004). Following multivariate analysis, age < 40 years (OR 2.04, 95% CI 1.355-3.058, p = 0.001), poor clinical grade (OR 1.62, 95% CI 1.124-2.336, p = 0.01), ICH (OR 1.95, 95% CI 1.164-3.273, p = 0.011), MCA aneurysm location (OR 3.3, 95% CI 2.237-4.854, p < 0.001), and cocaine use (OR 2.06, 95% CI 1.330-3.175, p = 0.001) independently predicted seizures. CONCLUSIONS: Cocaine use confers a higher seizure risk following aSAH and should be considered during risk stratification for seizure prophylaxis and close neuromonitoring. \n",
+  "total_candidates": 3,
+  "spans": [
+    {
+      "span_id": "26315001_s000",
+      "abstract_id": "26315001",
+      "span_text": "cocaine use",
+      "boundaries": {
+        "start_char": 529,
+        "end_char": 540,
+        "token_start": 90,
+        "token_end": 91,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1147,
+        "novelty_score": 0.4543,
+        "margin": 0.9224,
+        "top1_prob": 0.9511,
+        "top2_prob": 0.0288,
+        "p_background_o": 0.0288
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4543,
+        "novelty_lof": 1.027,
+        "novelty_knn_dist": 0.2143
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1147,
+        "least_confidence": 0.0489,
+        "margin_uncertainty": 0.0776
+      },
+      "probabilities": {
+        "O": 0.0288,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.9511,
+        "Environmental_exposures": 0.0037,
+        "Mental_health_practices": 0.0011,
+        "Non_physical_leisure_time_activities": 0.0072,
+        "Nutrition": 0.0019,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0034,
+        "Socioeconomic_factors": 0.0015
+      },
+      "logits": {
+        "O": 1.4696,
+        "Personal_care_products_and_cosmetic_procedures": -2.3207,
+        "Substance_use": 4.9684,
+        "Environmental_exposures": -0.59,
+        "Mental_health_practices": -1.7673,
+        "Non_physical_leisure_time_activities": 0.0817,
+        "Nutrition": -1.2374,
+        "Physical_activities": -2.3316,
+        "Sleep": -0.6674,
+        "Socioeconomic_factors": -1.4735
+      }
+    },
+    {
+      "span_id": "26315001_s001",
+      "abstract_id": "26315001",
+      "span_text": "cocaine use",
+      "boundaries": {
+        "start_char": 1043,
+        "end_char": 1054,
+        "token_start": 176,
+        "token_end": 177,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.104,
+        "novelty_score": 0.4543,
+        "margin": 0.9296,
+        "top1_prob": 0.9563,
+        "top2_prob": 0.0267,
+        "p_background_o": 0.0267
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4543,
+        "novelty_lof": 1.027,
+        "novelty_knn_dist": 0.2143
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.104,
+        "least_confidence": 0.0437,
+        "margin_uncertainty": 0.0704
+      },
+      "probabilities": {
+        "O": 0.0267,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.9563,
+        "Environmental_exposures": 0.0031,
+        "Mental_health_practices": 0.0009,
+        "Non_physical_leisure_time_activities": 0.006,
+        "Nutrition": 0.0017,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0027,
+        "Socioeconomic_factors": 0.0015
+      },
+      "logits": {
+        "O": 1.5059,
+        "Personal_care_products_and_cosmetic_procedures": -2.3718,
+        "Substance_use": 5.0859,
+        "Environmental_exposures": -0.6334,
+        "Mental_health_practices": -1.8603,
+        "Non_physical_leisure_time_activities": 0.0208,
+        "Nutrition": -1.2419,
+        "Physical_activities": -2.4044,
+        "Sleep": -0.7747,
+        "Socioeconomic_factors": -1.3941
+      }
+    },
+    {
+      "span_id": "26315001_s002",
+      "abstract_id": "26315001",
+      "span_text": "Cocaine use",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 11,
+        "token_start": 1,
+        "token_end": 3,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1893,
+        "novelty_score": 0.5431,
+        "margin": 0.8031,
+        "top1_prob": 0.8911,
+        "top2_prob": 0.0879,
+        "p_background_o": 0.0879
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5431,
+        "novelty_lof": 1.0655,
+        "novelty_knn_dist": 0.2316
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1893,
+        "least_confidence": 0.1089,
+        "margin_uncertainty": 0.1969
+      },
+      "probabilities": {
+        "O": 0.0879,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.8911,
+        "Environmental_exposures": 0.0042,
+        "Mental_health_practices": 0.0014,
+        "Non_physical_leisure_time_activities": 0.0068,
+        "Nutrition": 0.0017,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.0032,
+        "Socioeconomic_factors": 0.0024
+      },
+      "logits": {
+        "O": 2.4839,
+        "Personal_care_products_and_cosmetic_procedures": -2.7016,
+        "Substance_use": 4.7997,
+        "Environmental_exposures": -0.5623,
+        "Mental_health_practices": -1.6636,
+        "Non_physical_leisure_time_activities": -0.0791,
+        "Nutrition": -1.4679,
+        "Physical_activities": -2.1681,
+        "Sleep": -0.8433,
+        "Socioeconomic_factors": -1.0986
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "doc_id": "31015306",
+  "dataset_split": "200/train",
+  "text": "Hypodontia, Oligodontia and Anodontia in West Virginia Appalachia. \nPurpose: Children in West Virginia have a high prevalence of missing permanent teeth when compared to children in the rest of the nation. The purpose of this study is to determine the prevalence of permanent tooth hypodontia/oligodontia/anodontia in West Virginia children and to compare the prevalence by sex.Methods: Five hundred panoramic radiographs of West Virginia children, ages 6-11 years, were examined for missing permanent tooth buds/permanent teeth. Data analyses included frequency determinations, Chi square analyses, and logistic regression.Results: Sixty children (12.0%, n=500) had at least one missing permanent tooth bud/permanent tooth. There were 15.5% of females and 8.8% of males who had at least one missing permanent tooth bud/permanent tooth. In adjusted logistic regression on at least one missing permanent tooth bud/permanent tooth, females had an adjusted odds ratio of 2.11 [95% Confidence Interval: 1.18, 3.75; p = .011] compared with males. Other variables in the analysis failed to reach significance.Conclusion: In this sample of West Virginia children, females were more likely to have at least one missing permanent tooth bud/permanent tooth compared to males. Early recognition and treatment planning for dental care is needed for children with hypodontia/oligodontia/anodontia. \n",
+  "total_candidates": 1,
+  "spans": [
+    {
+      "span_id": "31015306_s000",
+      "abstract_id": "31015306",
+      "span_text": "dental care",
+      "boundaries": {
+        "start_char": 1311,
+        "end_char": 1322,
+        "token_start": 278,
+        "token_end": 279,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.0603,
+        "novelty_score": 0.5203,
+        "margin": 0.9738,
+        "top1_prob": 0.9799,
+        "top2_prob": 0.0062,
+        "p_background_o": 0.0062
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5203,
+        "novelty_lof": 1.0354,
+        "novelty_knn_dist": 0.2474
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0603,
+        "least_confidence": 0.0201,
+        "margin_uncertainty": 0.0262
+      },
+      "probabilities": {
+        "O": 0.0062,
+        "Personal_care_products_and_cosmetic_procedures": 0.9799,
+        "Substance_use": 0.0012,
+        "Environmental_exposures": 0.0018,
+        "Mental_health_practices": 0.0026,
+        "Non_physical_leisure_time_activities": 0.0012,
+        "Nutrition": 0.0026,
+        "Physical_activities": 0.001,
+        "Sleep": 0.0019,
+        "Socioeconomic_factors": 0.0015
+      },
+      "logits": {
+        "O": 0.1631,
+        "Personal_care_products_and_cosmetic_procedures": 5.2299,
+        "Substance_use": -1.4644,
+        "Environmental_exposures": -1.0542,
+        "Mental_health_practices": -0.6917,
+        "Non_physical_leisure_time_activities": -1.4961,
+        "Nutrition": -0.6988,
+        "Physical_activities": -1.6429,
+        "Sleep": -0.998,
+        "Socioeconomic_factors": -1.2609
+      }
+    }
+  ]
+}

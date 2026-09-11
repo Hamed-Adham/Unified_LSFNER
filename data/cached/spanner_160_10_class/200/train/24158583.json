@@ -1,0 +1,128 @@
+{
+  "doc_id": "24158583",
+  "dataset_split": "200/train",
+  "text": "In vivo effectiveness of enamel sealants around orthodontic brackets. \nOBJECTIVE: In this randomized study, the caries-protective effect on vestibular enamel of two fluoride-containing sealants (Protecto(R) and Light Bond(R)) during multibracket treatment was investigated. MATERIALS AND METHODS: In all, 40 orthodontic patients about to receive a multibracket appliance with the brackets bonded to the vestibular tooth surfaces were randomly included in this study. Each one was randomly assigned to one of four groups. A crossover design was selected in which a sealed quadrant was contralateral to an unsealed quadrant, then choosing the reverse configuration in the opposite jaw. Two sealants were, thus, tested on vestibular enamel on left and right anterior teeth and premolars in both jaws of each patient over 6 months of multibracket treatment. A DIAGNOdent(R) pen measuring laser fluorescence was used to analyze the relevant enamel surfaces both at baseline and after 6 months. RESULTS: Neither the incidence nor the characteristics of the demineralization we observed during the study differed between the 4 groups. CONCLUSION: Single application of smooth-surface sealants did not protect enamel around brackets from incipient carious lesions during the first 6 months of multibracket treatment. \n",
+  "total_candidates": 2,
+  "spans": [
+    {
+      "span_id": "24158583_s000",
+      "abstract_id": "24158583",
+      "span_text": "orthodontic brackets",
+      "boundaries": {
+        "start_char": 48,
+        "end_char": 68,
+        "token_start": 9,
+        "token_end": 10,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.0346,
+        "novelty_score": 0.8437,
+        "margin": 0.9856,
+        "top1_prob": 0.9893,
+        "top2_prob": 0.0037,
+        "p_background_o": 0.0037
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8437,
+        "novelty_lof": 1.1909,
+        "novelty_knn_dist": 0.3435
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0346,
+        "least_confidence": 0.0107,
+        "margin_uncertainty": 0.0144
+      },
+      "probabilities": {
+        "O": 0.0037,
+        "Personal_care_products_and_cosmetic_procedures": 0.9893,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.0009,
+        "Mental_health_practices": 0.0018,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0008,
+        "Socioeconomic_factors": 0.0011
+      },
+      "logits": {
+        "O": 0.4616,
+        "Personal_care_products_and_cosmetic_procedures": 6.0384,
+        "Substance_use": -0.9241,
+        "Environmental_exposures": -1.0152,
+        "Mental_health_practices": -0.2646,
+        "Non_physical_leisure_time_activities": -1.2827,
+        "Nutrition": -1.6988,
+        "Physical_activities": -1.9915,
+        "Sleep": -1.0484,
+        "Socioeconomic_factors": -0.7522
+      }
+    },
+    {
+      "span_id": "24158583_s001",
+      "abstract_id": "24158583",
+      "span_text": "multibracket appliance",
+      "boundaries": {
+        "start_char": 348,
+        "end_char": 370,
+        "token_start": 72,
+        "token_end": 76,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Personal_care_products_and_cosmetic_procedures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Personal_care_products_and_cosmetic_procedures",
+        "second_best_label": "O",
+        "uncertainty": 0.0582,
+        "novelty_score": 0.9591,
+        "margin": 0.9731,
+        "top1_prob": 0.9801,
+        "top2_prob": 0.0069,
+        "p_background_o": 0.0069
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9591,
+        "novelty_lof": 1.3849,
+        "novelty_knn_dist": 0.38
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0582,
+        "least_confidence": 0.0199,
+        "margin_uncertainty": 0.0269
+      },
+      "probabilities": {
+        "O": 0.0069,
+        "Personal_care_products_and_cosmetic_procedures": 0.9801,
+        "Substance_use": 0.001,
+        "Environmental_exposures": 0.0014,
+        "Mental_health_practices": 0.0037,
+        "Non_physical_leisure_time_activities": 0.0009,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0008,
+        "Socioeconomic_factors": 0.0041
+      },
+      "logits": {
+        "O": 0.503,
+        "Personal_care_products_and_cosmetic_procedures": 5.4559,
+        "Substance_use": -1.389,
+        "Environmental_exposures": -1.1056,
+        "Mental_health_practices": -0.1285,
+        "Non_physical_leisure_time_activities": -1.5598,
+        "Nutrition": -1.9378,
+        "Physical_activities": -2.0321,
+        "Sleep": -1.6641,
+        "Socioeconomic_factors": -0.0269
+      }
+    }
+  ]
+}

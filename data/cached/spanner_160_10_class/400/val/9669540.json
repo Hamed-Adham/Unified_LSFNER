@@ -1,0 +1,848 @@
+{
+  "doc_id": "9669540",
+  "dataset_split": "400/val",
+  "text": "Priapism following trazodone overdose with cocaine use. \nPriapism is a urologic disorder and medical emergency with a variety of known etiologies including the use of psychotropic medications. The antidepressant trazodone is the agent most frequently implicated in the precipitation of priapism. Additionally, a number of drugs of abuse including marijuana, ethanol, and cocaine have been known to cause the disorder. It is unknown if drugs may act in an additive or a synergistic manner to cause priapism. We report a case of priapism which occurred following trazodone overdose in an individual actively using cocaine. This case suggests that combined trazodone and cocaine use may pose an additional risk of priapism. Since trazodone is commonly employed as a hypnotic and often chosen for polysubstance abusers due to its low abuse potential, clinicians should be aware of the possible additive risk of priapism in this patient population. \n",
+  "total_candidates": 14,
+  "spans": [
+    {
+      "span_id": "9669540_s000",
+      "abstract_id": "9669540",
+      "span_text": "marijuana",
+      "boundaries": {
+        "start_char": 347,
+        "end_char": 356,
+        "token_start": 66,
+        "token_end": 66,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1058,
+        "novelty_score": 0.3349,
+        "margin": 0.8757,
+        "top1_prob": 0.9372,
+        "top2_prob": 0.0615,
+        "p_background_o": 0.0615
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3349,
+        "novelty_lof": 1.0028,
+        "novelty_knn_dist": 0.1597
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1058,
+        "least_confidence": 0.0628,
+        "margin_uncertainty": 0.1243
+      },
+      "probabilities": {
+        "O": 0.0615,
+        "Personal_care_products_and_cosmetic_procedures": 0.0,
+        "Substance_use": 0.9372,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 4.3943,
+        "Personal_care_products_and_cosmetic_procedures": -2.9085,
+        "Substance_use": 7.118,
+        "Environmental_exposures": -0.8236,
+        "Mental_health_practices": -1.8176,
+        "Non_physical_leisure_time_activities": -0.73,
+        "Nutrition": -1.6424,
+        "Physical_activities": -3.2686,
+        "Sleep": -1.6203,
+        "Socioeconomic_factors": -1.615
+      }
+    },
+    {
+      "span_id": "9669540_s001",
+      "abstract_id": "9669540",
+      "span_text": "ethanol",
+      "boundaries": {
+        "start_char": 358,
+        "end_char": 365,
+        "token_start": 68,
+        "token_end": 68,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1299,
+        "novelty_score": 0.7696,
+        "margin": 0.8316,
+        "top1_prob": 0.9152,
+        "top2_prob": 0.0836,
+        "p_background_o": 0.0836
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7696,
+        "novelty_lof": 1.2349,
+        "novelty_knn_dist": 0.2242
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1299,
+        "least_confidence": 0.0848,
+        "margin_uncertainty": 0.1684
+      },
+      "probabilities": {
+        "O": 0.0836,
+        "Personal_care_products_and_cosmetic_procedures": 0.0,
+        "Substance_use": 0.9152,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.0001
+      },
+      "logits": {
+        "O": 4.7256,
+        "Personal_care_products_and_cosmetic_procedures": -2.9846,
+        "Substance_use": 7.1191,
+        "Environmental_exposures": -0.7633,
+        "Mental_health_practices": -1.878,
+        "Non_physical_leisure_time_activities": -0.8425,
+        "Nutrition": -1.707,
+        "Physical_activities": -3.2639,
+        "Sleep": -1.6444,
+        "Socioeconomic_factors": -1.7693
+      }
+    },
+    {
+      "span_id": "9669540_s002",
+      "abstract_id": "9669540",
+      "span_text": "cocaine",
+      "boundaries": {
+        "start_char": 371,
+        "end_char": 378,
+        "token_start": 71,
+        "token_end": 71,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.0831,
+        "novelty_score": 0.3758,
+        "margin": 0.9112,
+        "top1_prob": 0.955,
+        "top2_prob": 0.0438,
+        "p_background_o": 0.0438
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3758,
+        "novelty_lof": 1.0006,
+        "novelty_knn_dist": 0.1899
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0831,
+        "least_confidence": 0.045,
+        "margin_uncertainty": 0.0888
+      },
+      "probabilities": {
+        "O": 0.0438,
+        "Personal_care_products_and_cosmetic_procedures": 0.0,
+        "Substance_use": 0.955,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.0001
+      },
+      "logits": {
+        "O": 4.1886,
+        "Personal_care_products_and_cosmetic_procedures": -2.7937,
+        "Substance_use": 7.271,
+        "Environmental_exposures": -0.9109,
+        "Mental_health_practices": -1.7134,
+        "Non_physical_leisure_time_activities": -0.5406,
+        "Nutrition": -1.7957,
+        "Physical_activities": -3.1298,
+        "Sleep": -1.6114,
+        "Socioeconomic_factors": -1.702
+      }
+    },
+    {
+      "span_id": "9669540_s003",
+      "abstract_id": "9669540",
+      "span_text": "drugs",
+      "boundaries": {
+        "start_char": 435,
+        "end_char": 440,
+        "token_start": 84,
+        "token_end": 84,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.0602,
+        "novelty_score": 0.3036,
+        "margin": 0.9426,
+        "top1_prob": 0.9708,
+        "top2_prob": 0.0282,
+        "p_background_o": 0.0282
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3036,
+        "novelty_lof": 1.0049,
+        "novelty_knn_dist": 0.135
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0602,
+        "least_confidence": 0.0292,
+        "margin_uncertainty": 0.0574
+      },
+      "probabilities": {
+        "O": 0.0282,
+        "Personal_care_products_and_cosmetic_procedures": 0.0,
+        "Substance_use": 0.9708,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.0001
+      },
+      "logits": {
+        "O": 3.9008,
+        "Personal_care_products_and_cosmetic_procedures": -2.6849,
+        "Substance_use": 7.4411,
+        "Environmental_exposures": -0.8672,
+        "Mental_health_practices": -1.6098,
+        "Non_physical_leisure_time_activities": -0.5725,
+        "Nutrition": -1.7692,
+        "Physical_activities": -3.1988,
+        "Sleep": -1.595,
+        "Socioeconomic_factors": -1.6355
+      }
+    },
+    {
+      "span_id": "9669540_s004",
+      "abstract_id": "9669540",
+      "span_text": "cocaine",
+      "boundaries": {
+        "start_char": 612,
+        "end_char": 619,
+        "token_start": 120,
+        "token_end": 120,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1004,
+        "novelty_score": 0.3758,
+        "margin": 0.8831,
+        "top1_prob": 0.941,
+        "top2_prob": 0.058,
+        "p_background_o": 0.058
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3758,
+        "novelty_lof": 1.0006,
+        "novelty_knn_dist": 0.1899
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1004,
+        "least_confidence": 0.059,
+        "margin_uncertainty": 0.1169
+      },
+      "probabilities": {
+        "O": 0.058,
+        "Personal_care_products_and_cosmetic_procedures": 0.0,
+        "Substance_use": 0.941,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.0001
+      },
+      "logits": {
+        "O": 4.5583,
+        "Personal_care_products_and_cosmetic_procedures": -2.8169,
+        "Substance_use": 7.3456,
+        "Environmental_exposures": -1.1151,
+        "Mental_health_practices": -1.58,
+        "Non_physical_leisure_time_activities": -0.5285,
+        "Nutrition": -1.9951,
+        "Physical_activities": -3.2007,
+        "Sleep": -1.7133,
+        "Socioeconomic_factors": -1.815
+      }
+    },
+    {
+      "span_id": "9669540_s005",
+      "abstract_id": "9669540",
+      "span_text": "cocaine use",
+      "boundaries": {
+        "start_char": 43,
+        "end_char": 54,
+        "token_start": 10,
+        "token_end": 11,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.0401,
+        "novelty_score": 0.4541,
+        "margin": 0.9705,
+        "top1_prob": 0.9841,
+        "top2_prob": 0.0136,
+        "p_background_o": 0.0136
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4541,
+        "novelty_lof": 1.0269,
+        "novelty_knn_dist": 0.2143
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0401,
+        "least_confidence": 0.0159,
+        "margin_uncertainty": 0.0295
+      },
+      "probabilities": {
+        "O": 0.0136,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.9841,
+        "Environmental_exposures": 0.0006,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0001
+      },
+      "logits": {
+        "O": 2.5696,
+        "Personal_care_products_and_cosmetic_procedures": -2.5251,
+        "Substance_use": 6.8494,
+        "Environmental_exposures": -0.4997,
+        "Mental_health_practices": -1.9124,
+        "Non_physical_leisure_time_activities": -0.345,
+        "Nutrition": -1.6592,
+        "Physical_activities": -2.8056,
+        "Sleep": -1.3263,
+        "Socioeconomic_factors": -1.9701
+      }
+    },
+    {
+      "span_id": "9669540_s006",
+      "abstract_id": "9669540",
+      "span_text": "psychotropic medications",
+      "boundaries": {
+        "start_char": 167,
+        "end_char": 191,
+        "token_start": 35,
+        "token_end": 36,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.5292,
+        "novelty_score": 0.6241,
+        "margin": 0.5008,
+        "top1_prob": 0.6515,
+        "top2_prob": 0.1507,
+        "p_background_o": 0.1507
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6241,
+        "novelty_lof": 1.1183,
+        "novelty_knn_dist": 0.2313
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5292,
+        "least_confidence": 0.3485,
+        "margin_uncertainty": 0.4992
+      },
+      "probabilities": {
+        "O": 0.1507,
+        "Personal_care_products_and_cosmetic_procedures": 0.0131,
+        "Substance_use": 0.6515,
+        "Environmental_exposures": 0.063,
+        "Mental_health_practices": 0.0667,
+        "Non_physical_leisure_time_activities": 0.0091,
+        "Nutrition": 0.0122,
+        "Physical_activities": 0.0032,
+        "Sleep": 0.0162,
+        "Socioeconomic_factors": 0.0142
+      },
+      "logits": {
+        "O": 1.1188,
+        "Personal_care_products_and_cosmetic_procedures": -1.3211,
+        "Substance_use": 2.5829,
+        "Environmental_exposures": 0.2463,
+        "Mental_health_practices": 0.3037,
+        "Non_physical_leisure_time_activities": -1.6844,
+        "Nutrition": -1.3936,
+        "Physical_activities": -2.7185,
+        "Sleep": -1.1106,
+        "Socioeconomic_factors": -1.2418
+      }
+    },
+    {
+      "span_id": "9669540_s007",
+      "abstract_id": "9669540",
+      "span_text": "cocaine use",
+      "boundaries": {
+        "start_char": 668,
+        "end_char": 679,
+        "token_start": 131,
+        "token_end": 132,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.0301,
+        "novelty_score": 0.4541,
+        "margin": 0.9812,
+        "top1_prob": 0.9893,
+        "top2_prob": 0.0082,
+        "p_background_o": 0.0082
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4541,
+        "novelty_lof": 1.0269,
+        "novelty_knn_dist": 0.2143
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0301,
+        "least_confidence": 0.0107,
+        "margin_uncertainty": 0.0188
+      },
+      "probabilities": {
+        "O": 0.0082,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.9893,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 2.015,
+        "Personal_care_products_and_cosmetic_procedures": -2.4975,
+        "Substance_use": 6.8121,
+        "Environmental_exposures": -0.4504,
+        "Mental_health_practices": -1.8842,
+        "Non_physical_leisure_time_activities": -0.3096,
+        "Nutrition": -1.5222,
+        "Physical_activities": -2.7004,
+        "Sleep": -1.3245,
+        "Socioeconomic_factors": -1.9172
+      }
+    },
+    {
+      "span_id": "9669540_s008",
+      "abstract_id": "9669540",
+      "span_text": "drugs of abuse",
+      "boundaries": {
+        "start_char": 322,
+        "end_char": 336,
+        "token_start": 62,
+        "token_end": 64,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.0421,
+        "novelty_score": 0.3187,
+        "margin": 0.9705,
+        "top1_prob": 0.9837,
+        "top2_prob": 0.0131,
+        "p_background_o": 0.0131
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3187,
+        "novelty_lof": 0.9992,
+        "novelty_knn_dist": 0.1517
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0421,
+        "least_confidence": 0.0163,
+        "margin_uncertainty": 0.0295
+      },
+      "probabilities": {
+        "O": 0.0131,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.9837,
+        "Environmental_exposures": 0.0011,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 2.2776,
+        "Personal_care_products_and_cosmetic_procedures": -2.4645,
+        "Substance_use": 6.5931,
+        "Environmental_exposures": -0.2261,
+        "Mental_health_practices": -2.1248,
+        "Non_physical_leisure_time_activities": -0.6259,
+        "Nutrition": -1.5501,
+        "Physical_activities": -2.6788,
+        "Sleep": -1.3661,
+        "Socioeconomic_factors": -1.2742
+      }
+    },
+    {
+      "span_id": "9669540_s009",
+      "abstract_id": "9669540",
+      "span_text": "marijuana, ethanol",
+      "boundaries": {
+        "start_char": 347,
+        "end_char": 365,
+        "token_start": 66,
+        "token_end": 68,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1226,
+        "novelty_score": 0.5146,
+        "margin": 0.8475,
+        "top1_prob": 0.9229,
+        "top2_prob": 0.0755,
+        "p_background_o": 0.0755
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5146,
+        "novelty_lof": 1.0477,
+        "novelty_knn_dist": 0.2315
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1226,
+        "least_confidence": 0.0771,
+        "margin_uncertainty": 0.1525
+      },
+      "probabilities": {
+        "O": 0.0755,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.9229,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 4.4606,
+        "Personal_care_products_and_cosmetic_procedures": -2.8479,
+        "Substance_use": 6.9644,
+        "Environmental_exposures": -0.6646,
+        "Mental_health_practices": -1.7915,
+        "Non_physical_leisure_time_activities": -0.6999,
+        "Nutrition": -1.8766,
+        "Physical_activities": -3.0927,
+        "Sleep": -1.6449,
+        "Socioeconomic_factors": -1.574
+      }
+    },
+    {
+      "span_id": "9669540_s010",
+      "abstract_id": "9669540",
+      "span_text": "ethanol, and cocaine",
+      "boundaries": {
+        "start_char": 358,
+        "end_char": 378,
+        "token_start": 68,
+        "token_end": 71,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1038,
+        "novelty_score": 0.4789,
+        "margin": 0.8795,
+        "top1_prob": 0.9391,
+        "top2_prob": 0.0595,
+        "p_background_o": 0.0595
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4789,
+        "novelty_lof": 1.0444,
+        "novelty_knn_dist": 0.2124
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1038,
+        "least_confidence": 0.0609,
+        "margin_uncertainty": 0.1205
+      },
+      "probabilities": {
+        "O": 0.0595,
+        "Personal_care_products_and_cosmetic_procedures": 0.0,
+        "Substance_use": 0.9391,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 4.3198,
+        "Personal_care_products_and_cosmetic_procedures": -2.8445,
+        "Substance_use": 7.0784,
+        "Environmental_exposures": -0.7382,
+        "Mental_health_practices": -1.7537,
+        "Non_physical_leisure_time_activities": -0.6786,
+        "Nutrition": -1.9411,
+        "Physical_activities": -3.0957,
+        "Sleep": -1.6172,
+        "Socioeconomic_factors": -1.5998
+      }
+    },
+    {
+      "span_id": "9669540_s011",
+      "abstract_id": "9669540",
+      "span_text": "polysubstance abusers",
+      "boundaries": {
+        "start_char": 793,
+        "end_char": 814,
+        "token_start": 157,
+        "token_end": 160,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.3163,
+        "novelty_score": 0.7349,
+        "margin": 0.6097,
+        "top1_prob": 0.7797,
+        "top2_prob": 0.17,
+        "p_background_o": 0.17
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7349,
+        "novelty_lof": 1.1646,
+        "novelty_knn_dist": 0.2654
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3163,
+        "least_confidence": 0.2203,
+        "margin_uncertainty": 0.3903
+      },
+      "probabilities": {
+        "O": 0.17,
+        "Personal_care_products_and_cosmetic_procedures": 0.0009,
+        "Substance_use": 0.7797,
+        "Environmental_exposures": 0.0145,
+        "Mental_health_practices": 0.0022,
+        "Non_physical_leisure_time_activities": 0.0065,
+        "Nutrition": 0.0037,
+        "Physical_activities": 0.0013,
+        "Sleep": 0.0027,
+        "Socioeconomic_factors": 0.0185
+      },
+      "logits": {
+        "O": 2.4078,
+        "Personal_care_products_and_cosmetic_procedures": -2.7989,
+        "Substance_use": 3.9308,
+        "Environmental_exposures": -0.0559,
+        "Mental_health_practices": -1.9291,
+        "Non_physical_leisure_time_activities": -0.8582,
+        "Nutrition": -1.4255,
+        "Physical_activities": -2.5008,
+        "Sleep": -1.7263,
+        "Socioeconomic_factors": 0.1902
+      }
+    },
+    {
+      "span_id": "9669540_s012",
+      "abstract_id": "9669540",
+      "span_text": "drugs of abuse including marijuana",
+      "boundaries": {
+        "start_char": 322,
+        "end_char": 356,
+        "token_start": 62,
+        "token_end": 66,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.2029,
+        "novelty_score": 0.4876,
+        "margin": 0.6818,
+        "top1_prob": 0.8389,
+        "top2_prob": 0.1571,
+        "p_background_o": 0.1571
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4876,
+        "novelty_lof": 1.0272,
+        "novelty_knn_dist": 0.2351
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2029,
+        "least_confidence": 0.1611,
+        "margin_uncertainty": 0.3182
+      },
+      "probabilities": {
+        "O": 0.1571,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.8389,
+        "Environmental_exposures": 0.0011,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0011,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 4.3496,
+        "Personal_care_products_and_cosmetic_procedures": -2.782,
+        "Substance_use": 6.0247,
+        "Environmental_exposures": -0.6294,
+        "Mental_health_practices": -1.9025,
+        "Non_physical_leisure_time_activities": -0.6343,
+        "Nutrition": -1.7911,
+        "Physical_activities": -2.9292,
+        "Sleep": -1.5468,
+        "Socioeconomic_factors": -1.4172
+      }
+    },
+    {
+      "span_id": "9669540_s013",
+      "abstract_id": "9669540",
+      "span_text": "marijuana, ethanol, and cocaine",
+      "boundaries": {
+        "start_char": 347,
+        "end_char": 378,
+        "token_start": 66,
+        "token_end": 71,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1257,
+        "novelty_score": 0.339,
+        "margin": 0.8411,
+        "top1_prob": 0.9198,
+        "top2_prob": 0.0787,
+        "p_background_o": 0.0787
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.339,
+        "novelty_lof": 0.9628,
+        "novelty_knn_dist": 0.2025
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1257,
+        "least_confidence": 0.0802,
+        "margin_uncertainty": 0.1589
+      },
+      "probabilities": {
+        "O": 0.0787,
+        "Personal_care_products_and_cosmetic_procedures": 0.0,
+        "Substance_use": 0.9198,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 4.5245,
+        "Personal_care_products_and_cosmetic_procedures": -2.8467,
+        "Substance_use": 6.9833,
+        "Environmental_exposures": -0.8856,
+        "Mental_health_practices": -1.7813,
+        "Non_physical_leisure_time_activities": -0.6278,
+        "Nutrition": -2.0114,
+        "Physical_activities": -3.0668,
+        "Sleep": -1.5422,
+        "Socioeconomic_factors": -1.6497
+      }
+    }
+  ]
+}

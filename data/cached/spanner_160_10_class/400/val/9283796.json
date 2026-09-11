@@ -1,0 +1,128 @@
+{
+  "doc_id": "9283796",
+  "dataset_split": "400/val",
+  "text": "Glycosylated hemoglobin level and carotid intimal-medial thickening in nondiabetic individuals. The Atherosclerosis Risk in Communities Study. \nOBJECTIVE: People with diabetes are at increased risk for cardiovascular events. However, questions remain about what role, if any, homeostatic glucose control plays in the development of cardiovascular disease among nondiabetic individuals. We investigated the relationship between HbA1c level and carotid intimal-medial thickening in normoglycemic individuals. RESEARCH DESIGN AND METHODS: We conducted a case-control study among 208 normoglycemic individuals (fasting glucose < or = 6.4 mmol/l and no history of diabetes) who had carotid initial-medial thickening (case subjects) and 208 normoglycemic control subjects individually matched for age, sex, race, field center, and date of exam. Subjects were free-living men and women, aged 45-64 years at baseline, who participated in the Atherosclerosis Risk in Communities (ARIC) Study. RESULTS: HbA1c levels, expressed as percent of total hemoglobin, ranged from 4 to 7% and correlated only modestly with single measurements of fasting glucose (r = 0.16) and fasting insulin (r = 0.14). The mean level of HbA1c was 5.18% among case subjects and 5.07% among control subjects (P = 0.004, paired t test). As compared with the first quartile of HbA1c the matched relative odds of being a case were 1.15, 1.33, and 2.30 for the second, third, and fourth quartiles, respectively (P = 0.005 for linear trend). After multivariate adjustment for age, fasting glucose, fasting insulin, BMI, smoking status, hypertension, LDL cholesterol, HDL cholesterol, fibrinogen, and education level, the respective relative odds estimates were 0.98, 1.07, and 1.88 (P = 0.16 for linear trend). When modeled linearly as a continuous variable and after adjustment for the above-mentioned covariates, a 1% point increment in HbA1c level was associated with 1.77 greater odds of being a case (95% CI, 0.9-3.5). CONCLUSIONS: These data provide some support to the hypothesis that in the absence of diabetes, homeostatic glycemic control is a risk factor for atherosclerosis. \n",
+  "total_candidates": 2,
+  "spans": [
+    {
+      "span_id": "9283796_s000",
+      "abstract_id": "9283796",
+      "span_text": "smoking status",
+      "boundaries": {
+        "start_char": 1579,
+        "end_char": 1593,
+        "token_start": 335,
+        "token_end": 336,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.4971,
+        "novelty_score": 0.5884,
+        "margin": 0.3981,
+        "top1_prob": 0.6174,
+        "top2_prob": 0.2193,
+        "p_background_o": 0.2193
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5884,
+        "novelty_lof": 1.1877,
+        "novelty_knn_dist": 0.1384
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4971,
+        "least_confidence": 0.3826,
+        "margin_uncertainty": 0.6019
+      },
+      "probabilities": {
+        "O": 0.2193,
+        "Personal_care_products_and_cosmetic_procedures": 0.004,
+        "Substance_use": 0.1017,
+        "Environmental_exposures": 0.0177,
+        "Mental_health_practices": 0.002,
+        "Non_physical_leisure_time_activities": 0.0085,
+        "Nutrition": 0.0096,
+        "Physical_activities": 0.0072,
+        "Sleep": 0.0127,
+        "Socioeconomic_factors": 0.6174
+      },
+      "logits": {
+        "O": 1.8347,
+        "Personal_care_products_and_cosmetic_procedures": -2.1815,
+        "Substance_use": 1.0666,
+        "Environmental_exposures": -0.6795,
+        "Mental_health_practices": -2.8869,
+        "Non_physical_leisure_time_activities": -1.4161,
+        "Nutrition": -1.295,
+        "Physical_activities": -1.5801,
+        "Sleep": -1.018,
+        "Socioeconomic_factors": 2.8698
+      }
+    },
+    {
+      "span_id": "9283796_s001",
+      "abstract_id": "9283796",
+      "span_text": "education level",
+      "boundaries": {
+        "start_char": 1659,
+        "end_char": 1674,
+        "token_start": 349,
+        "token_end": 350,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0556,
+        "novelty_score": 0.2301,
+        "margin": 0.9637,
+        "top1_prob": 0.9788,
+        "top2_prob": 0.0151,
+        "p_background_o": 0.0151
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2301,
+        "novelty_lof": 0.9894,
+        "novelty_knn_dist": 0.0912
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0556,
+        "least_confidence": 0.0212,
+        "margin_uncertainty": 0.0363
+      },
+      "probabilities": {
+        "O": 0.0151,
+        "Personal_care_products_and_cosmetic_procedures": 0.0009,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.0009,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0011,
+        "Physical_activities": 0.001,
+        "Sleep": 0.0008,
+        "Socioeconomic_factors": 0.9788
+      },
+      "logits": {
+        "O": 1.448,
+        "Personal_care_products_and_cosmetic_procedures": -1.4007,
+        "Substance_use": -1.745,
+        "Environmental_exposures": -1.4213,
+        "Mental_health_practices": -2.294,
+        "Non_physical_leisure_time_activities": -1.9605,
+        "Nutrition": -1.1915,
+        "Physical_activities": -1.2193,
+        "Sleep": -1.4572,
+        "Socioeconomic_factors": 5.621
+      }
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "doc_id": "8909609",
+  "dataset_split": "400/train",
+  "text": "Reduced lung cancer mortality in dairy farmers: is endotoxin exposure the key factor? \nFrom two areas in the Province of Padova, we selected 2,283 male farmers who worked either in cattle raising or in crop/orchard cultivation. There were 422 cohort deaths from 1970 to 1992. Using the regional population as a reference, the standardized mortality ratio (SMR) was calculated, with 95% confidence intervals (CI) based on the Poisson distribution. Cancer mortality was significantly reduced among the 1,561 dairy farmers (SMR = 0.65; CI = 0.53-0.81); there was a significant decrease in lung cancer (SMR = 0.49; CI = 0.31-0.74), whereas a significant increase from brain tumors was found (SMR = 2.83; CI = 1.04-6.17). Neither overall cancer mortality nor the lung cancer SMR deviated significantly from unity for the 722 crop/orchard farmers. Among dairy farmers, moreover, lung cancer SMRs showed a significant downward trend across the quartiles of increasing length of work, 0.96 in the first quartile, and 0.48, 0.40, and 0.25 in the second, third, and fourth quartiles, respectively. Moreover, lung cancer risk decreased with increasing farm land area, with SMRs in the quartiles of 0.89, 0.37, 0.41 and 0.19. This decrease cannot be attributed to either a selection (healthy worker effect) or a confounding (lower percentage of smokers) bias. Nor was it due to an artifact introduced by differences in age distribution among the quartiles. Dairy farmers are known to be exposed to higher airborne endotoxin concentrations; reasonably, this cumulative exposure increases further with years of work and area of farm. Endotoxins may have protected the dairy farmers against lung cancer through the tumor necrosis factor produced by alveolar macrophages. \n",
+  "total_candidates": 6,
+  "spans": [
+    {
+      "span_id": "8909609_s000",
+      "abstract_id": "8909609",
+      "span_text": "work",
+      "boundaries": {
+        "start_char": 1597,
+        "end_char": 1601,
+        "token_start": 352,
+        "token_end": 352,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2873,
+        "novelty_score": 0.3913,
+        "margin": 0.39,
+        "top1_prob": 0.6918,
+        "top2_prob": 0.3018,
+        "p_background_o": 0.3018
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3913,
+        "novelty_lof": 1.0255,
+        "novelty_knn_dist": 0.1753
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2873,
+        "least_confidence": 0.3082,
+        "margin_uncertainty": 0.61
+      },
+      "probabilities": {
+        "O": 0.3018,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.0009,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0011,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0017,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.6918
+      },
+      "logits": {
+        "O": 4.303,
+        "Personal_care_products_and_cosmetic_procedures": -1.9663,
+        "Substance_use": -1.9494,
+        "Environmental_exposures": -1.5409,
+        "Mental_health_practices": -2.1177,
+        "Non_physical_leisure_time_activities": -1.3202,
+        "Nutrition": -2.1399,
+        "Physical_activities": -0.8759,
+        "Sleep": -1.8911,
+        "Socioeconomic_factors": 5.1326
+      }
+    },
+    {
+      "span_id": "8909609_s001",
+      "abstract_id": "8909609",
+      "span_text": "endotoxin exposure",
+      "boundaries": {
+        "start_char": 51,
+        "end_char": 69,
+        "token_start": 10,
+        "token_end": 11,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1159,
+        "novelty_score": 0.403,
+        "margin": 0.885,
+        "top1_prob": 0.9386,
+        "top2_prob": 0.0536,
+        "p_background_o": 0.0536
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.403,
+        "novelty_lof": 1.0352,
+        "novelty_knn_dist": 0.1733
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1159,
+        "least_confidence": 0.0614,
+        "margin_uncertainty": 0.115
+      },
+      "probabilities": {
+        "O": 0.0536,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0016,
+        "Environmental_exposures": 0.9386,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0033,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 2.6906,
+        "Personal_care_products_and_cosmetic_procedures": -1.9459,
+        "Substance_use": -0.8196,
+        "Environmental_exposures": 5.5525,
+        "Mental_health_practices": -2.3867,
+        "Non_physical_leisure_time_activities": -2.2916,
+        "Nutrition": -0.088,
+        "Physical_activities": -2.494,
+        "Sleep": -1.7165,
+        "Socioeconomic_factors": -1.7991
+      }
+    },
+    {
+      "span_id": "8909609_s002",
+      "abstract_id": "8909609",
+      "span_text": "airborne endotoxin",
+      "boundaries": {
+        "start_char": 1493,
+        "end_char": 1511,
+        "token_start": 338,
+        "token_end": 339,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1857,
+        "novelty_score": 0.6377,
+        "margin": 0.7547,
+        "top1_prob": 0.8729,
+        "top2_prob": 0.1182,
+        "p_background_o": 0.1182
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6377,
+        "novelty_lof": 1.1128,
+        "novelty_knn_dist": 0.246
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1857,
+        "least_confidence": 0.1271,
+        "margin_uncertainty": 0.2453
+      },
+      "probabilities": {
+        "O": 0.1182,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0021,
+        "Environmental_exposures": 0.8729,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0041,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 3.3663,
+        "Personal_care_products_and_cosmetic_procedures": -2.0795,
+        "Substance_use": -0.679,
+        "Environmental_exposures": 5.366,
+        "Mental_health_practices": -2.5879,
+        "Non_physical_leisure_time_activities": -2.2415,
+        "Nutrition": -0.003,
+        "Physical_activities": -2.6292,
+        "Sleep": -1.7867,
+        "Socioeconomic_factors": -1.9472
+      }
+    },
+    {
+      "span_id": "8909609_s003",
+      "abstract_id": "8909609",
+      "span_text": "Endotoxins",
+      "boundaries": {
+        "start_char": 1620,
+        "end_char": 1630,
+        "token_start": 358,
+        "token_end": 359,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.2683,
+        "novelty_score": 0.4829,
+        "margin": 0.5604,
+        "top1_prob": 0.7723,
+        "top2_prob": 0.2119,
+        "p_background_o": 0.2119
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4829,
+        "novelty_lof": 1.0496,
+        "novelty_knn_dist": 0.2097
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2683,
+        "least_confidence": 0.2277,
+        "margin_uncertainty": 0.4396
+      },
+      "probabilities": {
+        "O": 0.2119,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0025,
+        "Environmental_exposures": 0.7723,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.0086,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.0011
+      },
+      "logits": {
+        "O": 3.5086,
+        "Personal_care_products_and_cosmetic_procedures": -2.0753,
+        "Substance_use": -0.9158,
+        "Environmental_exposures": 4.8018,
+        "Mental_health_practices": -2.5587,
+        "Non_physical_leisure_time_activities": -2.1323,
+        "Nutrition": 0.3011,
+        "Physical_activities": -2.5644,
+        "Sleep": -1.8029,
+        "Socioeconomic_factors": -1.7234
+      }
+    },
+    {
+      "span_id": "8909609_s004",
+      "abstract_id": "8909609",
+      "span_text": "length of work",
+      "boundaries": {
+        "start_char": 961,
+        "end_char": 975,
+        "token_start": 214,
+        "token_end": 216,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0966,
+        "novelty_score": 0.8306,
+        "margin": 0.9201,
+        "top1_prob": 0.9554,
+        "top2_prob": 0.0353,
+        "p_background_o": 0.0353
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8306,
+        "novelty_lof": 1.2396,
+        "novelty_knn_dist": 0.2797
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0966,
+        "least_confidence": 0.0446,
+        "margin_uncertainty": 0.0799
+      },
+      "probabilities": {
+        "O": 0.0353,
+        "Personal_care_products_and_cosmetic_procedures": 0.0009,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0027,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0011,
+        "Nutrition": 0.0008,
+        "Physical_activities": 0.0018,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.9554
+      },
+      "logits": {
+        "O": 2.0564,
+        "Personal_care_products_and_cosmetic_procedures": -1.6332,
+        "Substance_use": -2.418,
+        "Environmental_exposures": -0.506,
+        "Mental_health_practices": -2.2469,
+        "Non_physical_leisure_time_activities": -1.4376,
+        "Nutrition": -1.7171,
+        "Physical_activities": -0.9121,
+        "Sleep": -1.4797,
+        "Socioeconomic_factors": 5.3536
+      }
+    },
+    {
+      "span_id": "8909609_s005",
+      "abstract_id": "8909609",
+      "span_text": "crop/orchard cultivation",
+      "boundaries": {
+        "start_char": 202,
+        "end_char": 226,
+        "token_start": 43,
+        "token_end": 47,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.4412,
+        "novelty_score": 0.6419,
+        "margin": 0.0886,
+        "top1_prob": 0.4989,
+        "top2_prob": 0.4103,
+        "p_background_o": 0.4103
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6419,
+        "novelty_lof": 1.0951,
+        "novelty_knn_dist": 0.2665
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4412,
+        "least_confidence": 0.5011,
+        "margin_uncertainty": 0.9114
+      },
+      "probabilities": {
+        "O": 0.4103,
+        "Personal_care_products_and_cosmetic_procedures": 0.0033,
+        "Substance_use": 0.0033,
+        "Environmental_exposures": 0.0703,
+        "Mental_health_practices": 0.0011,
+        "Non_physical_leisure_time_activities": 0.0057,
+        "Nutrition": 0.4989,
+        "Physical_activities": 0.0019,
+        "Sleep": 0.0014,
+        "Socioeconomic_factors": 0.0037
+      },
+      "logits": {
+        "O": 3.3194,
+        "Personal_care_products_and_cosmetic_procedures": -1.4945,
+        "Substance_use": -1.5133,
+        "Environmental_exposures": 1.5546,
+        "Mental_health_practices": -2.6369,
+        "Non_physical_leisure_time_activities": -0.9517,
+        "Nutrition": 3.5148,
+        "Physical_activities": -2.0304,
+        "Sleep": -2.3469,
+        "Socioeconomic_factors": -1.3767
+      }
+    }
+  ]
+}

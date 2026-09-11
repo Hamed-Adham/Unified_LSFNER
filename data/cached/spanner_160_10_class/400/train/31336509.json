@@ -1,0 +1,728 @@
+{
+  "doc_id": "31336509",
+  "dataset_split": "400/train",
+  "text": "Ketogenic diets potentially reverse Type II diabetes and ameliorate clinical depression: A case study. \nEfficacious adherence to treatment protocol predicts metabolic control among Type 2 diabetics (T2DM) [1-4]; however, few healthcare systems employ individualized strategies to mediate the comorbidity of T2DM with other chronic disease states. A clinically prescribed ketogenic diet, patient-centered nutritional education and high intensity interval training (HIIT), girded by solution-focused psychotherapy, modulate significant improvements in the clinical biomarkers associated with concurring T2DM and clinical depression [5-15]. Relevant metabolic change was noted in the following measures: HOMA-IR, triglyceride/HDL ratio, HgA1c, fasting insulin, fasting glucose, fasting triglycerides, LDL, VLDL, HDL, total cholesterol and C-reactive protein. The Patient Health Questionnaire 9 (PHQ-9) along with clinical interview and the mental status exam showed notable change in the patient's depressive symptoms; likewise, her self-efficacy score normalized, as measured by the General Self-Efficacy Questionnaire (GSE) and the Metabolic Syndrome Compliance Questionnaire (MSC). The case study highlights a 65-year old female who presented with a 26-year history of dually-diagnosed Type 2 diabetes (T2DM) and major depressive disorder (MDD). The patient was prescribed a ketogenic diet (KD), clinically formulated from her resting metabolic rate, body fat percentage and lean body mass, together with weekly nutrition education, high intensity interval training (matched to her cardiovascular conditioning), and eight 45-minute solution-focused psychotherapy sessions. Intervention goals included improved insulin sensitivity evaluated by the HOMA-IR, sustained glycemic control measured via HgA1c, reduced cardiovascular risk via the triglyceride/HDL ratio, and improved depressive symptoms with increased self-efficacy monitored by the PHQ-9 and GSE/MSC. The results of the 12-week intervention were statistically significant. The patient's HgA1c dropped out of diabetic range (8.0%) and normalized at 5.4%. Her average daily glucose measurements declined from 216 mg/dL to 96 mg/dL; the HOMA-IR and triglyceride/HDL ratios improved by 75%. Her marker for clinical depression and measurement of self-efficacy normalized. The 12-week individualized treatment intervention served to functionally reverse 26 years of T2DM, ameliorate two and half decades of chronic depressive disorder and empower/equip the patient with a new experience of hope and success. \n",
+  "total_candidates": 12,
+  "spans": [
+    {
+      "span_id": "31336509_s000",
+      "abstract_id": "31336509",
+      "span_text": "psychotherapy",
+      "boundaries": {
+        "start_char": 498,
+        "end_char": 511,
+        "token_start": 93,
+        "token_end": 93,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.3105,
+        "novelty_score": 0.3097,
+        "margin": 0.2039,
+        "top1_prob": 0.5991,
+        "top2_prob": 0.3951,
+        "p_background_o": 0.3951
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3097,
+        "novelty_lof": 0.9915,
+        "novelty_knn_dist": 0.1528
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3105,
+        "least_confidence": 0.4009,
+        "margin_uncertainty": 0.7961
+      },
+      "probabilities": {
+        "O": 0.3951,
+        "Personal_care_products_and_cosmetic_procedures": 0.001,
+        "Substance_use": 0.001,
+        "Environmental_exposures": 0.0006,
+        "Mental_health_practices": 0.5991,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 4.82,
+        "Personal_care_products_and_cosmetic_procedures": -1.1557,
+        "Substance_use": -1.1236,
+        "Environmental_exposures": -1.6964,
+        "Mental_health_practices": 5.2361,
+        "Non_physical_leisure_time_activities": -0.9006,
+        "Nutrition": -2.8648,
+        "Physical_activities": -1.872,
+        "Sleep": -2.1917,
+        "Socioeconomic_factors": -1.3296
+      }
+    },
+    {
+      "span_id": "31336509_s001",
+      "abstract_id": "31336509",
+      "span_text": "KD",
+      "boundaries": {
+        "start_char": 1391,
+        "end_char": 1393,
+        "token_start": 272,
+        "token_end": 272,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0769,
+        "novelty_score": 0.6703,
+        "margin": 0.9229,
+        "top1_prob": 0.9605,
+        "top2_prob": 0.0377,
+        "p_background_o": 0.0377
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6703,
+        "novelty_lof": 1.0834,
+        "novelty_knn_dist": 0.2979
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0769,
+        "least_confidence": 0.0395,
+        "margin_uncertainty": 0.0771
+      },
+      "probabilities": {
+        "O": 0.0377,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9605,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 3.4875,
+        "Personal_care_products_and_cosmetic_procedures": -2.0401,
+        "Substance_use": -1.4506,
+        "Environmental_exposures": -2.0982,
+        "Mental_health_practices": -2.6636,
+        "Non_physical_leisure_time_activities": -1.154,
+        "Nutrition": 6.7267,
+        "Physical_activities": -1.6127,
+        "Sleep": -1.2474,
+        "Socioeconomic_factors": -1.579
+      }
+    },
+    {
+      "span_id": "31336509_s002",
+      "abstract_id": "31336509",
+      "span_text": "psychotherapy",
+      "boundaries": {
+        "start_char": 1649,
+        "end_char": 1662,
+        "token_start": 315,
+        "token_end": 315,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.2164,
+        "novelty_score": 0.3097,
+        "margin": 0.6496,
+        "top1_prob": 0.8225,
+        "top2_prob": 0.1729,
+        "p_background_o": 0.1729
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3097,
+        "novelty_lof": 0.9915,
+        "novelty_knn_dist": 0.1528
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2164,
+        "least_confidence": 0.1775,
+        "margin_uncertainty": 0.3504
+      },
+      "probabilities": {
+        "O": 0.1729,
+        "Personal_care_products_and_cosmetic_procedures": 0.0009,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.8225,
+        "Non_physical_leisure_time_activities": 0.001,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 4.2202,
+        "Personal_care_products_and_cosmetic_procedures": -1.0832,
+        "Substance_use": -1.0858,
+        "Environmental_exposures": -1.6071,
+        "Mental_health_practices": 5.7801,
+        "Non_physical_leisure_time_activities": -0.9159,
+        "Nutrition": -2.8613,
+        "Physical_activities": -1.964,
+        "Sleep": -2.2454,
+        "Socioeconomic_factors": -1.3806
+      }
+    },
+    {
+      "span_id": "31336509_s003",
+      "abstract_id": "31336509",
+      "span_text": "nutritional education",
+      "boundaries": {
+        "start_char": 404,
+        "end_char": 425,
+        "token_start": 76,
+        "token_end": 77,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0339,
+        "novelty_score": 0.7344,
+        "margin": 0.98,
+        "top1_prob": 0.9882,
+        "top2_prob": 0.0082,
+        "p_background_o": 0.0082
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7344,
+        "novelty_lof": 1.1748,
+        "novelty_knn_dist": 0.2548
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0339,
+        "least_confidence": 0.0118,
+        "margin_uncertainty": 0.02
+      },
+      "probabilities": {
+        "O": 0.0082,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.9882,
+        "Physical_activities": 0.0011,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 1.4397,
+        "Personal_care_products_and_cosmetic_procedures": -1.5691,
+        "Substance_use": -2.0347,
+        "Environmental_exposures": -2.0215,
+        "Mental_health_practices": -2.4641,
+        "Non_physical_leisure_time_activities": -1.4531,
+        "Nutrition": 6.2257,
+        "Physical_activities": -0.5543,
+        "Sleep": -1.6399,
+        "Socioeconomic_factors": -1.4038
+      }
+    },
+    {
+      "span_id": "31336509_s004",
+      "abstract_id": "31336509",
+      "span_text": "HIIT",
+      "boundaries": {
+        "start_char": 464,
+        "end_char": 468,
+        "token_start": 84,
+        "token_end": 85,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.1421,
+        "novelty_score": 0.6884,
+        "margin": 0.8405,
+        "top1_prob": 0.9165,
+        "top2_prob": 0.076,
+        "p_background_o": 0.076
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6884,
+        "novelty_lof": 1.1488,
+        "novelty_knn_dist": 0.2455
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1421,
+        "least_confidence": 0.0835,
+        "margin_uncertainty": 0.1595
+      },
+      "probabilities": {
+        "O": 0.076,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.001,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.0016,
+        "Physical_activities": 0.9165,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.0012
+      },
+      "logits": {
+        "O": 2.8,
+        "Personal_care_products_and_cosmetic_procedures": -2.291,
+        "Substance_use": -2.7984,
+        "Environmental_exposures": -1.9087,
+        "Mental_health_practices": -1.4976,
+        "Non_physical_leisure_time_activities": -1.2929,
+        "Nutrition": -1.082,
+        "Physical_activities": 5.2897,
+        "Sleep": -1.5652,
+        "Socioeconomic_factors": -1.3409
+      }
+    },
+    {
+      "span_id": "31336509_s005",
+      "abstract_id": "31336509",
+      "span_text": "nutrition education",
+      "boundaries": {
+        "start_char": 1512,
+        "end_char": 1531,
+        "token_start": 293,
+        "token_end": 294,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0348,
+        "novelty_score": 0.7003,
+        "margin": 0.9797,
+        "top1_prob": 0.9879,
+        "top2_prob": 0.0082,
+        "p_background_o": 0.0082
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7003,
+        "novelty_lof": 1.1526,
+        "novelty_knn_dist": 0.2506
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0348,
+        "least_confidence": 0.0121,
+        "margin_uncertainty": 0.0203
+      },
+      "probabilities": {
+        "O": 0.0082,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.9879,
+        "Physical_activities": 0.0014,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 1.3777,
+        "Personal_care_products_and_cosmetic_procedures": -1.5865,
+        "Substance_use": -2.0626,
+        "Environmental_exposures": -2.2008,
+        "Mental_health_practices": -2.4392,
+        "Non_physical_leisure_time_activities": -1.3907,
+        "Nutrition": 6.1725,
+        "Physical_activities": -0.3545,
+        "Sleep": -1.5762,
+        "Socioeconomic_factors": -1.551
+      }
+    },
+    {
+      "span_id": "31336509_s006",
+      "abstract_id": "31336509",
+      "span_text": "Ketogenic diets",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 15,
+        "token_start": 1,
+        "token_end": 3,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0407,
+        "novelty_score": 0.6736,
+        "margin": 0.9733,
+        "top1_prob": 0.9849,
+        "top2_prob": 0.0116,
+        "p_background_o": 0.0116
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6736,
+        "novelty_lof": 1.163,
+        "novelty_knn_dist": 0.2207
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0407,
+        "least_confidence": 0.0151,
+        "margin_uncertainty": 0.0267
+      },
+      "probabilities": {
+        "O": 0.0116,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.9849,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 1.7827,
+        "Personal_care_products_and_cosmetic_procedures": -1.8992,
+        "Substance_use": -1.4619,
+        "Environmental_exposures": -1.8104,
+        "Mental_health_practices": -2.7153,
+        "Non_physical_leisure_time_activities": -1.2654,
+        "Nutrition": 6.2265,
+        "Physical_activities": -0.8453,
+        "Sleep": -1.5569,
+        "Socioeconomic_factors": -1.2469
+      }
+    },
+    {
+      "span_id": "31336509_s007",
+      "abstract_id": "31336509",
+      "span_text": "ketogenic diet",
+      "boundaries": {
+        "start_char": 371,
+        "end_char": 385,
+        "token_start": 69,
+        "token_end": 71,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0475,
+        "novelty_score": 0.7352,
+        "margin": 0.9699,
+        "top1_prob": 0.9824,
+        "top2_prob": 0.0124,
+        "p_background_o": 0.0124
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7352,
+        "novelty_lof": 1.2096,
+        "novelty_knn_dist": 0.2206
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0475,
+        "least_confidence": 0.0176,
+        "margin_uncertainty": 0.0301
+      },
+      "probabilities": {
+        "O": 0.0124,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.9824,
+        "Physical_activities": 0.0013,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 1.5436,
+        "Personal_care_products_and_cosmetic_procedures": -1.8115,
+        "Substance_use": -1.5063,
+        "Environmental_exposures": -1.927,
+        "Mental_health_practices": -2.6163,
+        "Non_physical_leisure_time_activities": -1.3009,
+        "Nutrition": 5.912,
+        "Physical_activities": -0.6826,
+        "Sleep": -1.3664,
+        "Socioeconomic_factors": -1.1987
+      }
+    },
+    {
+      "span_id": "31336509_s008",
+      "abstract_id": "31336509",
+      "span_text": "ketogenic diet",
+      "boundaries": {
+        "start_char": 1375,
+        "end_char": 1389,
+        "token_start": 268,
+        "token_end": 270,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0422,
+        "novelty_score": 0.7352,
+        "margin": 0.9736,
+        "top1_prob": 0.9846,
+        "top2_prob": 0.011,
+        "p_background_o": 0.011
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7352,
+        "novelty_lof": 1.2096,
+        "novelty_knn_dist": 0.2206
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0422,
+        "least_confidence": 0.0154,
+        "margin_uncertainty": 0.0264
+      },
+      "probabilities": {
+        "O": 0.011,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.9846,
+        "Physical_activities": 0.0012,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 1.5604,
+        "Personal_care_products_and_cosmetic_procedures": -1.8324,
+        "Substance_use": -1.5454,
+        "Environmental_exposures": -2.0028,
+        "Mental_health_practices": -2.6362,
+        "Non_physical_leisure_time_activities": -1.3274,
+        "Nutrition": 6.0545,
+        "Physical_activities": -0.6629,
+        "Sleep": -1.3689,
+        "Socioeconomic_factors": -1.2775
+      }
+    },
+    {
+      "span_id": "31336509_s009",
+      "abstract_id": "31336509",
+      "span_text": "high intensity interval training",
+      "boundaries": {
+        "start_char": 430,
+        "end_char": 462,
+        "token_start": 79,
+        "token_end": 82,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.0441,
+        "novelty_score": 0.6316,
+        "margin": 0.9756,
+        "top1_prob": 0.9847,
+        "top2_prob": 0.0091,
+        "p_background_o": 0.0091
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6316,
+        "novelty_lof": 1.132,
+        "novelty_knn_dist": 0.2226
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0441,
+        "least_confidence": 0.0153,
+        "margin_uncertainty": 0.0244
+      },
+      "probabilities": {
+        "O": 0.0091,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.0014,
+        "Physical_activities": 0.9847,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.0013
+      },
+      "logits": {
+        "O": 1.0406,
+        "Personal_care_products_and_cosmetic_procedures": -2.2145,
+        "Substance_use": -2.7501,
+        "Environmental_exposures": -2.1779,
+        "Mental_health_practices": -1.3518,
+        "Non_physical_leisure_time_activities": -1.3631,
+        "Nutrition": -0.8021,
+        "Physical_activities": 5.7267,
+        "Sleep": -1.2106,
+        "Socioeconomic_factors": -0.9368
+      }
+    },
+    {
+      "span_id": "31336509_s010",
+      "abstract_id": "31336509",
+      "span_text": "high intensity interval training",
+      "boundaries": {
+        "start_char": 1533,
+        "end_char": 1565,
+        "token_start": 296,
+        "token_end": 299,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.05,
+        "novelty_score": 0.6317,
+        "margin": 0.9723,
+        "top1_prob": 0.9824,
+        "top2_prob": 0.0101,
+        "p_background_o": 0.0101
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6317,
+        "novelty_lof": 1.1321,
+        "novelty_knn_dist": 0.2226
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.05,
+        "least_confidence": 0.0176,
+        "margin_uncertainty": 0.0277
+      },
+      "probabilities": {
+        "O": 0.0101,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.001,
+        "Non_physical_leisure_time_activities": 0.001,
+        "Nutrition": 0.0018,
+        "Physical_activities": 0.9824,
+        "Sleep": 0.0011,
+        "Socioeconomic_factors": 0.0015
+      },
+      "logits": {
+        "O": 0.9721,
+        "Personal_care_products_and_cosmetic_procedures": -2.2169,
+        "Substance_use": -2.6253,
+        "Environmental_exposures": -2.1737,
+        "Mental_health_practices": -1.3689,
+        "Non_physical_leisure_time_activities": -1.3465,
+        "Nutrition": -0.754,
+        "Physical_activities": 5.5506,
+        "Sleep": -1.2226,
+        "Socioeconomic_factors": -0.9296
+      }
+    },
+    {
+      "span_id": "31336509_s011",
+      "abstract_id": "31336509",
+      "span_text": "ketogenic diet (KD",
+      "boundaries": {
+        "start_char": 1375,
+        "end_char": 1393,
+        "token_start": 268,
+        "token_end": 272,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2657,
+        "novelty_score": 0.8538,
+        "margin": 0.4959,
+        "top1_prob": 0.7447,
+        "top2_prob": 0.2488,
+        "p_background_o": 0.2488
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8538,
+        "novelty_lof": 1.2806,
+        "novelty_knn_dist": 0.2662
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2657,
+        "least_confidence": 0.2553,
+        "margin_uncertainty": 0.5041
+      },
+      "probabilities": {
+        "O": 0.2488,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0007,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.7447,
+        "Physical_activities": 0.0011,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 4.1094,
+        "Personal_care_products_and_cosmetic_procedures": -1.9553,
+        "Substance_use": -1.7105,
+        "Environmental_exposures": -1.8286,
+        "Mental_health_practices": -2.8232,
+        "Non_physical_leisure_time_activities": -1.1133,
+        "Nutrition": 5.2058,
+        "Physical_activities": -1.3103,
+        "Sleep": -1.4414,
+        "Socioeconomic_factors": -1.4617
+      }
+    }
+  ]
+}

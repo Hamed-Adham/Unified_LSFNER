@@ -1,0 +1,788 @@
+{
+  "doc_id": "28470840",
+  "dataset_split": "400/train",
+  "text": "Vitamin D deficiency causes rickets in an urban informal settlement in Kenya and is associated with malnutrition. \nThe commonest cause of rickets worldwide is vitamin D deficiency, but studies from sub-Saharan Africa describe an endemic vitamin D-independent form that responds to dietary calcium enrichment. The extent to which calcium-deficiency rickets is the dominant form across sub-Saharan Africa and in other low-latitude areas is unknown. We aimed to characterise the clinical and biochemical features of young children with rickets in a densely populated urban informal settlement in Kenya. Because malnutrition may mask the clinical features of rickets, we also looked for biochemical indices of risk in children with varying degrees of acute malnutrition. Twenty one children with rickets, aged 3 to 24 months, were identified on the basis of clinical and radiologic features, along with 22 community controls, and 41 children with either severe or moderate acute malnutrition. Most children with rickets had wrist widening (100%) and rachitic rosary (90%), as opposed to lower limb features (19%). Developmental delay (52%), acute malnutrition (71%), and stunting (62%) were common. Compared to controls, there were no differences in calcium intake, but most (71%) had serum 25-hydroxyvitamin D levels below 30 nmol/L. These results suggest that rickets in young children in urban Kenya is usually driven by vitamin D deficiency, and vitamin D supplementation is likely to be required for full recovery. Wasting was associated with lower calcium (p = .001), phosphate (p < .001), 25-hydroxyvitamin D (p = .049), and 1,25-dihydroxyvitamin D (p = 0.022) levels, the clinical significance of which remain unclear. \n",
+  "total_candidates": 13,
+  "spans": [
+    {
+      "span_id": "28470840_s000",
+      "abstract_id": "28470840",
+      "span_text": "malnutrition",
+      "boundaries": {
+        "start_char": 100,
+        "end_char": 112,
+        "token_start": 17,
+        "token_end": 17,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.4913,
+        "novelty_score": 0.2344,
+        "margin": 0.0817,
+        "top1_prob": 0.4633,
+        "top2_prob": 0.3816,
+        "p_background_o": 0.3816
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2344,
+        "novelty_lof": 0.9762,
+        "novelty_knn_dist": 0.1082
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4913,
+        "least_confidence": 0.5367,
+        "margin_uncertainty": 0.9183
+      },
+      "probabilities": {
+        "O": 0.3816,
+        "Personal_care_products_and_cosmetic_procedures": 0.0049,
+        "Substance_use": 0.0054,
+        "Environmental_exposures": 0.0073,
+        "Mental_health_practices": 0.0025,
+        "Non_physical_leisure_time_activities": 0.0019,
+        "Nutrition": 0.1289,
+        "Physical_activities": 0.0022,
+        "Sleep": 0.002,
+        "Socioeconomic_factors": 0.4633
+      },
+      "logits": {
+        "O": 3.0086,
+        "Personal_care_products_and_cosmetic_procedures": -1.342,
+        "Substance_use": -1.2466,
+        "Environmental_exposures": -0.9441,
+        "Mental_health_practices": -2.0164,
+        "Non_physical_leisure_time_activities": -2.3023,
+        "Nutrition": 1.9229,
+        "Physical_activities": -2.1468,
+        "Sleep": -2.2419,
+        "Socioeconomic_factors": 3.2026
+      }
+    },
+    {
+      "span_id": "28470840_s001",
+      "abstract_id": "28470840",
+      "span_text": "acute malnutrition",
+      "boundaries": {
+        "start_char": 747,
+        "end_char": 765,
+        "token_start": 130,
+        "token_end": 131,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.4381,
+        "novelty_score": 0.3159,
+        "margin": 0.0741,
+        "top1_prob": 0.497,
+        "top2_prob": 0.4229,
+        "p_background_o": 0.4229
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3159,
+        "novelty_lof": 0.9871,
+        "novelty_knn_dist": 0.1618
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4381,
+        "least_confidence": 0.503,
+        "margin_uncertainty": 0.9259
+      },
+      "probabilities": {
+        "O": 0.4229,
+        "Personal_care_products_and_cosmetic_procedures": 0.0056,
+        "Substance_use": 0.0036,
+        "Environmental_exposures": 0.0114,
+        "Mental_health_practices": 0.0014,
+        "Non_physical_leisure_time_activities": 0.0012,
+        "Nutrition": 0.053,
+        "Physical_activities": 0.0016,
+        "Sleep": 0.0021,
+        "Socioeconomic_factors": 0.497
+      },
+      "logits": {
+        "O": 3.2209,
+        "Personal_care_products_and_cosmetic_procedures": -1.0971,
+        "Substance_use": -1.5464,
+        "Environmental_exposures": -0.3892,
+        "Mental_health_practices": -2.4677,
+        "Non_physical_leisure_time_activities": -2.6242,
+        "Nutrition": 1.1434,
+        "Physical_activities": -2.3402,
+        "Sleep": -2.0625,
+        "Socioeconomic_factors": 3.3824
+      }
+    },
+    {
+      "span_id": "28470840_s002",
+      "abstract_id": "28470840",
+      "span_text": "calcium intake",
+      "boundaries": {
+        "start_char": 1246,
+        "end_char": 1260,
+        "token_start": 228,
+        "token_end": 229,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1524,
+        "novelty_score": 0.681,
+        "margin": 0.8642,
+        "top1_prob": 0.9224,
+        "top2_prob": 0.0583,
+        "p_background_o": 0.0583
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.681,
+        "novelty_lof": 1.1484,
+        "novelty_knn_dist": 0.2406
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1524,
+        "least_confidence": 0.0776,
+        "margin_uncertainty": 0.1358
+      },
+      "probabilities": {
+        "O": 0.0583,
+        "Personal_care_products_and_cosmetic_procedures": 0.0029,
+        "Substance_use": 0.0022,
+        "Environmental_exposures": 0.0068,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.9224,
+        "Physical_activities": 0.0019,
+        "Sleep": 0.0034,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 1.9718,
+        "Personal_care_products_and_cosmetic_procedures": -1.0178,
+        "Substance_use": -1.2952,
+        "Environmental_exposures": -0.1744,
+        "Mental_health_practices": -2.8165,
+        "Non_physical_leisure_time_activities": -2.305,
+        "Nutrition": 4.7339,
+        "Physical_activities": -1.4411,
+        "Sleep": -0.8633,
+        "Socioeconomic_factors": -2.416
+      }
+    },
+    {
+      "span_id": "28470840_s003",
+      "abstract_id": "28470840",
+      "span_text": "urban Kenya",
+      "boundaries": {
+        "start_char": 1387,
+        "end_char": 1398,
+        "token_start": 258,
+        "token_end": 259,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2305,
+        "novelty_score": 0.5219,
+        "margin": 0.575,
+        "top1_prob": 0.7867,
+        "top2_prob": 0.2117,
+        "p_background_o": 0.2117
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5219,
+        "novelty_lof": 1.0291,
+        "novelty_knn_dist": 0.2547
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2305,
+        "least_confidence": 0.2133,
+        "margin_uncertainty": 0.425
+      },
+      "probabilities": {
+        "O": 0.2117,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.7867
+      },
+      "logits": {
+        "O": 4.9975,
+        "Personal_care_products_and_cosmetic_procedures": -2.0966,
+        "Substance_use": -1.9878,
+        "Environmental_exposures": -2.0131,
+        "Mental_health_practices": -2.6963,
+        "Non_physical_leisure_time_activities": -1.6124,
+        "Nutrition": -1.3782,
+        "Physical_activities": -2.202,
+        "Sleep": -2.4748,
+        "Socioeconomic_factors": 6.3102
+      }
+    },
+    {
+      "span_id": "28470840_s004",
+      "abstract_id": "28470840",
+      "span_text": "Vitamin D deficiency",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 20,
+        "token_start": 1,
+        "token_end": 3,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.4068,
+        "novelty_score": 0.9678,
+        "margin": 0.0467,
+        "top1_prob": 0.4977,
+        "top2_prob": 0.4509,
+        "p_background_o": 0.4509
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9678,
+        "novelty_lof": 1.472,
+        "novelty_knn_dist": 0.3315
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4068,
+        "least_confidence": 0.5023,
+        "margin_uncertainty": 0.9533
+      },
+      "probabilities": {
+        "O": 0.4509,
+        "Personal_care_products_and_cosmetic_procedures": 0.0026,
+        "Substance_use": 0.0037,
+        "Environmental_exposures": 0.0272,
+        "Mental_health_practices": 0.0009,
+        "Non_physical_leisure_time_activities": 0.0014,
+        "Nutrition": 0.4977,
+        "Physical_activities": 0.0032,
+        "Sleep": 0.0085,
+        "Socioeconomic_factors": 0.004
+      },
+      "logits": {
+        "O": 3.3175,
+        "Personal_care_products_and_cosmetic_procedures": -1.8323,
+        "Substance_use": -1.4788,
+        "Environmental_exposures": 0.5085,
+        "Mental_health_practices": -2.9554,
+        "Non_physical_leisure_time_activities": -2.4804,
+        "Nutrition": 3.4162,
+        "Physical_activities": -1.6315,
+        "Sleep": -0.6521,
+        "Socioeconomic_factors": -1.4179
+      }
+    },
+    {
+      "span_id": "28470840_s005",
+      "abstract_id": "28470840",
+      "span_text": "urban informal settlement",
+      "boundaries": {
+        "start_char": 42,
+        "end_char": 67,
+        "token_start": 8,
+        "token_end": 10,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0168,
+        "novelty_score": 0.3434,
+        "margin": 0.9893,
+        "top1_prob": 0.9943,
+        "top2_prob": 0.005,
+        "p_background_o": 0.005
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3434,
+        "novelty_lof": 0.9737,
+        "novelty_knn_dist": 0.1947
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0168,
+        "least_confidence": 0.0057,
+        "margin_uncertainty": 0.0107
+      },
+      "probabilities": {
+        "O": 0.005,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9943
+      },
+      "logits": {
+        "O": 2.3742,
+        "Personal_care_products_and_cosmetic_procedures": -1.4844,
+        "Substance_use": -2.4428,
+        "Environmental_exposures": -1.6563,
+        "Mental_health_practices": -2.3788,
+        "Non_physical_leisure_time_activities": -1.5455,
+        "Nutrition": -1.0835,
+        "Physical_activities": -1.6216,
+        "Sleep": -2.1993,
+        "Socioeconomic_factors": 7.6605
+      }
+    },
+    {
+      "span_id": "28470840_s006",
+      "abstract_id": "28470840",
+      "span_text": "vitamin D deficiency",
+      "boundaries": {
+        "start_char": 159,
+        "end_char": 179,
+        "token_start": 28,
+        "token_end": 30,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.385,
+        "novelty_score": 0.7805,
+        "margin": 0.3176,
+        "top1_prob": 0.6327,
+        "top2_prob": 0.3151,
+        "p_background_o": 0.3151
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7805,
+        "novelty_lof": 1.2241,
+        "novelty_knn_dist": 0.245
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.385,
+        "least_confidence": 0.3673,
+        "margin_uncertainty": 0.6824
+      },
+      "probabilities": {
+        "O": 0.3151,
+        "Personal_care_products_and_cosmetic_procedures": 0.0028,
+        "Substance_use": 0.0031,
+        "Environmental_exposures": 0.0267,
+        "Mental_health_practices": 0.0009,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.6327,
+        "Physical_activities": 0.0032,
+        "Sleep": 0.0107,
+        "Socioeconomic_factors": 0.0036
+      },
+      "logits": {
+        "O": 2.9547,
+        "Personal_care_products_and_cosmetic_procedures": -1.7732,
+        "Substance_use": -1.6742,
+        "Environmental_exposures": 0.4875,
+        "Mental_health_practices": -2.8653,
+        "Non_physical_leisure_time_activities": -2.5688,
+        "Nutrition": 3.6519,
+        "Physical_activities": -1.6499,
+        "Sleep": -0.4273,
+        "Socioeconomic_factors": -1.5192
+      }
+    },
+    {
+      "span_id": "28470840_s007",
+      "abstract_id": "28470840",
+      "span_text": "dietary calcium enrichment",
+      "boundaries": {
+        "start_char": 281,
+        "end_char": 307,
+        "token_start": 50,
+        "token_end": 52,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3347,
+        "novelty_score": 0.7276,
+        "margin": 0.019,
+        "top1_prob": 0.5035,
+        "top2_prob": 0.4845,
+        "p_background_o": 0.4845
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7276,
+        "novelty_lof": 1.1581,
+        "novelty_knn_dist": 0.266
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3347,
+        "least_confidence": 0.4965,
+        "margin_uncertainty": 0.981
+      },
+      "probabilities": {
+        "O": 0.4845,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0021,
+        "Environmental_exposures": 0.0046,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.5035,
+        "Physical_activities": 0.0014,
+        "Sleep": 0.0011,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 4.3582,
+        "Personal_care_products_and_cosmetic_procedures": -1.9928,
+        "Substance_use": -1.0604,
+        "Environmental_exposures": -0.3054,
+        "Mental_health_practices": -3.0179,
+        "Non_physical_leisure_time_activities": -2.1944,
+        "Nutrition": 4.3967,
+        "Physical_activities": -1.4738,
+        "Sleep": -1.7746,
+        "Socioeconomic_factors": -1.9425
+      }
+    },
+    {
+      "span_id": "28470840_s008",
+      "abstract_id": "28470840",
+      "span_text": "urban informal settlement",
+      "boundaries": {
+        "start_char": 564,
+        "end_char": 589,
+        "token_start": 100,
+        "token_end": 102,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.1662,
+        "novelty_score": 0.3434,
+        "margin": 0.7528,
+        "top1_prob": 0.8759,
+        "top2_prob": 0.1231,
+        "p_background_o": 0.1231
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3434,
+        "novelty_lof": 0.9737,
+        "novelty_knn_dist": 0.1947
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1662,
+        "least_confidence": 0.1241,
+        "margin_uncertainty": 0.2472
+      },
+      "probabilities": {
+        "O": 0.1231,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.8759
+      },
+      "logits": {
+        "O": 4.977,
+        "Personal_care_products_and_cosmetic_procedures": -1.9351,
+        "Substance_use": -2.5713,
+        "Environmental_exposures": -1.6902,
+        "Mental_health_practices": -2.5912,
+        "Non_physical_leisure_time_activities": -1.5676,
+        "Nutrition": -1.484,
+        "Physical_activities": -1.8865,
+        "Sleep": -2.5292,
+        "Socioeconomic_factors": 6.9393
+      }
+    },
+    {
+      "span_id": "28470840_s009",
+      "abstract_id": "28470840",
+      "span_text": "vitamin D deficiency",
+      "boundaries": {
+        "start_char": 1420,
+        "end_char": 1440,
+        "token_start": 264,
+        "token_end": 266,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3646,
+        "novelty_score": 0.7806,
+        "margin": 0.4031,
+        "top1_prob": 0.6775,
+        "top2_prob": 0.2744,
+        "p_background_o": 0.2744
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7806,
+        "novelty_lof": 1.2241,
+        "novelty_knn_dist": 0.245
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3646,
+        "least_confidence": 0.3225,
+        "margin_uncertainty": 0.5969
+      },
+      "probabilities": {
+        "O": 0.2744,
+        "Personal_care_products_and_cosmetic_procedures": 0.0027,
+        "Substance_use": 0.0033,
+        "Environmental_exposures": 0.0238,
+        "Mental_health_practices": 0.001,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.6775,
+        "Physical_activities": 0.0032,
+        "Sleep": 0.0093,
+        "Socioeconomic_factors": 0.0035
+      },
+      "logits": {
+        "O": 2.8478,
+        "Personal_care_products_and_cosmetic_procedures": -1.7766,
+        "Substance_use": -1.5684,
+        "Environmental_exposures": 0.4031,
+        "Mental_health_practices": -2.7815,
+        "Non_physical_leisure_time_activities": -2.5219,
+        "Nutrition": 3.7517,
+        "Physical_activities": -1.6148,
+        "Sleep": -0.534,
+        "Socioeconomic_factors": -1.51
+      }
+    },
+    {
+      "span_id": "28470840_s010",
+      "abstract_id": "28470840",
+      "span_text": "vitamin D supplementation",
+      "boundaries": {
+        "start_char": 1446,
+        "end_char": 1471,
+        "token_start": 269,
+        "token_end": 271,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.278,
+        "novelty_score": 0.4358,
+        "margin": 0.6431,
+        "top1_prob": 0.8044,
+        "top2_prob": 0.1613,
+        "p_background_o": 0.1613
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4358,
+        "novelty_lof": 1.0483,
+        "novelty_knn_dist": 0.1812
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.278,
+        "least_confidence": 0.1956,
+        "margin_uncertainty": 0.3569
+      },
+      "probabilities": {
+        "O": 0.1613,
+        "Personal_care_products_and_cosmetic_procedures": 0.0023,
+        "Substance_use": 0.0027,
+        "Environmental_exposures": 0.0165,
+        "Mental_health_practices": 0.0009,
+        "Non_physical_leisure_time_activities": 0.001,
+        "Nutrition": 0.8044,
+        "Physical_activities": 0.0025,
+        "Sleep": 0.006,
+        "Socioeconomic_factors": 0.0024
+      },
+      "logits": {
+        "O": 2.5487,
+        "Personal_care_products_and_cosmetic_procedures": -1.6945,
+        "Substance_use": -1.553,
+        "Environmental_exposures": 0.2674,
+        "Mental_health_practices": -2.6268,
+        "Non_physical_leisure_time_activities": -2.5441,
+        "Nutrition": 4.1554,
+        "Physical_activities": -1.6199,
+        "Sleep": -0.7379,
+        "Socioeconomic_factors": -1.675
+      }
+    },
+    {
+      "span_id": "28470840_s011",
+      "abstract_id": "28470840",
+      "span_text": "25-hydroxyvitamin D",
+      "boundaries": {
+        "start_char": 1592,
+        "end_char": 1611,
+        "token_start": 301,
+        "token_end": 304,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.464,
+        "novelty_score": 0.8039,
+        "margin": 0.1053,
+        "top1_prob": 0.5079,
+        "top2_prob": 0.4026,
+        "p_background_o": 0.4026
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8039,
+        "novelty_lof": 1.2264,
+        "novelty_knn_dist": 0.2648
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.464,
+        "least_confidence": 0.4921,
+        "margin_uncertainty": 0.8947
+      },
+      "probabilities": {
+        "O": 0.4026,
+        "Personal_care_products_and_cosmetic_procedures": 0.0057,
+        "Substance_use": 0.0068,
+        "Environmental_exposures": 0.0443,
+        "Mental_health_practices": 0.0018,
+        "Non_physical_leisure_time_activities": 0.0023,
+        "Nutrition": 0.5079,
+        "Physical_activities": 0.0055,
+        "Sleep": 0.0139,
+        "Socioeconomic_factors": 0.0093
+      },
+      "logits": {
+        "O": 2.7427,
+        "Personal_care_products_and_cosmetic_procedures": -1.5232,
+        "Substance_use": -1.342,
+        "Environmental_exposures": 0.5362,
+        "Mental_health_practices": -2.6896,
+        "Non_physical_leisure_time_activities": -2.4145,
+        "Nutrition": 2.9749,
+        "Physical_activities": -1.5473,
+        "Sleep": -0.6264,
+        "Socioeconomic_factors": -1.0246
+      }
+    },
+    {
+      "span_id": "28470840_s012",
+      "abstract_id": "28470840",
+      "span_text": "densely populated urban informal settlement",
+      "boundaries": {
+        "start_char": 546,
+        "end_char": 589,
+        "token_start": 98,
+        "token_end": 102,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.1899,
+        "novelty_score": 0.3691,
+        "margin": 0.7042,
+        "top1_prob": 0.851,
+        "top2_prob": 0.1468,
+        "p_background_o": 0.1468
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3691,
+        "novelty_lof": 0.9808,
+        "novelty_knn_dist": 0.2052
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1899,
+        "least_confidence": 0.149,
+        "margin_uncertainty": 0.2958
+      },
+      "probabilities": {
+        "O": 0.1468,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.851
+      },
+      "logits": {
+        "O": 4.4186,
+        "Personal_care_products_and_cosmetic_procedures": -1.7123,
+        "Substance_use": -2.4714,
+        "Environmental_exposures": -1.5597,
+        "Mental_health_practices": -2.397,
+        "Non_physical_leisure_time_activities": -1.4853,
+        "Nutrition": -1.3229,
+        "Physical_activities": -1.9696,
+        "Sleep": -2.409,
+        "Socioeconomic_factors": 6.1762
+      }
+    }
+  ]
+}

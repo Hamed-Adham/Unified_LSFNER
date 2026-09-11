@@ -1,0 +1,128 @@
+{
+  "doc_id": "24313300",
+  "dataset_split": "200/train",
+  "text": "The experience of group mindfulness-based interventions for individuals with mental health difficulties: a meta-synthesis. \nOBJECTIVE: The aim of this paper was to synthesize the findings of qualitative studies examining the experience of individuals with mental health difficulties attending mindfulness-based interventions. METHOD: A meta-synthesis of 15 qualitative studies was carried out, using a thematic synthesis approach. RESULTS: The meta-synthesis identified eight analytical themes: 'prior experiences and expectations', 'normalising and supportive process of the group', 'relating differently to thoughts and feelings', 'acceptance', 'a sense of control and choice', 'relationship with self and others', 'struggles', and 'awareness'. CONCLUSIONS: A conceptual framework is presented which accounts for the participants' experiences and suggests a process through which they renegotiate their relationship with their mental health difficulties. \n",
+  "total_candidates": 2,
+  "spans": [
+    {
+      "span_id": "24313300_s000",
+      "abstract_id": "24313300",
+      "span_text": "mindfulness",
+      "boundaries": {
+        "start_char": 293,
+        "end_char": 304,
+        "token_start": 48,
+        "token_end": 48,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.038,
+        "novelty_score": 0.8985,
+        "margin": 0.9759,
+        "top1_prob": 0.9862,
+        "top2_prob": 0.0103,
+        "p_background_o": 0.0103
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8985,
+        "novelty_lof": 1.2837,
+        "novelty_knn_dist": 0.3284
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.038,
+        "least_confidence": 0.0138,
+        "margin_uncertainty": 0.0241
+      },
+      "probabilities": {
+        "O": 0.0103,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.9862,
+        "Non_physical_leisure_time_activities": 0.0012,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 1.8954,
+        "Personal_care_products_and_cosmetic_procedures": -0.9739,
+        "Substance_use": -1.5924,
+        "Environmental_exposures": -1.55,
+        "Mental_health_practices": 6.4606,
+        "Non_physical_leisure_time_activities": -0.2173,
+        "Nutrition": -2.7041,
+        "Physical_activities": -1.3336,
+        "Sleep": -1.5663,
+        "Socioeconomic_factors": -1.7285
+      }
+    },
+    {
+      "span_id": "24313300_s001",
+      "abstract_id": "24313300",
+      "span_text": "group mindfulness",
+      "boundaries": {
+        "start_char": 18,
+        "end_char": 35,
+        "token_start": 4,
+        "token_end": 5,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0234,
+        "novelty_score": 0.8479,
+        "margin": 0.9884,
+        "top1_prob": 0.9927,
+        "top2_prob": 0.0043,
+        "p_background_o": 0.0043
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8479,
+        "novelty_lof": 1.2197,
+        "novelty_knn_dist": 0.3198
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0234,
+        "least_confidence": 0.0073,
+        "margin_uncertainty": 0.0116
+      },
+      "probabilities": {
+        "O": 0.0043,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.9927,
+        "Non_physical_leisure_time_activities": 0.001,
+        "Nutrition": 0.0,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0001
+      },
+      "logits": {
+        "O": 1.3344,
+        "Personal_care_products_and_cosmetic_procedures": -0.6044,
+        "Substance_use": -1.6598,
+        "Environmental_exposures": -1.4811,
+        "Mental_health_practices": 6.7852,
+        "Non_physical_leisure_time_activities": -0.1334,
+        "Nutrition": -3.276,
+        "Physical_activities": -0.9561,
+        "Sleep": -1.0869,
+        "Socioeconomic_factors": -2.065
+      }
+    }
+  ]
+}

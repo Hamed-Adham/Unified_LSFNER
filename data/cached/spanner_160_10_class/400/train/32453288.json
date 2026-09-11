@@ -1,0 +1,968 @@
+{
+  "doc_id": "32453288",
+  "dataset_split": "400/train",
+  "text": "A Randomized Internet-Based Pilot Feasibility and Planning Study of Cherry Extract and Diet Modification in Gout. \nOBJECTIVE: The aim of this study was to conduct a 9-month pilot Internet randomized controlled trial (RCT) of cherry extract and diet modification in gout to assess the feasibility of an Internet study and obtain effect estimates. METHODS: After providing online informed consent in response to Internet advertisements and social media or clinic flyers, 84 people with physician-confirmed gout were randomized to either cherry extract 3,600 mg/d (n = 41) or dietitian-assisted diet modification for gout (n = 43). All study outcomes were collected via Internet and phone calls. The primary objective was the feasibility of an Internet study, and secondary objectives were to obtain effect estimates for gout flares, functional ability assessed with the Health Assessment Questionnaire (HAQ), and adverse events (AEs) for future trials. RESULTS: Of the 84 people randomized, overall completion rates were more than 80% for most study procedures up to 6 months and similar for the 2 active comparators. Improvements were seen in gout flares and HAQ scores in cherry extract and diet modification groups at 9 months compared with baseline: gout flares per month, 0.22 versus 0.36 (p = 0.049) and 0.28 versus 0.31 (p = 0.76); proportion with any gout flare, 56% versus 98% (p < 0.0001) and 65% versus 98% (p = 0.0002); and mean +/- standard deviation HAQ score, 0.28 +/- 0.54 versus 0.55 +/- 0.68 (p = 0.001) and 0.23 +/- 0.40 versus 0.48 +/- 0.61 (p = 0.06), respectively. Any AEs and gastrointestinal symptoms/AEs at 9 months in cherry extract and diet modification groups were 3% versus 0% and 28% versus 27%, respectively. CONCLUSIONS: An Internet gout RCT is feasible for nonpharmacological gout treatments. A hypothesis-testing, large Internet RCT of cherry extract versus placebo is needed. \n",
+  "total_candidates": 16,
+  "spans": [
+    {
+      "span_id": "32453288_s000",
+      "abstract_id": "32453288",
+      "span_text": "placebo",
+      "boundaries": {
+        "start_char": 1890,
+        "end_char": 1897,
+        "token_start": 422,
+        "token_end": 422,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1201,
+        "novelty_score": 0.7425,
+        "margin": 0.9216,
+        "top1_prob": 0.9464,
+        "top2_prob": 0.0248,
+        "p_background_o": 0.0248
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7425,
+        "novelty_lof": 1.1213,
+        "novelty_knn_dist": 0.3148
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1201,
+        "least_confidence": 0.0536,
+        "margin_uncertainty": 0.0784
+      },
+      "probabilities": {
+        "O": 0.0248,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0213,
+        "Environmental_exposures": 0.0009,
+        "Mental_health_practices": 0.001,
+        "Non_physical_leisure_time_activities": 0.0015,
+        "Nutrition": 0.9464,
+        "Physical_activities": 0.001,
+        "Sleep": 0.0014,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 1.5458,
+        "Personal_care_products_and_cosmetic_procedures": -1.8426,
+        "Substance_use": 1.3927,
+        "Environmental_exposures": -1.7858,
+        "Mental_health_practices": -1.6762,
+        "Non_physical_leisure_time_activities": -1.2564,
+        "Nutrition": 5.186,
+        "Physical_activities": -1.6323,
+        "Sleep": -1.3427,
+        "Socioeconomic_factors": -1.9266
+      }
+    },
+    {
+      "span_id": "32453288_s001",
+      "abstract_id": "32453288",
+      "span_text": "Diet Modification",
+      "boundaries": {
+        "start_char": 87,
+        "end_char": 104,
+        "token_start": 21,
+        "token_end": 22,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0326,
+        "novelty_score": 0.88,
+        "margin": 0.9779,
+        "top1_prob": 0.9879,
+        "top2_prob": 0.01,
+        "p_background_o": 0.01
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.88,
+        "novelty_lof": 1.2637,
+        "novelty_knn_dist": 0.3189
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0326,
+        "least_confidence": 0.0121,
+        "margin_uncertainty": 0.0221
+      },
+      "probabilities": {
+        "O": 0.01,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.9879,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 2.007,
+        "Personal_care_products_and_cosmetic_procedures": -1.769,
+        "Substance_use": -1.9526,
+        "Environmental_exposures": -1.7959,
+        "Mental_health_practices": -2.6756,
+        "Non_physical_leisure_time_activities": -1.5093,
+        "Nutrition": 6.597,
+        "Physical_activities": -1.2359,
+        "Sleep": -1.6047,
+        "Socioeconomic_factors": -1.3401
+      }
+    },
+    {
+      "span_id": "32453288_s002",
+      "abstract_id": "32453288",
+      "span_text": "cherry extract",
+      "boundaries": {
+        "start_char": 225,
+        "end_char": 239,
+        "token_start": 52,
+        "token_end": 53,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0256,
+        "novelty_score": 0.5168,
+        "margin": 0.9835,
+        "top1_prob": 0.991,
+        "top2_prob": 0.0075,
+        "p_background_o": 0.0075
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5168,
+        "novelty_lof": 1.0442,
+        "novelty_knn_dist": 0.2364
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0256,
+        "least_confidence": 0.009,
+        "margin_uncertainty": 0.0165
+      },
+      "probabilities": {
+        "O": 0.0075,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.991,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 1.9216,
+        "Personal_care_products_and_cosmetic_procedures": -2.0212,
+        "Substance_use": -1.7656,
+        "Environmental_exposures": -1.5031,
+        "Mental_health_practices": -2.7023,
+        "Non_physical_leisure_time_activities": -1.5762,
+        "Nutrition": 6.8052,
+        "Physical_activities": -1.6224,
+        "Sleep": -1.4293,
+        "Socioeconomic_factors": -1.7713
+      }
+    },
+    {
+      "span_id": "32453288_s003",
+      "abstract_id": "32453288",
+      "span_text": "diet modification",
+      "boundaries": {
+        "start_char": 244,
+        "end_char": 261,
+        "token_start": 55,
+        "token_end": 56,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0292,
+        "novelty_score": 0.4832,
+        "margin": 0.9809,
+        "top1_prob": 0.9895,
+        "top2_prob": 0.0086,
+        "p_background_o": 0.0086
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4832,
+        "novelty_lof": 1.0294,
+        "novelty_knn_dist": 0.2301
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0292,
+        "least_confidence": 0.0105,
+        "margin_uncertainty": 0.0191
+      },
+      "probabilities": {
+        "O": 0.0086,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.9895,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 1.8885,
+        "Personal_care_products_and_cosmetic_procedures": -1.7602,
+        "Substance_use": -2.0866,
+        "Environmental_exposures": -1.7551,
+        "Mental_health_practices": -2.6309,
+        "Non_physical_leisure_time_activities": -1.6232,
+        "Nutrition": 6.6355,
+        "Physical_activities": -1.2696,
+        "Sleep": -1.4779,
+        "Socioeconomic_factors": -1.4565
+      }
+    },
+    {
+      "span_id": "32453288_s004",
+      "abstract_id": "32453288",
+      "span_text": "cherry extract",
+      "boundaries": {
+        "start_char": 535,
+        "end_char": 549,
+        "token_start": 103,
+        "token_end": 104,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.028,
+        "novelty_score": 0.5168,
+        "margin": 0.9812,
+        "top1_prob": 0.9898,
+        "top2_prob": 0.0087,
+        "p_background_o": 0.0087
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5168,
+        "novelty_lof": 1.0442,
+        "novelty_knn_dist": 0.2364
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.028,
+        "least_confidence": 0.0102,
+        "margin_uncertainty": 0.0188
+      },
+      "probabilities": {
+        "O": 0.0087,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9898,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 2.0495,
+        "Personal_care_products_and_cosmetic_procedures": -2.0658,
+        "Substance_use": -1.7004,
+        "Environmental_exposures": -1.4689,
+        "Mental_health_practices": -2.744,
+        "Non_physical_leisure_time_activities": -1.6186,
+        "Nutrition": 6.789,
+        "Physical_activities": -1.6857,
+        "Sleep": -1.4631,
+        "Socioeconomic_factors": -1.8002
+      }
+    },
+    {
+      "span_id": "32453288_s005",
+      "abstract_id": "32453288",
+      "span_text": "diet modification",
+      "boundaries": {
+        "start_char": 592,
+        "end_char": 609,
+        "token_start": 121,
+        "token_end": 122,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0862,
+        "novelty_score": 0.4832,
+        "margin": 0.9155,
+        "top1_prob": 0.9561,
+        "top2_prob": 0.0406,
+        "p_background_o": 0.0406
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4832,
+        "novelty_lof": 1.0294,
+        "novelty_knn_dist": 0.2302
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0862,
+        "least_confidence": 0.0439,
+        "margin_uncertainty": 0.0845
+      },
+      "probabilities": {
+        "O": 0.0406,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.9561,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 2.8602,
+        "Personal_care_products_and_cosmetic_procedures": -1.901,
+        "Substance_use": -1.9745,
+        "Environmental_exposures": -1.8668,
+        "Mental_health_practices": -2.7282,
+        "Non_physical_leisure_time_activities": -1.4821,
+        "Nutrition": 6.0196,
+        "Physical_activities": -1.2462,
+        "Sleep": -1.6406,
+        "Socioeconomic_factors": -1.625
+      }
+    },
+    {
+      "span_id": "32453288_s006",
+      "abstract_id": "32453288",
+      "span_text": "cherry extract",
+      "boundaries": {
+        "start_char": 1172,
+        "end_char": 1186,
+        "token_start": 231,
+        "token_end": 232,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0272,
+        "novelty_score": 0.5168,
+        "margin": 0.982,
+        "top1_prob": 0.9902,
+        "top2_prob": 0.0082,
+        "p_background_o": 0.0082
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5168,
+        "novelty_lof": 1.0442,
+        "novelty_knn_dist": 0.2364
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0272,
+        "least_confidence": 0.0098,
+        "margin_uncertainty": 0.018
+      },
+      "probabilities": {
+        "O": 0.0082,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9902,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 1.9543,
+        "Personal_care_products_and_cosmetic_procedures": -1.9933,
+        "Substance_use": -1.7272,
+        "Environmental_exposures": -1.4862,
+        "Mental_health_practices": -2.7018,
+        "Non_physical_leisure_time_activities": -1.6661,
+        "Nutrition": 6.7509,
+        "Physical_activities": -1.6487,
+        "Sleep": -1.4639,
+        "Socioeconomic_factors": -1.7852
+      }
+    },
+    {
+      "span_id": "32453288_s007",
+      "abstract_id": "32453288",
+      "span_text": "diet modification",
+      "boundaries": {
+        "start_char": 1191,
+        "end_char": 1208,
+        "token_start": 234,
+        "token_end": 235,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.029,
+        "novelty_score": 0.4832,
+        "margin": 0.9812,
+        "top1_prob": 0.9896,
+        "top2_prob": 0.0084,
+        "p_background_o": 0.0084
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4832,
+        "novelty_lof": 1.0294,
+        "novelty_knn_dist": 0.2301
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.029,
+        "least_confidence": 0.0104,
+        "margin_uncertainty": 0.0188
+      },
+      "probabilities": {
+        "O": 0.0084,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.9896,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 1.8221,
+        "Personal_care_products_and_cosmetic_procedures": -1.742,
+        "Substance_use": -2.0604,
+        "Environmental_exposures": -1.7044,
+        "Mental_health_practices": -2.6348,
+        "Non_physical_leisure_time_activities": -1.6832,
+        "Nutrition": 6.5911,
+        "Physical_activities": -1.2954,
+        "Sleep": -1.4936,
+        "Socioeconomic_factors": -1.5374
+      }
+    },
+    {
+      "span_id": "32453288_s008",
+      "abstract_id": "32453288",
+      "span_text": "cherry extract",
+      "boundaries": {
+        "start_char": 1642,
+        "end_char": 1656,
+        "token_start": 376,
+        "token_end": 377,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0252,
+        "novelty_score": 0.5168,
+        "margin": 0.9837,
+        "top1_prob": 0.9911,
+        "top2_prob": 0.0074,
+        "p_background_o": 0.0074
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5168,
+        "novelty_lof": 1.0442,
+        "novelty_knn_dist": 0.2364
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0252,
+        "least_confidence": 0.0089,
+        "margin_uncertainty": 0.0163
+      },
+      "probabilities": {
+        "O": 0.0074,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9911,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 1.9294,
+        "Personal_care_products_and_cosmetic_procedures": -1.9962,
+        "Substance_use": -1.7604,
+        "Environmental_exposures": -1.4478,
+        "Mental_health_practices": -2.7267,
+        "Non_physical_leisure_time_activities": -1.6534,
+        "Nutrition": 6.827,
+        "Physical_activities": -1.6297,
+        "Sleep": -1.4495,
+        "Socioeconomic_factors": -1.779
+      }
+    },
+    {
+      "span_id": "32453288_s009",
+      "abstract_id": "32453288",
+      "span_text": "diet modification",
+      "boundaries": {
+        "start_char": 1661,
+        "end_char": 1678,
+        "token_start": 379,
+        "token_end": 380,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0275,
+        "novelty_score": 0.4832,
+        "margin": 0.9823,
+        "top1_prob": 0.9902,
+        "top2_prob": 0.008,
+        "p_background_o": 0.008
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4832,
+        "novelty_lof": 1.0294,
+        "novelty_knn_dist": 0.2301
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0275,
+        "least_confidence": 0.0098,
+        "margin_uncertainty": 0.0177
+      },
+      "probabilities": {
+        "O": 0.008,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9902,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 1.8655,
+        "Personal_care_products_and_cosmetic_procedures": -1.718,
+        "Substance_use": -2.0762,
+        "Environmental_exposures": -1.7587,
+        "Mental_health_practices": -2.614,
+        "Non_physical_leisure_time_activities": -1.6687,
+        "Nutrition": 6.6884,
+        "Physical_activities": -1.2705,
+        "Sleep": -1.54,
+        "Socioeconomic_factors": -1.4889
+      }
+    },
+    {
+      "span_id": "32453288_s010",
+      "abstract_id": "32453288",
+      "span_text": "cherry extract",
+      "boundaries": {
+        "start_char": 1868,
+        "end_char": 1882,
+        "token_start": 419,
+        "token_end": 420,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0233,
+        "novelty_score": 0.5168,
+        "margin": 0.9854,
+        "top1_prob": 0.992,
+        "top2_prob": 0.0066,
+        "p_background_o": 0.0066
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5168,
+        "novelty_lof": 1.0442,
+        "novelty_knn_dist": 0.2364
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0233,
+        "least_confidence": 0.008,
+        "margin_uncertainty": 0.0146
+      },
+      "probabilities": {
+        "O": 0.0066,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.992,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 1.854,
+        "Personal_care_products_and_cosmetic_procedures": -1.9576,
+        "Substance_use": -1.7217,
+        "Environmental_exposures": -1.5082,
+        "Mental_health_practices": -2.7142,
+        "Non_physical_leisure_time_activities": -1.5721,
+        "Nutrition": 6.8689,
+        "Physical_activities": -1.6264,
+        "Sleep": -1.4408,
+        "Socioeconomic_factors": -1.7906
+      }
+    },
+    {
+      "span_id": "32453288_s011",
+      "abstract_id": "32453288",
+      "span_text": "Cherry Extract",
+      "boundaries": {
+        "start_char": 68,
+        "end_char": 82,
+        "token_start": 16,
+        "token_end": 19,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0268,
+        "novelty_score": 0.4706,
+        "margin": 0.9853,
+        "top1_prob": 0.9912,
+        "top2_prob": 0.0059,
+        "p_background_o": 0.0059
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4706,
+        "novelty_lof": 1.0283,
+        "novelty_knn_dist": 0.2233
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0268,
+        "least_confidence": 0.0088,
+        "margin_uncertainty": 0.0147
+      },
+      "probabilities": {
+        "O": 0.0059,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9912,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 1.2745,
+        "Personal_care_products_and_cosmetic_procedures": -2.2592,
+        "Substance_use": -1.0598,
+        "Environmental_exposures": -1.4292,
+        "Mental_health_practices": -2.4281,
+        "Non_physical_leisure_time_activities": -1.4117,
+        "Nutrition": 6.4027,
+        "Physical_activities": -1.4441,
+        "Sleep": -1.5631,
+        "Socioeconomic_factors": -1.1784
+      }
+    },
+    {
+      "span_id": "32453288_s012",
+      "abstract_id": "32453288",
+      "span_text": "cherry extract versus placebo",
+      "boundaries": {
+        "start_char": 1868,
+        "end_char": 1897,
+        "token_start": 419,
+        "token_end": 422,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1088,
+        "novelty_score": 0.8837,
+        "margin": 0.8994,
+        "top1_prob": 0.9455,
+        "top2_prob": 0.0461,
+        "p_background_o": 0.0461
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8837,
+        "novelty_lof": 1.2641,
+        "novelty_knn_dist": 0.324
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1088,
+        "least_confidence": 0.0545,
+        "margin_uncertainty": 0.1006
+      },
+      "probabilities": {
+        "O": 0.0461,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.003,
+        "Environmental_exposures": 0.0009,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0011,
+        "Nutrition": 0.9455,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0008,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 2.3674,
+        "Personal_care_products_and_cosmetic_procedures": -2.0219,
+        "Substance_use": -0.3608,
+        "Environmental_exposures": -1.5316,
+        "Mental_health_practices": -2.1742,
+        "Non_physical_leisure_time_activities": -1.3777,
+        "Nutrition": 5.3878,
+        "Physical_activities": -1.8374,
+        "Sleep": -1.6326,
+        "Socioeconomic_factors": -1.7862
+      }
+    },
+    {
+      "span_id": "32453288_s013",
+      "abstract_id": "32453288",
+      "span_text": "cherry extract and diet modification",
+      "boundaries": {
+        "start_char": 225,
+        "end_char": 261,
+        "token_start": 52,
+        "token_end": 56,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0666,
+        "novelty_score": 0.8779,
+        "margin": 0.94,
+        "top1_prob": 0.9687,
+        "top2_prob": 0.0287,
+        "p_background_o": 0.0287
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8779,
+        "novelty_lof": 1.2608,
+        "novelty_knn_dist": 0.3187
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0666,
+        "least_confidence": 0.0313,
+        "margin_uncertainty": 0.06
+      },
+      "probabilities": {
+        "O": 0.0287,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9687,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 2.7308,
+        "Personal_care_products_and_cosmetic_procedures": -1.8921,
+        "Substance_use": -2.0337,
+        "Environmental_exposures": -1.6272,
+        "Mental_health_practices": -2.5095,
+        "Non_physical_leisure_time_activities": -1.461,
+        "Nutrition": 6.2501,
+        "Physical_activities": -1.6556,
+        "Sleep": -1.7333,
+        "Socioeconomic_factors": -1.5208
+      }
+    },
+    {
+      "span_id": "32453288_s014",
+      "abstract_id": "32453288",
+      "span_text": "cherry extract and diet modification",
+      "boundaries": {
+        "start_char": 1172,
+        "end_char": 1208,
+        "token_start": 231,
+        "token_end": 235,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.066,
+        "novelty_score": 0.8779,
+        "margin": 0.9408,
+        "top1_prob": 0.9691,
+        "top2_prob": 0.0283,
+        "p_background_o": 0.0283
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8779,
+        "novelty_lof": 1.2608,
+        "novelty_knn_dist": 0.3186
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.066,
+        "least_confidence": 0.0309,
+        "margin_uncertainty": 0.0592
+      },
+      "probabilities": {
+        "O": 0.0283,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9691,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 2.6996,
+        "Personal_care_products_and_cosmetic_procedures": -1.8825,
+        "Substance_use": -2.0228,
+        "Environmental_exposures": -1.6027,
+        "Mental_health_practices": -2.498,
+        "Non_physical_leisure_time_activities": -1.5435,
+        "Nutrition": 6.2327,
+        "Physical_activities": -1.6809,
+        "Sleep": -1.7433,
+        "Socioeconomic_factors": -1.569
+      }
+    },
+    {
+      "span_id": "32453288_s015",
+      "abstract_id": "32453288",
+      "span_text": "cherry extract and diet modification",
+      "boundaries": {
+        "start_char": 1642,
+        "end_char": 1678,
+        "token_start": 376,
+        "token_end": 380,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0657,
+        "novelty_score": 0.8779,
+        "margin": 0.9408,
+        "top1_prob": 0.9692,
+        "top2_prob": 0.0284,
+        "p_background_o": 0.0284
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8779,
+        "novelty_lof": 1.2608,
+        "novelty_knn_dist": 0.3186
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0657,
+        "least_confidence": 0.0308,
+        "margin_uncertainty": 0.0592
+      },
+      "probabilities": {
+        "O": 0.0284,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9692,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 2.7538,
+        "Personal_care_products_and_cosmetic_procedures": -1.8605,
+        "Substance_use": -2.0467,
+        "Environmental_exposures": -1.6066,
+        "Mental_health_practices": -2.5007,
+        "Non_physical_leisure_time_activities": -1.5278,
+        "Nutrition": 6.2838,
+        "Physical_activities": -1.6785,
+        "Sleep": -1.7744,
+        "Socioeconomic_factors": -1.5401
+      }
+    }
+  ]
+}

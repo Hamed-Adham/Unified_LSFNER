@@ -1,0 +1,788 @@
+{
+  "doc_id": "28734988",
+  "dataset_split": "400/train",
+  "text": "Can adverse effects of excessive vitamin D supplementation occur without developing hypervitaminosis D? \nVitamin D is a fat-soluble hormone that has endocrine, paracrine and autocrine functions. Consumption of vitamin D-supplemented food & drugs have increased significantly in the last couple of decades due to campaign and awareness programs. Despite such wide use of artificial vitamin D supplements, serum level of 25 hydroxyvitamin D does not always reflect the amount of uptake. In contrast to the safe sunlight exposure, prolonged and disproportionate consumption of vitamin D supplements may lead to vitamin D intoxication, even without developing hypervitaminosis D. One of the reasons why vitamin D supplementation is believed to be safe is, it rarely raises serum vitamin D levels to the toxic range even after repeated intravenous ingestion of extremely high doses of synthetic vitamin D analogs. However, prolonged consumption of vitamin D supplementation may induce hypercalcemia, hypercalciuria and hyperphosphatemia, which are considered to be the initial signs of vitamin D intoxication. It is likely that calcium and phosphorus dysregulation, induced by exogenous vitamin D supplementation, may lead to tissue and organ damages, even without developing hypervitaminosis D. It is needed to be emphasized that, because of tight homeostatic control of calcium and phosphorus, when hypercalcemia and/or hyperphosphatemia is apparent following vitamin D supplementation, the process of tissue and/or organ damage might already have been started. \n",
+  "total_candidates": 13,
+  "spans": [
+    {
+      "span_id": "28734988_s000",
+      "abstract_id": "28734988",
+      "span_text": "Vitamin D",
+      "boundaries": {
+        "start_char": 105,
+        "end_char": 114,
+        "token_start": 19,
+        "token_end": 20,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2186,
+        "novelty_score": 0.3077,
+        "margin": 0.7323,
+        "top1_prob": 0.8561,
+        "top2_prob": 0.1238,
+        "p_background_o": 0.1238
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3077,
+        "novelty_lof": 0.9774,
+        "novelty_knn_dist": 0.1655
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2186,
+        "least_confidence": 0.1439,
+        "margin_uncertainty": 0.2677
+      },
+      "probabilities": {
+        "O": 0.1238,
+        "Personal_care_products_and_cosmetic_procedures": 0.0021,
+        "Substance_use": 0.0014,
+        "Environmental_exposures": 0.0095,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.8561,
+        "Physical_activities": 0.0017,
+        "Sleep": 0.0031,
+        "Socioeconomic_factors": 0.0014
+      },
+      "logits": {
+        "O": 2.7604,
+        "Personal_care_products_and_cosmetic_procedures": -1.3134,
+        "Substance_use": -1.7414,
+        "Environmental_exposures": 0.1909,
+        "Mental_health_practices": -2.9154,
+        "Non_physical_leisure_time_activities": -2.6453,
+        "Nutrition": 4.6942,
+        "Physical_activities": -1.5252,
+        "Sleep": -0.9236,
+        "Socioeconomic_factors": -1.726
+      }
+    },
+    {
+      "span_id": "28734988_s001",
+      "abstract_id": "28734988",
+      "span_text": "vitamin D",
+      "boundaries": {
+        "start_char": 210,
+        "end_char": 219,
+        "token_start": 39,
+        "token_end": 40,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3446,
+        "novelty_score": 0.2412,
+        "margin": 0.135,
+        "top1_prob": 0.5581,
+        "top2_prob": 0.4231,
+        "p_background_o": 0.4231
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2412,
+        "novelty_lof": 0.9538,
+        "novelty_knn_dist": 0.1365
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3446,
+        "least_confidence": 0.4419,
+        "margin_uncertainty": 0.865
+      },
+      "probabilities": {
+        "O": 0.4231,
+        "Personal_care_products_and_cosmetic_procedures": 0.0016,
+        "Substance_use": 0.0015,
+        "Environmental_exposures": 0.0094,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.5581,
+        "Physical_activities": 0.0012,
+        "Sleep": 0.0028,
+        "Socioeconomic_factors": 0.0013
+      },
+      "logits": {
+        "O": 3.9581,
+        "Personal_care_products_and_cosmetic_procedures": -1.6058,
+        "Substance_use": -1.698,
+        "Environmental_exposures": 0.1498,
+        "Mental_health_practices": -2.9924,
+        "Non_physical_leisure_time_activities": -2.8277,
+        "Nutrition": 4.235,
+        "Physical_activities": -1.9112,
+        "Sleep": -1.053,
+        "Socioeconomic_factors": -1.7956
+      }
+    },
+    {
+      "span_id": "28734988_s002",
+      "abstract_id": "28734988",
+      "span_text": "sunlight exposure",
+      "boundaries": {
+        "start_char": 509,
+        "end_char": 526,
+        "token_start": 93,
+        "token_end": 94,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.5823,
+        "novelty_score": 0.3171,
+        "margin": 0.0665,
+        "top1_prob": 0.4388,
+        "top2_prob": 0.3723,
+        "p_background_o": 0.0921
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3171,
+        "novelty_lof": 0.9909,
+        "novelty_knn_dist": 0.1589
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.5823,
+        "least_confidence": 0.5612,
+        "margin_uncertainty": 0.9335
+      },
+      "probabilities": {
+        "O": 0.0921,
+        "Personal_care_products_and_cosmetic_procedures": 0.0155,
+        "Substance_use": 0.0051,
+        "Environmental_exposures": 0.3723,
+        "Mental_health_practices": 0.005,
+        "Non_physical_leisure_time_activities": 0.0066,
+        "Nutrition": 0.4388,
+        "Physical_activities": 0.0101,
+        "Sleep": 0.0346,
+        "Socioeconomic_factors": 0.0199
+      },
+      "logits": {
+        "O": 0.6768,
+        "Personal_care_products_and_cosmetic_procedures": -1.1067,
+        "Substance_use": -2.2195,
+        "Environmental_exposures": 2.0735,
+        "Mental_health_practices": -2.239,
+        "Non_physical_leisure_time_activities": -1.9624,
+        "Nutrition": 2.2378,
+        "Physical_activities": -1.5357,
+        "Sleep": -0.3011,
+        "Socioeconomic_factors": -0.8545
+      }
+    },
+    {
+      "span_id": "28734988_s003",
+      "abstract_id": "28734988",
+      "span_text": "vitamin D",
+      "boundaries": {
+        "start_char": 608,
+        "end_char": 617,
+        "token_start": 107,
+        "token_end": 108,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3648,
+        "novelty_score": 0.2412,
+        "margin": 0.1009,
+        "top1_prob": 0.5357,
+        "top2_prob": 0.4348,
+        "p_background_o": 0.4348
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2412,
+        "novelty_lof": 0.9538,
+        "novelty_knn_dist": 0.1365
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3648,
+        "least_confidence": 0.4643,
+        "margin_uncertainty": 0.8991
+      },
+      "probabilities": {
+        "O": 0.4348,
+        "Personal_care_products_and_cosmetic_procedures": 0.0019,
+        "Substance_use": 0.0018,
+        "Environmental_exposures": 0.0182,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.5357,
+        "Physical_activities": 0.0013,
+        "Sleep": 0.0036,
+        "Socioeconomic_factors": 0.0015
+      },
+      "logits": {
+        "O": 3.7896,
+        "Personal_care_products_and_cosmetic_procedures": -1.6317,
+        "Substance_use": -1.7076,
+        "Environmental_exposures": 0.6187,
+        "Mental_health_practices": -3.1111,
+        "Non_physical_leisure_time_activities": -2.7249,
+        "Nutrition": 3.9983,
+        "Physical_activities": -1.99,
+        "Sleep": -0.9908,
+        "Socioeconomic_factors": -1.8992
+      }
+    },
+    {
+      "span_id": "28734988_s004",
+      "abstract_id": "28734988",
+      "span_text": "vitamin D",
+      "boundaries": {
+        "start_char": 775,
+        "end_char": 784,
+        "token_start": 138,
+        "token_end": 139,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2306,
+        "novelty_score": 0.2412,
+        "margin": 0.7369,
+        "top1_prob": 0.8544,
+        "top2_prob": 0.1174,
+        "p_background_o": 0.1174
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2412,
+        "novelty_lof": 0.9538,
+        "novelty_knn_dist": 0.1365
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2306,
+        "least_confidence": 0.1456,
+        "margin_uncertainty": 0.2631
+      },
+      "probabilities": {
+        "O": 0.1174,
+        "Personal_care_products_and_cosmetic_procedures": 0.0031,
+        "Substance_use": 0.0018,
+        "Environmental_exposures": 0.0138,
+        "Mental_health_practices": 0.0006,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.8544,
+        "Physical_activities": 0.0017,
+        "Sleep": 0.005,
+        "Socioeconomic_factors": 0.0016
+      },
+      "logits": {
+        "O": 2.4771,
+        "Personal_care_products_and_cosmetic_procedures": -1.1686,
+        "Substance_use": -1.7237,
+        "Environmental_exposures": 0.3393,
+        "Mental_health_practices": -2.8184,
+        "Non_physical_leisure_time_activities": -2.7145,
+        "Nutrition": 4.4617,
+        "Physical_activities": -1.7489,
+        "Sleep": -0.6892,
+        "Socioeconomic_factors": -1.8088
+      }
+    },
+    {
+      "span_id": "28734988_s005",
+      "abstract_id": "28734988",
+      "span_text": "vitamin D",
+      "boundaries": {
+        "start_char": 1081,
+        "end_char": 1090,
+        "token_start": 189,
+        "token_end": 190,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3601,
+        "novelty_score": 0.2412,
+        "margin": 0.2376,
+        "top1_prob": 0.6027,
+        "top2_prob": 0.3651,
+        "p_background_o": 0.3651
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2412,
+        "novelty_lof": 0.9538,
+        "novelty_knn_dist": 0.1365
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3601,
+        "least_confidence": 0.3973,
+        "margin_uncertainty": 0.7624
+      },
+      "probabilities": {
+        "O": 0.3651,
+        "Personal_care_products_and_cosmetic_procedures": 0.0025,
+        "Substance_use": 0.002,
+        "Environmental_exposures": 0.0187,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.6027,
+        "Physical_activities": 0.0017,
+        "Sleep": 0.0043,
+        "Socioeconomic_factors": 0.0017
+      },
+      "logits": {
+        "O": 3.5178,
+        "Personal_care_products_and_cosmetic_procedures": -1.456,
+        "Substance_use": -1.668,
+        "Environmental_exposures": 0.5482,
+        "Mental_health_practices": -3.0107,
+        "Non_physical_leisure_time_activities": -2.7658,
+        "Nutrition": 4.019,
+        "Physical_activities": -1.8745,
+        "Sleep": -0.9181,
+        "Socioeconomic_factors": -1.8654
+      }
+    },
+    {
+      "span_id": "28734988_s006",
+      "abstract_id": "28734988",
+      "span_text": "vitamin D supplementation",
+      "boundaries": {
+        "start_char": 33,
+        "end_char": 58,
+        "token_start": 6,
+        "token_end": 8,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1037,
+        "novelty_score": 0.4357,
+        "margin": 0.9084,
+        "top1_prob": 0.9497,
+        "top2_prob": 0.0413,
+        "p_background_o": 0.0413
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4357,
+        "novelty_lof": 1.0483,
+        "novelty_knn_dist": 0.1812
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1037,
+        "least_confidence": 0.0503,
+        "margin_uncertainty": 0.0916
+      },
+      "probabilities": {
+        "O": 0.0413,
+        "Personal_care_products_and_cosmetic_procedures": 0.0007,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.0039,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9497,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 2.261,
+        "Personal_care_products_and_cosmetic_procedures": -1.7501,
+        "Substance_use": -1.6891,
+        "Environmental_exposures": -0.0968,
+        "Mental_health_practices": -2.5609,
+        "Non_physical_leisure_time_activities": -2.3907,
+        "Nutrition": 5.3971,
+        "Physical_activities": -1.6748,
+        "Sleep": -1.2067,
+        "Socioeconomic_factors": -1.7147
+      }
+    },
+    {
+      "span_id": "28734988_s007",
+      "abstract_id": "28734988",
+      "span_text": "vitamin D supplements",
+      "boundaries": {
+        "start_char": 574,
+        "end_char": 595,
+        "token_start": 101,
+        "token_end": 103,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.145,
+        "novelty_score": 0.3527,
+        "margin": 0.8569,
+        "top1_prob": 0.9216,
+        "top2_prob": 0.0646,
+        "p_background_o": 0.0646
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3527,
+        "novelty_lof": 1.0144,
+        "novelty_knn_dist": 0.1604
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.145,
+        "least_confidence": 0.0784,
+        "margin_uncertainty": 0.1431
+      },
+      "probabilities": {
+        "O": 0.0646,
+        "Personal_care_products_and_cosmetic_procedures": 0.001,
+        "Substance_use": 0.0011,
+        "Environmental_exposures": 0.0069,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.9216,
+        "Physical_activities": 0.001,
+        "Sleep": 0.0015,
+        "Socioeconomic_factors": 0.0012
+      },
+      "logits": {
+        "O": 2.3973,
+        "Personal_care_products_and_cosmetic_procedures": -1.8115,
+        "Substance_use": -1.6618,
+        "Environmental_exposures": 0.1627,
+        "Mental_health_practices": -2.6038,
+        "Non_physical_leisure_time_activities": -2.2659,
+        "Nutrition": 5.0548,
+        "Physical_activities": -1.7225,
+        "Sleep": -1.3371,
+        "Socioeconomic_factors": -1.6062
+      }
+    },
+    {
+      "span_id": "28734988_s008",
+      "abstract_id": "28734988",
+      "span_text": "vitamin D supplementation",
+      "boundaries": {
+        "start_char": 699,
+        "end_char": 724,
+        "token_start": 124,
+        "token_end": 126,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1062,
+        "novelty_score": 0.4358,
+        "margin": 0.9079,
+        "top1_prob": 0.9489,
+        "top2_prob": 0.041,
+        "p_background_o": 0.041
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4358,
+        "novelty_lof": 1.0483,
+        "novelty_knn_dist": 0.1812
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1062,
+        "least_confidence": 0.0511,
+        "margin_uncertainty": 0.0921
+      },
+      "probabilities": {
+        "O": 0.041,
+        "Personal_care_products_and_cosmetic_procedures": 0.0009,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.0043,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9489,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.0014,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 2.1637,
+        "Personal_care_products_and_cosmetic_procedures": -1.7117,
+        "Substance_use": -1.6723,
+        "Environmental_exposures": -0.1001,
+        "Mental_health_practices": -2.5728,
+        "Non_physical_leisure_time_activities": -2.4338,
+        "Nutrition": 5.3048,
+        "Physical_activities": -1.6427,
+        "Sleep": -1.1811,
+        "Socioeconomic_factors": -1.6407
+      }
+    },
+    {
+      "span_id": "28734988_s009",
+      "abstract_id": "28734988",
+      "span_text": "vitamin D supplementation",
+      "boundaries": {
+        "start_char": 943,
+        "end_char": 968,
+        "token_start": 165,
+        "token_end": 167,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.103,
+        "novelty_score": 0.4357,
+        "margin": 0.9104,
+        "top1_prob": 0.9505,
+        "top2_prob": 0.0401,
+        "p_background_o": 0.0401
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4357,
+        "novelty_lof": 1.0483,
+        "novelty_knn_dist": 0.1812
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.103,
+        "least_confidence": 0.0495,
+        "margin_uncertainty": 0.0896
+      },
+      "probabilities": {
+        "O": 0.0401,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.0041,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9505,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 2.2149,
+        "Personal_care_products_and_cosmetic_procedures": -1.7344,
+        "Substance_use": -1.7394,
+        "Environmental_exposures": -0.0641,
+        "Mental_health_practices": -2.5713,
+        "Non_physical_leisure_time_activities": -2.4488,
+        "Nutrition": 5.3807,
+        "Physical_activities": -1.6346,
+        "Sleep": -1.2131,
+        "Socioeconomic_factors": -1.624
+      }
+    },
+    {
+      "span_id": "28734988_s010",
+      "abstract_id": "28734988",
+      "span_text": "vitamin D supplementation",
+      "boundaries": {
+        "start_char": 1182,
+        "end_char": 1207,
+        "token_start": 205,
+        "token_end": 207,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1659,
+        "novelty_score": 0.4358,
+        "margin": 0.8075,
+        "top1_prob": 0.8983,
+        "top2_prob": 0.0908,
+        "p_background_o": 0.0908
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4358,
+        "novelty_lof": 1.0483,
+        "novelty_knn_dist": 0.1812
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1659,
+        "least_confidence": 0.1017,
+        "margin_uncertainty": 0.1925
+      },
+      "probabilities": {
+        "O": 0.0908,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.0052,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.8983,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.0014,
+        "Socioeconomic_factors": 0.001
+      },
+      "logits": {
+        "O": 2.8793,
+        "Personal_care_products_and_cosmetic_procedures": -1.8646,
+        "Substance_use": -1.8329,
+        "Environmental_exposures": 0.0112,
+        "Mental_health_practices": -2.6213,
+        "Non_physical_leisure_time_activities": -2.3884,
+        "Nutrition": 5.1717,
+        "Physical_activities": -1.7281,
+        "Sleep": -1.2836,
+        "Socioeconomic_factors": -1.5904
+      }
+    },
+    {
+      "span_id": "28734988_s011",
+      "abstract_id": "28734988",
+      "span_text": "vitamin D supplementation",
+      "boundaries": {
+        "start_char": 1457,
+        "end_char": 1482,
+        "token_start": 254,
+        "token_end": 256,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0949,
+        "novelty_score": 0.4357,
+        "margin": 0.9214,
+        "top1_prob": 0.9561,
+        "top2_prob": 0.0347,
+        "p_background_o": 0.0347
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4357,
+        "novelty_lof": 1.0483,
+        "novelty_knn_dist": 0.1812
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0949,
+        "least_confidence": 0.0439,
+        "margin_uncertainty": 0.0786
+      },
+      "probabilities": {
+        "O": 0.0347,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0007,
+        "Environmental_exposures": 0.0039,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9561,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 2.0993,
+        "Personal_care_products_and_cosmetic_procedures": -1.7056,
+        "Substance_use": -1.7539,
+        "Environmental_exposures": -0.0837,
+        "Mental_health_practices": -2.544,
+        "Non_physical_leisure_time_activities": -2.4529,
+        "Nutrition": 5.414,
+        "Physical_activities": -1.6041,
+        "Sleep": -1.1602,
+        "Socioeconomic_factors": -1.6574
+      }
+    },
+    {
+      "span_id": "28734988_s012",
+      "abstract_id": "28734988",
+      "span_text": "vitamin D-supplemented food",
+      "boundaries": {
+        "start_char": 210,
+        "end_char": 237,
+        "token_start": 39,
+        "token_end": 43,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0512,
+        "novelty_score": 0.5297,
+        "margin": 0.9621,
+        "top1_prob": 0.9792,
+        "top2_prob": 0.0171,
+        "p_background_o": 0.0171
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5297,
+        "novelty_lof": 1.0776,
+        "novelty_knn_dist": 0.2111
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0512,
+        "least_confidence": 0.0208,
+        "margin_uncertainty": 0.0379
+      },
+      "probabilities": {
+        "O": 0.0171,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0014,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9792,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 2.1311,
+        "Personal_care_products_and_cosmetic_procedures": -1.4445,
+        "Substance_use": -1.8891,
+        "Environmental_exposures": -0.3624,
+        "Mental_health_practices": -2.8852,
+        "Non_physical_leisure_time_activities": -2.2727,
+        "Nutrition": 6.1808,
+        "Physical_activities": -1.7056,
+        "Sleep": -1.3992,
+        "Socioeconomic_factors": -1.6638
+      }
+    }
+  ]
+}

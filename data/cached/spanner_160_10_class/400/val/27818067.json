@@ -1,0 +1,968 @@
+{
+  "doc_id": "27818067",
+  "dataset_split": "400/val",
+  "text": "[Thiamine (vitamin B1) treatment in patients with alcohol dependence]. \nThiamine deficiency (vitamin B1) is common in patients with alcohol dependence. Cognitive impairments may be an early consequence of thiamine deficiency. Wernicke's encephalopathy is underdiagnosed and undertreated. In patients with established Wernicke's encephalopathy, parenteral thiamine 200-500mg three times a day should be given for 3-5 days, followed by oral thiamine 250-1000mg/day. In patients with suspected Wernicke's encephalopathy, parenteral thiamine 250-300mg should be given two times a day for 3-5 days, followed by oral thiamine 250-300mg/day. In patients at high risk of thiamine deficiency, parenteral thiamine 250-500mg/day should be given for 3-5 days, followed by oral thiamine 250-300mg/day. In patients at low risk (with uncomplicated alcohol dependence), oral thiamine 250-500mg/day should be given for 3-5 days, followed by oral thiamine 100-250mg/day. \n",
+  "total_candidates": 16,
+  "spans": [
+    {
+      "span_id": "27818067_s000",
+      "abstract_id": "27818067",
+      "span_text": "alcohol dependence",
+      "boundaries": {
+        "start_char": 50,
+        "end_char": 68,
+        "token_start": 14,
+        "token_end": 15,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.3184,
+        "novelty_score": 0.3203,
+        "margin": 0.6333,
+        "top1_prob": 0.7885,
+        "top2_prob": 0.1552,
+        "p_background_o": 0.1552
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3203,
+        "novelty_lof": 0.9977,
+        "novelty_knn_dist": 0.1544
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3184,
+        "least_confidence": 0.2115,
+        "margin_uncertainty": 0.3667
+      },
+      "probabilities": {
+        "O": 0.1552,
+        "Personal_care_products_and_cosmetic_procedures": 0.0024,
+        "Substance_use": 0.7885,
+        "Environmental_exposures": 0.0127,
+        "Mental_health_practices": 0.0015,
+        "Non_physical_leisure_time_activities": 0.0038,
+        "Nutrition": 0.022,
+        "Physical_activities": 0.0011,
+        "Sleep": 0.0047,
+        "Socioeconomic_factors": 0.0082
+      },
+      "logits": {
+        "O": 2.1486,
+        "Personal_care_products_and_cosmetic_procedures": -2.0291,
+        "Substance_use": 3.7743,
+        "Environmental_exposures": -0.3568,
+        "Mental_health_practices": -2.5194,
+        "Non_physical_leisure_time_activities": -1.5597,
+        "Nutrition": 0.1965,
+        "Physical_activities": -2.7601,
+        "Sleep": -1.3533,
+        "Socioeconomic_factors": -0.7943
+      }
+    },
+    {
+      "span_id": "27818067_s001",
+      "abstract_id": "27818067",
+      "span_text": "alcohol dependence",
+      "boundaries": {
+        "start_char": 132,
+        "end_char": 150,
+        "token_start": 33,
+        "token_end": 34,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.2993,
+        "novelty_score": 0.3203,
+        "margin": 0.6947,
+        "top1_prob": 0.8174,
+        "top2_prob": 0.1227,
+        "p_background_o": 0.1227
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3203,
+        "novelty_lof": 0.9977,
+        "novelty_knn_dist": 0.1544
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2993,
+        "least_confidence": 0.1826,
+        "margin_uncertainty": 0.3053
+      },
+      "probabilities": {
+        "O": 0.1227,
+        "Personal_care_products_and_cosmetic_procedures": 0.0024,
+        "Substance_use": 0.8174,
+        "Environmental_exposures": 0.0128,
+        "Mental_health_practices": 0.0015,
+        "Non_physical_leisure_time_activities": 0.0037,
+        "Nutrition": 0.0251,
+        "Physical_activities": 0.0011,
+        "Sleep": 0.0047,
+        "Socioeconomic_factors": 0.0087
+      },
+      "logits": {
+        "O": 1.9084,
+        "Personal_care_products_and_cosmetic_procedures": -2.0334,
+        "Substance_use": 3.805,
+        "Environmental_exposures": -0.3541,
+        "Mental_health_practices": -2.5215,
+        "Non_physical_leisure_time_activities": -1.5972,
+        "Nutrition": 0.3206,
+        "Physical_activities": -2.7688,
+        "Sleep": -1.3552,
+        "Socioeconomic_factors": -0.7323
+      }
+    },
+    {
+      "span_id": "27818067_s002",
+      "abstract_id": "27818067",
+      "span_text": "parenteral thiamine",
+      "boundaries": {
+        "start_char": 344,
+        "end_char": 363,
+        "token_start": 71,
+        "token_end": 72,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2687,
+        "novelty_score": 0.8641,
+        "margin": 0.5166,
+        "top1_prob": 0.7535,
+        "top2_prob": 0.2368,
+        "p_background_o": 0.2368
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8641,
+        "novelty_lof": 1.2418,
+        "novelty_knn_dist": 0.3184
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2687,
+        "least_confidence": 0.2465,
+        "margin_uncertainty": 0.4834
+      },
+      "probabilities": {
+        "O": 0.2368,
+        "Personal_care_products_and_cosmetic_procedures": 0.0007,
+        "Substance_use": 0.002,
+        "Environmental_exposures": 0.0015,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.7535,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.002,
+        "Socioeconomic_factors": 0.001
+      },
+      "logits": {
+        "O": 3.6741,
+        "Personal_care_products_and_cosmetic_procedures": -2.1782,
+        "Substance_use": -1.1007,
+        "Environmental_exposures": -1.3596,
+        "Mental_health_practices": -2.0665,
+        "Non_physical_leisure_time_activities": -2.0236,
+        "Nutrition": 4.8314,
+        "Physical_activities": -1.9139,
+        "Sleep": -1.0895,
+        "Socioeconomic_factors": -1.7619
+      }
+    },
+    {
+      "span_id": "27818067_s003",
+      "abstract_id": "27818067",
+      "span_text": "oral thiamine",
+      "boundaries": {
+        "start_char": 434,
+        "end_char": 447,
+        "token_start": 92,
+        "token_end": 93,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2098,
+        "novelty_score": 0.8826,
+        "margin": 0.6839,
+        "top1_prob": 0.8386,
+        "top2_prob": 0.1547,
+        "p_background_o": 0.1547
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8826,
+        "novelty_lof": 1.2945,
+        "novelty_knn_dist": 0.2919
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2098,
+        "least_confidence": 0.1614,
+        "margin_uncertainty": 0.3161
+      },
+      "probabilities": {
+        "O": 0.1547,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0013,
+        "Environmental_exposures": 0.0011,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.8386,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0014,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 3.611,
+        "Personal_care_products_and_cosmetic_procedures": -1.9398,
+        "Substance_use": -1.1767,
+        "Environmental_exposures": -1.3495,
+        "Mental_health_practices": -2.2213,
+        "Non_physical_leisure_time_activities": -1.9281,
+        "Nutrition": 5.3011,
+        "Physical_activities": -2.0038,
+        "Sleep": -1.0641,
+        "Socioeconomic_factors": -1.8894
+      }
+    },
+    {
+      "span_id": "27818067_s004",
+      "abstract_id": "27818067",
+      "span_text": "parenteral thiamine",
+      "boundaries": {
+        "start_char": 518,
+        "end_char": 537,
+        "token_start": 112,
+        "token_end": 113,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2683,
+        "novelty_score": 0.8642,
+        "margin": 0.5205,
+        "top1_prob": 0.7553,
+        "top2_prob": 0.2348,
+        "p_background_o": 0.2348
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8642,
+        "novelty_lof": 1.2419,
+        "novelty_knn_dist": 0.3184
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2683,
+        "least_confidence": 0.2447,
+        "margin_uncertainty": 0.4795
+      },
+      "probabilities": {
+        "O": 0.2348,
+        "Personal_care_products_and_cosmetic_procedures": 0.0007,
+        "Substance_use": 0.0021,
+        "Environmental_exposures": 0.0016,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.7553,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.002,
+        "Socioeconomic_factors": 0.001
+      },
+      "logits": {
+        "O": 3.6506,
+        "Personal_care_products_and_cosmetic_procedures": -2.1854,
+        "Substance_use": -1.0653,
+        "Environmental_exposures": -1.3586,
+        "Mental_health_practices": -2.0442,
+        "Non_physical_leisure_time_activities": -2.0244,
+        "Nutrition": 4.819,
+        "Physical_activities": -1.913,
+        "Sleep": -1.1013,
+        "Socioeconomic_factors": -1.7736
+      }
+    },
+    {
+      "span_id": "27818067_s005",
+      "abstract_id": "27818067",
+      "span_text": "oral thiamine",
+      "boundaries": {
+        "start_char": 606,
+        "end_char": 619,
+        "token_start": 133,
+        "token_end": 134,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2134,
+        "novelty_score": 0.8826,
+        "margin": 0.6721,
+        "top1_prob": 0.8329,
+        "top2_prob": 0.1607,
+        "p_background_o": 0.1607
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8826,
+        "novelty_lof": 1.2945,
+        "novelty_knn_dist": 0.2919
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2134,
+        "least_confidence": 0.1671,
+        "margin_uncertainty": 0.3279
+      },
+      "probabilities": {
+        "O": 0.1607,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0013,
+        "Environmental_exposures": 0.001,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.8329,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 3.6631,
+        "Personal_care_products_and_cosmetic_procedures": -1.9814,
+        "Substance_use": -1.1554,
+        "Environmental_exposures": -1.4171,
+        "Mental_health_practices": -2.2311,
+        "Non_physical_leisure_time_activities": -1.9464,
+        "Nutrition": 5.3084,
+        "Physical_activities": -1.9687,
+        "Sleep": -1.1259,
+        "Socioeconomic_factors": -1.894
+      }
+    },
+    {
+      "span_id": "27818067_s006",
+      "abstract_id": "27818067",
+      "span_text": "parenteral thiamine",
+      "boundaries": {
+        "start_char": 684,
+        "end_char": 703,
+        "token_start": 151,
+        "token_end": 152,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2478,
+        "novelty_score": 0.8641,
+        "margin": 0.5835,
+        "top1_prob": 0.7874,
+        "top2_prob": 0.204,
+        "p_background_o": 0.204
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8641,
+        "novelty_lof": 1.2418,
+        "novelty_knn_dist": 0.3184
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2478,
+        "least_confidence": 0.2126,
+        "margin_uncertainty": 0.4165
+      },
+      "probabilities": {
+        "O": 0.204,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0018,
+        "Environmental_exposures": 0.0013,
+        "Mental_health_practices": 0.0007,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.7874,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.0017,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 3.6144,
+        "Personal_care_products_and_cosmetic_procedures": -2.19,
+        "Substance_use": -1.1322,
+        "Environmental_exposures": -1.4087,
+        "Mental_health_practices": -2.133,
+        "Non_physical_leisure_time_activities": -2.0431,
+        "Nutrition": 4.9652,
+        "Physical_activities": -1.849,
+        "Sleep": -1.1479,
+        "Socioeconomic_factors": -1.8137
+      }
+    },
+    {
+      "span_id": "27818067_s007",
+      "abstract_id": "27818067",
+      "span_text": "oral thiamine",
+      "boundaries": {
+        "start_char": 760,
+        "end_char": 773,
+        "token_start": 170,
+        "token_end": 171,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2096,
+        "novelty_score": 0.8826,
+        "margin": 0.6789,
+        "top1_prob": 0.8365,
+        "top2_prob": 0.1576,
+        "p_background_o": 0.1576
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8826,
+        "novelty_lof": 1.2945,
+        "novelty_knn_dist": 0.2919
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2096,
+        "least_confidence": 0.1635,
+        "margin_uncertainty": 0.3211
+      },
+      "probabilities": {
+        "O": 0.1576,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0011,
+        "Environmental_exposures": 0.0009,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.8365,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0012,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 3.7094,
+        "Personal_care_products_and_cosmetic_procedures": -1.9846,
+        "Substance_use": -1.2182,
+        "Environmental_exposures": -1.4043,
+        "Mental_health_practices": -2.2827,
+        "Non_physical_leisure_time_activities": -1.9749,
+        "Nutrition": 5.3787,
+        "Physical_activities": -1.9448,
+        "Sleep": -1.1388,
+        "Socioeconomic_factors": -1.9378
+      }
+    },
+    {
+      "span_id": "27818067_s008",
+      "abstract_id": "27818067",
+      "span_text": "alcohol dependence",
+      "boundaries": {
+        "start_char": 833,
+        "end_char": 851,
+        "token_start": 187,
+        "token_end": 188,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.3254,
+        "novelty_score": 0.3204,
+        "margin": 0.6459,
+        "top1_prob": 0.791,
+        "top2_prob": 0.1452,
+        "p_background_o": 0.1452
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3204,
+        "novelty_lof": 0.9977,
+        "novelty_knn_dist": 0.1544
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3254,
+        "least_confidence": 0.209,
+        "margin_uncertainty": 0.3541
+      },
+      "probabilities": {
+        "O": 0.1452,
+        "Personal_care_products_and_cosmetic_procedures": 0.0028,
+        "Substance_use": 0.791,
+        "Environmental_exposures": 0.0129,
+        "Mental_health_practices": 0.0019,
+        "Non_physical_leisure_time_activities": 0.0045,
+        "Nutrition": 0.0252,
+        "Physical_activities": 0.0013,
+        "Sleep": 0.0053,
+        "Socioeconomic_factors": 0.0099
+      },
+      "logits": {
+        "O": 1.9497,
+        "Personal_care_products_and_cosmetic_procedures": -1.9874,
+        "Substance_use": 3.6453,
+        "Environmental_exposures": -0.4684,
+        "Mental_health_practices": -2.3755,
+        "Non_physical_leisure_time_activities": -1.5277,
+        "Nutrition": 0.198,
+        "Physical_activities": -2.7504,
+        "Sleep": -1.3693,
+        "Socioeconomic_factors": -0.7369
+      }
+    },
+    {
+      "span_id": "27818067_s009",
+      "abstract_id": "27818067",
+      "span_text": "oral thiamine",
+      "boundaries": {
+        "start_char": 854,
+        "end_char": 867,
+        "token_start": 190,
+        "token_end": 191,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1713,
+        "novelty_score": 0.8826,
+        "margin": 0.7726,
+        "top1_prob": 0.8834,
+        "top2_prob": 0.1108,
+        "p_background_o": 0.1108
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8826,
+        "novelty_lof": 1.2946,
+        "novelty_knn_dist": 0.2919
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1713,
+        "least_confidence": 0.1166,
+        "margin_uncertainty": 0.2274
+      },
+      "probabilities": {
+        "O": 0.1108,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0011,
+        "Environmental_exposures": 0.0009,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.8834,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0011,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 3.3923,
+        "Personal_care_products_and_cosmetic_procedures": -1.9555,
+        "Substance_use": -1.1998,
+        "Environmental_exposures": -1.3926,
+        "Mental_health_practices": -2.2446,
+        "Non_physical_leisure_time_activities": -1.9655,
+        "Nutrition": 5.4682,
+        "Physical_activities": -1.8729,
+        "Sleep": -1.1792,
+        "Socioeconomic_factors": -1.9801
+      }
+    },
+    {
+      "span_id": "27818067_s010",
+      "abstract_id": "27818067",
+      "span_text": "oral thiamine",
+      "boundaries": {
+        "start_char": 924,
+        "end_char": 937,
+        "token_start": 209,
+        "token_end": 210,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1786,
+        "novelty_score": 0.8826,
+        "margin": 0.7581,
+        "top1_prob": 0.876,
+        "top2_prob": 0.1179,
+        "p_background_o": 0.1179
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8826,
+        "novelty_lof": 1.2945,
+        "novelty_knn_dist": 0.2919
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1786,
+        "least_confidence": 0.124,
+        "margin_uncertainty": 0.2419
+      },
+      "probabilities": {
+        "O": 0.1179,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0012,
+        "Environmental_exposures": 0.001,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.876,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0013,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 3.4271,
+        "Personal_care_products_and_cosmetic_procedures": -1.8918,
+        "Substance_use": -1.1578,
+        "Environmental_exposures": -1.3921,
+        "Mental_health_practices": -2.2423,
+        "Non_physical_leisure_time_activities": -1.9486,
+        "Nutrition": 5.4324,
+        "Physical_activities": -1.8517,
+        "Sleep": -1.0974,
+        "Socioeconomic_factors": -2.0093
+      }
+    },
+    {
+      "span_id": "27818067_s011",
+      "abstract_id": "27818067",
+      "span_text": "Thiamine",
+      "boundaries": {
+        "start_char": 1,
+        "end_char": 9,
+        "token_start": 2,
+        "token_end": 4,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3175,
+        "novelty_score": 0.5489,
+        "margin": 0.1436,
+        "top1_prob": 0.5685,
+        "top2_prob": 0.4249,
+        "p_background_o": 0.4249
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5489,
+        "novelty_lof": 1.073,
+        "novelty_knn_dist": 0.2278
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3175,
+        "least_confidence": 0.4315,
+        "margin_uncertainty": 0.8564
+      },
+      "probabilities": {
+        "O": 0.4249,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0016,
+        "Environmental_exposures": 0.0014,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.5685,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 4.5366,
+        "Personal_care_products_and_cosmetic_procedures": -2.5039,
+        "Substance_use": -1.0689,
+        "Environmental_exposures": -1.1994,
+        "Mental_health_practices": -2.4445,
+        "Non_physical_leisure_time_activities": -1.9858,
+        "Nutrition": 4.8278,
+        "Physical_activities": -1.8904,
+        "Sleep": -1.538,
+        "Socioeconomic_factors": -1.9624
+      }
+    },
+    {
+      "span_id": "27818067_s012",
+      "abstract_id": "27818067",
+      "span_text": "vitamin B1",
+      "boundaries": {
+        "start_char": 11,
+        "end_char": 21,
+        "token_start": 6,
+        "token_end": 8,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3039,
+        "novelty_score": 0.4344,
+        "margin": 0.2928,
+        "top1_prob": 0.6429,
+        "top2_prob": 0.3501,
+        "p_background_o": 0.3501
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4344,
+        "novelty_lof": 1.0185,
+        "novelty_knn_dist": 0.2102
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3039,
+        "least_confidence": 0.3571,
+        "margin_uncertainty": 0.7072
+      },
+      "probabilities": {
+        "O": 0.3501,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0017,
+        "Environmental_exposures": 0.0015,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.6429,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.0009,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 4.4221,
+        "Personal_care_products_and_cosmetic_procedures": -2.3701,
+        "Substance_use": -0.9058,
+        "Environmental_exposures": -1.0214,
+        "Mental_health_practices": -2.3919,
+        "Non_physical_leisure_time_activities": -2.0412,
+        "Nutrition": 5.0298,
+        "Physical_activities": -1.5259,
+        "Sleep": -1.4946,
+        "Socioeconomic_factors": -1.9472
+      }
+    },
+    {
+      "span_id": "27818067_s013",
+      "abstract_id": "27818067",
+      "span_text": "vitamin B1",
+      "boundaries": {
+        "start_char": 93,
+        "end_char": 103,
+        "token_start": 24,
+        "token_end": 26,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1803,
+        "novelty_score": 0.4344,
+        "margin": 0.7526,
+        "top1_prob": 0.8734,
+        "top2_prob": 0.1208,
+        "p_background_o": 0.1208
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4344,
+        "novelty_lof": 1.0185,
+        "novelty_knn_dist": 0.2102
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1803,
+        "least_confidence": 0.1266,
+        "margin_uncertainty": 0.2474
+      },
+      "probabilities": {
+        "O": 0.1208,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0014,
+        "Environmental_exposures": 0.0011,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.8734,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0009,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 3.5563,
+        "Personal_care_products_and_cosmetic_procedures": -2.2393,
+        "Substance_use": -0.9327,
+        "Environmental_exposures": -1.1262,
+        "Mental_health_practices": -2.3125,
+        "Non_physical_leisure_time_activities": -1.9839,
+        "Nutrition": 5.5348,
+        "Physical_activities": -1.5295,
+        "Sleep": -1.3137,
+        "Socioeconomic_factors": -1.9038
+      }
+    },
+    {
+      "span_id": "27818067_s014",
+      "abstract_id": "27818067",
+      "span_text": "thiamine deficiency, parenteral thiamine",
+      "boundaries": {
+        "start_char": 663,
+        "end_char": 703,
+        "token_start": 148,
+        "token_end": 152,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2369,
+        "novelty_score": 0.9739,
+        "margin": 0.587,
+        "top1_prob": 0.7911,
+        "top2_prob": 0.2041,
+        "p_background_o": 0.2041
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9739,
+        "novelty_lof": 1.4618,
+        "novelty_knn_dist": 0.3759
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2369,
+        "least_confidence": 0.2089,
+        "margin_uncertainty": 0.413
+      },
+      "probabilities": {
+        "O": 0.2041,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.0008,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.7911,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 4.114,
+        "Personal_care_products_and_cosmetic_procedures": -1.9595,
+        "Substance_use": -1.2913,
+        "Environmental_exposures": -1.3902,
+        "Mental_health_practices": -1.9518,
+        "Non_physical_leisure_time_activities": -2.107,
+        "Nutrition": 5.469,
+        "Physical_activities": -2.2741,
+        "Sleep": -1.168,
+        "Socioeconomic_factors": -2.135
+      }
+    },
+    {
+      "span_id": "27818067_s015",
+      "abstract_id": "27818067",
+      "span_text": "alcohol dependence), oral thiamine",
+      "boundaries": {
+        "start_char": 833,
+        "end_char": 867,
+        "token_start": 187,
+        "token_end": 191,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.4237,
+        "novelty_score": 0.9979,
+        "margin": 0.0785,
+        "top1_prob": 0.5079,
+        "top2_prob": 0.4294,
+        "p_background_o": 0.4294
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9979,
+        "novelty_lof": 1.863,
+        "novelty_knn_dist": 0.377
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4237,
+        "least_confidence": 0.4921,
+        "margin_uncertainty": 0.9215
+      },
+      "probabilities": {
+        "O": 0.4294,
+        "Personal_care_products_and_cosmetic_procedures": 0.0029,
+        "Substance_use": 0.0348,
+        "Environmental_exposures": 0.0059,
+        "Mental_health_practices": 0.0031,
+        "Non_physical_leisure_time_activities": 0.0037,
+        "Nutrition": 0.5079,
+        "Physical_activities": 0.0015,
+        "Sleep": 0.0057,
+        "Socioeconomic_factors": 0.005
+      },
+      "logits": {
+        "O": 3.098,
+        "Personal_care_products_and_cosmetic_procedures": -1.8902,
+        "Substance_use": 0.5863,
+        "Environmental_exposures": -1.1903,
+        "Mental_health_practices": -1.8399,
+        "Non_physical_leisure_time_activities": -1.6687,
+        "Nutrition": 3.2659,
+        "Physical_activities": -2.5466,
+        "Sleep": -1.2242,
+        "Socioeconomic_factors": -1.3514
+      }
+    }
+  ]
+}

@@ -1,0 +1,668 @@
+{
+  "doc_id": "10972161",
+  "dataset_split": "400/train",
+  "text": "Mechanism of antihypertensive effect of dietary potassium in experimental volume expanded hypertension in rats. \nDietary potassium supplementation lowers blood pressure (BP) and attenuates complications in hypertensive subjects, particularly those with the low renin volume expanded (LRVE) variety. We and others have shown that the plasma level of a digitalis like substance (DLS) is elevated in this type of hypertension. We therefore, examined the effect of increases in dietary potassium on the plasma level of endogenous DLS, myocardial and renal Na+, K+-ATPase (NKA) activities, BP, and renal excretory function in reduced renal mass (RRM)-salt hypertension in the rat, a classical model of LRVE hypertension. 70% RRM rats were divided in 4 groups, namely those consuming: 1) a sodium free and normal potassium (1.3% as KCl) diet (RRM-0 Na), 2) a normal sodium and normal potassium diet (RRM-NaK), 3) a normal sodium and high potassium (2 X normal) diet (RRM-Na2K), and 4) a normal sodium and 4 times normal potassium diet (RRM-Na4K). At the end of 4 weeks of dietary treatment, direct BP was recorded, plasma level of DLS determined by bioassay and with a radioimmunoassay for digoxin (DIF) and myocardial and renal NKA activities were measured. As expected, compared to RRM-0Na rats, RRM-NaK rats developed hypertension. BP increased significantly less in RRM-Na2K, whereas BP did not increase in RRM-Na4K rats. Hypertension in RRM-NaK rats was associated with an increase in plasma DLS and DIF and decrease in renal and myocardial NKA activities. DLS was increased (DIF was not changed) and myocardial NKA also decreased in rats consuming double potassium. However, quadrupling potassium in the diet (RRM-Na4K) normalized DLS and DIF and increased myocardial and renal NKA activities, compared to RRM-0Na rats. Also compared to RRM-0Na, water consumption, urinary volume excretion, sodium, and potassium increased in the other 3 groups, more so in RRM-Na4K rats. These data show that quadrupling the potassium in the diet prevents the BP increase in RRM rats and this is associated with diuresis/natriuresis and normalization of DLS, perhaps because the diuresis/natriuresis normalizes blood volume. \n",
+  "total_candidates": 11,
+  "spans": [
+    {
+      "span_id": "10972161_s000",
+      "abstract_id": "10972161",
+      "span_text": "diet",
+      "boundaries": {
+        "start_char": 1704,
+        "end_char": 1708,
+        "token_start": 373,
+        "token_end": 373,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1781,
+        "novelty_score": 0.2632,
+        "margin": 0.7328,
+        "top1_prob": 0.8653,
+        "top2_prob": 0.1326,
+        "p_background_o": 0.1326
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2632,
+        "novelty_lof": 0.9532,
+        "novelty_knn_dist": 0.1554
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1781,
+        "least_confidence": 0.1347,
+        "margin_uncertainty": 0.2672
+      },
+      "probabilities": {
+        "O": 0.1326,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.8653,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 4.4847,
+        "Personal_care_products_and_cosmetic_procedures": -2.0348,
+        "Substance_use": -1.0058,
+        "Environmental_exposures": -1.8034,
+        "Mental_health_practices": -2.7609,
+        "Non_physical_leisure_time_activities": -1.8341,
+        "Nutrition": 6.3608,
+        "Physical_activities": -1.8316,
+        "Sleep": -1.5654,
+        "Socioeconomic_factors": -1.8626
+      }
+    },
+    {
+      "span_id": "10972161_s001",
+      "abstract_id": "10972161",
+      "span_text": "potassium",
+      "boundaries": {
+        "start_char": 2009,
+        "end_char": 2018,
+        "token_start": 446,
+        "token_end": 446,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3118,
+        "novelty_score": 0.6035,
+        "margin": 0.0016,
+        "top1_prob": 0.4993,
+        "top2_prob": 0.4977,
+        "p_background_o": 0.4977
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6035,
+        "novelty_lof": 1.0502,
+        "novelty_knn_dist": 0.2858
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3118,
+        "least_confidence": 0.5007,
+        "margin_uncertainty": 0.9984
+      },
+      "probabilities": {
+        "O": 0.4977,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.4993,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 5.3267,
+        "Personal_care_products_and_cosmetic_procedures": -2.2655,
+        "Substance_use": -1.1511,
+        "Environmental_exposures": -1.5922,
+        "Mental_health_practices": -3.4302,
+        "Non_physical_leisure_time_activities": -2.0771,
+        "Nutrition": 5.3299,
+        "Physical_activities": -2.0455,
+        "Sleep": -1.5084,
+        "Socioeconomic_factors": -1.9755
+      }
+    },
+    {
+      "span_id": "10972161_s002",
+      "abstract_id": "10972161",
+      "span_text": "diet",
+      "boundaries": {
+        "start_char": 2026,
+        "end_char": 2030,
+        "token_start": 449,
+        "token_end": 449,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1124,
+        "novelty_score": 0.2632,
+        "margin": 0.8671,
+        "top1_prob": 0.9326,
+        "top2_prob": 0.0656,
+        "p_background_o": 0.0656
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2632,
+        "novelty_lof": 0.9532,
+        "novelty_knn_dist": 0.1554
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1124,
+        "least_confidence": 0.0674,
+        "margin_uncertainty": 0.1329
+      },
+      "probabilities": {
+        "O": 0.0656,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9326,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 3.939,
+        "Personal_care_products_and_cosmetic_procedures": -1.9812,
+        "Substance_use": -1.068,
+        "Environmental_exposures": -1.8663,
+        "Mental_health_practices": -2.7664,
+        "Non_physical_leisure_time_activities": -1.819,
+        "Nutrition": 6.594,
+        "Physical_activities": -1.7285,
+        "Sleep": -1.4879,
+        "Socioeconomic_factors": -1.8098
+      }
+    },
+    {
+      "span_id": "10972161_s003",
+      "abstract_id": "10972161",
+      "span_text": "dietary potassium",
+      "boundaries": {
+        "start_char": 40,
+        "end_char": 57,
+        "token_start": 7,
+        "token_end": 8,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1148,
+        "novelty_score": 0.7674,
+        "margin": 0.8698,
+        "top1_prob": 0.9333,
+        "top2_prob": 0.0635,
+        "p_background_o": 0.0635
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7674,
+        "novelty_lof": 1.1804,
+        "novelty_knn_dist": 0.2769
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1148,
+        "least_confidence": 0.0667,
+        "margin_uncertainty": 0.1302
+      },
+      "probabilities": {
+        "O": 0.0635,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0007,
+        "Environmental_exposures": 0.0006,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.9333,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 3.3328,
+        "Personal_care_products_and_cosmetic_procedures": -1.8676,
+        "Substance_use": -1.1641,
+        "Environmental_exposures": -1.4135,
+        "Mental_health_practices": -3.2938,
+        "Non_physical_leisure_time_activities": -2.0985,
+        "Nutrition": 6.0206,
+        "Physical_activities": -1.9639,
+        "Sleep": -1.2964,
+        "Socioeconomic_factors": -1.9413
+      }
+    },
+    {
+      "span_id": "10972161_s004",
+      "abstract_id": "10972161",
+      "span_text": "dietary potassium",
+      "boundaries": {
+        "start_char": 474,
+        "end_char": 491,
+        "token_start": 84,
+        "token_end": 85,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1585,
+        "novelty_score": 0.7674,
+        "margin": 0.7884,
+        "top1_prob": 0.8923,
+        "top2_prob": 0.104,
+        "p_background_o": 0.104
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7674,
+        "novelty_lof": 1.1804,
+        "novelty_knn_dist": 0.2769
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1585,
+        "least_confidence": 0.1077,
+        "margin_uncertainty": 0.2116
+      },
+      "probabilities": {
+        "O": 0.104,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0007,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.8923,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 3.6606,
+        "Personal_care_products_and_cosmetic_procedures": -1.9821,
+        "Substance_use": -1.3001,
+        "Environmental_exposures": -1.3066,
+        "Mental_health_practices": -3.3627,
+        "Non_physical_leisure_time_activities": -2.0924,
+        "Nutrition": 5.8104,
+        "Physical_activities": -2.0119,
+        "Sleep": -1.4064,
+        "Socioeconomic_factors": -1.7827
+      }
+    },
+    {
+      "span_id": "10972161_s005",
+      "abstract_id": "10972161",
+      "span_text": "dietary treatment",
+      "boundaries": {
+        "start_char": 1066,
+        "end_char": 1083,
+        "token_start": 239,
+        "token_end": 240,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2503,
+        "novelty_score": 0.5418,
+        "margin": 0.5699,
+        "top1_prob": 0.7809,
+        "top2_prob": 0.211,
+        "p_background_o": 0.211
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5418,
+        "novelty_lof": 1.0594,
+        "novelty_knn_dist": 0.2369
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2503,
+        "least_confidence": 0.2191,
+        "margin_uncertainty": 0.4301
+      },
+      "probabilities": {
+        "O": 0.211,
+        "Personal_care_products_and_cosmetic_procedures": 0.0014,
+        "Substance_use": 0.0015,
+        "Environmental_exposures": 0.0016,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.7809,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0009,
+        "Socioeconomic_factors": 0.0011
+      },
+      "logits": {
+        "O": 3.6855,
+        "Personal_care_products_and_cosmetic_procedures": -1.3635,
+        "Substance_use": -1.289,
+        "Environmental_exposures": -1.2189,
+        "Mental_health_practices": -2.6782,
+        "Non_physical_leisure_time_activities": -2.0919,
+        "Nutrition": 4.9939,
+        "Physical_activities": -2.0147,
+        "Sleep": -1.7949,
+        "Socioeconomic_factors": -1.5822
+      }
+    },
+    {
+      "span_id": "10972161_s006",
+      "abstract_id": "10972161",
+      "span_text": "KCl) diet",
+      "boundaries": {
+        "start_char": 826,
+        "end_char": 835,
+        "token_start": 164,
+        "token_end": 166,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2079,
+        "novelty_score": 0.6047,
+        "margin": 0.6503,
+        "top1_prob": 0.8242,
+        "top2_prob": 0.174,
+        "p_background_o": 0.174
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6047,
+        "novelty_lof": 1.0709,
+        "novelty_knn_dist": 0.2658
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2079,
+        "least_confidence": 0.1758,
+        "margin_uncertainty": 0.3497
+      },
+      "probabilities": {
+        "O": 0.174,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.8242,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 4.7022,
+        "Personal_care_products_and_cosmetic_procedures": -2.1774,
+        "Substance_use": -1.764,
+        "Environmental_exposures": -1.658,
+        "Mental_health_practices": -3.3472,
+        "Non_physical_leisure_time_activities": -1.9937,
+        "Nutrition": 6.2578,
+        "Physical_activities": -2.1857,
+        "Sleep": -1.6806,
+        "Socioeconomic_factors": -1.5631
+      }
+    },
+    {
+      "span_id": "10972161_s007",
+      "abstract_id": "10972161",
+      "span_text": "normal potassium diet",
+      "boundaries": {
+        "start_char": 871,
+        "end_char": 892,
+        "token_start": 180,
+        "token_end": 182,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.305,
+        "novelty_score": 0.9142,
+        "margin": 0.1976,
+        "top1_prob": 0.5969,
+        "top2_prob": 0.3994,
+        "p_background_o": 0.3994
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9142,
+        "novelty_lof": 1.3012,
+        "novelty_knn_dist": 0.34
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.305,
+        "least_confidence": 0.4031,
+        "margin_uncertainty": 0.8024
+      },
+      "probabilities": {
+        "O": 0.3994,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.5969,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 4.8861,
+        "Personal_care_products_and_cosmetic_procedures": -2.4239,
+        "Substance_use": -1.9913,
+        "Environmental_exposures": -1.4725,
+        "Mental_health_practices": -3.3727,
+        "Non_physical_leisure_time_activities": -2.041,
+        "Nutrition": 5.288,
+        "Physical_activities": -1.8238,
+        "Sleep": -1.6827,
+        "Socioeconomic_factors": -1.3868
+      }
+    },
+    {
+      "span_id": "10972161_s008",
+      "abstract_id": "10972161",
+      "span_text": "potassium in the diet",
+      "boundaries": {
+        "start_char": 1687,
+        "end_char": 1708,
+        "token_start": 370,
+        "token_end": 373,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2121,
+        "novelty_score": 0.6728,
+        "margin": 0.6534,
+        "top1_prob": 0.8249,
+        "top2_prob": 0.1715,
+        "p_background_o": 0.1715
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6728,
+        "novelty_lof": 1.113,
+        "novelty_knn_dist": 0.2701
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2121,
+        "least_confidence": 0.1751,
+        "margin_uncertainty": 0.3466
+      },
+      "probabilities": {
+        "O": 0.1715,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.001,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.8249,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 4.2356,
+        "Personal_care_products_and_cosmetic_procedures": -2.0513,
+        "Substance_use": -0.9488,
+        "Environmental_exposures": -1.6115,
+        "Mental_health_practices": -3.1193,
+        "Non_physical_leisure_time_activities": -1.9599,
+        "Nutrition": 5.8061,
+        "Physical_activities": -1.8872,
+        "Sleep": -1.4214,
+        "Socioeconomic_factors": -1.8602
+      }
+    },
+    {
+      "span_id": "10972161_s009",
+      "abstract_id": "10972161",
+      "span_text": "potassium in the diet",
+      "boundaries": {
+        "start_char": 2009,
+        "end_char": 2030,
+        "token_start": 446,
+        "token_end": 449,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1701,
+        "novelty_score": 0.6728,
+        "margin": 0.7641,
+        "top1_prob": 0.8801,
+        "top2_prob": 0.116,
+        "p_background_o": 0.116
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6728,
+        "novelty_lof": 1.113,
+        "novelty_knn_dist": 0.27
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1701,
+        "least_confidence": 0.1199,
+        "margin_uncertainty": 0.2359
+      },
+      "probabilities": {
+        "O": 0.116,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.8801,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0007,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 3.8022,
+        "Personal_care_products_and_cosmetic_procedures": -1.9446,
+        "Substance_use": -1.0031,
+        "Environmental_exposures": -1.6487,
+        "Mental_health_practices": -3.0911,
+        "Non_physical_leisure_time_activities": -1.8911,
+        "Nutrition": 5.8286,
+        "Physical_activities": -1.7716,
+        "Sleep": -1.2995,
+        "Socioeconomic_factors": -1.7633
+      }
+    },
+    {
+      "span_id": "10972161_s010",
+      "abstract_id": "10972161",
+      "span_text": "normal sodium and normal potassium diet",
+      "boundaries": {
+        "start_char": 853,
+        "end_char": 892,
+        "token_start": 177,
+        "token_end": 182,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2602,
+        "novelty_score": 0.9163,
+        "margin": 0.4866,
+        "top1_prob": 0.7414,
+        "top2_prob": 0.2548,
+        "p_background_o": 0.2548
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9163,
+        "novelty_lof": 1.3076,
+        "novelty_knn_dist": 0.3378
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2602,
+        "least_confidence": 0.2586,
+        "margin_uncertainty": 0.5134
+      },
+      "probabilities": {
+        "O": 0.2548,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.0006,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.7414,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 4.4042,
+        "Personal_care_products_and_cosmetic_procedures": -2.3131,
+        "Substance_use": -1.7696,
+        "Environmental_exposures": -1.6287,
+        "Mental_health_practices": -3.274,
+        "Non_physical_leisure_time_activities": -2.1201,
+        "Nutrition": 5.4724,
+        "Physical_activities": -1.7401,
+        "Sleep": -1.6456,
+        "Socioeconomic_factors": -1.4241
+      }
+    }
+  ]
+}

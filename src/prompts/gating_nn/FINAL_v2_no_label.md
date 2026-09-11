@@ -97,7 +97,7 @@ You are an LSF Entity Resolver, a Senior Biomedical Named Entity Recognition
    - Excludes: individual psychological therapies, physical exercise habits.
 
 *Special Exclusion Category:*
-**Non_LSF** (aka `O` / `LSF_out_of_context`): candidate mentions that do NOT
+**Non_LSF** (aka `O`): candidate mentions that do NOT
 represent a valid lifestyle habit or behavior — biological metabolites,
 disease diagnoses, clinical surgical procedures, laboratory assay reagents,
 non-behavioral study group acronyms.

@@ -1,0 +1,908 @@
+{
+  "doc_id": "20056585",
+  "dataset_split": "400/train",
+  "text": "Residential pesticides and childhood leukemia: a systematic review and meta-analysis. \nOBJECTIVE: We conducted a systematic review and meta-analysis of previous observational epidemiologic studies examining the relationship between residential pesticide exposures during critical exposure time windows (preconception, pregnancy, and childhood) and childhood leukemia. DATA SOURCES: Searches of MEDLINE and other electronic databases were performed (1950-2009). Reports were included if they were original epidemiologic studies of childhood leukemia, followed a case-control or cohort design, and assessed at least one index of residential/household pesticide exposure/use. No language criteria were applied. DATA EXTRACTION: Study selection, data abstraction, and quality assessment were performed by two independent reviewers. Random effects models were used to obtain summary odds ratios (ORs) and 95% confidence intervals (CIs). DATA SYNTHESIS: Of the 17 identified studies, 15 were included in the meta-analysis. Exposures during pregnancy to unspecified residential pesticides (summary OR = 1.54; 95% CI, 1.13-2.11; I2 = 66%), insecticides (OR = 2.05; 95% CI, 1.80-2.32; I2 = 0%), and herbicides (OR = 1.61; 95% CI, 1.20-2.16; I2 = 0%) were positively associated with childhood leukemia. Exposures during childhood to unspecified residential pesticides (OR = 1.38; 95% CI, 1.12-1.70; I2 = 4%) and insecticides (OR = 1.61; 95% CI, 1.33-1.95; I2 = 0%) were also positively associated with childhood leukemia, but there was no association with herbicides. CONCLUSIONS: Positive associations were observed between childhood leukemia and residential pesticide exposures. Further work is needed to confirm previous findings based on self-report, to examine potential exposure-response relationships, and to assess specific pesticides and toxicologically related subgroups of pesticides in more detail. \n",
+  "total_candidates": 15,
+  "spans": [
+    {
+      "span_id": "20056585_s000",
+      "abstract_id": "20056585",
+      "span_text": "insecticides",
+      "boundaries": {
+        "start_char": 1132,
+        "end_char": 1144,
+        "token_start": 219,
+        "token_end": 219,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0573,
+        "novelty_score": 0.5105,
+        "margin": 0.9529,
+        "top1_prob": 0.975,
+        "top2_prob": 0.022,
+        "p_background_o": 0.022
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5105,
+        "novelty_lof": 1.0603,
+        "novelty_knn_dist": 0.2163
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0573,
+        "least_confidence": 0.025,
+        "margin_uncertainty": 0.0471
+      },
+      "probabilities": {
+        "O": 0.022,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.975,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 2.6558,
+        "Personal_care_products_and_cosmetic_procedures": -1.3155,
+        "Substance_use": -0.52,
+        "Environmental_exposures": 6.445,
+        "Mental_health_practices": -1.1683,
+        "Non_physical_leisure_time_activities": -1.6307,
+        "Nutrition": -1.9014,
+        "Physical_activities": -2.0536,
+        "Sleep": -1.961,
+        "Socioeconomic_factors": -1.9077
+      }
+    },
+    {
+      "span_id": "20056585_s001",
+      "abstract_id": "20056585",
+      "span_text": "herbicides",
+      "boundaries": {
+        "start_char": 1190,
+        "end_char": 1200,
+        "token_start": 245,
+        "token_end": 245,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0453,
+        "novelty_score": 0.4751,
+        "margin": 0.9663,
+        "top1_prob": 0.9818,
+        "top2_prob": 0.0155,
+        "p_background_o": 0.0155
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4751,
+        "novelty_lof": 1.0232,
+        "novelty_knn_dist": 0.2312
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0453,
+        "least_confidence": 0.0182,
+        "margin_uncertainty": 0.0337
+      },
+      "probabilities": {
+        "O": 0.0155,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.9818,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 2.4191,
+        "Personal_care_products_and_cosmetic_procedures": -1.2003,
+        "Substance_use": -0.5269,
+        "Environmental_exposures": 6.5703,
+        "Mental_health_practices": -1.0734,
+        "Non_physical_leisure_time_activities": -1.575,
+        "Nutrition": -1.8561,
+        "Physical_activities": -2.0116,
+        "Sleep": -1.9953,
+        "Socioeconomic_factors": -1.9037
+      }
+    },
+    {
+      "span_id": "20056585_s002",
+      "abstract_id": "20056585",
+      "span_text": "insecticides",
+      "boundaries": {
+        "start_char": 1402,
+        "end_char": 1414,
+        "token_start": 311,
+        "token_end": 311,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0531,
+        "novelty_score": 0.5105,
+        "margin": 0.9583,
+        "top1_prob": 0.9776,
+        "top2_prob": 0.0193,
+        "p_background_o": 0.0193
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5105,
+        "novelty_lof": 1.0603,
+        "novelty_knn_dist": 0.2163
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0531,
+        "least_confidence": 0.0224,
+        "margin_uncertainty": 0.0417
+      },
+      "probabilities": {
+        "O": 0.0193,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.001,
+        "Environmental_exposures": 0.9776,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 2.5263,
+        "Personal_care_products_and_cosmetic_procedures": -1.2708,
+        "Substance_use": -0.4741,
+        "Environmental_exposures": 6.4501,
+        "Mental_health_practices": -1.1026,
+        "Non_physical_leisure_time_activities": -1.5969,
+        "Nutrition": -1.9366,
+        "Physical_activities": -1.9811,
+        "Sleep": -1.9795,
+        "Socioeconomic_factors": -1.9325
+      }
+    },
+    {
+      "span_id": "20056585_s003",
+      "abstract_id": "20056585",
+      "span_text": "herbicides",
+      "boundaries": {
+        "start_char": 1546,
+        "end_char": 1556,
+        "token_start": 350,
+        "token_end": 350,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0433,
+        "novelty_score": 0.4751,
+        "margin": 0.9686,
+        "top1_prob": 0.9829,
+        "top2_prob": 0.0143,
+        "p_background_o": 0.0143
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4751,
+        "novelty_lof": 1.0232,
+        "novelty_knn_dist": 0.2312
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0433,
+        "least_confidence": 0.0171,
+        "margin_uncertainty": 0.0314
+      },
+      "probabilities": {
+        "O": 0.0143,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.9829,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 2.3288,
+        "Personal_care_products_and_cosmetic_procedures": -1.1939,
+        "Substance_use": -0.5467,
+        "Environmental_exposures": 6.561,
+        "Mental_health_practices": -1.0081,
+        "Non_physical_leisure_time_activities": -1.5361,
+        "Nutrition": -1.82,
+        "Physical_activities": -1.9699,
+        "Sleep": -2.0102,
+        "Socioeconomic_factors": -1.9214
+      }
+    },
+    {
+      "span_id": "20056585_s004",
+      "abstract_id": "20056585",
+      "span_text": "pesticides",
+      "boundaries": {
+        "start_char": 1822,
+        "end_char": 1832,
+        "token_start": 392,
+        "token_end": 392,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0589,
+        "novelty_score": 0.4241,
+        "margin": 0.9548,
+        "top1_prob": 0.9753,
+        "top2_prob": 0.0204,
+        "p_background_o": 0.0204
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4241,
+        "novelty_lof": 1.0351,
+        "novelty_knn_dist": 0.187
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0589,
+        "least_confidence": 0.0247,
+        "margin_uncertainty": 0.0452
+      },
+      "probabilities": {
+        "O": 0.0204,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0013,
+        "Environmental_exposures": 0.9753,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 2.3734,
+        "Personal_care_products_and_cosmetic_procedures": -1.1722,
+        "Substance_use": -0.4017,
+        "Environmental_exposures": 6.239,
+        "Mental_health_practices": -0.8855,
+        "Non_physical_leisure_time_activities": -1.6023,
+        "Nutrition": -1.8171,
+        "Physical_activities": -1.8253,
+        "Sleep": -1.8639,
+        "Socioeconomic_factors": -1.7065
+      }
+    },
+    {
+      "span_id": "20056585_s005",
+      "abstract_id": "20056585",
+      "span_text": "pesticides",
+      "boundaries": {
+        "start_char": 1874,
+        "end_char": 1884,
+        "token_start": 399,
+        "token_end": 399,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0447,
+        "novelty_score": 0.4241,
+        "margin": 0.9702,
+        "top1_prob": 0.9831,
+        "top2_prob": 0.0129,
+        "p_background_o": 0.0129
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4241,
+        "novelty_lof": 1.035,
+        "novelty_knn_dist": 0.187
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0447,
+        "least_confidence": 0.0169,
+        "margin_uncertainty": 0.0298
+      },
+      "probabilities": {
+        "O": 0.0129,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0012,
+        "Environmental_exposures": 0.9831,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 2.0036,
+        "Personal_care_products_and_cosmetic_procedures": -1.0921,
+        "Substance_use": -0.3776,
+        "Environmental_exposures": 6.3374,
+        "Mental_health_practices": -0.8405,
+        "Non_physical_leisure_time_activities": -1.5895,
+        "Nutrition": -1.857,
+        "Physical_activities": -1.7563,
+        "Sleep": -1.7861,
+        "Socioeconomic_factors": -1.7426
+      }
+    },
+    {
+      "span_id": "20056585_s006",
+      "abstract_id": "20056585",
+      "span_text": "residential pesticides",
+      "boundaries": {
+        "start_char": 1335,
+        "end_char": 1357,
+        "token_start": 284,
+        "token_end": 285,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.2457,
+        "novelty_score": 0.8271,
+        "margin": 0.5751,
+        "top1_prob": 0.7841,
+        "top2_prob": 0.209,
+        "p_background_o": 0.209
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8271,
+        "novelty_lof": 1.2246,
+        "novelty_knn_dist": 0.291
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2457,
+        "least_confidence": 0.2159,
+        "margin_uncertainty": 0.4249
+      },
+      "probabilities": {
+        "O": 0.209,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.0017,
+        "Environmental_exposures": 0.7841,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0009,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0017
+      },
+      "logits": {
+        "O": 3.9537,
+        "Personal_care_products_and_cosmetic_procedures": -1.5806,
+        "Substance_use": -0.8795,
+        "Environmental_exposures": 5.276,
+        "Mental_health_practices": -2.1419,
+        "Non_physical_leisure_time_activities": -2.2417,
+        "Nutrition": -1.5465,
+        "Physical_activities": -2.0693,
+        "Sleep": -2.0733,
+        "Socioeconomic_factors": -0.8779
+      }
+    },
+    {
+      "span_id": "20056585_s007",
+      "abstract_id": "20056585",
+      "span_text": "Residential pesticides",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 22,
+        "token_start": 1,
+        "token_end": 3,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0369,
+        "novelty_score": 0.6918,
+        "margin": 0.9808,
+        "top1_prob": 0.9876,
+        "top2_prob": 0.0069,
+        "p_background_o": 0.0069
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6918,
+        "novelty_lof": 1.13,
+        "novelty_knn_dist": 0.2668
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0369,
+        "least_confidence": 0.0124,
+        "margin_uncertainty": 0.0192
+      },
+      "probabilities": {
+        "O": 0.0069,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0015,
+        "Environmental_exposures": 0.9876,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0016
+      },
+      "logits": {
+        "O": 1.0777,
+        "Personal_care_products_and_cosmetic_procedures": -1.3686,
+        "Substance_use": -0.4626,
+        "Environmental_exposures": 6.0424,
+        "Mental_health_practices": -1.7883,
+        "Non_physical_leisure_time_activities": -2.2445,
+        "Nutrition": -1.7102,
+        "Physical_activities": -1.9225,
+        "Sleep": -1.8749,
+        "Socioeconomic_factors": -0.3724
+      }
+    },
+    {
+      "span_id": "20056585_s008",
+      "abstract_id": "20056585",
+      "span_text": "residential pesticide exposures",
+      "boundaries": {
+        "start_char": 232,
+        "end_char": 263,
+        "token_start": 38,
+        "token_end": 40,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0375,
+        "novelty_score": 0.6484,
+        "margin": 0.9786,
+        "top1_prob": 0.987,
+        "top2_prob": 0.0084,
+        "p_background_o": 0.0084
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6484,
+        "novelty_lof": 1.1096,
+        "novelty_knn_dist": 0.2564
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0375,
+        "least_confidence": 0.013,
+        "margin_uncertainty": 0.0214
+      },
+      "probabilities": {
+        "O": 0.0084,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0011,
+        "Environmental_exposures": 0.987,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0012
+      },
+      "logits": {
+        "O": 1.3688,
+        "Personal_care_products_and_cosmetic_procedures": -1.497,
+        "Substance_use": -0.6995,
+        "Environmental_exposures": 6.1313,
+        "Mental_health_practices": -1.8287,
+        "Non_physical_leisure_time_activities": -1.8683,
+        "Nutrition": -1.5858,
+        "Physical_activities": -1.8661,
+        "Sleep": -1.7983,
+        "Socioeconomic_factors": -0.6011
+      }
+    },
+    {
+      "span_id": "20056585_s009",
+      "abstract_id": "20056585",
+      "span_text": "unspecified residential pesticides",
+      "boundaries": {
+        "start_char": 1047,
+        "end_char": 1081,
+        "token_start": 190,
+        "token_end": 192,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1149,
+        "novelty_score": 0.728,
+        "margin": 0.9031,
+        "top1_prob": 0.9451,
+        "top2_prob": 0.0421,
+        "p_background_o": 0.0421
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.728,
+        "novelty_lof": 1.1504,
+        "novelty_knn_dist": 0.274
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1149,
+        "least_confidence": 0.0549,
+        "margin_uncertainty": 0.0969
+      },
+      "probabilities": {
+        "O": 0.0421,
+        "Personal_care_products_and_cosmetic_procedures": 0.0011,
+        "Substance_use": 0.0022,
+        "Environmental_exposures": 0.9451,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0005,
+        "Nutrition": 0.0013,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0008,
+        "Socioeconomic_factors": 0.0055
+      },
+      "logits": {
+        "O": 2.1092,
+        "Personal_care_products_and_cosmetic_procedures": -1.5315,
+        "Substance_use": -0.8228,
+        "Environmental_exposures": 5.2216,
+        "Mental_health_practices": -1.8642,
+        "Non_physical_leisure_time_activities": -2.2532,
+        "Nutrition": -1.371,
+        "Physical_activities": -2.196,
+        "Sleep": -1.8965,
+        "Socioeconomic_factors": 0.0783
+      }
+    },
+    {
+      "span_id": "20056585_s010",
+      "abstract_id": "20056585",
+      "span_text": "unspecified residential pesticides",
+      "boundaries": {
+        "start_char": 1323,
+        "end_char": 1357,
+        "token_start": 283,
+        "token_end": 285,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.1304,
+        "novelty_score": 0.7281,
+        "margin": 0.8816,
+        "top1_prob": 0.934,
+        "top2_prob": 0.0524,
+        "p_background_o": 0.0524
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7281,
+        "novelty_lof": 1.1505,
+        "novelty_knn_dist": 0.2741
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1304,
+        "least_confidence": 0.066,
+        "margin_uncertainty": 0.1184
+      },
+      "probabilities": {
+        "O": 0.0524,
+        "Personal_care_products_and_cosmetic_procedures": 0.0012,
+        "Substance_use": 0.0023,
+        "Environmental_exposures": 0.934,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0013,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0008,
+        "Socioeconomic_factors": 0.006
+      },
+      "logits": {
+        "O": 2.2617,
+        "Personal_care_products_and_cosmetic_procedures": -1.5261,
+        "Substance_use": -0.8703,
+        "Environmental_exposures": 5.1424,
+        "Mental_health_practices": -1.8697,
+        "Non_physical_leisure_time_activities": -2.2403,
+        "Nutrition": -1.4112,
+        "Physical_activities": -2.2061,
+        "Sleep": -1.8816,
+        "Socioeconomic_factors": 0.0884
+      }
+    },
+    {
+      "span_id": "20056585_s011",
+      "abstract_id": "20056585",
+      "span_text": "residential pesticide exposures",
+      "boundaries": {
+        "start_char": 1638,
+        "end_char": 1669,
+        "token_start": 362,
+        "token_end": 364,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.0312,
+        "novelty_score": 0.6485,
+        "margin": 0.9836,
+        "top1_prob": 0.9898,
+        "top2_prob": 0.0061,
+        "p_background_o": 0.0061
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6485,
+        "novelty_lof": 1.1097,
+        "novelty_knn_dist": 0.2564
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0312,
+        "least_confidence": 0.0102,
+        "margin_uncertainty": 0.0164
+      },
+      "probabilities": {
+        "O": 0.0061,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.001,
+        "Environmental_exposures": 0.9898,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0004,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.001
+      },
+      "logits": {
+        "O": 1.1661,
+        "Personal_care_products_and_cosmetic_procedures": -1.4314,
+        "Substance_use": -0.6091,
+        "Environmental_exposures": 6.2494,
+        "Mental_health_practices": -1.7296,
+        "Non_physical_leisure_time_activities": -1.8872,
+        "Nutrition": -1.6306,
+        "Physical_activities": -1.9399,
+        "Sleep": -1.8142,
+        "Socioeconomic_factors": -0.6357
+      }
+    },
+    {
+      "span_id": "20056585_s012",
+      "abstract_id": "20056585",
+      "span_text": "household pesticide exposure",
+      "boundaries": {
+        "start_char": 639,
+        "end_char": 667,
+        "token_start": 110,
+        "token_end": 113,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.112,
+        "novelty_score": 0.5081,
+        "margin": 0.9192,
+        "top1_prob": 0.9508,
+        "top2_prob": 0.0317,
+        "p_background_o": 0.0317
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5081,
+        "novelty_lof": 1.0601,
+        "novelty_knn_dist": 0.215
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.112,
+        "least_confidence": 0.0492,
+        "margin_uncertainty": 0.0808
+      },
+      "probabilities": {
+        "O": 0.0317,
+        "Personal_care_products_and_cosmetic_procedures": 0.0011,
+        "Substance_use": 0.0041,
+        "Environmental_exposures": 0.9508,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.0015,
+        "Physical_activities": 0.001,
+        "Sleep": 0.0012,
+        "Socioeconomic_factors": 0.0071
+      },
+      "logits": {
+        "O": 1.6181,
+        "Personal_care_products_and_cosmetic_procedures": -1.722,
+        "Substance_use": -0.4391,
+        "Environmental_exposures": 5.0194,
+        "Mental_health_practices": -2.0914,
+        "Non_physical_leisure_time_activities": -2.0274,
+        "Nutrition": -1.4636,
+        "Physical_activities": -1.851,
+        "Sleep": -1.6735,
+        "Socioeconomic_factors": 0.1174
+      }
+    },
+    {
+      "span_id": "20056585_s013",
+      "abstract_id": "20056585",
+      "span_text": "residential/household pesticide exposure",
+      "boundaries": {
+        "start_char": 627,
+        "end_char": 667,
+        "token_start": 108,
+        "token_end": 113,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.076,
+        "novelty_score": 0.6926,
+        "margin": 0.9394,
+        "top1_prob": 0.9665,
+        "top2_prob": 0.0271,
+        "p_background_o": 0.0271
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6926,
+        "novelty_lof": 1.1539,
+        "novelty_knn_dist": 0.2435
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.076,
+        "least_confidence": 0.0335,
+        "margin_uncertainty": 0.0606
+      },
+      "probabilities": {
+        "O": 0.0271,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0017,
+        "Environmental_exposures": 0.9665,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0017
+      },
+      "logits": {
+        "O": 2.2031,
+        "Personal_care_products_and_cosmetic_procedures": -1.6083,
+        "Substance_use": -0.5721,
+        "Environmental_exposures": 5.7771,
+        "Mental_health_practices": -1.8936,
+        "Non_physical_leisure_time_activities": -1.9702,
+        "Nutrition": -1.6877,
+        "Physical_activities": -1.9213,
+        "Sleep": -1.7165,
+        "Socioeconomic_factors": -0.5809
+      }
+    },
+    {
+      "span_id": "20056585_s014",
+      "abstract_id": "20056585",
+      "span_text": "household pesticide exposure/use",
+      "boundaries": {
+        "start_char": 639,
+        "end_char": 671,
+        "token_start": 110,
+        "token_end": 115,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Environmental_exposures",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Environmental_exposures",
+        "second_best_label": "O",
+        "uncertainty": 0.3369,
+        "novelty_score": 0.5309,
+        "margin": 0.195,
+        "top1_prob": 0.5893,
+        "top2_prob": 0.3943,
+        "p_background_o": 0.3943
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5309,
+        "novelty_lof": 1.0702,
+        "novelty_knn_dist": 0.2193
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3369,
+        "least_confidence": 0.4107,
+        "margin_uncertainty": 0.805
+      },
+      "probabilities": {
+        "O": 0.3943,
+        "Personal_care_products_and_cosmetic_procedures": 0.0011,
+        "Substance_use": 0.0047,
+        "Environmental_exposures": 0.5893,
+        "Mental_health_practices": 0.0007,
+        "Non_physical_leisure_time_activities": 0.0011,
+        "Nutrition": 0.0013,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.0016,
+        "Socioeconomic_factors": 0.005
+      },
+      "logits": {
+        "O": 3.945,
+        "Personal_care_products_and_cosmetic_procedures": -1.8971,
+        "Substance_use": -0.4834,
+        "Environmental_exposures": 4.3468,
+        "Mental_health_practices": -2.4435,
+        "Non_physical_leisure_time_activities": -1.8931,
+        "Nutrition": -1.798,
+        "Physical_activities": -2.1381,
+        "Sleep": -1.5732,
+        "Socioeconomic_factors": -0.4154
+      }
+    }
+  ]
+}

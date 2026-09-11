@@ -1,0 +1,488 @@
+{
+  "doc_id": "11917830",
+  "dataset_split": "400/train",
+  "text": "Transcendental meditation, hypertension and heart disease. \nBACKGROUND: Accumulating evidence that stress contributes to the pathogenesis and expression of coronary heart disease has led to the increasing use of stress reduction techniques in its prevention and treatment. The most widely used and tested technique is transcendental meditation. OBJECT: To describe transcendental meditation and review research on its use in the treatment and prevention of coronary heart disease. DISCUSSION: Transcendental meditation shows promise as a preventive and treatment method for coronary heart disease. Transcendental meditation is associated with decreased hypertension and atherosclerosis, improvements in patients with heart disease, decreased hospitalisation rates and improvements in other risk factors including decreased smoking and cholesterol. These findings cannot be generalised to all meditation and stress reduction techniques as each technique differs in its effects. Further research is needed to delineate the mechanisms involved and to verify preliminary findings concerning atherosclerosis and heart disease and the findings of short term hypertension studies. \n",
+  "total_candidates": 8,
+  "spans": [
+    {
+      "span_id": "11917830_s000",
+      "abstract_id": "11917830",
+      "span_text": "smoking",
+      "boundaries": {
+        "start_char": 823,
+        "end_char": 830,
+        "token_start": 137,
+        "token_end": 137,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.2554,
+        "novelty_score": 0.176,
+        "margin": 0.5442,
+        "top1_prob": 0.7683,
+        "top2_prob": 0.2241,
+        "p_background_o": 0.2241
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.176,
+        "novelty_lof": 0.9615,
+        "novelty_knn_dist": 0.0664
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2554,
+        "least_confidence": 0.2317,
+        "margin_uncertainty": 0.4558
+      },
+      "probabilities": {
+        "O": 0.2241,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.7683,
+        "Environmental_exposures": 0.0016,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.0021,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 4.263,
+        "Personal_care_products_and_cosmetic_procedures": -2.7431,
+        "Substance_use": 5.495,
+        "Environmental_exposures": -0.6728,
+        "Mental_health_practices": -2.1359,
+        "Non_physical_leisure_time_activities": -0.9001,
+        "Nutrition": -0.4262,
+        "Physical_activities": -3.1898,
+        "Sleep": -1.1568,
+        "Socioeconomic_factors": -1.2996
+      }
+    },
+    {
+      "span_id": "11917830_s001",
+      "abstract_id": "11917830",
+      "span_text": "meditation",
+      "boundaries": {
+        "start_char": 892,
+        "end_char": 902,
+        "token_start": 148,
+        "token_end": 148,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.0613,
+        "novelty_score": 0.9488,
+        "margin": 0.9626,
+        "top1_prob": 0.9771,
+        "top2_prob": 0.0144,
+        "p_background_o": 0.0144
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9488,
+        "novelty_lof": 1.4167,
+        "novelty_knn_dist": 0.3112
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0613,
+        "least_confidence": 0.0229,
+        "margin_uncertainty": 0.0374
+      },
+      "probabilities": {
+        "O": 0.0144,
+        "Personal_care_products_and_cosmetic_procedures": 0.0012,
+        "Substance_use": 0.0009,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.9771,
+        "Non_physical_leisure_time_activities": 0.0023,
+        "Nutrition": 0.0005,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.0011,
+        "Socioeconomic_factors": 0.0011
+      },
+      "logits": {
+        "O": 1.3724,
+        "Personal_care_products_and_cosmetic_procedures": -1.1386,
+        "Substance_use": -1.3754,
+        "Environmental_exposures": -2.0989,
+        "Mental_health_practices": 5.5876,
+        "Non_physical_leisure_time_activities": -0.4646,
+        "Nutrition": -1.9564,
+        "Physical_activities": -1.3991,
+        "Sleep": -1.174,
+        "Socioeconomic_factors": -1.1993
+      }
+    },
+    {
+      "span_id": "11917830_s002",
+      "abstract_id": "11917830",
+      "span_text": "transcendental meditation",
+      "boundaries": {
+        "start_char": 318,
+        "end_char": 343,
+        "token_start": 55,
+        "token_end": 58,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.2578,
+        "novelty_score": 0.9411,
+        "margin": 0.7663,
+        "top1_prob": 0.8584,
+        "top2_prob": 0.0921,
+        "p_background_o": 0.0921
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9411,
+        "novelty_lof": 1.3543,
+        "novelty_knn_dist": 0.3505
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2578,
+        "least_confidence": 0.1416,
+        "margin_uncertainty": 0.2337
+      },
+      "probabilities": {
+        "O": 0.0921,
+        "Personal_care_products_and_cosmetic_procedures": 0.0041,
+        "Substance_use": 0.0038,
+        "Environmental_exposures": 0.0018,
+        "Mental_health_practices": 0.8584,
+        "Non_physical_leisure_time_activities": 0.0107,
+        "Nutrition": 0.0033,
+        "Physical_activities": 0.0049,
+        "Sleep": 0.0071,
+        "Socioeconomic_factors": 0.0138
+      },
+      "logits": {
+        "O": 1.6224,
+        "Personal_care_products_and_cosmetic_procedures": -1.4842,
+        "Substance_use": -1.5564,
+        "Environmental_exposures": -2.3372,
+        "Mental_health_practices": 3.855,
+        "Non_physical_leisure_time_activities": -0.5292,
+        "Nutrition": -1.703,
+        "Physical_activities": -1.3013,
+        "Sleep": -0.9401,
+        "Socioeconomic_factors": -0.277
+      }
+    },
+    {
+      "span_id": "11917830_s003",
+      "abstract_id": "11917830",
+      "span_text": "transcendental meditation",
+      "boundaries": {
+        "start_char": 365,
+        "end_char": 390,
+        "token_start": 65,
+        "token_end": 68,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.1625,
+        "novelty_score": 0.9411,
+        "margin": 0.8912,
+        "top1_prob": 0.9284,
+        "top2_prob": 0.0372,
+        "p_background_o": 0.0372
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9411,
+        "novelty_lof": 1.3543,
+        "novelty_knn_dist": 0.3505
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1625,
+        "least_confidence": 0.0716,
+        "margin_uncertainty": 0.1088
+      },
+      "probabilities": {
+        "O": 0.0372,
+        "Personal_care_products_and_cosmetic_procedures": 0.0031,
+        "Substance_use": 0.0034,
+        "Environmental_exposures": 0.0013,
+        "Mental_health_practices": 0.9284,
+        "Non_physical_leisure_time_activities": 0.0083,
+        "Nutrition": 0.0024,
+        "Physical_activities": 0.0038,
+        "Sleep": 0.0048,
+        "Socioeconomic_factors": 0.0074
+      },
+      "logits": {
+        "O": 1.0872,
+        "Personal_care_products_and_cosmetic_procedures": -1.4082,
+        "Substance_use": -1.2948,
+        "Environmental_exposures": -2.2828,
+        "Mental_health_practices": 4.3057,
+        "Non_physical_leisure_time_activities": -0.4067,
+        "Nutrition": -1.6669,
+        "Physical_activities": -1.1892,
+        "Sleep": -0.9599,
+        "Socioeconomic_factors": -0.5311
+      }
+    },
+    {
+      "span_id": "11917830_s004",
+      "abstract_id": "11917830",
+      "span_text": "meditation and stress reduction",
+      "boundaries": {
+        "start_char": 892,
+        "end_char": 923,
+        "token_start": 148,
+        "token_end": 151,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.3947,
+        "novelty_score": 0.9485,
+        "margin": 0.0712,
+        "top1_prob": 0.5149,
+        "top2_prob": 0.4438,
+        "p_background_o": 0.4438
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9485,
+        "novelty_lof": 1.3638,
+        "novelty_knn_dist": 0.3631
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3947,
+        "least_confidence": 0.4851,
+        "margin_uncertainty": 0.9288
+      },
+      "probabilities": {
+        "O": 0.4438,
+        "Personal_care_products_and_cosmetic_procedures": 0.0022,
+        "Substance_use": 0.0062,
+        "Environmental_exposures": 0.0014,
+        "Mental_health_practices": 0.5149,
+        "Non_physical_leisure_time_activities": 0.009,
+        "Nutrition": 0.0015,
+        "Physical_activities": 0.0033,
+        "Sleep": 0.0047,
+        "Socioeconomic_factors": 0.013
+      },
+      "logits": {
+        "O": 3.4266,
+        "Personal_care_products_and_cosmetic_procedures": -1.8815,
+        "Substance_use": -0.8454,
+        "Environmental_exposures": -2.3479,
+        "Mental_health_practices": 3.5753,
+        "Non_physical_leisure_time_activities": -0.4739,
+        "Nutrition": -2.29,
+        "Physical_activities": -1.4705,
+        "Sleep": -1.1125,
+        "Socioeconomic_factors": -0.1046
+      }
+    },
+    {
+      "span_id": "11917830_s005",
+      "abstract_id": "11917830",
+      "span_text": "Transcendental meditation",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 25,
+        "token_start": 1,
+        "token_end": 5,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.2734,
+        "novelty_score": 0.9265,
+        "margin": 0.7441,
+        "top1_prob": 0.8456,
+        "top2_prob": 0.1015,
+        "p_background_o": 0.1015
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9265,
+        "novelty_lof": 1.323,
+        "novelty_knn_dist": 0.3445
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2734,
+        "least_confidence": 0.1544,
+        "margin_uncertainty": 0.2559
+      },
+      "probabilities": {
+        "O": 0.1015,
+        "Personal_care_products_and_cosmetic_procedures": 0.0045,
+        "Substance_use": 0.0036,
+        "Environmental_exposures": 0.002,
+        "Mental_health_practices": 0.8456,
+        "Non_physical_leisure_time_activities": 0.0154,
+        "Nutrition": 0.0032,
+        "Physical_activities": 0.0068,
+        "Sleep": 0.0063,
+        "Socioeconomic_factors": 0.0111
+      },
+      "logits": {
+        "O": 1.7309,
+        "Personal_care_products_and_cosmetic_procedures": -1.3861,
+        "Substance_use": -1.5942,
+        "Environmental_exposures": -2.196,
+        "Mental_health_practices": 3.8511,
+        "Non_physical_leisure_time_activities": -0.1523,
+        "Nutrition": -1.7372,
+        "Physical_activities": -0.9694,
+        "Sleep": -1.0509,
+        "Socioeconomic_factors": -0.4832
+      }
+    },
+    {
+      "span_id": "11917830_s006",
+      "abstract_id": "11917830",
+      "span_text": "Transcendental meditation",
+      "boundaries": {
+        "start_char": 493,
+        "end_char": 518,
+        "token_start": 88,
+        "token_end": 92,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.2155,
+        "novelty_score": 0.9265,
+        "margin": 0.8228,
+        "top1_prob": 0.8906,
+        "top2_prob": 0.0678,
+        "p_background_o": 0.0678
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9265,
+        "novelty_lof": 1.323,
+        "novelty_knn_dist": 0.3445
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2155,
+        "least_confidence": 0.1094,
+        "margin_uncertainty": 0.1772
+      },
+      "probabilities": {
+        "O": 0.0678,
+        "Personal_care_products_and_cosmetic_procedures": 0.0043,
+        "Substance_use": 0.0024,
+        "Environmental_exposures": 0.0016,
+        "Mental_health_practices": 0.8906,
+        "Non_physical_leisure_time_activities": 0.0117,
+        "Nutrition": 0.0024,
+        "Physical_activities": 0.0045,
+        "Sleep": 0.0052,
+        "Socioeconomic_factors": 0.0095
+      },
+      "logits": {
+        "O": 1.5414,
+        "Personal_care_products_and_cosmetic_procedures": -1.2227,
+        "Substance_use": -1.7868,
+        "Environmental_exposures": -2.231,
+        "Mental_health_practices": 4.1161,
+        "Non_physical_leisure_time_activities": -0.2187,
+        "Nutrition": -1.7839,
+        "Physical_activities": -1.1787,
+        "Sleep": -1.0233,
+        "Socioeconomic_factors": -0.4274
+      }
+    },
+    {
+      "span_id": "11917830_s007",
+      "abstract_id": "11917830",
+      "span_text": "Transcendental meditation",
+      "boundaries": {
+        "start_char": 598,
+        "end_char": 623,
+        "token_start": 106,
+        "token_end": 110,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Mental_health_practices",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Mental_health_practices",
+        "second_best_label": "O",
+        "uncertainty": 0.2087,
+        "novelty_score": 0.9265,
+        "margin": 0.836,
+        "top1_prob": 0.897,
+        "top2_prob": 0.061,
+        "p_background_o": 0.061
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9265,
+        "novelty_lof": 1.323,
+        "novelty_knn_dist": 0.3445
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2087,
+        "least_confidence": 0.103,
+        "margin_uncertainty": 0.164
+      },
+      "probabilities": {
+        "O": 0.061,
+        "Personal_care_products_and_cosmetic_procedures": 0.0041,
+        "Substance_use": 0.0027,
+        "Environmental_exposures": 0.0016,
+        "Mental_health_practices": 0.897,
+        "Non_physical_leisure_time_activities": 0.0119,
+        "Nutrition": 0.0023,
+        "Physical_activities": 0.0049,
+        "Sleep": 0.0052,
+        "Socioeconomic_factors": 0.0094
+      },
+      "logits": {
+        "O": 1.4399,
+        "Personal_care_products_and_cosmetic_procedures": -1.266,
+        "Substance_use": -1.6922,
+        "Environmental_exposures": -2.2074,
+        "Mental_health_practices": 4.1282,
+        "Non_physical_leisure_time_activities": -0.1975,
+        "Nutrition": -1.8191,
+        "Physical_activities": -1.0884,
+        "Sleep": -1.018,
+        "Socioeconomic_factors": -0.4331
+      }
+    }
+  ]
+}

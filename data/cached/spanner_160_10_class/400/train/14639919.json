@@ -1,0 +1,308 @@
+{
+  "doc_id": "14639919",
+  "dataset_split": "400/train",
+  "text": "[Alcoholic liver diseases in Japan and modification by hepatitis virus]. \nRecently incidence of alcoholic liver disease (ALD) has been increasing in Japan associated with an increase in alcoholic beverage consumption. There have been a large number of reports about the relationship between alcohol and hepatocarcinogenesis, but it remains controversial. In this review, we addressed 1) the recent trend in incidence of ALD including severe alcoholic hepatitis (SAH), liver cirrhosis (LC), and hepatocellular carcinoma (HCC) in heavy drinkers in Japan, and 2) the characteristics of HCC in heavy drinkers with negative serum markers for viral hepatitis. We carried out nation-wide survey by asking for the hospitals that are approved by the Japanese Society of Gastroenterology for recent aspects of in-patients with ALD. Except for HCC, percentage of ALD without viral hepatitis is more than 70%, which is increased when compared to the national survey carried out in 1992. Percentage of alcoholic LC without positive markers for viral hepatitis was 61% and alcohol plus virus group was 39%. Furthermore, in alcoholic LC patients without HCC, those who did not have viral hepatitis were 80%. However, the percentage of HCC without viral hepatitis was 27% of all of the heavy drinkers with HCC. Regarding our own cases, subjects were 432 HCC patients who were admitted to our hospital since 1995. There were 296 cases (68.5%) of HCV-positive, 70 cases (16.2%) of HBV-positive, 27 cases (6.3%) of both HCV- and HBV-positive. Thirty-nine cases (6.7%) were negative for serum markers for viral hepatitis. Among them, 13 cases (3.0%) were not heavy drinkers (non-B, non-C, non-alcohol) and 26 cases (6.0%) were heavy drinkers (non-B, non-C, heavy drinkers). Twenty-five of these 26 (96.2%) cases had cirrhosis. In conclusion, since the consumption of alcohol is increasing in Japan, the frequency and number of cases of alcoholic liver cirrhosis are increasing. Viral hepatitis infection, however, still plays an important role in hepatocarcinogenesis in heavy drinkers. Radiographic examinations at an appropriate interval for HCC are recommended, even in cases with alcoholic liver cirrhosis who are negative for serum markers of viral hepatitis, to ensure the early diagnosis of HCC. \n",
+  "total_candidates": 5,
+  "spans": [
+    {
+      "span_id": "14639919_s000",
+      "abstract_id": "14639919",
+      "span_text": "alcohol",
+      "boundaries": {
+        "start_char": 291,
+        "end_char": 298,
+        "token_start": 51,
+        "token_end": 51,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1447,
+        "novelty_score": 0.2005,
+        "margin": 0.875,
+        "top1_prob": 0.9248,
+        "top2_prob": 0.0497,
+        "p_background_o": 0.0497
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2005,
+        "novelty_lof": 0.9631,
+        "novelty_knn_dist": 0.09
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1447,
+        "least_confidence": 0.0752,
+        "margin_uncertainty": 0.125
+      },
+      "probabilities": {
+        "O": 0.0497,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0215,
+        "Environmental_exposures": 0.0009,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.001,
+        "Nutrition": 0.9248,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 2.6967,
+        "Personal_care_products_and_cosmetic_procedures": -2.2832,
+        "Substance_use": 1.8593,
+        "Environmental_exposures": -1.2631,
+        "Mental_health_practices": -2.601,
+        "Non_physical_leisure_time_activities": -1.1927,
+        "Nutrition": 5.6195,
+        "Physical_activities": -2.4574,
+        "Sleep": -1.8556,
+        "Socioeconomic_factors": -1.7538
+      }
+    },
+    {
+      "span_id": "14639919_s001",
+      "abstract_id": "14639919",
+      "span_text": "alcohol",
+      "boundaries": {
+        "start_char": 1059,
+        "end_char": 1066,
+        "token_start": 193,
+        "token_end": 193,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3051,
+        "novelty_score": 0.2005,
+        "margin": 0.6504,
+        "top1_prob": 0.7855,
+        "top2_prob": 0.1352,
+        "p_background_o": 0.1352
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2005,
+        "novelty_lof": 0.9631,
+        "novelty_knn_dist": 0.09
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3051,
+        "least_confidence": 0.2145,
+        "margin_uncertainty": 0.3496
+      },
+      "probabilities": {
+        "O": 0.1352,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0708,
+        "Environmental_exposures": 0.0024,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0024,
+        "Nutrition": 0.7855,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0011,
+        "Socioeconomic_factors": 0.0011
+      },
+      "logits": {
+        "O": 3.0154,
+        "Personal_care_products_and_cosmetic_procedures": -2.58,
+        "Substance_use": 2.3693,
+        "Environmental_exposures": -1.0028,
+        "Mental_health_practices": -2.5992,
+        "Non_physical_leisure_time_activities": -0.9986,
+        "Nutrition": 4.7752,
+        "Physical_activities": -2.8855,
+        "Sleep": -1.8176,
+        "Socioeconomic_factors": -1.7613
+      }
+    },
+    {
+      "span_id": "14639919_s002",
+      "abstract_id": "14639919",
+      "span_text": "alcohol",
+      "boundaries": {
+        "start_char": 1673,
+        "end_char": 1680,
+        "token_start": 344,
+        "token_end": 344,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2594,
+        "novelty_score": 0.2005,
+        "margin": 0.658,
+        "top1_prob": 0.8114,
+        "top2_prob": 0.1533,
+        "p_background_o": 0.1533
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2005,
+        "novelty_lof": 0.9631,
+        "novelty_knn_dist": 0.09
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2594,
+        "least_confidence": 0.1886,
+        "margin_uncertainty": 0.342
+      },
+      "probabilities": {
+        "O": 0.1533,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0306,
+        "Environmental_exposures": 0.0015,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0011,
+        "Nutrition": 0.8114,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 3.6185,
+        "Personal_care_products_and_cosmetic_procedures": -2.4748,
+        "Substance_use": 2.0061,
+        "Environmental_exposures": -1.0233,
+        "Mental_health_practices": -2.7246,
+        "Non_physical_leisure_time_activities": -1.3289,
+        "Nutrition": 5.2846,
+        "Physical_activities": -2.8257,
+        "Sleep": -2.1054,
+        "Socioeconomic_factors": -1.652
+      }
+    },
+    {
+      "span_id": "14639919_s003",
+      "abstract_id": "14639919",
+      "span_text": "alcohol",
+      "boundaries": {
+        "start_char": 1847,
+        "end_char": 1854,
+        "token_start": 391,
+        "token_end": 391,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1728,
+        "novelty_score": 0.2005,
+        "margin": 0.831,
+        "top1_prob": 0.9017,
+        "top2_prob": 0.0707,
+        "p_background_o": 0.0707
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2005,
+        "novelty_lof": 0.9631,
+        "novelty_knn_dist": 0.09
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1728,
+        "least_confidence": 0.0983,
+        "margin_uncertainty": 0.169
+      },
+      "probabilities": {
+        "O": 0.0707,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0236,
+        "Environmental_exposures": 0.001,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0009,
+        "Nutrition": 0.9017,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 3.0016,
+        "Personal_care_products_and_cosmetic_procedures": -2.2853,
+        "Substance_use": 1.9043,
+        "Environmental_exposures": -1.3018,
+        "Mental_health_practices": -2.6253,
+        "Non_physical_leisure_time_activities": -1.3117,
+        "Nutrition": 5.5468,
+        "Physical_activities": -2.5898,
+        "Sleep": -1.923,
+        "Socioeconomic_factors": -1.7409
+      }
+    },
+    {
+      "span_id": "14639919_s004",
+      "abstract_id": "14639919",
+      "span_text": "alcoholic beverage consumption",
+      "boundaries": {
+        "start_char": 186,
+        "end_char": 216,
+        "token_start": 35,
+        "token_end": 37,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1961,
+        "novelty_score": 0.2088,
+        "margin": 0.8067,
+        "top1_prob": 0.8901,
+        "top2_prob": 0.0835,
+        "p_background_o": 0.0835
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2088,
+        "novelty_lof": 0.9527,
+        "novelty_knn_dist": 0.1085
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1961,
+        "least_confidence": 0.1099,
+        "margin_uncertainty": 0.1933
+      },
+      "probabilities": {
+        "O": 0.0835,
+        "Personal_care_products_and_cosmetic_procedures": 0.0012,
+        "Substance_use": 0.011,
+        "Environmental_exposures": 0.0044,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0026,
+        "Nutrition": 0.8901,
+        "Physical_activities": 0.0012,
+        "Sleep": 0.0015,
+        "Socioeconomic_factors": 0.0039
+      },
+      "logits": {
+        "O": 2.1758,
+        "Personal_care_products_and_cosmetic_procedures": -2.026,
+        "Substance_use": 0.1523,
+        "Environmental_exposures": -0.7627,
+        "Mental_health_practices": -2.9886,
+        "Non_physical_leisure_time_activities": -1.2964,
+        "Nutrition": 4.5427,
+        "Physical_activities": -2.0404,
+        "Sleep": -1.8411,
+        "Socioeconomic_factors": -0.8916
+      }
+    }
+  ]
+}

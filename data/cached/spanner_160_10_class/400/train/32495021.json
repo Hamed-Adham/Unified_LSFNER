@@ -1,0 +1,128 @@
+{
+  "doc_id": "32495021",
+  "dataset_split": "400/train",
+  "text": "Assessing Diabetes Distress and Sleep Quality in Young Adults with Type 1 Diabetes Using FreeStyle Libre: A Prospective Cohort Study. \nINTRODUCTION: The burden of diabetes, its potential complications, and related self-care activities can induce negative psychosocial effects in patients with type 1 diabetes mellitus (T1DM). This prospective cohort study investigated the psychosocial benefits associated with 3 months of FreeStyle Libre (FSL) flash glucose monitoring use in young adults with T1DM in Saudi Arabia. METHODS: Patients completed the Diabetes Distress Scale (DDS) and the Pittsburgh Sleep Quality Index (PSQI) questionnaires at baseline and 3 months. HbA1c, number of confirmed hypoglycemia episodes per month, and frequency of blood glucose testing were also collected at baseline and 3 months. RESULTS: Of 95 patients analyzed, significant reductions were observed in mean DDS (3.8 vs. 2.5; p < 0.001) and PSQI (8.7 vs. 3.9; p < 0.001) scores from baseline to 3 months. Furthermore, HbA1c and confirmed hypoglycemia episodes per month also decreased from baseline to 3 months (HbA1c 8.3 vs. 7.7% [67 vs. 61 mmol/mol], p < 0.001; hypoglycemia episodes 3.0 vs. 2.3, p < 0.001). In contrast, mean frequency of blood glucose testing per day increased from baseline to 3 months (2.5 vs. 5.2; p < 0.001). CONCLUSION: These data demonstrate improvements in diabetes distress and sleep quality as well as glycemic outcomes following 3 months' FSL use in young adults with T1DM. \n",
+  "total_candidates": 2,
+  "spans": [
+    {
+      "span_id": "32495021_s000",
+      "abstract_id": "32495021",
+      "span_text": "Sleep Quality",
+      "boundaries": {
+        "start_char": 32,
+        "end_char": 45,
+        "token_start": 7,
+        "token_end": 8,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Sleep",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Sleep",
+        "second_best_label": "O",
+        "uncertainty": 0.0595,
+        "novelty_score": 0.4369,
+        "margin": 0.9558,
+        "top1_prob": 0.9755,
+        "top2_prob": 0.0197,
+        "p_background_o": 0.0197
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4369,
+        "novelty_lof": 1.0642,
+        "novelty_knn_dist": 0.1661
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0595,
+        "least_confidence": 0.0245,
+        "margin_uncertainty": 0.0442
+      },
+      "probabilities": {
+        "O": 0.0197,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0007,
+        "Environmental_exposures": 0.0006,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0008,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.9755,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 1.89,
+        "Personal_care_products_and_cosmetic_procedures": -2.1522,
+        "Substance_use": -1.4462,
+        "Environmental_exposures": -1.5791,
+        "Mental_health_practices": -2.1686,
+        "Non_physical_leisure_time_activities": -1.3895,
+        "Nutrition": -1.3289,
+        "Physical_activities": -1.3407,
+        "Sleep": 5.7917,
+        "Socioeconomic_factors": -1.7908
+      }
+    },
+    {
+      "span_id": "32495021_s001",
+      "abstract_id": "32495021",
+      "span_text": "sleep quality",
+      "boundaries": {
+        "start_char": 1389,
+        "end_char": 1402,
+        "token_start": 322,
+        "token_end": 323,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Sleep",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Sleep",
+        "second_best_label": "O",
+        "uncertainty": 0.0451,
+        "novelty_score": 0.3031,
+        "margin": 0.9705,
+        "top1_prob": 0.9831,
+        "top2_prob": 0.0126,
+        "p_background_o": 0.0126
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3031,
+        "novelty_lof": 1.0095,
+        "novelty_knn_dist": 0.13
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0451,
+        "least_confidence": 0.0169,
+        "margin_uncertainty": 0.0295
+      },
+      "probabilities": {
+        "O": 0.0126,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0006,
+        "Nutrition": 0.0007,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.9831,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 1.5668,
+        "Personal_care_products_and_cosmetic_procedures": -1.9891,
+        "Substance_use": -1.4834,
+        "Environmental_exposures": -1.6009,
+        "Mental_health_practices": -2.087,
+        "Non_physical_leisure_time_activities": -1.4198,
+        "Nutrition": -1.331,
+        "Physical_activities": -1.2641,
+        "Sleep": 5.9243,
+        "Socioeconomic_factors": -1.9139
+      }
+    }
+  ]
+}

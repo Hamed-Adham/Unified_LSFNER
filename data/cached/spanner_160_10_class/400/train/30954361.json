@@ -1,0 +1,1148 @@
+{
+  "doc_id": "30954361",
+  "dataset_split": "400/train",
+  "text": "Dietary intake and serum levels of trans fatty acids and risk of breast cancer: A systematic review and dose-response meta-analysis of prospective studies. \nBACKGROUND & AIMS: Although the relationship between dietary intake and serum levels of trans fatty acids and risk of breast cancer has been investigated extensively, findings are inconsistent. To summarize earlier findings on the association of dietary intake and serum levels of trans fatty acids with risk of breast cancer through a dose-response meta-analysis. METHODS: The online databases of PubMed, ISI Web of Science, Scopus, ProQuest, Science Direct and Embase were searched for relevant publications up to June 2018, using MeSH and non-MeSH keywords. In total, 7 prospective studies [6 cohort studies and one nested case-control study] were included on total dietary trans fat intake, and five studies [1 cohort study and 4 nested case-control studies] were included about serum trans fatty acids. Assessment of study quality was conducted using the Newcastle-Ottawa scale. Study-specific RRs were combined via fixed-effects model to compute overall RRs. RESULTS: Participants were apparently healthy aged 26 years or older. We observed no significant relationship between dietary intake of total trans fatty acids and risk of breast cancer (pooled effect size: 1.02, 95% CI: 0.95-1.10, P = 0.403). Combining 3 effect sizes from 2 prospective and one nested case-control study, no significant relation was seen between dietary intake of CLA and risk of breast cancer (pooled effect size: 1.05, 95% CI: 0.95-1.17, P = 0.513). Based on 5 effect sizes, each additional 1 g/day dietary intake of total trans fats was not significantly associated with risk of breast cancer (RR = 1.00; 95% CI = 0.99-1.01). In addition, it seems that serum levels of trans fats might be associated with an increased risk of breast cancer only among postmenopausal women (Pooled effect size: 1.37, 95% CI: 1.04-1.81, P = 0.02). CONCLUSIONS: In conclusion, dietary intake of trans fatty acids was not associated with risk of breast cancer; however, a significant positive association was seen between serum trans fats and risk of breast cancer in postmenopausal women. \n",
+  "total_candidates": 19,
+  "spans": [
+    {
+      "span_id": "30954361_s000",
+      "abstract_id": "30954361",
+      "span_text": "CLA",
+      "boundaries": {
+        "start_char": 1504,
+        "end_char": 1507,
+        "token_start": 296,
+        "token_end": 296,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0314,
+        "novelty_score": 0.8027,
+        "margin": 0.9761,
+        "top1_prob": 0.9876,
+        "top2_prob": 0.0115,
+        "p_background_o": 0.0115
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8027,
+        "novelty_lof": 1.2068,
+        "novelty_knn_dist": 0.2833
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0314,
+        "least_confidence": 0.0124,
+        "margin_uncertainty": 0.0239
+      },
+      "probabilities": {
+        "O": 0.0115,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.9876,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 2.8979,
+        "Personal_care_products_and_cosmetic_procedures": -2.066,
+        "Substance_use": -1.6119,
+        "Environmental_exposures": -1.8593,
+        "Mental_health_practices": -2.6084,
+        "Non_physical_leisure_time_activities": -1.5429,
+        "Nutrition": 7.3532,
+        "Physical_activities": -1.3074,
+        "Sleep": -1.5311,
+        "Socioeconomic_factors": -1.2437
+      }
+    },
+    {
+      "span_id": "30954361_s001",
+      "abstract_id": "30954361",
+      "span_text": "Dietary intake",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 14,
+        "token_start": 1,
+        "token_end": 2,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0643,
+        "novelty_score": 0.3638,
+        "margin": 0.9427,
+        "top1_prob": 0.9701,
+        "top2_prob": 0.0274,
+        "p_background_o": 0.0274
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3638,
+        "novelty_lof": 0.9929,
+        "novelty_knn_dist": 0.1895
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0643,
+        "least_confidence": 0.0299,
+        "margin_uncertainty": 0.0573
+      },
+      "probabilities": {
+        "O": 0.0274,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.9701,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 2.8067,
+        "Personal_care_products_and_cosmetic_procedures": -1.7147,
+        "Substance_use": -1.8233,
+        "Environmental_exposures": -1.4003,
+        "Mental_health_practices": -2.9278,
+        "Non_physical_leisure_time_activities": -1.7144,
+        "Nutrition": 6.3731,
+        "Physical_activities": -1.5688,
+        "Sleep": -1.4962,
+        "Socioeconomic_factors": -1.3538
+      }
+    },
+    {
+      "span_id": "30954361_s002",
+      "abstract_id": "30954361",
+      "span_text": "dietary intake",
+      "boundaries": {
+        "start_char": 210,
+        "end_char": 224,
+        "token_start": 40,
+        "token_end": 41,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0526,
+        "novelty_score": 0.3068,
+        "margin": 0.9562,
+        "top1_prob": 0.977,
+        "top2_prob": 0.0208,
+        "p_background_o": 0.0208
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3068,
+        "novelty_lof": 0.9783,
+        "novelty_knn_dist": 0.1639
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0526,
+        "least_confidence": 0.023,
+        "margin_uncertainty": 0.0438
+      },
+      "probabilities": {
+        "O": 0.0208,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.977,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 2.6322,
+        "Personal_care_products_and_cosmetic_procedures": -1.6581,
+        "Substance_use": -1.9702,
+        "Environmental_exposures": -1.4094,
+        "Mental_health_practices": -2.9007,
+        "Non_physical_leisure_time_activities": -1.7855,
+        "Nutrition": 6.4833,
+        "Physical_activities": -1.5695,
+        "Sleep": -1.3695,
+        "Socioeconomic_factors": -1.4912
+      }
+    },
+    {
+      "span_id": "30954361_s003",
+      "abstract_id": "30954361",
+      "span_text": "dietary intake",
+      "boundaries": {
+        "start_char": 403,
+        "end_char": 417,
+        "token_start": 71,
+        "token_end": 72,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0401,
+        "novelty_score": 0.3068,
+        "margin": 0.9698,
+        "top1_prob": 0.9839,
+        "top2_prob": 0.0141,
+        "p_background_o": 0.0141
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3068,
+        "novelty_lof": 0.9783,
+        "novelty_knn_dist": 0.1639
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0401,
+        "least_confidence": 0.0161,
+        "margin_uncertainty": 0.0302
+      },
+      "probabilities": {
+        "O": 0.0141,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9839,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 2.3637,
+        "Personal_care_products_and_cosmetic_procedures": -1.6391,
+        "Substance_use": -1.9288,
+        "Environmental_exposures": -1.4597,
+        "Mental_health_practices": -2.8915,
+        "Non_physical_leisure_time_activities": -1.7423,
+        "Nutrition": 6.6085,
+        "Physical_activities": -1.5031,
+        "Sleep": -1.366,
+        "Socioeconomic_factors": -1.5373
+      }
+    },
+    {
+      "span_id": "30954361_s004",
+      "abstract_id": "30954361",
+      "span_text": "trans fats",
+      "boundaries": {
+        "start_char": 1665,
+        "end_char": 1675,
+        "token_start": 345,
+        "token_end": 346,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0535,
+        "novelty_score": 0.4539,
+        "margin": 0.9573,
+        "top1_prob": 0.9772,
+        "top2_prob": 0.0199,
+        "p_background_o": 0.0199
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4539,
+        "novelty_lof": 1.0831,
+        "novelty_knn_dist": 0.1579
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0535,
+        "least_confidence": 0.0228,
+        "margin_uncertainty": 0.0427
+      },
+      "probabilities": {
+        "O": 0.0199,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0006,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.9772,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 2.3866,
+        "Personal_care_products_and_cosmetic_procedures": -1.9574,
+        "Substance_use": -1.9884,
+        "Environmental_exposures": -1.1281,
+        "Mental_health_practices": -3.0612,
+        "Non_physical_leisure_time_activities": -1.8581,
+        "Nutrition": 6.2818,
+        "Physical_activities": -1.0794,
+        "Sleep": -1.8389,
+        "Socioeconomic_factors": -1.2122
+      }
+    },
+    {
+      "span_id": "30954361_s005",
+      "abstract_id": "30954361",
+      "span_text": "trans fats",
+      "boundaries": {
+        "start_char": 1812,
+        "end_char": 1822,
+        "token_start": 384,
+        "token_end": 385,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0178,
+        "novelty_score": 0.4538,
+        "margin": 0.9912,
+        "top1_prob": 0.9946,
+        "top2_prob": 0.0034,
+        "p_background_o": 0.0034
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4538,
+        "novelty_lof": 1.0831,
+        "novelty_knn_dist": 0.1579
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0178,
+        "least_confidence": 0.0054,
+        "margin_uncertainty": 0.0088
+      },
+      "probabilities": {
+        "O": 0.0034,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9946,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0004
+      },
+      "logits": {
+        "O": 1.1088,
+        "Personal_care_products_and_cosmetic_procedures": -1.7513,
+        "Substance_use": -1.9661,
+        "Environmental_exposures": -1.0551,
+        "Mental_health_practices": -2.8889,
+        "Non_physical_leisure_time_activities": -1.7871,
+        "Nutrition": 6.773,
+        "Physical_activities": -1.1196,
+        "Sleep": -1.6858,
+        "Socioeconomic_factors": -1.1719
+      }
+    },
+    {
+      "span_id": "30954361_s006",
+      "abstract_id": "30954361",
+      "span_text": "trans fats",
+      "boundaries": {
+        "start_char": 2150,
+        "end_char": 2160,
+        "token_start": 458,
+        "token_end": 459,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0204,
+        "novelty_score": 0.4539,
+        "margin": 0.989,
+        "top1_prob": 0.9935,
+        "top2_prob": 0.0045,
+        "p_background_o": 0.0045
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4539,
+        "novelty_lof": 1.0831,
+        "novelty_knn_dist": 0.1579
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0204,
+        "least_confidence": 0.0065,
+        "margin_uncertainty": 0.011
+      },
+      "probabilities": {
+        "O": 0.0045,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9935,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 1.3498,
+        "Personal_care_products_and_cosmetic_procedures": -1.7756,
+        "Substance_use": -1.9799,
+        "Environmental_exposures": -1.0525,
+        "Mental_health_practices": -2.9517,
+        "Non_physical_leisure_time_activities": -1.8035,
+        "Nutrition": 6.7378,
+        "Physical_activities": -1.2068,
+        "Sleep": -1.6614,
+        "Socioeconomic_factors": -1.2556
+      }
+    },
+    {
+      "span_id": "30954361_s007",
+      "abstract_id": "30954361",
+      "span_text": "trans fatty acids",
+      "boundaries": {
+        "start_char": 35,
+        "end_char": 52,
+        "token_start": 7,
+        "token_end": 9,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0217,
+        "novelty_score": 0.4629,
+        "margin": 0.9888,
+        "top1_prob": 0.9932,
+        "top2_prob": 0.0043,
+        "p_background_o": 0.0043
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4629,
+        "novelty_lof": 1.0901,
+        "novelty_knn_dist": 0.1567
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0217,
+        "least_confidence": 0.0068,
+        "margin_uncertainty": 0.0112
+      },
+      "probabilities": {
+        "O": 0.0043,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9932,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 1.1699,
+        "Personal_care_products_and_cosmetic_procedures": -1.8805,
+        "Substance_use": -1.9245,
+        "Environmental_exposures": -1.0939,
+        "Mental_health_practices": -2.7156,
+        "Non_physical_leisure_time_activities": -1.7225,
+        "Nutrition": 6.6015,
+        "Physical_activities": -1.1307,
+        "Sleep": -1.7911,
+        "Socioeconomic_factors": -0.7886
+      }
+    },
+    {
+      "span_id": "30954361_s008",
+      "abstract_id": "30954361",
+      "span_text": "trans fatty acids",
+      "boundaries": {
+        "start_char": 245,
+        "end_char": 262,
+        "token_start": 46,
+        "token_end": 48,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0197,
+        "novelty_score": 0.4629,
+        "margin": 0.9903,
+        "top1_prob": 0.994,
+        "top2_prob": 0.0037,
+        "p_background_o": 0.0037
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4629,
+        "novelty_lof": 1.0901,
+        "novelty_knn_dist": 0.1567
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0197,
+        "least_confidence": 0.006,
+        "margin_uncertainty": 0.0097
+      },
+      "probabilities": {
+        "O": 0.0037,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.994,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 1.0462,
+        "Personal_care_products_and_cosmetic_procedures": -1.8544,
+        "Substance_use": -2.0086,
+        "Environmental_exposures": -1.1221,
+        "Mental_health_practices": -2.7111,
+        "Non_physical_leisure_time_activities": -1.6982,
+        "Nutrition": 6.646,
+        "Physical_activities": -1.1358,
+        "Sleep": -1.7943,
+        "Socioeconomic_factors": -0.7756
+      }
+    },
+    {
+      "span_id": "30954361_s009",
+      "abstract_id": "30954361",
+      "span_text": "trans fatty acids",
+      "boundaries": {
+        "start_char": 438,
+        "end_char": 455,
+        "token_start": 77,
+        "token_end": 79,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0208,
+        "novelty_score": 0.4629,
+        "margin": 0.9898,
+        "top1_prob": 0.9936,
+        "top2_prob": 0.0038,
+        "p_background_o": 0.0038
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4629,
+        "novelty_lof": 1.0901,
+        "novelty_knn_dist": 0.1567
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0208,
+        "least_confidence": 0.0064,
+        "margin_uncertainty": 0.0102
+      },
+      "probabilities": {
+        "O": 0.0038,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9936,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 1.0043,
+        "Personal_care_products_and_cosmetic_procedures": -1.8547,
+        "Substance_use": -1.9374,
+        "Environmental_exposures": -1.0735,
+        "Mental_health_practices": -2.6726,
+        "Non_physical_leisure_time_activities": -1.7265,
+        "Nutrition": 6.574,
+        "Physical_activities": -1.1067,
+        "Sleep": -1.8003,
+        "Socioeconomic_factors": -0.7303
+      }
+    },
+    {
+      "span_id": "30954361_s010",
+      "abstract_id": "30954361",
+      "span_text": "trans fat intake",
+      "boundaries": {
+        "start_char": 834,
+        "end_char": 850,
+        "token_start": 158,
+        "token_end": 160,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1021,
+        "novelty_score": 0.4301,
+        "margin": 0.893,
+        "top1_prob": 0.9446,
+        "top2_prob": 0.0516,
+        "p_background_o": 0.0516
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4301,
+        "novelty_lof": 1.0641,
+        "novelty_knn_dist": 0.1618
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1021,
+        "least_confidence": 0.0554,
+        "margin_uncertainty": 0.107
+      },
+      "probabilities": {
+        "O": 0.0516,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9446,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 3.0479,
+        "Personal_care_products_and_cosmetic_procedures": -2.3174,
+        "Substance_use": -1.7853,
+        "Environmental_exposures": -1.2343,
+        "Mental_health_practices": -2.9908,
+        "Non_physical_leisure_time_activities": -1.7088,
+        "Nutrition": 5.9548,
+        "Physical_activities": -1.1288,
+        "Sleep": -1.9784,
+        "Socioeconomic_factors": -1.2468
+      }
+    },
+    {
+      "span_id": "30954361_s011",
+      "abstract_id": "30954361",
+      "span_text": "trans fatty acids",
+      "boundaries": {
+        "start_char": 946,
+        "end_char": 963,
+        "token_start": 181,
+        "token_end": 183,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "O",
+        "is_entity": false
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.026,
+        "novelty_score": 0.4629,
+        "margin": 0.9855,
+        "top1_prob": 0.9914,
+        "top2_prob": 0.0059,
+        "p_background_o": 0.0059
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4629,
+        "novelty_lof": 1.0901,
+        "novelty_knn_dist": 0.1567
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.026,
+        "least_confidence": 0.0086,
+        "margin_uncertainty": 0.0145
+      },
+      "probabilities": {
+        "O": 0.0059,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.9914,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 1.3575,
+        "Personal_care_products_and_cosmetic_procedures": -1.9046,
+        "Substance_use": -1.8794,
+        "Environmental_exposures": -1.057,
+        "Mental_health_practices": -2.7933,
+        "Non_physical_leisure_time_activities": -1.7187,
+        "Nutrition": 6.4816,
+        "Physical_activities": -1.2191,
+        "Sleep": -1.8102,
+        "Socioeconomic_factors": -0.8827
+      }
+    },
+    {
+      "span_id": "30954361_s012",
+      "abstract_id": "30954361",
+      "span_text": "trans fatty acids",
+      "boundaries": {
+        "start_char": 1264,
+        "end_char": 1281,
+        "token_start": 237,
+        "token_end": 239,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0657,
+        "novelty_score": 0.4628,
+        "margin": 0.9439,
+        "top1_prob": 0.9702,
+        "top2_prob": 0.0264,
+        "p_background_o": 0.0264
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4628,
+        "novelty_lof": 1.09,
+        "novelty_knn_dist": 0.1567
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0657,
+        "least_confidence": 0.0298,
+        "margin_uncertainty": 0.0561
+      },
+      "probabilities": {
+        "O": 0.0264,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0006,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9702,
+        "Physical_activities": 0.0007,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0008
+      },
+      "logits": {
+        "O": 2.5515,
+        "Personal_care_products_and_cosmetic_procedures": -2.194,
+        "Substance_use": -1.8744,
+        "Environmental_exposures": -1.2214,
+        "Mental_health_practices": -2.9137,
+        "Non_physical_leisure_time_activities": -1.7386,
+        "Nutrition": 6.1573,
+        "Physical_activities": -1.0791,
+        "Sleep": -1.9377,
+        "Socioeconomic_factors": -0.9416
+      }
+    },
+    {
+      "span_id": "30954361_s013",
+      "abstract_id": "30954361",
+      "span_text": "total trans fats",
+      "boundaries": {
+        "start_char": 1659,
+        "end_char": 1675,
+        "token_start": 344,
+        "token_end": 346,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3223,
+        "novelty_score": 0.7061,
+        "margin": 0.0021,
+        "top1_prob": 0.4977,
+        "top2_prob": 0.4956,
+        "p_background_o": 0.4956
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7061,
+        "novelty_lof": 1.2018,
+        "novelty_knn_dist": 0.2057
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3223,
+        "least_confidence": 0.5023,
+        "margin_uncertainty": 0.9979
+      },
+      "probabilities": {
+        "O": 0.4956,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0006,
+        "Environmental_exposures": 0.0016,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.4977,
+        "Physical_activities": 0.0008,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0017
+      },
+      "logits": {
+        "O": 4.7239,
+        "Personal_care_products_and_cosmetic_procedures": -2.2291,
+        "Substance_use": -1.9379,
+        "Environmental_exposures": -1.0367,
+        "Mental_health_practices": -3.0441,
+        "Non_physical_leisure_time_activities": -1.7186,
+        "Nutrition": 4.7281,
+        "Physical_activities": -1.7277,
+        "Sleep": -2.0149,
+        "Socioeconomic_factors": -0.9225
+      }
+    },
+    {
+      "span_id": "30954361_s014",
+      "abstract_id": "30954361",
+      "span_text": "trans fatty acids",
+      "boundaries": {
+        "start_char": 2018,
+        "end_char": 2035,
+        "token_start": 436,
+        "token_end": 438,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.021,
+        "novelty_score": 0.4628,
+        "margin": 0.9891,
+        "top1_prob": 0.9934,
+        "top2_prob": 0.0043,
+        "p_background_o": 0.0043
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4628,
+        "novelty_lof": 1.09,
+        "novelty_knn_dist": 0.1567
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.021,
+        "least_confidence": 0.0066,
+        "margin_uncertainty": 0.0109
+      },
+      "probabilities": {
+        "O": 0.0043,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9934,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0005
+      },
+      "logits": {
+        "O": 1.2286,
+        "Personal_care_products_and_cosmetic_procedures": -1.9174,
+        "Substance_use": -1.9244,
+        "Environmental_exposures": -1.2127,
+        "Mental_health_practices": -2.7319,
+        "Non_physical_leisure_time_activities": -1.6682,
+        "Nutrition": 6.6626,
+        "Physical_activities": -1.0834,
+        "Sleep": -1.7692,
+        "Socioeconomic_factors": -0.8561
+      }
+    },
+    {
+      "span_id": "30954361_s015",
+      "abstract_id": "30954361",
+      "span_text": "total trans fatty acids",
+      "boundaries": {
+        "start_char": 1258,
+        "end_char": 1281,
+        "token_start": 236,
+        "token_end": 239,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3161,
+        "novelty_score": 0.7558,
+        "margin": 0.2379,
+        "top1_prob": 0.6143,
+        "top2_prob": 0.3765,
+        "p_background_o": 0.3765
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7558,
+        "novelty_lof": 1.2249,
+        "novelty_knn_dist": 0.2223
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3161,
+        "least_confidence": 0.3857,
+        "margin_uncertainty": 0.7621
+      },
+      "probabilities": {
+        "O": 0.3765,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0012,
+        "Environmental_exposures": 0.002,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0009,
+        "Nutrition": 0.6143,
+        "Physical_activities": 0.001,
+        "Sleep": 0.0008,
+        "Socioeconomic_factors": 0.0025
+      },
+      "logits": {
+        "O": 4.2146,
+        "Personal_care_products_and_cosmetic_procedures": -2.3003,
+        "Substance_use": -1.5387,
+        "Environmental_exposures": -1.0245,
+        "Mental_health_practices": -2.9987,
+        "Non_physical_leisure_time_activities": -1.7871,
+        "Nutrition": 4.7043,
+        "Physical_activities": -1.7155,
+        "Sleep": -1.991,
+        "Socioeconomic_factors": -0.795
+      }
+    },
+    {
+      "span_id": "30954361_s016",
+      "abstract_id": "30954361",
+      "span_text": "dietary intake of CLA",
+      "boundaries": {
+        "start_char": 1486,
+        "end_char": 1507,
+        "token_start": 293,
+        "token_end": 296,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1059,
+        "novelty_score": 0.7562,
+        "margin": 0.8839,
+        "top1_prob": 0.9404,
+        "top2_prob": 0.0566,
+        "p_background_o": 0.0566
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7562,
+        "novelty_lof": 1.1763,
+        "novelty_knn_dist": 0.2713
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1059,
+        "least_confidence": 0.0596,
+        "margin_uncertainty": 0.1161
+      },
+      "probabilities": {
+        "O": 0.0566,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.9404,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 3.3495,
+        "Personal_care_products_and_cosmetic_procedures": -2.0804,
+        "Substance_use": -1.7177,
+        "Environmental_exposures": -1.5732,
+        "Mental_health_practices": -2.8953,
+        "Non_physical_leisure_time_activities": -1.5499,
+        "Nutrition": 6.1606,
+        "Physical_activities": -1.5961,
+        "Sleep": -1.6728,
+        "Socioeconomic_factors": -1.039
+      }
+    },
+    {
+      "span_id": "30954361_s017",
+      "abstract_id": "30954361",
+      "span_text": "dietary intake of total trans fats",
+      "boundaries": {
+        "start_char": 1641,
+        "end_char": 1675,
+        "token_start": 341,
+        "token_end": 346,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2533,
+        "novelty_score": 0.6462,
+        "margin": 0.5181,
+        "top1_prob": 0.757,
+        "top2_prob": 0.2389,
+        "p_background_o": 0.2389
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6462,
+        "novelty_lof": 1.1487,
+        "novelty_knn_dist": 0.2158
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2533,
+        "least_confidence": 0.243,
+        "margin_uncertainty": 0.4819
+      },
+      "probabilities": {
+        "O": 0.2389,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.0005,
+        "Environmental_exposures": 0.0008,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0004,
+        "Nutrition": 0.757,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0004,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 4.3918,
+        "Personal_care_products_and_cosmetic_procedures": -2.0591,
+        "Substance_use": -1.8596,
+        "Environmental_exposures": -1.3126,
+        "Mental_health_practices": -3.1619,
+        "Non_physical_leisure_time_activities": -1.903,
+        "Nutrition": 5.5452,
+        "Physical_activities": -1.6883,
+        "Sleep": -1.9983,
+        "Socioeconomic_factors": -1.1455
+      }
+    },
+    {
+      "span_id": "30954361_s018",
+      "abstract_id": "30954361",
+      "span_text": "dietary intake of trans fatty acids",
+      "boundaries": {
+        "start_char": 2000,
+        "end_char": 2035,
+        "token_start": 433,
+        "token_end": 438,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0378,
+        "novelty_score": 0.5238,
+        "margin": 0.9731,
+        "top1_prob": 0.9854,
+        "top2_prob": 0.0123,
+        "p_background_o": 0.0123
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5238,
+        "novelty_lof": 1.085,
+        "novelty_knn_dist": 0.2
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0378,
+        "least_confidence": 0.0146,
+        "margin_uncertainty": 0.0269
+      },
+      "probabilities": {
+        "O": 0.0123,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0004,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9854,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0006
+      },
+      "logits": {
+        "O": 2.1604,
+        "Personal_care_products_and_cosmetic_procedures": -1.7745,
+        "Substance_use": -1.7399,
+        "Environmental_exposures": -1.367,
+        "Mental_health_practices": -2.9419,
+        "Non_physical_leisure_time_activities": -1.8228,
+        "Nutrition": 6.5447,
+        "Physical_activities": -1.4419,
+        "Sleep": -1.7275,
+        "Socioeconomic_factors": -0.918
+      }
+    }
+  ]
+}

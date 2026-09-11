@@ -35,11 +35,11 @@ def evaluate_doc_4_formulations(
     """
     active_gts = [
         g for g in gt_ents
-        if canonicalize_label(g.get("label", "O"), use_new_labels=use_new_labels) not in {"O", "Lifestyle_factor", "lifestyle_factor", "LSF_out_of_context", "Non_LSF"}
+        if canonicalize_label(g.get("label", "O"), use_new_labels=use_new_labels) not in {"O", "Lifestyle_factor", "lifestyle_factor", "LSF_out_of_context", "Non_LSF", "Non-LSF"}
     ]
     active_preds = [
         p for p in preds
-        if canonicalize_label(p.get("label", p.get("spanner_label", "O")), use_new_labels=use_new_labels) not in {"O", "Lifestyle_factor", "lifestyle_factor", "LSF_out_of_context", "Non_LSF"}
+        if canonicalize_label(p.get("label", p.get("spanner_label", "O")), use_new_labels=use_new_labels) not in {"O", "Lifestyle_factor", "lifestyle_factor", "LSF_out_of_context", "Non_LSF", "Non-LSF"}
     ]
 
     # --------------------------------------------------------------------------
@@ -328,11 +328,11 @@ def evaluate_stage_predictions(
     for preds, gts in zip(all_stage_preds, all_doc_gts):
         active_gts = [
             g for g in gts
-            if canonicalize_label(g.get("label", "O"), use_new_labels=use_new_labels) not in {"O", "Lifestyle_factor", "lifestyle_factor", "LSF_out_of_context", "Non_LSF"}
+            if canonicalize_label(g.get("label", "O"), use_new_labels=use_new_labels) not in {"O", "Lifestyle_factor", "lifestyle_factor", "LSF_out_of_context", "Non_LSF", "Non-LSF"}
         ]
         active_preds = [
             p for p in preds
-            if canonicalize_label(p.get("label", p.get("spanner_label", "O")), use_new_labels=use_new_labels) not in {"O", "Lifestyle_factor", "lifestyle_factor", "LSF_out_of_context", "Non_LSF"}
+            if canonicalize_label(p.get("label", p.get("spanner_label", "O")), use_new_labels=use_new_labels) not in {"O", "Lifestyle_factor", "lifestyle_factor", "LSF_out_of_context", "Non_LSF", "Non-LSF"}
         ]
 
         for g in active_gts:

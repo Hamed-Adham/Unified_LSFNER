@@ -1,0 +1,428 @@
+{
+  "doc_id": "12510035",
+  "dataset_split": "200/train",
+  "text": "Homicidal commotio cordis: the final blow in a battered infant. \nOBJECTIVE: This report describes in detail the occurrence of inflicted commotio cordis (cardiac concussion) in a previously abused 7-week-old. Though inflicted commotio cordis has been reported in three toddlers, this is the first report in a young infant. METHOD: Following documentation of abuse in a living child, the case of a death of a prior sibling--previously regarded as natural--was re-opened for further investigation. Original autopsy materials were reviewed, and the body of the deceased child was exhumed. RESULTS: Exhumation and second autopsy documented more than 50 fractures in the deceased child. When re-interviewed, the children's father admitted to causing the injuries in both children, and gave a textbook description of commotio cordis as the mechanism of death in the fatal case. CONCLUSIONS: Commotio cordis is a rare event in which a fatal dysrhythmia--usually ventricular fibrillation--is precipitated by a blow to the precordial chest. Previous reports have indicated that homicidal commotio cordis can occur in small children. This report demonstrates that commotio cordis can occur even in the very young, previously abused infant. \n",
+  "total_candidates": 7,
+  "spans": [
+    {
+      "span_id": "12510035_s000",
+      "abstract_id": "12510035",
+      "span_text": "abuse",
+      "boundaries": {
+        "start_char": 357,
+        "end_char": 362,
+        "token_start": 82,
+        "token_end": 82,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0418,
+        "novelty_score": 0.8332,
+        "margin": 0.9631,
+        "top1_prob": 0.9813,
+        "top2_prob": 0.0182,
+        "p_background_o": 0.0182
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8332,
+        "novelty_lof": 1.2767,
+        "novelty_knn_dist": 0.2457
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0418,
+        "least_confidence": 0.0187,
+        "margin_uncertainty": 0.0369
+      },
+      "probabilities": {
+        "O": 0.0182,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0,
+        "Socioeconomic_factors": 0.9813
+      },
+      "logits": {
+        "O": 3.8112,
+        "Personal_care_products_and_cosmetic_procedures": -1.4458,
+        "Substance_use": -1.9656,
+        "Environmental_exposures": -2.3295,
+        "Mental_health_practices": -1.7178,
+        "Non_physical_leisure_time_activities": -1.6577,
+        "Nutrition": -2.241,
+        "Physical_activities": -1.7745,
+        "Sleep": -2.5888,
+        "Socioeconomic_factors": 7.7968
+      }
+    },
+    {
+      "span_id": "12510035_s001",
+      "abstract_id": "12510035",
+      "span_text": "death",
+      "boundaries": {
+        "start_char": 396,
+        "end_char": 401,
+        "token_start": 92,
+        "token_end": 92,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2589,
+        "novelty_score": 0.7881,
+        "margin": 0.4609,
+        "top1_prob": 0.7297,
+        "top2_prob": 0.2688,
+        "p_background_o": 0.2688
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7881,
+        "novelty_lof": 1.1789,
+        "novelty_knn_dist": 0.2971
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2589,
+        "least_confidence": 0.2703,
+        "margin_uncertainty": 0.5391
+      },
+      "probabilities": {
+        "O": 0.2688,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.7297
+      },
+      "logits": {
+        "O": 5.2893,
+        "Personal_care_products_and_cosmetic_procedures": -1.7508,
+        "Substance_use": -1.6192,
+        "Environmental_exposures": -2.399,
+        "Mental_health_practices": -2.0381,
+        "Non_physical_leisure_time_activities": -1.7486,
+        "Nutrition": -1.9254,
+        "Physical_activities": -2.2977,
+        "Sleep": -2.2522,
+        "Socioeconomic_factors": 6.2881
+      }
+    },
+    {
+      "span_id": "12510035_s002",
+      "abstract_id": "12510035",
+      "span_text": "sibling",
+      "boundaries": {
+        "start_char": 413,
+        "end_char": 420,
+        "token_start": 96,
+        "token_end": 96,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2049,
+        "novelty_score": 0.6771,
+        "margin": 0.7034,
+        "top1_prob": 0.8479,
+        "top2_prob": 0.1445,
+        "p_background_o": 0.1445
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6771,
+        "novelty_lof": 1.1121,
+        "novelty_knn_dist": 0.2741
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2049,
+        "least_confidence": 0.1521,
+        "margin_uncertainty": 0.2966
+      },
+      "probabilities": {
+        "O": 0.1445,
+        "Personal_care_products_and_cosmetic_procedures": 0.0017,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0014,
+        "Non_physical_leisure_time_activities": 0.0012,
+        "Nutrition": 0.0009,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.8479
+      },
+      "logits": {
+        "O": 3.6513,
+        "Personal_care_products_and_cosmetic_procedures": -0.8163,
+        "Substance_use": -1.553,
+        "Environmental_exposures": -2.0765,
+        "Mental_health_practices": -0.9566,
+        "Non_physical_leisure_time_activities": -1.1374,
+        "Nutrition": -1.4181,
+        "Physical_activities": -1.8676,
+        "Sleep": -1.888,
+        "Socioeconomic_factors": 5.421
+      }
+    },
+    {
+      "span_id": "12510035_s003",
+      "abstract_id": "12510035",
+      "span_text": "living child",
+      "boundaries": {
+        "start_char": 368,
+        "end_char": 380,
+        "token_start": 85,
+        "token_end": 86,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.229,
+        "novelty_score": 0.7463,
+        "margin": 0.5806,
+        "top1_prob": 0.7895,
+        "top2_prob": 0.2089,
+        "p_background_o": 0.2089
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7463,
+        "novelty_lof": 1.1275,
+        "novelty_knn_dist": 0.3118
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.229,
+        "least_confidence": 0.2105,
+        "margin_uncertainty": 0.4194
+      },
+      "probabilities": {
+        "O": 0.2089,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.7895
+      },
+      "logits": {
+        "O": 4.9595,
+        "Personal_care_products_and_cosmetic_procedures": -1.7978,
+        "Substance_use": -1.8035,
+        "Environmental_exposures": -2.0586,
+        "Mental_health_practices": -2.0702,
+        "Non_physical_leisure_time_activities": -1.5781,
+        "Nutrition": -2.2588,
+        "Physical_activities": -2.2928,
+        "Sleep": -2.3143,
+        "Socioeconomic_factors": 6.2891
+      }
+    },
+    {
+      "span_id": "12510035_s004",
+      "abstract_id": "12510035",
+      "span_text": "abused infant",
+      "boundaries": {
+        "start_char": 1214,
+        "end_char": 1227,
+        "token_start": 262,
+        "token_end": 263,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0171,
+        "novelty_score": 0.8681,
+        "margin": 0.9892,
+        "top1_prob": 0.9942,
+        "top2_prob": 0.005,
+        "p_background_o": 0.005
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8681,
+        "novelty_lof": 1.2644,
+        "novelty_knn_dist": 0.3012
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0171,
+        "least_confidence": 0.0058,
+        "margin_uncertainty": 0.0108
+      },
+      "probabilities": {
+        "O": 0.005,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9942
+      },
+      "logits": {
+        "O": 2.2214,
+        "Personal_care_products_and_cosmetic_procedures": -1.1981,
+        "Substance_use": -1.9173,
+        "Environmental_exposures": -1.5657,
+        "Mental_health_practices": -1.7183,
+        "Non_physical_leisure_time_activities": -1.6348,
+        "Nutrition": -1.8485,
+        "Physical_activities": -2.0056,
+        "Sleep": -2.3283,
+        "Socioeconomic_factors": 7.5153
+      }
+    },
+    {
+      "span_id": "12510035_s005",
+      "abstract_id": "12510035",
+      "span_text": "abuse in a living child",
+      "boundaries": {
+        "start_char": 357,
+        "end_char": 380,
+        "token_start": 82,
+        "token_end": 86,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0105,
+        "novelty_score": 0.8847,
+        "margin": 0.9934,
+        "top1_prob": 0.9966,
+        "top2_prob": 0.0032,
+        "p_background_o": 0.0032
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8847,
+        "novelty_lof": 1.2765,
+        "novelty_knn_dist": 0.3131
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0105,
+        "least_confidence": 0.0034,
+        "margin_uncertainty": 0.0066
+      },
+      "probabilities": {
+        "O": 0.0032,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0,
+        "Environmental_exposures": 0.0,
+        "Mental_health_practices": 0.0,
+        "Non_physical_leisure_time_activities": 0.0,
+        "Nutrition": 0.0,
+        "Physical_activities": 0.0,
+        "Sleep": 0.0,
+        "Socioeconomic_factors": 0.9966
+      },
+      "logits": {
+        "O": 2.8079,
+        "Personal_care_products_and_cosmetic_procedures": -1.1551,
+        "Substance_use": -2.0652,
+        "Environmental_exposures": -2.1277,
+        "Mental_health_practices": -1.5759,
+        "Non_physical_leisure_time_activities": -1.5105,
+        "Nutrition": -2.6149,
+        "Physical_activities": -2.001,
+        "Sleep": -2.5146,
+        "Socioeconomic_factors": 8.5602
+      }
+    },
+    {
+      "span_id": "12510035_s006",
+      "abstract_id": "12510035",
+      "span_text": "death of a prior sibling",
+      "boundaries": {
+        "start_char": 396,
+        "end_char": 420,
+        "token_start": 92,
+        "token_end": 96,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.056,
+        "novelty_score": 0.8732,
+        "margin": 0.9513,
+        "top1_prob": 0.9747,
+        "top2_prob": 0.0234,
+        "p_background_o": 0.0234
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8732,
+        "novelty_lof": 1.2357,
+        "novelty_knn_dist": 0.337
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.056,
+        "least_confidence": 0.0253,
+        "margin_uncertainty": 0.0487
+      },
+      "probabilities": {
+        "O": 0.0234,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0004,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.0002,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.9747
+      },
+      "logits": {
+        "O": 3.0112,
+        "Personal_care_products_and_cosmetic_procedures": -0.8728,
+        "Substance_use": -1.6843,
+        "Environmental_exposures": -2.0944,
+        "Mental_health_practices": -1.1042,
+        "Non_physical_leisure_time_activities": -1.4295,
+        "Nutrition": -1.9836,
+        "Physical_activities": -2.0655,
+        "Sleep": -1.8965,
+        "Socioeconomic_factors": 6.7417
+      }
+    }
+  ]
+}

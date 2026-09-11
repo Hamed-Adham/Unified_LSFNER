@@ -1,0 +1,94 @@
+{
+  "guidebook": [
+    {
+      "id": "DG-0001",
+      "span": "second-hand smoke",
+      "span_sentence": "Non-smokers exposed to second-hand smoke at home showed significantly higher urinary cotinine levels.",
+      "ground_truth_label": "Substance_use",
+      "bert_label": "Environmental_exposures",
+      "llm_label": "Environmental_exposures",
+      "triad": {
+        "type": "GT_X_BERT_Y_LLM_Y",
+        "description": "BERT proposed an incorrect LSF category (Environmental_exposures), and the LLM uncritically adopted BERT's error instead of correcting to Ground Truth (Substance_use)."
+      },
+      "guideline": "Passive, involuntary, or second-hand tobacco exposures, smoke residues, and chemical markers of tobacco combustion (e.g., ETS, second-hand smoke, environmental tobacco smoke, nicotine markers) belong strictly to Substance_use due to tobacco-product ontology precedence, rather than Environmental_exposures.",
+      "challenge_types": [
+        "TOP2_COMPETITION"
+      ],
+      "bert_info": {
+        "top1": {
+          "label": "Environmental_exposures",
+          "prob": 0.51
+        },
+        "top2": {
+          "label": "Substance_use",
+          "prob": 0.44
+        },
+        "margin": 0.07,
+        "uncertainty": 0.54,
+        "novelty": 0.18,
+        "prob_o": 0.05
+      },
+      "similar_spans": [
+        {
+          "span": "environmental tobacco smoke",
+          "labels": {
+            "gt": "Substance_use",
+            "bert": "Environmental_exposures",
+            "llm": "Substance_use"
+          }
+        },
+        {
+          "span": "ETS exposure",
+          "labels": {
+            "gt": "Substance_use",
+            "bert": "Environmental_exposures",
+            "llm": "Substance_use"
+          }
+        },
+        {
+          "span": "passive smoking",
+          "labels": {
+            "gt": "Substance_use",
+            "bert": "Substance_use",
+            "llm": "Substance_use"
+          }
+        }
+      ],
+      "usage_metrics": {
+        "helpful": 11,
+        "harmful": 0,
+        "neutral": 24,
+        "usage_count": 0,
+        "modification_count": 0
+      },
+      "history": []
+    },
+    {
+      "id": "DG-0002",
+      "span": "fasting glucose test",
+      "span_sentence": "Subjects underwent a fasting glucose test in the morning.",
+      "ground_truth_label": "Non-LSF",
+      "bert_label": "Nutrition",
+      "llm_label": "Nutrition",
+      "triad": {
+        "type": "GT_O_BERT_X_LLM_X",
+        "description": "Biomarker misclassified as Nutrition"
+      },
+      "guideline": "Laboratory blood glucose tests and biological metabolites are non-lifestyle clinical markers (Non-LSF / O).",
+      "challenge_types": [
+        "BIOMARKER_EXCLUSION"
+      ],
+      "bert_info": {},
+      "similar_spans": [],
+      "usage_metrics": {
+        "helpful": 0,
+        "harmful": 0,
+        "neutral": 0,
+        "usage_count": 0,
+        "modification_count": 0
+      },
+      "history": []
+    }
+  ]
+}

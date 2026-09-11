@@ -38,7 +38,7 @@ class CandidateSpan(TypedDict, total=False):
     arbitrated_label: Optional[str] # Prediction assigned by the Generative LLM
     final_label: str                # Final resolved label adopted after gating & safeguard
     gold_label: Optional[str]       # Ground truth label if available in dataset
-    audit_category: Optional[str]   # One of the 8 canonical audit escalation outcomes
+    audit_category: Optional[str]   # One of the 10 canonical audit escalation outcomes
     diagnostic_reason: Optional[str]# Diagnostic human-readable explanation
 
 
@@ -82,5 +82,5 @@ class UnifiedNERState(TypedDict, total=False):
     # -------------------------------------------------------------------------
     final_predictions: List[CandidateSpan]     # Merged list (confident + arbitrated)
     audit_records: List[Dict[str, Any]]        # Per-span escalation audit breakdown
-    audit_breakdown: Dict[str, Any]            # 8-outcome diagnostic summary table
+    audit_breakdown: Dict[str, Any]            # 10-outcome diagnostic summary table
     metrics: Dict[str, float]                  # Exact/Partial PRF and IAA metrics

@@ -1,0 +1,234 @@
+{
+  "guidebook": [
+    {
+      "id": "DG-0001",
+      "span": "passive smoking",
+      "span_sentence": "The study evaluated the impact of passive smoking on respiratory health outcomes in school-aged children.",
+      "ground_truth_label": "Substance_use",
+      "bert_label": "Substance_use",
+      "llm_label": "Environmental_exposures",
+      "triad": {
+        "type": "GT_X_BERT_X_LLM_Y",
+        "description": "Generator erroneously overrode BERT's correct prediction of Substance_use for secondhand tobacco smoke exposure, misclassifying it as Environmental_exposures."
+      },
+      "guideline": "When BERT predicts Substance_use on tobacco smoke exposure terms (e.g., passive smoking, secondhand smoke, environmental tobacco smoke), confirm BERT and preserve Substance_use; do not override BERT to Environmental_exposures, as all forms of tobacco consumption and direct smoke exposure fall within the substance use domain.",
+      "challenge_types": [
+        "TOP2_COMPETITION"
+      ],
+      "bert_info": {},
+      "similar_spans": [
+        {
+          "span": "secondhand smoke",
+          "label": "Substance_use"
+        },
+        {
+          "span": "environmental tobacco smoke",
+          "label": "Substance_use"
+        },
+        {
+          "span": "passive smoking",
+          "label": "Substance_use"
+        }
+      ],
+      "usage_metrics": {
+        "helpful": 2,
+        "harmful": 0,
+        "neutral": 0,
+        "usage_count": 2,
+        "modification_count": 0
+      },
+      "history": []
+    },
+    {
+      "id": "DG-0002",
+      "span": "passive smoking",
+      "span_sentence": "Assessment of passive smoking and health outcomes.",
+      "ground_truth_label": "Substance_use",
+      "bert_label": "Environmental_exposures",
+      "llm_label": "Environmental_exposures",
+      "triad": {
+        "type": "GT_X_BERT_Y_LLM_Y",
+        "description": "BERT misclassified passive tobacco smoke exposure as Environmental_exposures, and Generator uncritically adopted it instead of resolving to canonical Substance_use."
+      },
+      "guideline": "When BERT predicts Environmental_exposures on tobacco smoke exposure mentions (e.g., passive smoking, secondhand smoke, environmental tobacco smoke), override BERT and label as Substance_use because all active and passive tobacco-related exposures fall under substance use rather than general environmental hazards; preserve Environmental_exposures for non-tobacco ambient pollutants (e.g., particulate matter, ambient ozone).",
+      "challenge_types": [
+        "TOP2_COMPETITION"
+      ],
+      "bert_info": {},
+      "similar_spans": [
+        {
+          "span": "secondhand smoke",
+          "label": "Substance_use"
+        },
+        {
+          "span": "environmental tobacco smoke",
+          "label": "Substance_use"
+        },
+        {
+          "span": "sidestream smoke",
+          "label": "Substance_use"
+        }
+      ],
+      "usage_metrics": {
+        "helpful": 1,
+        "harmful": 0,
+        "neutral": 0,
+        "usage_count": 1,
+        "modification_count": 0
+      },
+      "history": []
+    },
+    {
+      "id": "DG-0003",
+      "span": "potassium",
+      "span_sentence": "potassium",
+      "ground_truth_label": "Nutrition",
+      "bert_label": "Nutrition",
+      "llm_label": "O",
+      "triad": {
+        "type": "GT_X_BERT_X_LLM_O",
+        "description": "Generator erroneously overrode BERT's accurate Nutrition prediction for a dietary mineral, misclassifying it as an excluded endogenous biomarker."
+      },
+      "guideline": "When BERT predicts Nutrition on essential dietary minerals or micronutrients (e.g., potassium, sodium, calcium, magnesium), confirm BERT and preserve Nutrition; do not override BERT to O under biomarker exclusion unless the context unambiguously denotes an involuntary systemic assay or clinical diagnostic pathology rather than dietary intake or nutritional supplementation.",
+      "challenge_types": [
+        "FALSE_NEGATIVE_OVERREJECTION"
+      ],
+      "bert_info": {},
+      "similar_spans": [
+        {
+          "span": "sodium",
+          "label": "Nutrition"
+        },
+        {
+          "span": "calcium",
+          "label": "Nutrition"
+        },
+        {
+          "span": "magnesium",
+          "label": "Nutrition"
+        }
+      ],
+      "usage_metrics": {
+        "helpful": 0,
+        "harmful": 0,
+        "neutral": 0,
+        "usage_count": 0,
+        "modification_count": 0
+      },
+      "history": []
+    },
+    {
+      "id": "DG-0004",
+      "span": "atypical antipsychotic medications for smoking cessation",
+      "span_sentence": "atypical antipsychotic medications for smoking cessation",
+      "ground_truth_label": "Substance_use",
+      "bert_label": "Substance_use",
+      "llm_label": "O",
+      "triad": {
+        "type": "GT_X_BERT_X_LLM_O",
+        "description": "Generator erroneously overrode BERT's correct prediction of Substance_use for a targeted smoking cessation pharmacotherapy phrase, misclassifying it as Non-LSF under general medication exclusions."
+      },
+      "guideline": "When BERT predicts Substance_use on pharmacotherapies or cessation interventions explicitly contextualized for substance cessation (e.g., medications for smoking cessation, nicotine replacement therapy, cessation patches), confirm BERT and preserve Substance_use; override to O only when a therapy or medication is prescribed for general psychiatric or medical indications lacking explicit substance cessation context.",
+      "challenge_types": [
+        "FALSE_DISMISSAL"
+      ],
+      "bert_info": {},
+      "similar_spans": [
+        {
+          "span": "nicotine replacement therapy for smoking cessation",
+          "label": "Substance_use"
+        },
+        {
+          "span": "pharmacotherapy for smoking cessation",
+          "label": "Substance_use"
+        },
+        {
+          "span": "varenicline for tobacco cessation",
+          "label": "Substance_use"
+        }
+      ],
+      "usage_metrics": {
+        "helpful": 0,
+        "harmful": 0,
+        "neutral": 0,
+        "usage_count": 1,
+        "modification_count": 0
+      },
+      "history": []
+    },
+    {
+      "id": "DG-0005",
+      "span": "folic acid",
+      "span_sentence": "Non-behavioral or non-dietary context mention of folic acid.",
+      "ground_truth_label": "O",
+      "bert_label": "Nutrition",
+      "llm_label": "Nutrition",
+      "triad": {
+        "type": "GT_O_BERT_X_LLM_X",
+        "description": "Generator uncritically accepted BERT's false-positive Nutrition prediction for a nutrient term appearing in a non-behavioral, non-dietary context."
+      },
+      "guideline": "When BERT predicts Nutrition on nutrient or micronutrient terms (e.g., folic acid, vitamin D, iron), override BERT and label as O when the mention occurs in an isolated chemical, assay, biochemical pathway, or non-behavioral context; preserve Nutrition when the span refers to active dietary intake, voluntary supplementation, or nutritional consumption habits.",
+      "challenge_types": [
+        "TOP2_COMPETITION"
+      ],
+      "bert_info": {},
+      "similar_spans": [
+        {
+          "span": "vitamin D",
+          "label": "Nutrition"
+        },
+        {
+          "span": "folic acid supplementation",
+          "label": "Nutrition"
+        },
+        {
+          "span": "serum folate",
+          "label": "O"
+        }
+      ],
+      "usage_metrics": {
+        "helpful": 0,
+        "harmful": 1,
+        "neutral": 0,
+        "usage_count": 1,
+        "modification_count": 0
+      },
+      "history": []
+    },
+    {
+      "id": "DG-0006",
+      "span": "meditation and stress reduction",
+      "span_sentence": "meditation and stress reduction",
+      "ground_truth_label": "O",
+      "bert_label": "Mental_health_practices",
+      "llm_label": "Mental_health_practices",
+      "triad": {
+        "type": "GT_O_BERT_X_LLM_X",
+        "description": "BERT predicted Mental_health_practices on a coordinate span conflating an active practice with an outcome goal, and Generator uncritically adopted it instead of rejecting as Non-LSF (O)."
+      },
+      "guideline": "When BERT predicts Mental_health_practices on coordinate or conjoined phrases combining an active practice with a non-behavioral clinical outcome or state (e.g., meditation and stress reduction, mindfulness and anxiety management), override BERT and label as O because multi-concept phrases spanning clinical endpoints do not qualify as discrete behavioral lifestyle entities; preserve Mental_health_practices when the candidate span refers solely to discrete behavioral practices or therapeutic interventions (e.g., mindfulness meditation, cognitive behavioral therapy).",
+      "challenge_types": [
+        "TOP2_COMPETITION"
+      ],
+      "bert_info": {},
+      "similar_spans": [
+        {
+          "span": "mindfulness and stress management",
+          "label": "O"
+        },
+        {
+          "span": "yoga and anxiety reduction",
+          "label": "O"
+        }
+      ],
+      "usage_metrics": {
+        "helpful": 0,
+        "harmful": 0,
+        "neutral": 0,
+        "usage_count": 0,
+        "modification_count": 0
+      },
+      "history": []
+    }
+  ]
+}

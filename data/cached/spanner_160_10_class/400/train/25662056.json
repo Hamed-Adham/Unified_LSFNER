@@ -1,0 +1,668 @@
+{
+  "doc_id": "25662056",
+  "dataset_split": "400/train",
+  "text": "Multiple cardiometabolic risk factors in the Southern Cone of Latin America: a population-based study in Argentina, Chile, and Uruguay. \nBACKGROUND: Cardiovascular disease is a major cause of death, and its mortality is increasing in Latin America. However, population-based data on cardiovascular disease risk factors are sparse in these countries. METHODS: A total of 7524 men and women, aged 35 to 74 years old, were recruited between February 2010 and December 2011 from randomly selected samples in 4 cities (Bariloche and Marcos Paz, Argentina; Temuco, Chile; and Pando-Barros Blancos, Uruguay) in the Southern Cone of Latin America. Cardiovascular risk factors were measured using standard methods by trained and certified observers. RESULTS: Approximately 85.5% of adults ate less than five servings of fruit or vegetables per day, 35.2% engaged in low physical activity, and 29.7% currently smoked cigarettes. The prevalences of obesity, central obesity, hypertension, chronic kidney disease, dyslipidemia, diabetes, and metabolic syndrome were 35.7%, 52.9%, 40.8%, 2.0%, 58.4%, 12.4%, and 37.4%, respectively. The proportion of individuals with >=3 cardiovascular risk factors, including low intake of fruit and vegetables, low physical activity, current cigarette smoking, obesity or central obesity, hypertension, chronic kidney disease, dyslipidemia, and diabetes, was 68.3%, and the proportion of individuals with >=3 cardiometabolic risk factors, including obesity or central obesity, hypertension, chronic kidney disease, dyslipidemia, and diabetes, was 22.9%. CONCLUSIONS: Cardiovascular disease risk factors are highly prevalent in the general population in the Southern Cone of Latin America. These data suggest that national efforts on the prevention, treatment, and control of cardiovascular risk factors should be a public health priority in the Southern Cone of Latin America. \n",
+  "total_candidates": 11,
+  "spans": [
+    {
+      "span_id": "25662056_s000",
+      "abstract_id": "25662056",
+      "span_text": "fruit",
+      "boundaries": {
+        "start_char": 811,
+        "end_char": 816,
+        "token_start": 173,
+        "token_end": 173,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1037,
+        "novelty_score": 0.3371,
+        "margin": 0.879,
+        "top1_prob": 0.9389,
+        "top2_prob": 0.0598,
+        "p_background_o": 0.0598
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3371,
+        "novelty_lof": 1.0024,
+        "novelty_knn_dist": 0.1616
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1037,
+        "least_confidence": 0.0611,
+        "margin_uncertainty": 0.121
+      },
+      "probabilities": {
+        "O": 0.0598,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9389,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0001
+      },
+      "logits": {
+        "O": 4.1895,
+        "Personal_care_products_and_cosmetic_procedures": -2.1232,
+        "Substance_use": -1.3477,
+        "Environmental_exposures": -2.1794,
+        "Mental_health_practices": -2.8658,
+        "Non_physical_leisure_time_activities": -1.6676,
+        "Nutrition": 6.9425,
+        "Physical_activities": -1.1264,
+        "Sleep": -1.6229,
+        "Socioeconomic_factors": -1.8003
+      }
+    },
+    {
+      "span_id": "25662056_s001",
+      "abstract_id": "25662056",
+      "span_text": "vegetables",
+      "boundaries": {
+        "start_char": 820,
+        "end_char": 830,
+        "token_start": 175,
+        "token_end": 175,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.0817,
+        "novelty_score": 0.2899,
+        "margin": 0.9131,
+        "top1_prob": 0.956,
+        "top2_prob": 0.0428,
+        "p_background_o": 0.0428
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2899,
+        "novelty_lof": 0.9905,
+        "novelty_knn_dist": 0.1391
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0817,
+        "least_confidence": 0.044,
+        "margin_uncertainty": 0.0869
+      },
+      "probabilities": {
+        "O": 0.0428,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.956,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 3.986,
+        "Personal_care_products_and_cosmetic_procedures": -2.098,
+        "Substance_use": -1.4446,
+        "Environmental_exposures": -2.2103,
+        "Mental_health_practices": -2.9236,
+        "Non_physical_leisure_time_activities": -1.6145,
+        "Nutrition": 7.0911,
+        "Physical_activities": -1.0834,
+        "Sleep": -1.6064,
+        "Socioeconomic_factors": -1.6585
+      }
+    },
+    {
+      "span_id": "25662056_s002",
+      "abstract_id": "25662056",
+      "span_text": "fruit",
+      "boundaries": {
+        "start_char": 1212,
+        "end_char": 1217,
+        "token_start": 267,
+        "token_end": 267,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1671,
+        "novelty_score": 0.3371,
+        "margin": 0.7527,
+        "top1_prob": 0.8757,
+        "top2_prob": 0.123,
+        "p_background_o": 0.123
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3371,
+        "novelty_lof": 1.0024,
+        "novelty_knn_dist": 0.1616
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1671,
+        "least_confidence": 0.1243,
+        "margin_uncertainty": 0.2473
+      },
+      "probabilities": {
+        "O": 0.123,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.8757,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0001
+      },
+      "logits": {
+        "O": 4.8457,
+        "Personal_care_products_and_cosmetic_procedures": -2.3187,
+        "Substance_use": -1.3688,
+        "Environmental_exposures": -2.1497,
+        "Mental_health_practices": -2.9813,
+        "Non_physical_leisure_time_activities": -1.7173,
+        "Nutrition": 6.8086,
+        "Physical_activities": -1.3056,
+        "Sleep": -1.7012,
+        "Socioeconomic_factors": -1.9773
+      }
+    },
+    {
+      "span_id": "25662056_s003",
+      "abstract_id": "25662056",
+      "span_text": "vegetables",
+      "boundaries": {
+        "start_char": 1222,
+        "end_char": 1232,
+        "token_start": 269,
+        "token_end": 269,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1167,
+        "novelty_score": 0.2899,
+        "margin": 0.8588,
+        "top1_prob": 0.9286,
+        "top2_prob": 0.0698,
+        "p_background_o": 0.0698
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2899,
+        "novelty_lof": 0.9905,
+        "novelty_knn_dist": 0.1391
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1167,
+        "least_confidence": 0.0714,
+        "margin_uncertainty": 0.1412
+      },
+      "probabilities": {
+        "O": 0.0698,
+        "Personal_care_products_and_cosmetic_procedures": 0.0001,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0001,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.9286,
+        "Physical_activities": 0.0004,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.0002
+      },
+      "logits": {
+        "O": 4.1475,
+        "Personal_care_products_and_cosmetic_procedures": -2.0555,
+        "Substance_use": -1.3167,
+        "Environmental_exposures": -2.1351,
+        "Mental_health_practices": -2.7984,
+        "Non_physical_leisure_time_activities": -1.5737,
+        "Nutrition": 6.7359,
+        "Physical_activities": -1.062,
+        "Sleep": -1.6017,
+        "Socioeconomic_factors": -1.6684
+      }
+    },
+    {
+      "span_id": "25662056_s004",
+      "abstract_id": "25662056",
+      "span_text": "fruit or vegetables",
+      "boundaries": {
+        "start_char": 811,
+        "end_char": 830,
+        "token_start": 173,
+        "token_end": 175,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.1772,
+        "novelty_score": 0.2941,
+        "margin": 0.7368,
+        "top1_prob": 0.8673,
+        "top2_prob": 0.1304,
+        "p_background_o": 0.1304
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2941,
+        "novelty_lof": 0.9766,
+        "novelty_knn_dist": 0.1562
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1772,
+        "least_confidence": 0.1327,
+        "margin_uncertainty": 0.2632
+      },
+      "probabilities": {
+        "O": 0.1304,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.8673,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 4.4588,
+        "Personal_care_products_and_cosmetic_procedures": -1.9114,
+        "Substance_use": -1.4141,
+        "Environmental_exposures": -2.0198,
+        "Mental_health_practices": -2.7837,
+        "Non_physical_leisure_time_activities": -1.4897,
+        "Nutrition": 6.3535,
+        "Physical_activities": -1.0715,
+        "Sleep": -1.6001,
+        "Socioeconomic_factors": -1.6191
+      }
+    },
+    {
+      "span_id": "25662056_s005",
+      "abstract_id": "25662056",
+      "span_text": "low physical activity",
+      "boundaries": {
+        "start_char": 857,
+        "end_char": 878,
+        "token_start": 185,
+        "token_end": 187,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.1106,
+        "novelty_score": 0.3639,
+        "margin": 0.9038,
+        "top1_prob": 0.9466,
+        "top2_prob": 0.0428,
+        "p_background_o": 0.0428
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3639,
+        "novelty_lof": 0.9948,
+        "novelty_knn_dist": 0.1877
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1106,
+        "least_confidence": 0.0534,
+        "margin_uncertainty": 0.0962
+      },
+      "probabilities": {
+        "O": 0.0428,
+        "Personal_care_products_and_cosmetic_procedures": 0.0006,
+        "Substance_use": 0.0003,
+        "Environmental_exposures": 0.0007,
+        "Mental_health_practices": 0.0008,
+        "Non_physical_leisure_time_activities": 0.0009,
+        "Nutrition": 0.0018,
+        "Physical_activities": 0.9466,
+        "Sleep": 0.0025,
+        "Socioeconomic_factors": 0.003
+      },
+      "logits": {
+        "O": 2.0932,
+        "Personal_care_products_and_cosmetic_procedures": -2.2382,
+        "Substance_use": -2.7552,
+        "Environmental_exposures": -2.0643,
+        "Mental_health_practices": -1.8796,
+        "Non_physical_leisure_time_activities": -1.7481,
+        "Nutrition": -1.0868,
+        "Physical_activities": 5.1897,
+        "Sleep": -0.7324,
+        "Socioeconomic_factors": -0.5669
+      }
+    },
+    {
+      "span_id": "25662056_s006",
+      "abstract_id": "25662056",
+      "span_text": "fruit and vegetables",
+      "boundaries": {
+        "start_char": 1212,
+        "end_char": 1232,
+        "token_start": 267,
+        "token_end": 269,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2014,
+        "novelty_score": 0.2414,
+        "margin": 0.6745,
+        "top1_prob": 0.836,
+        "top2_prob": 0.1615,
+        "p_background_o": 0.1615
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2414,
+        "novelty_lof": 0.9547,
+        "novelty_knn_dist": 0.1358
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2014,
+        "least_confidence": 0.164,
+        "margin_uncertainty": 0.3255
+      },
+      "probabilities": {
+        "O": 0.1615,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0004,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0003,
+        "Nutrition": 0.836,
+        "Physical_activities": 0.0005,
+        "Sleep": 0.0003,
+        "Socioeconomic_factors": 0.0003
+      },
+      "logits": {
+        "O": 4.6228,
+        "Personal_care_products_and_cosmetic_procedures": -1.9667,
+        "Substance_use": -1.3788,
+        "Environmental_exposures": -1.9845,
+        "Mental_health_practices": -2.7726,
+        "Non_physical_leisure_time_activities": -1.5272,
+        "Nutrition": 6.2666,
+        "Physical_activities": -1.1186,
+        "Sleep": -1.5826,
+        "Socioeconomic_factors": -1.6954
+      }
+    },
+    {
+      "span_id": "25662056_s007",
+      "abstract_id": "25662056",
+      "span_text": "low physical activity",
+      "boundaries": {
+        "start_char": 1234,
+        "end_char": 1255,
+        "token_start": 271,
+        "token_end": 273,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Physical_activities",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Physical_activities",
+        "second_best_label": "O",
+        "uncertainty": 0.1383,
+        "novelty_score": 0.3639,
+        "margin": 0.8959,
+        "top1_prob": 0.9367,
+        "top2_prob": 0.0408,
+        "p_background_o": 0.0408
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3639,
+        "novelty_lof": 0.9948,
+        "novelty_knn_dist": 0.1877
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1383,
+        "least_confidence": 0.0633,
+        "margin_uncertainty": 0.1041
+      },
+      "probabilities": {
+        "O": 0.0408,
+        "Personal_care_products_and_cosmetic_procedures": 0.0013,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.0013,
+        "Mental_health_practices": 0.0015,
+        "Non_physical_leisure_time_activities": 0.0018,
+        "Nutrition": 0.0054,
+        "Physical_activities": 0.9367,
+        "Sleep": 0.0042,
+        "Socioeconomic_factors": 0.0062
+      },
+      "logits": {
+        "O": 1.4723,
+        "Personal_care_products_and_cosmetic_procedures": -1.9809,
+        "Substance_use": -2.4279,
+        "Environmental_exposures": -1.9804,
+        "Mental_health_practices": -1.8392,
+        "Non_physical_leisure_time_activities": -1.6631,
+        "Nutrition": -0.5428,
+        "Physical_activities": 4.6064,
+        "Sleep": -0.7955,
+        "Socioeconomic_factors": -0.4188
+      }
+    },
+    {
+      "span_id": "25662056_s008",
+      "abstract_id": "25662056",
+      "span_text": "current cigarette smoking",
+      "boundaries": {
+        "start_char": 1257,
+        "end_char": 1282,
+        "token_start": 275,
+        "token_end": 277,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.4239,
+        "novelty_score": 0.7473,
+        "margin": 0.1827,
+        "top1_prob": 0.5612,
+        "top2_prob": 0.3785,
+        "p_background_o": 0.3785
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.7473,
+        "novelty_lof": 1.2813,
+        "novelty_knn_dist": 0.1588
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4239,
+        "least_confidence": 0.4388,
+        "margin_uncertainty": 0.8173
+      },
+      "probabilities": {
+        "O": 0.3785,
+        "Personal_care_products_and_cosmetic_procedures": 0.0028,
+        "Substance_use": 0.5612,
+        "Environmental_exposures": 0.0154,
+        "Mental_health_practices": 0.0026,
+        "Non_physical_leisure_time_activities": 0.008,
+        "Nutrition": 0.008,
+        "Physical_activities": 0.0033,
+        "Sleep": 0.0072,
+        "Socioeconomic_factors": 0.0129
+      },
+      "logits": {
+        "O": 2.835,
+        "Personal_care_products_and_cosmetic_procedures": -2.0635,
+        "Substance_use": 3.2289,
+        "Environmental_exposures": -0.3661,
+        "Mental_health_practices": -2.15,
+        "Non_physical_leisure_time_activities": -1.0215,
+        "Nutrition": -1.0227,
+        "Physical_activities": -1.8955,
+        "Sleep": -1.1228,
+        "Socioeconomic_factors": -0.5457
+      }
+    },
+    {
+      "span_id": "25662056_s009",
+      "abstract_id": "25662056",
+      "span_text": "low intake of fruit",
+      "boundaries": {
+        "start_char": 1198,
+        "end_char": 1217,
+        "token_start": 264,
+        "token_end": 267,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.2808,
+        "novelty_score": 0.6858,
+        "margin": 0.4244,
+        "top1_prob": 0.709,
+        "top2_prob": 0.2846,
+        "p_background_o": 0.2846
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6858,
+        "novelty_lof": 1.1279,
+        "novelty_knn_dist": 0.2646
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2808,
+        "least_confidence": 0.291,
+        "margin_uncertainty": 0.5756
+      },
+      "probabilities": {
+        "O": 0.2846,
+        "Personal_care_products_and_cosmetic_procedures": 0.0004,
+        "Substance_use": 0.001,
+        "Environmental_exposures": 0.0006,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.709,
+        "Physical_activities": 0.0009,
+        "Sleep": 0.001,
+        "Socioeconomic_factors": 0.0016
+      },
+      "logits": {
+        "O": 4.1818,
+        "Personal_care_products_and_cosmetic_procedures": -2.378,
+        "Substance_use": -1.4692,
+        "Environmental_exposures": -1.9943,
+        "Mental_health_practices": -2.9676,
+        "Non_physical_leisure_time_activities": -1.8218,
+        "Nutrition": 5.0944,
+        "Physical_activities": -1.5358,
+        "Sleep": -1.4594,
+        "Socioeconomic_factors": -1.0281
+      }
+    },
+    {
+      "span_id": "25662056_s010",
+      "abstract_id": "25662056",
+      "span_text": "low intake of fruit and vegetables",
+      "boundaries": {
+        "start_char": 1198,
+        "end_char": 1232,
+        "token_start": 264,
+        "token_end": 269,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Nutrition",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Nutrition",
+        "second_best_label": "O",
+        "uncertainty": 0.3069,
+        "novelty_score": 0.5534,
+        "margin": 0.2628,
+        "top1_prob": 0.628,
+        "top2_prob": 0.3653,
+        "p_background_o": 0.3653
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5534,
+        "novelty_lof": 1.0727,
+        "novelty_knn_dist": 0.231
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3069,
+        "least_confidence": 0.372,
+        "margin_uncertainty": 0.7372
+      },
+      "probabilities": {
+        "O": 0.3653,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.0008,
+        "Environmental_exposures": 0.0005,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0008,
+        "Nutrition": 0.628,
+        "Physical_activities": 0.0011,
+        "Sleep": 0.0011,
+        "Socioeconomic_factors": 0.0016
+      },
+      "logits": {
+        "O": 4.4084,
+        "Personal_care_products_and_cosmetic_procedures": -2.1873,
+        "Substance_use": -1.6729,
+        "Environmental_exposures": -2.1326,
+        "Mental_health_practices": -2.8161,
+        "Non_physical_leisure_time_activities": -1.7129,
+        "Nutrition": 4.9504,
+        "Physical_activities": -1.3918,
+        "Sleep": -1.4191,
+        "Socioeconomic_factors": -1.0262
+      }
+    }
+  ]
+}

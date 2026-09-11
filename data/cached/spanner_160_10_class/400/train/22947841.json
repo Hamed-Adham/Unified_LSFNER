@@ -1,0 +1,1328 @@
+{
+  "doc_id": "22947841",
+  "dataset_split": "400/train",
+  "text": "Environmental tobacco smoke and periodontitis in U.S. non-smokers. \nPURPOSE: The association of second hand smoke or environmental tobacco smoke (ETS) and periodontitis in non-smokers has not been confirmed using a biomarker of ETS exposure. To estimate periodontitis prevalence in non-smokers with detectable serum cotinine, and to investigate racial/ethnic and socioeconomic variation in ETS exposure in a representative sample of the U. S. adult population. Determining periodontitis risk indicators occurring with ETS appears to be a salient purpose as this study is the first of its kind to provide a link (a salivary biomarker) between second hand smoke and risk for periodontitis. METHODS: Data were collected from the 1999 to 2004 National Health and Nutrition Examination Survey (NHANES). Subjects were 3,137 adults who had smoked fewer than 100 cigarettes and had not used other forms of tobacco. ETS exposure was classified as negligible (cotinine concentrations below sex and race/ethnicity cut-points for smokers), moderate (cotinine 0.5-<1.5 mug/mL) or high (cotinine >= 1.5 ng/mL). Periodontitis was classified according to the Centers for Disease Control and Prevention (CDC) and the American Academy of Periodontology (AAP) case definition for moderate-severe disease. Survey estimation procedures were used to estimate prevalence and odds ratios (OR) were from multivariable logistic regression models. RESULTS: ETS exposure was observed in 40.5% of subjects and 2.6% had periodontitis. ETS exposure was inversely associated with educational attainment and family income and was higher in non-Hispanic blacks than whites. After adjusting for age, sex and year of survey, adults with high ETS exposure (cotinine >= 1.5 ng/mL) had more than twice the odds of periodontitis as people with negligible exposure (OR=2.3, 95% confidence interval=1.3, 4.1). CONCLUSION: High ETS exposure was a risk indicator for periodontitis in lifetime non-smokers. \n",
+  "total_candidates": 22,
+  "spans": [
+    {
+      "span_id": "22947841_s000",
+      "abstract_id": "22947841",
+      "span_text": "ETS",
+      "boundaries": {
+        "start_char": 146,
+        "end_char": 149,
+        "token_start": 30,
+        "token_end": 30,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.1173,
+        "novelty_score": 0.9175,
+        "margin": 0.8801,
+        "top1_prob": 0.9366,
+        "top2_prob": 0.0565,
+        "p_background_o": 0.0565
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9175,
+        "novelty_lof": 1.3275,
+        "novelty_knn_dist": 0.3204
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1173,
+        "least_confidence": 0.0634,
+        "margin_uncertainty": 0.1199
+      },
+      "probabilities": {
+        "O": 0.0565,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.9366,
+        "Environmental_exposures": 0.0029,
+        "Mental_health_practices": 0.0005,
+        "Non_physical_leisure_time_activities": 0.0013,
+        "Nutrition": 0.0007,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0005,
+        "Socioeconomic_factors": 0.0007
+      },
+      "logits": {
+        "O": 3.0863,
+        "Personal_care_products_and_cosmetic_procedures": -2.3591,
+        "Substance_use": 5.8942,
+        "Environmental_exposures": 0.1098,
+        "Mental_health_practices": -1.6489,
+        "Non_physical_leisure_time_activities": -0.6939,
+        "Nutrition": -1.3618,
+        "Physical_activities": -2.9182,
+        "Sleep": -1.6342,
+        "Socioeconomic_factors": -1.2943
+      }
+    },
+    {
+      "span_id": "22947841_s001",
+      "abstract_id": "22947841",
+      "span_text": "ETS",
+      "boundaries": {
+        "start_char": 518,
+        "end_char": 521,
+        "token_start": 94,
+        "token_end": 94,
+        "token_length": 1
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.0703,
+        "novelty_score": 0.9175,
+        "margin": 0.9492,
+        "top1_prob": 0.9708,
+        "top2_prob": 0.0216,
+        "p_background_o": 0.0216
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9175,
+        "novelty_lof": 1.3275,
+        "novelty_knn_dist": 0.3204
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0703,
+        "least_confidence": 0.0292,
+        "margin_uncertainty": 0.0508
+      },
+      "probabilities": {
+        "O": 0.0216,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.9708,
+        "Environmental_exposures": 0.0027,
+        "Mental_health_practices": 0.0007,
+        "Non_physical_leisure_time_activities": 0.0017,
+        "Nutrition": 0.0006,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0006,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 2.1625,
+        "Personal_care_products_and_cosmetic_procedures": -2.2122,
+        "Substance_use": 5.9664,
+        "Environmental_exposures": 0.098,
+        "Mental_health_practices": -1.3197,
+        "Non_physical_leisure_time_activities": -0.3911,
+        "Nutrition": -1.5006,
+        "Physical_activities": -2.9004,
+        "Sleep": -1.4148,
+        "Socioeconomic_factors": -1.036
+      }
+    },
+    {
+      "span_id": "22947841_s002",
+      "abstract_id": "22947841",
+      "span_text": "ETS exposure",
+      "boundaries": {
+        "start_char": 228,
+        "end_char": 240,
+        "token_start": 46,
+        "token_end": 47,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.3071,
+        "novelty_score": 0.8424,
+        "margin": 0.6685,
+        "top1_prob": 0.8064,
+        "top2_prob": 0.138,
+        "p_background_o": 0.0215
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8424,
+        "novelty_lof": 1.2088,
+        "novelty_knn_dist": 0.3241
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3071,
+        "least_confidence": 0.1936,
+        "margin_uncertainty": 0.3315
+      },
+      "probabilities": {
+        "O": 0.0215,
+        "Personal_care_products_and_cosmetic_procedures": 0.0033,
+        "Substance_use": 0.8064,
+        "Environmental_exposures": 0.138,
+        "Mental_health_practices": 0.0033,
+        "Non_physical_leisure_time_activities": 0.0066,
+        "Nutrition": 0.0072,
+        "Physical_activities": 0.0015,
+        "Sleep": 0.0043,
+        "Socioeconomic_factors": 0.0079
+      },
+      "logits": {
+        "O": 0.0513,
+        "Personal_care_products_and_cosmetic_procedures": -1.8245,
+        "Substance_use": 3.6763,
+        "Environmental_exposures": 1.9106,
+        "Mental_health_practices": -1.8225,
+        "Non_physical_leisure_time_activities": -1.1295,
+        "Nutrition": -1.0427,
+        "Physical_activities": -2.5887,
+        "Sleep": -1.5557,
+        "Socioeconomic_factors": -0.951
+      }
+    },
+    {
+      "span_id": "22947841_s003",
+      "abstract_id": "22947841",
+      "span_text": "socioeconomic variation",
+      "boundaries": {
+        "start_char": 363,
+        "end_char": 386,
+        "token_start": 69,
+        "token_end": 70,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0382,
+        "novelty_score": 0.2387,
+        "margin": 0.9688,
+        "top1_prob": 0.9839,
+        "top2_prob": 0.0151,
+        "p_background_o": 0.0151
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2387,
+        "novelty_lof": 0.9664,
+        "novelty_knn_dist": 0.1218
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0382,
+        "least_confidence": 0.0161,
+        "margin_uncertainty": 0.0312
+      },
+      "probabilities": {
+        "O": 0.0151,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0001,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0001,
+        "Nutrition": 0.0001,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9839
+      },
+      "logits": {
+        "O": 3.0463,
+        "Personal_care_products_and_cosmetic_procedures": -1.5259,
+        "Substance_use": -2.0345,
+        "Environmental_exposures": -1.3084,
+        "Mental_health_practices": -2.2295,
+        "Non_physical_leisure_time_activities": -1.7227,
+        "Nutrition": -1.7751,
+        "Physical_activities": -1.9031,
+        "Sleep": -2.246,
+        "Socioeconomic_factors": 7.2204
+      }
+    },
+    {
+      "span_id": "22947841_s004",
+      "abstract_id": "22947841",
+      "span_text": "ETS exposure",
+      "boundaries": {
+        "start_char": 390,
+        "end_char": 402,
+        "token_start": 72,
+        "token_end": 73,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.3392,
+        "novelty_score": 0.8422,
+        "margin": 0.6246,
+        "top1_prob": 0.7803,
+        "top2_prob": 0.1558,
+        "p_background_o": 0.0141
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8422,
+        "novelty_lof": 1.2087,
+        "novelty_knn_dist": 0.324
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3392,
+        "least_confidence": 0.2197,
+        "margin_uncertainty": 0.3754
+      },
+      "probabilities": {
+        "O": 0.0141,
+        "Personal_care_products_and_cosmetic_procedures": 0.0044,
+        "Substance_use": 0.7803,
+        "Environmental_exposures": 0.1558,
+        "Mental_health_practices": 0.0043,
+        "Non_physical_leisure_time_activities": 0.0084,
+        "Nutrition": 0.0084,
+        "Physical_activities": 0.0021,
+        "Sleep": 0.0057,
+        "Socioeconomic_factors": 0.0164
+      },
+      "logits": {
+        "O": -0.5823,
+        "Personal_care_products_and_cosmetic_procedures": -1.7396,
+        "Substance_use": 3.4285,
+        "Environmental_exposures": 1.8171,
+        "Mental_health_practices": -1.7714,
+        "Non_physical_leisure_time_activities": -1.1015,
+        "Nutrition": -1.1026,
+        "Physical_activities": -2.4949,
+        "Sleep": -1.4854,
+        "Socioeconomic_factors": -0.4353
+      }
+    },
+    {
+      "span_id": "22947841_s005",
+      "abstract_id": "22947841",
+      "span_text": "ETS exposure",
+      "boundaries": {
+        "start_char": 907,
+        "end_char": 919,
+        "token_start": 170,
+        "token_end": 171,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.3324,
+        "novelty_score": 0.8424,
+        "margin": 0.6676,
+        "top1_prob": 0.7988,
+        "top2_prob": 0.1313,
+        "p_background_o": 0.0176
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8424,
+        "novelty_lof": 1.2088,
+        "novelty_knn_dist": 0.3241
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3324,
+        "least_confidence": 0.2012,
+        "margin_uncertainty": 0.3324
+      },
+      "probabilities": {
+        "O": 0.0176,
+        "Personal_care_products_and_cosmetic_procedures": 0.0046,
+        "Substance_use": 0.7988,
+        "Environmental_exposures": 0.1313,
+        "Mental_health_practices": 0.0038,
+        "Non_physical_leisure_time_activities": 0.0104,
+        "Nutrition": 0.0107,
+        "Physical_activities": 0.0024,
+        "Sleep": 0.0061,
+        "Socioeconomic_factors": 0.0143
+      },
+      "logits": {
+        "O": -0.4193,
+        "Personal_care_products_and_cosmetic_procedures": -1.7655,
+        "Substance_use": 3.3965,
+        "Environmental_exposures": 1.5905,
+        "Mental_health_practices": -1.9411,
+        "Non_physical_leisure_time_activities": -0.9477,
+        "Nutrition": -0.9132,
+        "Physical_activities": -2.4277,
+        "Sleep": -1.4741,
+        "Socioeconomic_factors": -0.6268
+      }
+    },
+    {
+      "span_id": "22947841_s006",
+      "abstract_id": "22947841",
+      "span_text": "ETS exposure",
+      "boundaries": {
+        "start_char": 1430,
+        "end_char": 1442,
+        "token_start": 280,
+        "token_end": 281,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.3357,
+        "novelty_score": 0.8424,
+        "margin": 0.6928,
+        "top1_prob": 0.8064,
+        "top2_prob": 0.1135,
+        "p_background_o": 0.0209
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8424,
+        "novelty_lof": 1.2088,
+        "novelty_knn_dist": 0.3241
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3357,
+        "least_confidence": 0.1936,
+        "margin_uncertainty": 0.3072
+      },
+      "probabilities": {
+        "O": 0.0209,
+        "Personal_care_products_and_cosmetic_procedures": 0.0047,
+        "Substance_use": 0.8064,
+        "Environmental_exposures": 0.1135,
+        "Mental_health_practices": 0.0041,
+        "Non_physical_leisure_time_activities": 0.012,
+        "Nutrition": 0.011,
+        "Physical_activities": 0.0026,
+        "Sleep": 0.0064,
+        "Socioeconomic_factors": 0.0185
+      },
+      "logits": {
+        "O": -0.3274,
+        "Personal_care_products_and_cosmetic_procedures": -1.8263,
+        "Substance_use": 3.3262,
+        "Environmental_exposures": 1.3658,
+        "Mental_health_practices": -1.9511,
+        "Non_physical_leisure_time_activities": -0.885,
+        "Nutrition": -0.9663,
+        "Physical_activities": -2.42,
+        "Sleep": -1.5103,
+        "Socioeconomic_factors": -0.4495
+      }
+    },
+    {
+      "span_id": "22947841_s007",
+      "abstract_id": "22947841",
+      "span_text": "ETS exposure",
+      "boundaries": {
+        "start_char": 1505,
+        "end_char": 1517,
+        "token_start": 299,
+        "token_end": 300,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.3275,
+        "novelty_score": 0.8424,
+        "margin": 0.6836,
+        "top1_prob": 0.8061,
+        "top2_prob": 0.1225,
+        "p_background_o": 0.0182
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8424,
+        "novelty_lof": 1.2088,
+        "novelty_knn_dist": 0.3241
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3275,
+        "least_confidence": 0.1939,
+        "margin_uncertainty": 0.3164
+      },
+      "probabilities": {
+        "O": 0.0182,
+        "Personal_care_products_and_cosmetic_procedures": 0.0044,
+        "Substance_use": 0.8061,
+        "Environmental_exposures": 0.1225,
+        "Mental_health_practices": 0.004,
+        "Non_physical_leisure_time_activities": 0.0102,
+        "Nutrition": 0.0098,
+        "Physical_activities": 0.0024,
+        "Sleep": 0.006,
+        "Socioeconomic_factors": 0.0165
+      },
+      "logits": {
+        "O": -0.3916,
+        "Personal_care_products_and_cosmetic_procedures": -1.8131,
+        "Substance_use": 3.3996,
+        "Environmental_exposures": 1.5158,
+        "Mental_health_practices": -1.9093,
+        "Non_physical_leisure_time_activities": -0.969,
+        "Nutrition": -1.0143,
+        "Physical_activities": -2.4274,
+        "Sleep": -1.5091,
+        "Socioeconomic_factors": -0.4917
+      }
+    },
+    {
+      "span_id": "22947841_s008",
+      "abstract_id": "22947841",
+      "span_text": "educational attainment",
+      "boundaries": {
+        "start_char": 1548,
+        "end_char": 1570,
+        "token_start": 305,
+        "token_end": 306,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0205,
+        "novelty_score": 0.2233,
+        "margin": 0.9885,
+        "top1_prob": 0.9934,
+        "top2_prob": 0.0048,
+        "p_background_o": 0.0048
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2233,
+        "novelty_lof": 0.9763,
+        "novelty_knn_dist": 0.0982
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0205,
+        "least_confidence": 0.0066,
+        "margin_uncertainty": 0.0115
+      },
+      "probabilities": {
+        "O": 0.0048,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.9934
+      },
+      "logits": {
+        "O": 1.4559,
+        "Personal_care_products_and_cosmetic_procedures": -1.1988,
+        "Substance_use": -1.9146,
+        "Environmental_exposures": -1.4513,
+        "Mental_health_practices": -2.0049,
+        "Non_physical_leisure_time_activities": -1.7256,
+        "Nutrition": -1.394,
+        "Physical_activities": -1.8184,
+        "Sleep": -1.8084,
+        "Socioeconomic_factors": 6.78
+      }
+    },
+    {
+      "span_id": "22947841_s009",
+      "abstract_id": "22947841",
+      "span_text": "family income",
+      "boundaries": {
+        "start_char": 1575,
+        "end_char": 1588,
+        "token_start": 308,
+        "token_end": 309,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0201,
+        "novelty_score": 0.5445,
+        "margin": 0.9885,
+        "top1_prob": 0.9935,
+        "top2_prob": 0.005,
+        "p_background_o": 0.005
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.5445,
+        "novelty_lof": 1.125,
+        "novelty_knn_dist": 0.1731
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0201,
+        "least_confidence": 0.0065,
+        "margin_uncertainty": 0.0115
+      },
+      "probabilities": {
+        "O": 0.005,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0002,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0002,
+        "Socioeconomic_factors": 0.9935
+      },
+      "logits": {
+        "O": 1.612,
+        "Personal_care_products_and_cosmetic_procedures": -1.1483,
+        "Substance_use": -1.6962,
+        "Environmental_exposures": -1.4359,
+        "Mental_health_practices": -1.9768,
+        "Non_physical_leisure_time_activities": -1.8447,
+        "Nutrition": -1.3084,
+        "Physical_activities": -2.0916,
+        "Sleep": -1.8514,
+        "Socioeconomic_factors": 6.9105
+      }
+    },
+    {
+      "span_id": "22947841_s010",
+      "abstract_id": "22947841",
+      "span_text": "ETS exposure",
+      "boundaries": {
+        "start_char": 1706,
+        "end_char": 1718,
+        "token_start": 335,
+        "token_end": 336,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.4461,
+        "novelty_score": 0.8422,
+        "margin": 0.4521,
+        "top1_prob": 0.6724,
+        "top2_prob": 0.2203,
+        "p_background_o": 0.0423
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8422,
+        "novelty_lof": 1.2087,
+        "novelty_knn_dist": 0.324
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4461,
+        "least_confidence": 0.3276,
+        "margin_uncertainty": 0.5479
+      },
+      "probabilities": {
+        "O": 0.0423,
+        "Personal_care_products_and_cosmetic_procedures": 0.0056,
+        "Substance_use": 0.6724,
+        "Environmental_exposures": 0.2203,
+        "Mental_health_practices": 0.0047,
+        "Non_physical_leisure_time_activities": 0.0116,
+        "Nutrition": 0.0119,
+        "Physical_activities": 0.0032,
+        "Sleep": 0.0074,
+        "Socioeconomic_factors": 0.0205
+      },
+      "logits": {
+        "O": 0.193,
+        "Personal_care_products_and_cosmetic_procedures": -1.8258,
+        "Substance_use": 2.9597,
+        "Environmental_exposures": 1.8439,
+        "Mental_health_practices": -1.9938,
+        "Non_physical_leisure_time_activities": -1.1037,
+        "Nutrition": -1.0765,
+        "Physical_activities": -2.3843,
+        "Sleep": -1.5491,
+        "Socioeconomic_factors": -0.5295
+      }
+    },
+    {
+      "span_id": "22947841_s011",
+      "abstract_id": "22947841",
+      "span_text": "ETS exposure",
+      "boundaries": {
+        "start_char": 1885,
+        "end_char": 1897,
+        "token_start": 385,
+        "token_end": 386,
+        "token_length": 2
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.4316,
+        "novelty_score": 0.8424,
+        "margin": 0.5346,
+        "top1_prob": 0.71,
+        "top2_prob": 0.1754,
+        "p_background_o": 0.0472
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8424,
+        "novelty_lof": 1.2088,
+        "novelty_knn_dist": 0.3241
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4316,
+        "least_confidence": 0.29,
+        "margin_uncertainty": 0.4654
+      },
+      "probabilities": {
+        "O": 0.0472,
+        "Personal_care_products_and_cosmetic_procedures": 0.0052,
+        "Substance_use": 0.71,
+        "Environmental_exposures": 0.1754,
+        "Mental_health_practices": 0.0045,
+        "Non_physical_leisure_time_activities": 0.0126,
+        "Nutrition": 0.0135,
+        "Physical_activities": 0.0032,
+        "Sleep": 0.0079,
+        "Socioeconomic_factors": 0.0204
+      },
+      "logits": {
+        "O": 0.2945,
+        "Personal_care_products_and_cosmetic_procedures": -1.906,
+        "Substance_use": 3.0045,
+        "Environmental_exposures": 1.6065,
+        "Mental_health_practices": -2.0571,
+        "Non_physical_leisure_time_activities": -1.0254,
+        "Nutrition": -0.9569,
+        "Physical_activities": -2.3907,
+        "Sleep": -1.499,
+        "Socioeconomic_factors": -0.5446
+      }
+    },
+    {
+      "span_id": "22947841_s012",
+      "abstract_id": "22947841",
+      "span_text": "Environmental tobacco smoke",
+      "boundaries": {
+        "start_char": 0,
+        "end_char": 27,
+        "token_start": 1,
+        "token_end": 3,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.1416,
+        "novelty_score": 0.3592,
+        "margin": 0.8991,
+        "top1_prob": 0.9368,
+        "top2_prob": 0.0376,
+        "p_background_o": 0.0082
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3592,
+        "novelty_lof": 1.0575,
+        "novelty_knn_dist": 0.1218
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1416,
+        "least_confidence": 0.0632,
+        "margin_uncertainty": 0.1009
+      },
+      "probabilities": {
+        "O": 0.0082,
+        "Personal_care_products_and_cosmetic_procedures": 0.0011,
+        "Substance_use": 0.9368,
+        "Environmental_exposures": 0.0376,
+        "Mental_health_practices": 0.0013,
+        "Non_physical_leisure_time_activities": 0.0032,
+        "Nutrition": 0.0033,
+        "Physical_activities": 0.0011,
+        "Sleep": 0.003,
+        "Socioeconomic_factors": 0.0044
+      },
+      "logits": {
+        "O": -0.1001,
+        "Personal_care_products_and_cosmetic_procedures": -2.1059,
+        "Substance_use": 4.6356,
+        "Environmental_exposures": 1.4212,
+        "Mental_health_practices": -1.9711,
+        "Non_physical_leisure_time_activities": -1.0491,
+        "Nutrition": -1.0212,
+        "Physical_activities": -2.0909,
+        "Sleep": -1.0933,
+        "Socioeconomic_factors": -0.7343
+      }
+    },
+    {
+      "span_id": "22947841_s013",
+      "abstract_id": "22947841",
+      "span_text": "second hand smoke",
+      "boundaries": {
+        "start_char": 96,
+        "end_char": 113,
+        "token_start": 22,
+        "token_end": 24,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.1608,
+        "novelty_score": 0.2649,
+        "margin": 0.898,
+        "top1_prob": 0.9294,
+        "top2_prob": 0.0314,
+        "p_background_o": 0.0171
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2649,
+        "novelty_lof": 1.0277,
+        "novelty_knn_dist": 0.0823
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1608,
+        "least_confidence": 0.0706,
+        "margin_uncertainty": 0.102
+      },
+      "probabilities": {
+        "O": 0.0171,
+        "Personal_care_products_and_cosmetic_procedures": 0.0013,
+        "Substance_use": 0.9294,
+        "Environmental_exposures": 0.0314,
+        "Mental_health_practices": 0.0013,
+        "Non_physical_leisure_time_activities": 0.0031,
+        "Nutrition": 0.0058,
+        "Physical_activities": 0.0013,
+        "Sleep": 0.0046,
+        "Socioeconomic_factors": 0.0047
+      },
+      "logits": {
+        "O": 0.3865,
+        "Personal_care_products_and_cosmetic_procedures": -2.1682,
+        "Substance_use": 4.383,
+        "Environmental_exposures": 0.9958,
+        "Mental_health_practices": -2.1975,
+        "Non_physical_leisure_time_activities": -1.3098,
+        "Nutrition": -0.6971,
+        "Physical_activities": -2.1798,
+        "Sleep": -0.9303,
+        "Socioeconomic_factors": -0.9001
+      }
+    },
+    {
+      "span_id": "22947841_s014",
+      "abstract_id": "22947841",
+      "span_text": "environmental tobacco smoke",
+      "boundaries": {
+        "start_char": 117,
+        "end_char": 144,
+        "token_start": 26,
+        "token_end": 28,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.14,
+        "novelty_score": 0.3514,
+        "margin": 0.9042,
+        "top1_prob": 0.9387,
+        "top2_prob": 0.0345,
+        "p_background_o": 0.0082
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.3514,
+        "novelty_lof": 1.0543,
+        "novelty_knn_dist": 0.1196
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.14,
+        "least_confidence": 0.0613,
+        "margin_uncertainty": 0.0958
+      },
+      "probabilities": {
+        "O": 0.0082,
+        "Personal_care_products_and_cosmetic_procedures": 0.0012,
+        "Substance_use": 0.9387,
+        "Environmental_exposures": 0.0345,
+        "Mental_health_practices": 0.0014,
+        "Non_physical_leisure_time_activities": 0.0027,
+        "Nutrition": 0.0043,
+        "Physical_activities": 0.001,
+        "Sleep": 0.0034,
+        "Socioeconomic_factors": 0.0046
+      },
+      "logits": {
+        "O": -0.1481,
+        "Personal_care_products_and_cosmetic_procedures": -2.0938,
+        "Substance_use": 4.5934,
+        "Environmental_exposures": 1.2907,
+        "Mental_health_practices": -1.9321,
+        "Non_physical_leisure_time_activities": -1.2536,
+        "Nutrition": -0.8026,
+        "Physical_activities": -2.2457,
+        "Sleep": -1.0235,
+        "Socioeconomic_factors": -0.7214
+      }
+    },
+    {
+      "span_id": "22947841_s015",
+      "abstract_id": "22947841",
+      "span_text": "second hand smoke",
+      "boundaries": {
+        "start_char": 642,
+        "end_char": 659,
+        "token_start": 120,
+        "token_end": 122,
+        "token_length": 3
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "Environmental_exposures",
+        "uncertainty": 0.1492,
+        "novelty_score": 0.2649,
+        "margin": 0.9074,
+        "top1_prob": 0.936,
+        "top2_prob": 0.0286,
+        "p_background_o": 0.014
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.2649,
+        "novelty_lof": 1.0277,
+        "novelty_knn_dist": 0.0823
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.1492,
+        "least_confidence": 0.064,
+        "margin_uncertainty": 0.0926
+      },
+      "probabilities": {
+        "O": 0.014,
+        "Personal_care_products_and_cosmetic_procedures": 0.0013,
+        "Substance_use": 0.936,
+        "Environmental_exposures": 0.0286,
+        "Mental_health_practices": 0.0013,
+        "Non_physical_leisure_time_activities": 0.0029,
+        "Nutrition": 0.0056,
+        "Physical_activities": 0.0012,
+        "Sleep": 0.0043,
+        "Socioeconomic_factors": 0.0048
+      },
+      "logits": {
+        "O": 0.2469,
+        "Personal_care_products_and_cosmetic_procedures": -2.1052,
+        "Substance_use": 4.4483,
+        "Environmental_exposures": 0.9601,
+        "Mental_health_practices": -2.1458,
+        "Non_physical_leisure_time_activities": -1.3255,
+        "Nutrition": -0.6637,
+        "Physical_activities": -2.2436,
+        "Sleep": -0.9376,
+        "Socioeconomic_factors": -0.8327
+      }
+    },
+    {
+      "span_id": "22947841_s016",
+      "abstract_id": "22947841",
+      "span_text": "other forms of tobacco",
+      "boundaries": {
+        "start_char": 883,
+        "end_char": 905,
+        "token_start": 165,
+        "token_end": 168,
+        "token_length": 4
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.3434,
+        "novelty_score": 0.6633,
+        "margin": 0.1587,
+        "top1_prob": 0.5701,
+        "top2_prob": 0.4114,
+        "p_background_o": 0.4114
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6633,
+        "novelty_lof": 1.2213,
+        "novelty_knn_dist": 0.1551
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3434,
+        "least_confidence": 0.4299,
+        "margin_uncertainty": 0.8413
+      },
+      "probabilities": {
+        "O": 0.4114,
+        "Personal_care_products_and_cosmetic_procedures": 0.0005,
+        "Substance_use": 0.5701,
+        "Environmental_exposures": 0.0077,
+        "Mental_health_practices": 0.001,
+        "Non_physical_leisure_time_activities": 0.0017,
+        "Nutrition": 0.0022,
+        "Physical_activities": 0.0003,
+        "Sleep": 0.0018,
+        "Socioeconomic_factors": 0.0033
+      },
+      "logits": {
+        "O": 4.1015,
+        "Personal_care_products_and_cosmetic_procedures": -2.706,
+        "Substance_use": 4.4277,
+        "Environmental_exposures": 0.1222,
+        "Mental_health_practices": -1.8978,
+        "Non_physical_leisure_time_activities": -1.3862,
+        "Nutrition": -1.1152,
+        "Physical_activities": -3.0819,
+        "Sleep": -1.3441,
+        "Socioeconomic_factors": -0.7363
+      }
+    },
+    {
+      "span_id": "22947841_s017",
+      "abstract_id": "22947841",
+      "span_text": "environmental tobacco smoke (ETS",
+      "boundaries": {
+        "start_char": 117,
+        "end_char": 149,
+        "token_start": 26,
+        "token_end": 30,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.3021,
+        "novelty_score": 0.6119,
+        "margin": 0.5248,
+        "top1_prob": 0.7487,
+        "top2_prob": 0.2238,
+        "p_background_o": 0.2238
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.6119,
+        "novelty_lof": 1.1691,
+        "novelty_knn_dist": 0.1724
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.3021,
+        "least_confidence": 0.2513,
+        "margin_uncertainty": 0.4752
+      },
+      "probabilities": {
+        "O": 0.2238,
+        "Personal_care_products_and_cosmetic_procedures": 0.0008,
+        "Substance_use": 0.7487,
+        "Environmental_exposures": 0.013,
+        "Mental_health_practices": 0.0017,
+        "Non_physical_leisure_time_activities": 0.0037,
+        "Nutrition": 0.0024,
+        "Physical_activities": 0.0006,
+        "Sleep": 0.0019,
+        "Socioeconomic_factors": 0.0035
+      },
+      "logits": {
+        "O": 3.1682,
+        "Personal_care_products_and_cosmetic_procedures": -2.5057,
+        "Substance_use": 4.3756,
+        "Environmental_exposures": 0.3224,
+        "Mental_health_practices": -1.7218,
+        "Non_physical_leisure_time_activities": -0.9216,
+        "Nutrition": -1.3792,
+        "Physical_activities": -2.7995,
+        "Sleep": -1.601,
+        "Socioeconomic_factors": -0.9958
+      }
+    },
+    {
+      "span_id": "22947841_s018",
+      "abstract_id": "22947841",
+      "span_text": "socioeconomic variation in ETS exposure",
+      "boundaries": {
+        "start_char": 363,
+        "end_char": 402,
+        "token_start": 69,
+        "token_end": 73,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.4555,
+        "novelty_score": 0.9235,
+        "margin": 0.5338,
+        "top1_prob": 0.6899,
+        "top2_prob": 0.1561,
+        "p_background_o": 0.1561
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9235,
+        "novelty_lof": 1.4132,
+        "novelty_knn_dist": 0.2475
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.4555,
+        "least_confidence": 0.3101,
+        "margin_uncertainty": 0.4662
+      },
+      "probabilities": {
+        "O": 0.1561,
+        "Personal_care_products_and_cosmetic_procedures": 0.0057,
+        "Substance_use": 0.0414,
+        "Environmental_exposures": 0.0798,
+        "Mental_health_practices": 0.0044,
+        "Non_physical_leisure_time_activities": 0.0071,
+        "Nutrition": 0.0081,
+        "Physical_activities": 0.0033,
+        "Sleep": 0.0041,
+        "Socioeconomic_factors": 0.6899
+      },
+      "logits": {
+        "O": 1.644,
+        "Personal_care_products_and_cosmetic_procedures": -1.6582,
+        "Substance_use": 0.3173,
+        "Environmental_exposures": 0.9736,
+        "Mental_health_practices": -1.9195,
+        "Non_physical_leisure_time_activities": -1.4491,
+        "Nutrition": -1.3097,
+        "Physical_activities": -2.212,
+        "Sleep": -1.9951,
+        "Socioeconomic_factors": 3.1302
+      }
+    },
+    {
+      "span_id": "22947841_s019",
+      "abstract_id": "22947841",
+      "span_text": "smoked fewer than 100 cigarettes",
+      "boundaries": {
+        "start_char": 833,
+        "end_char": 865,
+        "token_start": 156,
+        "token_end": 160,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Substance_use",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Substance_use",
+        "second_best_label": "O",
+        "uncertainty": 0.261,
+        "novelty_score": 0.9739,
+        "margin": 0.5129,
+        "top1_prob": 0.7532,
+        "top2_prob": 0.2403,
+        "p_background_o": 0.2403
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.9739,
+        "novelty_lof": 1.5714,
+        "novelty_knn_dist": 0.2664
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.261,
+        "least_confidence": 0.2468,
+        "margin_uncertainty": 0.4871
+      },
+      "probabilities": {
+        "O": 0.2403,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.7532,
+        "Environmental_exposures": 0.0021,
+        "Mental_health_practices": 0.0003,
+        "Non_physical_leisure_time_activities": 0.0007,
+        "Nutrition": 0.0012,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0009,
+        "Socioeconomic_factors": 0.0009
+      },
+      "logits": {
+        "O": 4.2714,
+        "Personal_care_products_and_cosmetic_procedures": -2.3347,
+        "Substance_use": 5.4139,
+        "Environmental_exposures": -0.4559,
+        "Mental_health_practices": -2.4009,
+        "Non_physical_leisure_time_activities": -1.5852,
+        "Nutrition": -1.0513,
+        "Physical_activities": -3.4091,
+        "Sleep": -1.3319,
+        "Socioeconomic_factors": -1.2714
+      }
+    },
+    {
+      "span_id": "22947841_s020",
+      "abstract_id": "22947841",
+      "span_text": "educational attainment and family income",
+      "boundaries": {
+        "start_char": 1548,
+        "end_char": 1588,
+        "token_start": 305,
+        "token_end": 309,
+        "token_length": 5
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.0442,
+        "novelty_score": 0.4996,
+        "margin": 0.9644,
+        "top1_prob": 0.9814,
+        "top2_prob": 0.0169,
+        "p_background_o": 0.0169
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.4996,
+        "novelty_lof": 1.0698,
+        "novelty_knn_dist": 0.2
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.0442,
+        "least_confidence": 0.0186,
+        "margin_uncertainty": 0.0356
+      },
+      "probabilities": {
+        "O": 0.0169,
+        "Personal_care_products_and_cosmetic_procedures": 0.0003,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0001,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0001,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.9814
+      },
+      "logits": {
+        "O": 2.6534,
+        "Personal_care_products_and_cosmetic_procedures": -1.26,
+        "Substance_use": -1.9878,
+        "Environmental_exposures": -1.4252,
+        "Mental_health_practices": -2.0877,
+        "Non_physical_leisure_time_activities": -1.6153,
+        "Nutrition": -1.5518,
+        "Physical_activities": -2.1562,
+        "Sleep": -2.1528,
+        "Socioeconomic_factors": 6.7125
+      }
+    },
+    {
+      "span_id": "22947841_s021",
+      "abstract_id": "22947841",
+      "span_text": "racial/ethnic and socioeconomic variation",
+      "boundaries": {
+        "start_char": 345,
+        "end_char": 386,
+        "token_start": 65,
+        "token_end": 70,
+        "token_length": 6
+      },
+      "ground_truth": {
+        "gt_label": "Socioeconomic_factors",
+        "is_entity": true
+      },
+      "spanner_evidence": {
+        "predicted_label": "Socioeconomic_factors",
+        "second_best_label": "O",
+        "uncertainty": 0.2222,
+        "novelty_score": 0.8575,
+        "margin": 0.6046,
+        "top1_prob": 0.8015,
+        "top2_prob": 0.1968,
+        "p_background_o": 0.1968
+      },
+      "novelty_breakdown": {
+        "novelty_combined": 0.8575,
+        "novelty_lof": 1.3298,
+        "novelty_knn_dist": 0.2217
+      },
+      "uncertainty_metrics": {
+        "entropy_pe_norm": 0.2222,
+        "least_confidence": 0.1985,
+        "margin_uncertainty": 0.3954
+      },
+      "probabilities": {
+        "O": 0.1968,
+        "Personal_care_products_and_cosmetic_procedures": 0.0002,
+        "Substance_use": 0.0002,
+        "Environmental_exposures": 0.0003,
+        "Mental_health_practices": 0.0002,
+        "Non_physical_leisure_time_activities": 0.0002,
+        "Nutrition": 0.0003,
+        "Physical_activities": 0.0002,
+        "Sleep": 0.0001,
+        "Socioeconomic_factors": 0.8015
+      },
+      "logits": {
+        "O": 4.8933,
+        "Personal_care_products_and_cosmetic_procedures": -2.0788,
+        "Substance_use": -1.9411,
+        "Environmental_exposures": -1.7356,
+        "Mental_health_practices": -2.2492,
+        "Non_physical_leisure_time_activities": -1.8091,
+        "Nutrition": -1.5572,
+        "Physical_activities": -2.0907,
+        "Sleep": -2.3711,
+        "Socioeconomic_factors": 6.2973
+      }
+    }
+  ]
+}

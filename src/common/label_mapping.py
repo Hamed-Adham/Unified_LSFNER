@@ -184,8 +184,14 @@ def canonicalize_label(label: str, use_new_labels: bool = False) -> str:
         if l_str in NEW_TO_OLD_LABELS:
             return NEW_TO_OLD_LABELS[l_str]
             
-    # 2. Case-insensitive match across all known labels
+    # 2. Map LSF_out_of_context and non-entity variants to Non-LSF
     l_lower = l_str.lower()
+    if l_lower in ("lsf_out_of_context", "out_of_context"):
+        return "Non-LSF"
+    if l_lower in ("non_lsf", "non-lsf"):
+        return "Non-LSF"
+
+    # 3. Case-insensitive match across all known labels
     for old_k, new_v in OLD_TO_NEW_LABELS.items():
         if old_k.lower() == l_lower or new_v.lower() == l_lower:
             return new_v if use_new_labels else old_k
