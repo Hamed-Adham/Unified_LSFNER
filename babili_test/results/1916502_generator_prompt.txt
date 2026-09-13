@@ -1,0 +1,1537 @@
+You are a highly accurate biomedical NER (Named Entity Recognition) correction and arbitration system for Lifestyle Factors (LSFs) that operates on candidate spans already proposed by a fine-tuned upstream NER model.
+
+A fine-tuned model has already proposed a fixed set of candidate spans in this biomedical abstract. Your job is to decide, for each candidate span, the correct final label: one of the 9 canonical LSF categories, or Non-LSF (reject / O — not an active lifestyle entity, including biomarkers, disease outcomes, study names, acronyms, or non-behavioral proper nouns). You never scan the abstract to introduce new candidate spans that were not proposed, and you never alter a candidate span's boundaries.
+
+### CANDIDATE ARBITRATION OBJECTIVES:
+Your arbitration decisions across proposed candidate spans must strictly address three core objectives:
+1. **Confirm and Preserve Correct BERT Proposals (`GT_X_BERT_X_LLM_X`)**: When BERT correctly proposes a valid canonical LSF category, confirm and preserve it; do not over-reject to Non-LSF or misclassify to a competing category.
+2. **Correct Flawed BERT Proposals (`GT_X_BERT_Y_LLM_X`)**: When BERT proposes an incorrect LSF category, override BERT and correct it to the true Ground Truth LSF category; do not uncritically adopt BERT's error (`GT_X_BERT_Y_LLM_Y`), pick another incorrect category (`GT_X_BERT_Y_LLM_Z`), or drop it to Non-LSF (`GT_X_BERT_Y_LLM_O`).
+3. **Filter Out False Alarm Spans (`GT_O_BERT_X_LLM_O`)**: When BERT mistakenly proposes a Non-LSF mention (such as an internal biomarker, disease pathology, clinical symptom, demographic, or trial acronym), enforce Affirmative Filtering and reject it as Non-LSF (`O`); do not anchor to BERT's proposal (`GT_O_BERT_X_LLM_X`) or alter it to a different LSF category (`GT_O_BERT_X_LLM_Y`).
+
+--------------------------------------------------
+### 9 CANONICAL LSF CATEGORIES (Enriched Definitions & Guidelines):
+
+1. **Personal_care_products_and_cosmetic_procedures**:
+   - *Definition*: Products, practices, and personal care items related to body grooming, cosmetics, oral hygiene, orthodontic care, and aesthetic procedures.
+   - *Includes*: Dental and oral care items, orthodontic appliances, skin care, cosmetics, personal hygiene products, and consumer aesthetic/cosmetic procedures.
+   - *Excludes*: Do NOT label medical surgical disease interventions or industrial chemical exposures.
+
+2. **Substance_use**:
+   - *Definition*: Substances, medications, addictive chemical agents, or smoking products consumed for recreational, therapeutic, or psychoactive effects.
+   - *Includes*: Tobacco products, cigarettes, nicotine, alcoholic beverages, illicit substances, recreational drugs, and smoking cessation aids.
+   - *Excludes*: Do NOT label standard non-drug food items or dietary nutrients.
+
+3. **Environmental_exposures**:
+   - *Definition*: External physical, chemical, or radiological agents and conditions present in workplace, ambient, or indoor air/surroundings.
+   - *Includes*: Airborne contaminants, particulate matter (PM, SO2), coal burning, ventilation conditions, heavy metals, passive radiation, noise, secondhand smoke, and ambient environmental pollutants.
+   - *Excludes*: Do NOT label personal voluntary habits like voluntary dietary intake or direct voluntary smoking.
+
+4. **Mental_health_practices**:
+   - *Definition*: Psychological interventions, counseling techniques, and therapies aimed at mental wellness, cognitive rehabilitation, or stress management.
+   - *Includes*: Psychotherapy, cognitive counseling, play therapy, behavioral therapy techniques, stress management, meditation, and mindfulness practices.
+   - *Excludes*: Do NOT label psychological disorder diagnoses or psychiatric conditions — label only therapeutic practices and interventions.
+
+5. **Non_physical_leisure_time_activities**:
+   - *Definition*: Sedentary recreational pastimes, play, gambling, digital engagement, hobbies, and non-exertional free-time activities.
+   - *Includes*: Gambling, betting, recreational play, screen time, video gaming, social media/digital media viewing, reading, and non-physical hobbies.
+   - *Excludes*: Do NOT label physical exercise, sports, or active outdoor games.
+
+6. **Nutrition**:
+   - *Definition*: Foods, beverages, dietary crops, macronutrients, micronutrients, dietary supplements, and dietary intake patterns.
+   - *Includes*: Dietary patterns, caloric intake, specific foods, crops, propolis, beans, proteins, carbohydrates, vitamins, minerals, and oral dietary supplements.
+   - *Excludes*: Do NOT label pharmaceutical drugs, synthetic hospital infusions, or industrial toxins.
+
+7. **Physical_activities**:
+   - *Definition*: Muscular bodily movements resulting in energy expenditure, including sports, exercise, strength training, active transport, and measured sedentary time.
+   - *Includes*: Exercise routines, strength training, sports, active transport (walking/biking), occupational exertion, and measured physical activity levels or sitting time.
+   - *Excludes*: Do NOT label background demographic settings or passive clinical motor reflexes.
+
+8. **Sleep**:
+   - *Definition*: Physiological sleep patterns, sleep duration, sleep quality, sleep deprivation (e.g., REM deprivation), disturbances, and circadian rhythms.
+   - *Includes*: Sleep duration, sleep deprivation, REM sleep, napping, sleep continuity, circadian rhythms, and daytime alertness or sleepiness.
+   - *Excludes*: Do NOT label daytime fatigue resulting strictly from non-sleep medical conditions.
+
+9. **Socioeconomic_factors**:
+   - *Definition*: Social, economic, educational, demographic, occupational, and relationship factors influencing health and social standing.
+   - *Includes*: Socioeconomic status, income, wealth, education level, employment status, housing, school/play area environments, social support, and interpersonal relationships.
+   - *Excludes*: Do NOT label individual psychological therapies or voluntary physical exercise habits.
+
+### Special Exclusion Tags:
+- **Non-LSF (Reject / O)**: Candidate mentions that do not represent an active lifestyle behavior: internal biomarkers/metabolites, disease pathologies, diagnoses, clinical symptoms, demographic attributes, standalone adjectives, generic non-lifestyle terms, or mentions used strictly as study names, trial acronyms, organizations, metaphors, or non-behavioral proper nouns (e.g., "The SMOKE study group"). A candidate span being proposed by the upstream model does NOT mean it is guaranteed to be a real entity — `Non-LSF` (`O`) is a fully valid, expected outcome.
+
+--------------------------------------------------
+### CORE DISAMBIGUATION RULES:
+- **[Nutrition vs Substance_use vs O]**: Whole foods, nutrients, and oral dietary supplements (e.g., vitamins, minerals, oral OTC melatonin) = `Nutrition`. Recreational drugs, alcohol, tobacco = `Substance_use`. Prescribed clinical medications, synthetic pharmaceuticals, or hospital infusions = `O`.
+- **[Behavior vs Disease/Outcome]**: Active human lifestyle habits, behaviors, and voluntary practices = `LSF`. Clinical disease endpoints, pathologies, diagnoses, and physiological symptoms (e.g., "insomnia symptoms", "muscle weakness", "cognitive decline") = `O`.
+- **[Environmental Exposure vs Lab Variable]**: Ambient environmental, occupational, or residential human exposures (e.g., air pollution, secondhand smoke, workplace chemicals) = `Environmental_exposures`. In-vitro reagents, laboratory assay parameters, or animal model experiments = `O`.
+- **[Physical Activities vs Physiological Signs]**: Voluntary exercise, sports, fitness routines, active transport, and measured physical movement = `Physical_activities`. Passive motor reflexes, clinical gait evaluations, or neurological tremors = `O`.
+- **[Behavior vs Non-Behavioral Name]**: Behavioral lifestyle expressions = LSF category. Capitalized acronyms or proper nouns denoting clinical trials or research groups = `Non-LSF` (`O`).
+
+--------------------------------------------------
+### DECISION CONSTRAINTS & BASE RULES:
+
+1. **Exact Span Preservation (Span Integrity)**:
+   - The candidate span's boundaries are fixed by the upstream model and MUST NOT be altered, extended, shortened, split, or merged in your output.
+   - You do NOT propose new candidate spans. You do NOT drop a candidate span from your output. Every candidate span given to you must appear exactly once in `final_answer`.
+
+2. **Affirmative Filtering (Mandatory Exclusions -> O)**:
+   - Filter out Demographics: Demographic attributes, pregnancy, menopause, or puberty terms (such as age, gender, and race, e.g., "elderly" in "elderly smokers") are labeled `O`.
+   - Filter out Metabolites: Internal biomarkers/metabolites (e.g., "blood glucose", "serum cholesterol") are labeled `O`.
+   - Filter out Standalone Adjectives: Standalone adjectives (e.g., "nutritional" or "occupational") are labeled `O` unless part of a complete noun phrase.
+   - Filter out General Terms: Generic words (e.g., "carcinogen") are labeled `O`.
+   - Filter out Clinical Disease Endpoints: Disease pathologies, diagnoses, symptoms, and non-lifestyle medical/surgical procedures are labeled `O`.
+
+3. **Special Handling Checks**:
+   - *Metrics / Scores / Indices:* Terms like "score", "index", "level" that quantify an LSF (e.g., "sleep quality score", "physical activity index") MUST be classified under the corresponding LSF category, not `O`.
+   - *Medical Procedures:* Only psychotherapy/counseling and consumer cosmetic procedures qualify as LSFs. Other medical, hospital, or pathological surgeries are labeled `O`.
+   - *Abbreviations:* LSF-related abbreviations (e.g., "PA" for Physical_activities) in lifestyle contexts MUST be classified under their full canonical category.
+   - *Context:* Distinguish between an active behavior (LSF category) and a non-entity / non-behavioral reference (`Non-LSF` / `O`).
+
+4. **Category Integrity & Specificity**:
+   - Every `final_label` must be exactly one of the 9 canonical category names or Non-LSF (O). Prefix abbreviations (NUT, SEF, ANF, etc.) are never used in `final_label`.
+   - Prefer specific action/habit categories (`Physical_activities`, `Nutrition`, `Sleep`, `Substance_use`) over generic umbrella terms when specific bodily exertion, dietary intake, or substance use is present.
+
+5. **Diagnostic Evidence & Narrow-Margin Scrutiny**:
+   - When `margin` is small (the top-1 and top-2 candidates are close competitors), you must deliberately weigh `predicted_label` against `second_best_label` before committing to a `final_label` — do not default blindly to whichever the model ranked first.
+   - High uncertainty flags a genuine decision boundary: check carefully against Affirmative Filtering rules, as boundary cases are frequently `Non-LSF` (`O`) rather than a category misclassification.
+   - If a candidate span indicates high confidence (low uncertainty, high margin), do NOT arbitrarily discard it to `Non-LSF` unless an explicit Affirmative Filtering rule applies.
+
+--------------------------------------------------
+### HOW TO READ THE BERT EVIDENCE:
+- `predicted_label`: Model's top-1 category prediction for this span.
+- `second_best_label`: Model's top-2 runner-up category for this span.
+- `uncertainty`: Confidence uncertainty for the top-1 prediction (higher = less confident).
+- `novelty_score`: Distance from fine-tuning distribution (higher = unfamiliar surface form or context).
+- `margin`: Probability gap between top-1 and top-2 labels (lower = close competitors requiring careful scrutiny).
+
+Guidance:
+- *Low uncertainty + high margin + low novelty* -> Model's prediction is likely correct; verify entity-hood first, then confirm the category.
+- *Low margin* -> Deliberately weigh `predicted_label` against `second_best_label` using abstract context and guidelines.
+- *High uncertainty* -> Scrutinize against Affirmative Filtering; candidate may be `Non-LSF` (`O`).
+- *High novelty* -> Generalize strictly from canonical definitions rather than surface keyword matching.
+
+--------------------------------------------------
+### PRIORITY HIERARCHY:
+1. **Base Rules & Affirmative Filtering** (Universal structural/linguistic rules) [Highest Priority]
+2. **DynamicGuidebook (Advisory Heuristics & Boundary Principles)** [Second Priority]:
+   - DynamicGuidebook records represent general, corpus-level semantic principles and boundary heuristics.
+   - Use them as an advisory assistant and reference framework to support your own contextual reasoning, rather than dogmatically copying or blindly forcing them if the immediate sentence context indicates otherwise.
+3. **Unguided Intuition** [Lowest Priority]
+
+--------------------------------------------------
+### WORKFLOW:
+
+- **Step 0: Task Restatement and Constraint Alignment**:
+  The objective is to assign a final label to every candidate span proposed — no more, no fewer. Ground every decision strictly in the abstract's sentence-level context. Spans and boundaries are immutable.
+- **Step 1: Evidence Read & Entity-Hood Determination**:
+  For each candidate span, read its evidence (`predicted_label`, `second_best_label`, `uncertainty`, `novelty_score`, `margin`) to calibrate scrutiny. Determine whether the span represents: (A) an in-context behavioral expression, or (B) a non-entity / non-behavioral reference (biomarker, disease, demographic, non-lifestyle medical procedure, study name, trial acronym).
+- **Step 2: Category Decision & Disambiguation**:
+  Apply Base Rules, Core Disambiguation Rules, Category Inclusions/Exclusions, and relevant DynamicGuidebook entries (citing their DG IDs). Remember that DynamicGuidebook records are general, high-level advisory principles; use them as helpful guides to inform and assist your own contextual analysis rather than forcing them rigidly. Assign one of the 9 canonical categories for (A), or `Non-LSF` (`O`) for (B). Where `margin` is low, weigh competing labels explicitly.
+- **Step 3: Consistency & Integrity Audit**:
+  Verify every candidate span appears exactly once in `final_answer` with verbatim text unchanged. Confirm all labels are valid canonical names or `Non-LSF` (`O`) (no prefix codes). Ensure all DynamicGuidebook records used are listed in `bullet_ids` and cited in rationales.
+
+--------------------------------------------------
+### INPUT DATA:
+
+[1] Abstract Text (with embedded candidate span anchors [id: X, span: ...]):
+[id: 16, span: Physical activity at work] and duodenal ulcer risk. 
+To determine whether the [id: 4, span: social class] differences in duodenal ulcer frequency may be explained by differences in [id: 17, span: physical activity at work], the [id: 18, span: energy expenditure during [id: 1, span: work]], [id: 24, span: [id: 5, span: smoking habits], and [id: 6, span: social class]] were compared in 76 recently diagnosed duodenal ulcer patients and in age and sex matched community controls. As anticipated, the relative risk of duodenal ulcer showed significant associations with [id: 19, span: [id: 2, span: smoking] and [id: 22, span: [id: 7, span: social class]]. [id: 8, span: Social class]] and [id: 20, span: physical activity at work] were associated with one another. After adjusting for age, sex, [id: 23, span: [id: 3, span: smoking], and [id: 25, span: [id: 9, span: social class]], [id: 15, span: physically active work]] was still associated with duodenal ulcer, with relative risks for [id: 21, span: moderate and [id: 26, span: [id: 10, span: high activity]] compared with [id: 11, span: sedentary work]] being 1.3 (0.6-3.0) and 3.6 (1.3-7.8) respectively. Within each [id: 12, span: social class] stratum, the relative risk of having a duodenal ulcer was greater in those with a high level of [id: 13, span: occupational activity] than in those undertaking [id: 14, span: sedentary work]. 
+
+
+[2] BERT Candidate Spans & Evidence (each candidate span has an 'id' matching its inline anchor in the abstract):
+[
+  {
+    "id": 1,
+    "entity": "work",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "O",
+    "uncertainty": 0.2095,
+    "novelty_score": 0.3913,
+    "margin": 0.6922
+  },
+  {
+    "id": 2,
+    "entity": "smoking",
+    "predicted_label": "Substance_use",
+    "second_best_label": "O",
+    "uncertainty": 0.0804,
+    "novelty_score": 0.176,
+    "margin": 0.923
+  },
+  {
+    "id": 3,
+    "entity": "smoking",
+    "predicted_label": "Substance_use",
+    "second_best_label": "O",
+    "uncertainty": 0.1003,
+    "novelty_score": 0.176,
+    "margin": 0.8991
+  },
+  {
+    "id": 4,
+    "entity": "social class",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "O",
+    "uncertainty": 0.0641,
+    "novelty_score": 0.3238,
+    "margin": 0.9416
+  },
+  {
+    "id": 5,
+    "entity": "smoking habits",
+    "predicted_label": "Substance_use",
+    "second_best_label": "O",
+    "uncertainty": 0.126,
+    "novelty_score": 0.2744,
+    "margin": 0.9042
+  },
+  {
+    "id": 6,
+    "entity": "social class",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "O",
+    "uncertainty": 0.0165,
+    "novelty_score": 0.3238,
+    "margin": 0.9916
+  },
+  {
+    "id": 7,
+    "entity": "social class",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "O",
+    "uncertainty": 0.0162,
+    "novelty_score": 0.3238,
+    "margin": 0.9919
+  },
+  {
+    "id": 8,
+    "entity": "Social class",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "O",
+    "uncertainty": 0.0208,
+    "novelty_score": 0.4543,
+    "margin": 0.9887
+  },
+  {
+    "id": 9,
+    "entity": "social class",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "O",
+    "uncertainty": 0.0166,
+    "novelty_score": 0.3238,
+    "margin": 0.9918
+  },
+  {
+    "id": 10,
+    "entity": "high activity",
+    "predicted_label": "Physical_activities",
+    "second_best_label": "O",
+    "uncertainty": 0.1142,
+    "novelty_score": 0.7,
+    "margin": 0.903
+  },
+  {
+    "id": 11,
+    "entity": "sedentary work",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "Physical_activities",
+    "uncertainty": 0.4016,
+    "novelty_score": 0.4231,
+    "margin": 0.1017
+  },
+  {
+    "id": 12,
+    "entity": "social class",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "O",
+    "uncertainty": 0.0314,
+    "novelty_score": 0.3238,
+    "margin": 0.9782
+  },
+  {
+    "id": 13,
+    "entity": "occupational activity",
+    "predicted_label": "Physical_activities",
+    "second_best_label": "Socioeconomic_factors",
+    "uncertainty": 0.3549,
+    "novelty_score": 0.2873,
+    "margin": 0.5603
+  },
+  {
+    "id": 14,
+    "entity": "sedentary work",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "Physical_activities",
+    "uncertainty": 0.2504,
+    "novelty_score": 0.4231,
+    "margin": 0.6995
+  },
+  {
+    "id": 15,
+    "entity": "physically active work",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "Physical_activities",
+    "uncertainty": 0.2077,
+    "novelty_score": 0.2957,
+    "margin": 0.7817
+  },
+  {
+    "id": 16,
+    "entity": "Physical activity at work",
+    "predicted_label": "Physical_activities",
+    "second_best_label": "Socioeconomic_factors",
+    "uncertainty": 0.416,
+    "novelty_score": 0.3343,
+    "margin": 0.2498
+  },
+  {
+    "id": 17,
+    "entity": "physical activity at work",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "Physical_activities",
+    "uncertainty": 0.3944,
+    "novelty_score": 0.2565,
+    "margin": 0.3597
+  },
+  {
+    "id": 18,
+    "entity": "energy expenditure during work",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "O",
+    "uncertainty": 0.4735,
+    "novelty_score": 0.8924,
+    "margin": 0.3827
+  },
+  {
+    "id": 19,
+    "entity": "smoking and social class",
+    "predicted_label": "Substance_use",
+    "second_best_label": "Socioeconomic_factors",
+    "uncertainty": 0.5345,
+    "novelty_score": 0.9643,
+    "margin": 0.1017
+  },
+  {
+    "id": 20,
+    "entity": "physical activity at work",
+    "predicted_label": "Physical_activities",
+    "second_best_label": "Socioeconomic_factors",
+    "uncertainty": 0.4286,
+    "novelty_score": 0.2565,
+    "margin": 0.1446
+  },
+  {
+    "id": 21,
+    "entity": "moderate and high activity",
+    "predicted_label": "Physical_activities",
+    "second_best_label": "O",
+    "uncertainty": 0.1027,
+    "novelty_score": 0.8192,
+    "margin": 0.922
+  },
+  {
+    "id": 22,
+    "entity": "social class. Social class",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "O",
+    "uncertainty": 0.0311,
+    "novelty_score": 0.9834,
+    "margin": 0.9786
+  },
+  {
+    "id": 23,
+    "entity": "smoking, and social class",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "O",
+    "uncertainty": 0.561,
+    "novelty_score": 0.9698,
+    "margin": 0.0779
+  },
+  {
+    "id": 24,
+    "entity": "smoking habits, and social class",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "O",
+    "uncertainty": 0.4337,
+    "novelty_score": 0.9542,
+    "margin": 0.4012
+  },
+  {
+    "id": 25,
+    "entity": "social class, physically active work",
+    "predicted_label": "Socioeconomic_factors",
+    "second_best_label": "O",
+    "uncertainty": 0.0416,
+    "novelty_score": 0.5912,
+    "margin": 0.9769
+  },
+  {
+    "id": 26,
+    "entity": "high activity compared with sedentary work",
+    "predicted_label": "Physical_activities",
+    "second_best_label": "O",
+    "uncertainty": 0.4533,
+    "novelty_score": 0.6198,
+    "margin": 0.384
+  }
+]
+
+[3] DynamicGuidebook (General corpus-level semantic boundary principles and diagnostic guidebooks to assist your judgment):
+[
+  {
+    "id": "DG-0001",
+    "span": "passive smoking",
+    "span_sentence": "The study evaluated the impact of passive smoking on respiratory health outcomes in school-aged children.",
+    "bert_label": "Substance_use",
+    "ground_truth_label": "Substance_use",
+    "llm_label": "Environmental_exposures",
+    "triad": {
+      "type": "GT_X_BERT_X_LLM_Y",
+      "description": "Generator erroneously overrode BERT's correct prediction of Substance_use for secondhand tobacco smoke exposure, misclassifying it as Environmental_exposures."
+    },
+    "guideline": "When BERT predicts Substance_use on tobacco smoke exposure terms (e.g., passive smoking, secondhand smoke, environmental tobacco smoke), confirm BERT and preserve Substance_use; do not override BERT to Environmental_exposures, as all forms of tobacco consumption and direct smoke exposure fall within the substance use domain.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "secondhand smoke",
+        "label": "Substance_use"
+      },
+      {
+        "span": "environmental tobacco smoke",
+        "label": "Substance_use"
+      },
+      {
+        "span": "passive smoking",
+        "label": "Substance_use"
+      }
+    ]
+  },
+  {
+    "id": "DG-0002",
+    "span": "passive smoking",
+    "span_sentence": "Assessment of passive smoking and health outcomes.",
+    "bert_label": "Environmental_exposures",
+    "ground_truth_label": "Substance_use",
+    "llm_label": "Environmental_exposures",
+    "triad": {
+      "type": "GT_X_BERT_Y_LLM_Y",
+      "description": "BERT misclassified passive tobacco smoke exposure as Environmental_exposures, and Generator uncritically adopted it instead of resolving to canonical Substance_use."
+    },
+    "guideline": "When BERT predicts Environmental_exposures on tobacco smoke exposure mentions (e.g., passive smoking, secondhand smoke, environmental tobacco smoke), override BERT and label as Substance_use because all active and passive tobacco-related exposures fall under substance use rather than general environmental hazards; preserve Environmental_exposures for non-tobacco ambient pollutants (e.g., particulate matter, ambient ozone).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "secondhand smoke",
+        "label": "Substance_use"
+      },
+      {
+        "span": "environmental tobacco smoke",
+        "label": "Substance_use"
+      },
+      {
+        "span": "sidestream smoke",
+        "label": "Substance_use"
+      }
+    ]
+  },
+  {
+    "id": "DG-0003",
+    "span": "potassium",
+    "span_sentence": "potassium",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "Nutrition",
+    "llm_label": "O",
+    "triad": {
+      "type": "GT_X_BERT_X_LLM_O",
+      "description": "Generator erroneously overrode BERT's accurate Nutrition prediction for a dietary mineral, misclassifying it as an excluded endogenous biomarker."
+    },
+    "guideline": "When BERT predicts Nutrition on essential dietary minerals or micronutrients (e.g., potassium, sodium, calcium, magnesium), confirm BERT and preserve Nutrition; do not override BERT to O under biomarker exclusion unless the context unambiguously denotes an involuntary systemic assay or clinical diagnostic pathology rather than dietary intake or nutritional supplementation.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "sodium",
+        "label": "Nutrition"
+      },
+      {
+        "span": "calcium",
+        "label": "Nutrition"
+      },
+      {
+        "span": "magnesium",
+        "label": "Nutrition"
+      }
+    ]
+  },
+  {
+    "id": "DG-0004",
+    "span": "atypical antipsychotic medications for smoking cessation",
+    "span_sentence": "atypical antipsychotic medications for smoking cessation",
+    "bert_label": "Substance_use",
+    "ground_truth_label": "Substance_use",
+    "llm_label": "O",
+    "triad": {
+      "type": "GT_X_BERT_X_LLM_O",
+      "description": "Generator erroneously overrode BERT's correct prediction of Substance_use for a targeted smoking cessation pharmacotherapy phrase, misclassifying it as Non-LSF under general medication exclusions."
+    },
+    "guideline": "When BERT predicts Substance_use on pharmacotherapies or cessation interventions explicitly contextualized for substance cessation (e.g., medications for smoking cessation, nicotine replacement therapy, cessation patches), confirm BERT and preserve Substance_use; override to O only when a therapy or medication is prescribed for general psychiatric or medical indications lacking explicit substance cessation context.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "nicotine replacement therapy for smoking cessation",
+        "label": "Substance_use"
+      },
+      {
+        "span": "pharmacotherapy for smoking cessation",
+        "label": "Substance_use"
+      },
+      {
+        "span": "varenicline for tobacco cessation",
+        "label": "Substance_use"
+      }
+    ]
+  },
+  {
+    "id": "DG-0005",
+    "span": "folic acid",
+    "span_sentence": "Non-behavioral or non-dietary context mention of folic acid.",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "O",
+    "llm_label": "Nutrition",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically accepted BERT's false-positive Nutrition prediction for a nutrient term appearing in a non-behavioral, non-dietary context."
+    },
+    "guideline": "When BERT predicts Nutrition on nutrient or micronutrient terms (e.g., folic acid, vitamin D, iron), override BERT and label as O when the mention occurs in an isolated chemical, assay, biochemical pathway, or non-behavioral context; preserve Nutrition when the span refers to active dietary intake, voluntary supplementation, or nutritional consumption habits.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "vitamin D",
+        "label": "Nutrition"
+      },
+      {
+        "span": "folic acid supplementation",
+        "label": "Nutrition"
+      },
+      {
+        "span": "serum folate",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0006",
+    "span": "meditation and stress reduction",
+    "span_sentence": "meditation and stress reduction",
+    "bert_label": "Mental_health_practices",
+    "ground_truth_label": "O",
+    "llm_label": "Mental_health_practices",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "BERT predicted Mental_health_practices on a coordinate span conflating an active practice with an outcome goal, and Generator uncritically adopted it instead of rejecting as Non-LSF (O)."
+    },
+    "guideline": "When BERT predicts Mental_health_practices on coordinate or conjoined phrases combining an active practice with a non-behavioral clinical outcome or state (e.g., meditation and stress reduction, mindfulness and anxiety management), override BERT and label as O because multi-concept phrases spanning clinical endpoints do not qualify as discrete behavioral lifestyle entities; preserve Mental_health_practices when the candidate span refers solely to discrete behavioral practices or therapeutic interventions (e.g., mindfulness meditation, cognitive behavioral therapy).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "mindfulness and stress management",
+        "label": "O"
+      },
+      {
+        "span": "yoga and anxiety reduction",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0007",
+    "span": "vitamin D",
+    "span_sentence": "Identified candidate spans for vitamin D where BERT correctly proposed Nutrition.",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "Nutrition",
+    "llm_label": "O",
+    "triad": {
+      "type": "GT_X_BERT_X_LLM_O",
+      "description": "Generator overrode BERT's correct prediction of Nutrition for dietary micronutrient mentions, misclassifying them as Non-LSF due to over-filtering."
+    },
+    "guideline": "When BERT predicts Nutrition on micronutrient, vitamin, or mineral terms (e.g., vitamin D, vitamin C, calcium, folate), override BERT and label as O when context denotes internal circulating levels, serum/plasma concentrations, laboratory assays, or endogenous physiological biomarkers (e.g., plasma vitamin D, serum ferritin); confirm BERT and preserve Nutrition only when candidate spans denote active dietary intake, food items, or oral supplementation.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "multivitamin",
+        "label": "Nutrition"
+      },
+      {
+        "span": "dietary calcium",
+        "label": "Nutrition"
+      },
+      {
+        "span": "folic acid supplement",
+        "label": "Nutrition"
+      }
+    ]
+  },
+  {
+    "id": "DG-0008",
+    "span": "rapeseed oil",
+    "span_sentence": "Heated rapeseed oil and linseed oil emissions were evaluated as hazardous airborne pollutants in indoor kitchen environments.",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "Environmental_exposures",
+    "llm_label": "Nutrition",
+    "triad": {
+      "type": "GT_X_BERT_Y_LLM_Y",
+      "description": "Generator adopted BERT's erroneous Nutrition prediction on edible cooking oils operating as ambient airborne exposure hazards instead of overriding to Environmental_exposures."
+    },
+    "guideline": "When BERT predicts Nutrition on culinary agents or edible oils (e.g., rapeseed oil, linseed oil, cooking oils, frying fats), override BERT and label as Environmental_exposures when the context denotes ambient indoor air emissions, cooking fumes, or inhalation exposure hazards; preserve BERT's Nutrition prediction only when the term refers to dietary intake or nutritional consumption.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "linseed oil",
+        "label": "Environmental_exposures"
+      },
+      {
+        "span": "cooking oil fumes",
+        "label": "Environmental_exposures"
+      },
+      {
+        "span": "heated vegetable oil emissions",
+        "label": "Environmental_exposures"
+      }
+    ]
+  },
+  {
+    "id": "DG-0009",
+    "span": "tin mine",
+    "span_sentence": "Radon and silica exposures were evaluated in workers from a tin mine cohort.",
+    "bert_label": "Environmental_exposures",
+    "ground_truth_label": "Environmental_exposures",
+    "llm_label": "O",
+    "triad": {
+      "type": "GT_X_BERT_X_LLM_O",
+      "description": "Generator erroneously overrode BERT's accurate Environmental_exposures prediction for hazardous occupational work environments and exposure terms, misclassifying them as generic non-lifestyle locations."
+    },
+    "guideline": "When BERT predicts Environmental_exposures on hazardous occupational settings, workplace hazard environments, or occupational exposure heads (e.g., tin mine, underground mines, smelters, occupational exposures), confirm BERT and preserve Environmental_exposures; override to O only when the location is purely administrative or non-hazardous (e.g., corporate office, hospital clinic) without intrinsic environmental or toxicant exposure.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "tin mines",
+        "label": "Environmental_exposures"
+      },
+      {
+        "span": "underground mining",
+        "label": "Environmental_exposures"
+      },
+      {
+        "span": "occupational exposures",
+        "label": "Environmental_exposures"
+      }
+    ]
+  },
+  {
+    "id": "DG-0010",
+    "span": "antidepressants with psychological approaches",
+    "span_sentence": "Clinical trials evaluated antidepressants with psychological approaches for treatment efficacy in major depressive disorder.",
+    "bert_label": "Mental_health_practices",
+    "ground_truth_label": "Mental_health_practices",
+    "llm_label": "O",
+    "triad": {
+      "type": "GT_X_BERT_X_LLM_O",
+      "description": "BERT correctly proposed Mental_health_practices on candidate spans anchored by psychotherapy, but Generator over-rejected the fixed multi-token span as a non-entity clause fragment."
+    },
+    "guideline": "When BERT predicts Mental_health_practices on multi-token comparative or combination treatment spans anchored by psychological or behavioral therapies (e.g., antidepressants with psychological approaches, antidepressants versus psychological treatments), confirm BERT and label as Mental_health_practices because candidate spans containing active psychotherapeutic modalities maintain entity status under fixed boundaries; override BERT and label as O only when the span denotes standalone pharmacotherapy, medical procedures, or non-behavioral endpoints without a psychological therapy component.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "antidepressants versus psychological treatments",
+        "label": "Mental_health_practices"
+      },
+      {
+        "span": "antidepressants than for psychotherapy",
+        "label": "Mental_health_practices"
+      },
+      {
+        "span": "antidepressants were compared with psychological treatments",
+        "label": "Mental_health_practices"
+      }
+    ]
+  },
+  {
+    "id": "DG-0011",
+    "span": "occupational characteristics",
+    "span_sentence": "Participants were evaluated based on work and occupational characteristics in relation to health outcomes.",
+    "bert_label": "Socioeconomic_factors",
+    "ground_truth_label": "O",
+    "llm_label": "Socioeconomic_factors",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically confirmed BERT's false-positive Socioeconomic_factors prediction on generic employment nouns and descriptors lacking specific socioeconomic status indicators."
+    },
+    "guideline": "When BERT predicts Socioeconomic_factors on aggregate workforce cohorts, demographic occupational groups, or generic industry sectors (e.g., labor force, worker cohorts, construction workers, agricultural sector), override BERT and label as O, as collective macroeconomic populations do not index discrete individual socioeconomic conditions; confirm BERT and preserve Socioeconomic_factors when candidate spans denote individual vocational indicators, employment status, material stratification, or structured work arrangements (e.g., occupation, employment status, job title, household income, education level, unemployment status, blue-collar worker, work shift).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "work",
+        "label": "O"
+      },
+      {
+        "span": "employment",
+        "label": "O"
+      },
+      {
+        "span": "occupational factors",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0012",
+    "span": "exhaust fans",
+    "span_sentence": "Cooking practices and the presence of exhaust fans were evaluated for residential exposure.",
+    "bert_label": "Environmental_exposures",
+    "ground_truth_label": "O",
+    "llm_label": "Environmental_exposures",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically accepted BERT's false-positive Environmental_exposures prediction on physical mechanical ventilation appliances instead of rejecting them as Non-LSF (O)."
+    },
+    "guideline": "When BERT predicts Environmental_exposures on physical ventilation equipment, appliances, or mechanical fixtures (e.g., exhaust fans, range hoods, air filters, ventilation ducts), override BERT and label as O, as mechanical hardware tools and appliances represent physical objects rather than direct environmental exposure agents; preserve Environmental_exposures only when the candidate span denotes the actual exposure hazard, airborne pollutant, or emission itself (e.g., cooking oil fumes, wood smoke, particulate matter).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "exhaust fan",
+        "label": "O"
+      },
+      {
+        "span": "fume hoods",
+        "label": "O"
+      },
+      {
+        "span": "air filtration unit",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0013",
+    "span": "therapies",
+    "span_sentence": "Generic therapy terms lacking explicit behavioral specification were evaluated.",
+    "bert_label": "Mental_health_practices",
+    "ground_truth_label": "O",
+    "llm_label": "Mental_health_practices",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically accepted BERT's false-positive prediction of Mental_health_practices on generic clinical treatment descriptors."
+    },
+    "guideline": "When BERT predicts Mental_health_practices on generic, unanchored clinical treatment descriptors (e.g., therapies, therapy, interventions), override BERT and label as O; confirm BERT and preserve Mental_health_practices only when the span explicitly specifies a behavioral or psychotherapeutic modality (e.g., cognitive behavioral therapy, psychotherapy, mindfulness meditation).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "Therapy",
+        "label": "O"
+      },
+      {
+        "span": "interventions",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0014",
+    "span": "child abuse",
+    "span_sentence": "Exposure to child abuse was evaluated as a major risk factor.",
+    "bert_label": "Socioeconomic_factors",
+    "ground_truth_label": "Environmental_exposures",
+    "llm_label": "Socioeconomic_factors",
+    "triad": {
+      "type": "GT_X_BERT_Y_LLM_Y",
+      "description": "BERT misclassified interpersonal trauma/abuse exposure as Socioeconomic_factors, and Generator uncritically accepted it instead of resolving to canonical Environmental_exposures."
+    },
+    "guideline": "When BERT predicts Socioeconomic_factors on interpersonal trauma, domestic adversity, or maltreatment mentions (e.g., child abuse, childhood physical abuse, sexual abuse, domestic violence), override BERT and label as Environmental_exposures, as non-chemical interpersonal hazards and adverse developmental living conditions represent external environmental exposures; preserve Socioeconomic_factors only when candidate spans denote economic, educational, occupational, or social standing indicators (e.g., household income, parental education, poverty level).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "emotional abuse",
+        "label": "Environmental_exposures"
+      },
+      {
+        "span": "sexual and emotional abuse",
+        "label": "Environmental_exposures"
+      },
+      {
+        "span": "child abuse and neglect",
+        "label": "Environmental_exposures"
+      }
+    ]
+  },
+  {
+    "id": "DG-0015",
+    "span": "exposure",
+    "span_sentence": "Both BERT and the LLM agreed on Environmental_exposures, but standalone generic term 'exposure' must be labeled Non-LSF (O) under Affirmative Filtering.",
+    "bert_label": "Environmental_exposures",
+    "ground_truth_label": "O",
+    "llm_label": "Environmental_exposures",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically accepted BERT's Environmental_exposures prediction on a standalone generic noun instead of rejecting it as Non-LSF (O)."
+    },
+    "guideline": "When BERT predicts Environmental_exposures on standalone generic descriptor nouns or broad hazard phrases lacking a specific named chemical, physical, or environmental agent (e.g., exposure, hazard, professional exposure to carcinogens, occupational exposure factors), override BERT and label as O; preserve Environmental_exposures when candidate spans denote specific environmental pollutants, toxicants, physical agents, or concrete occupational exposures (e.g., pollution, particulate matter, radon, second-hand smoke, radiation exposure).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "hazard",
+        "label": "O"
+      },
+      {
+        "span": "pollutant",
+        "label": "O"
+      },
+      {
+        "span": "contamination",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0016",
+    "span": "genistein",
+    "span_sentence": "The toxicological effects of endocrine-disrupting chemicals including genistein and vinclozolin were evaluated.",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "Environmental_exposures",
+    "llm_label": "Nutrition",
+    "triad": {
+      "type": "GT_X_BERT_Y_LLM_Y",
+      "description": "Generator adopted BERT's erroneous Nutrition prediction on genistein investigated as an environmental endocrine disruptor instead of overriding to Environmental_exposures."
+    },
+    "guideline": "When BERT predicts Nutrition on bioactive compounds or phytoestrogens (e.g., genistein, isoflavones, coumestrol), override BERT and label as Environmental_exposures when evaluated as environmental toxicants, endocrine disruptors, or chemical exposure hazards; preserve BERT's Nutrition prediction only when explicitly contextualized as voluntary dietary intake, food consumption, or nutritional supplementation.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "genistein and vinclozolin",
+        "label": "Environmental_exposures"
+      },
+      {
+        "span": "isoflavones",
+        "label": "Environmental_exposures"
+      },
+      {
+        "span": "phytoestrogen exposure",
+        "label": "Environmental_exposures"
+      }
+    ]
+  },
+  {
+    "id": "DG-0017",
+    "span": "exercise counselling",
+    "span_sentence": "exercise counselling",
+    "bert_label": "Physical_activities",
+    "ground_truth_label": "O",
+    "llm_label": "Physical_activities",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically confirmed BERT's false-positive Physical_activities prediction on clinical and educational guidance interventions."
+    },
+    "guideline": "When BERT predicts Physical_activities on educational, advisory, or clinical guidance interventions (e.g., exercise counselling, physical activity prescription, lifestyle education), override BERT and label as O, as external healthcare advice and educational sessions represent clinical interventions rather than direct voluntary behavioral movement; confirm BERT and preserve Physical_activities only when candidate spans denote direct physical exertion, exercise regimens, or bodily movement (e.g., aerobic training, brisk walking, swimming).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "physical activity prescription",
+        "label": "O"
+      },
+      {
+        "span": "lifestyle education",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0018",
+    "span": "sleep disorders",
+    "span_sentence": "Participants reported high rates of sleep disorders and difficulties falling asleep.",
+    "bert_label": "Sleep",
+    "ground_truth_label": "O",
+    "llm_label": "Sleep",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically confirmed BERT's false-positive Sleep prediction on clinical pathologies and physiological onset states."
+    },
+    "guideline": "When BERT predicts Sleep on clinical sleep pathologies, diagnostic conditions, involuntary symptoms, or disruptions (e.g., sleep disorders, insomnia, sleep apnea, sleep disturbance, sleep disturbances, sleep disruptions, wakefulness, bedroom atmosphere), override BERT and label as O; confirm BERT and label as Sleep only when candidate spans denote behavioral sleep practices, duration, architecture phases, routines, or circadian habits (e.g., sleep, REM sleep, NREM, circadian rhythms, sleep duration, regular bedtime, daytime napping, short-sleepers, adequate sleepers, habitual long sleepers).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "falling asleep",
+        "label": "O"
+      },
+      {
+        "span": "sleep disorder",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0019",
+    "span": "basic sanitation",
+    "span_sentence": "Access to basic sanitation and clean water was evaluated as part of household living conditions.",
+    "bert_label": "Environmental_exposures",
+    "ground_truth_label": "Socioeconomic_factors",
+    "llm_label": "Environmental_exposures",
+    "triad": {
+      "type": "GT_X_BERT_Y_LLM_Y",
+      "description": "Generator uncritically accepted BERT's Environmental_exposures prediction on structural living condition infrastructure instead of classifying it as Socioeconomic_factors."
+    },
+    "guideline": "When BERT predicts Environmental_exposures on municipal infrastructure, dwelling assets, or structural living condition indicators (e.g., housing tenure, access to electricity, basic sanitation, water and sanitation provision, WASH infrastructure), override BERT and label as Socioeconomic_factors; preserve BERT's Environmental_exposures prediction only when spans denote ambient physical, chemical, or biological contaminants and hazards (e.g., air pollution, pesticide runoff, heavy metals, industrial toxins).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "piped water access",
+        "label": "Socioeconomic_factors"
+      },
+      {
+        "span": "adequate housing",
+        "label": "Socioeconomic_factors"
+      },
+      {
+        "span": "sanitation facilities",
+        "label": "Socioeconomic_factors"
+      }
+    ]
+  },
+  {
+    "id": "DG-0020",
+    "span": "Dietary history",
+    "span_sentence": "Dietary history and supplement use were evaluated through standardized assessment protocols.",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "O",
+    "llm_label": "Nutrition",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically confirmed BERT false-positive Nutrition prediction on exposure assessment methodology phrases instead of filtering them as Non-LSF."
+    },
+    "guideline": "When BERT predicts Nutrition on research methodology, data collection procedures, or generic exposure history phrases (e.g., dietary history, supplement assessment, questionnaire evaluation), override BERT and label as O, as methodological assessment instruments and study protocols reflect data gathering mechanisms rather than voluntary behavioral lifestyle factors; confirm BERT and preserve Nutrition only when candidate spans denote active consumable dietary intake, nutritional regimens, or specific food items (e.g., fruit intake, low-sodium diet).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "supplement use",
+        "label": "O"
+      },
+      {
+        "span": "Dietary history and supplement use",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0021",
+    "span": "watching television, sedentary lifestyle",
+    "span_sentence": "watching television, sedentary lifestyle",
+    "bert_label": "Physical_activities",
+    "ground_truth_label": "Non_physical_leisure_time_activities",
+    "llm_label": "Physical_activities",
+    "triad": {
+      "type": "GT_X_BERT_Y_LLM_Y",
+      "description": "Generator uncritically accepted BERT's Physical_activities prediction on multi-activity spans containing screen-based leisure descriptors instead of resolving to Non_physical_leisure_time_activities."
+    },
+    "guideline": "When BERT predicts Physical_activities on candidate spans centered primarily on isolated passive screen-based leisure pursuits (e.g., watching television, video game time alone), override BERT and label as Non_physical_leisure_time_activities; preserve BERT's Physical_activities prediction when candidate spans explicitly incorporate general sedentary duration metrics or broad movement/inactivity constructs (e.g., sedentary time and video game time, sedentary lifestyle) as well as active bodily exertion (e.g., brisk walking, aerobic training).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "watching television, sedentary lifestyle",
+        "label": "Non_physical_leisure_time_activities"
+      },
+      {
+        "span": "screen time and sedentary behavior",
+        "label": "Non_physical_leisure_time_activities"
+      }
+    ]
+  },
+  {
+    "id": "DG-0022",
+    "span": "peanut",
+    "span_sentence": "Subjects underwent diagnostic evaluation and oral food challenges with milk, egg, or peanut.",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "O",
+    "llm_label": "Nutrition",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator confirmed BERT false-positive Nutrition predictions on clinical allergen challenge substances instead of filtering them as Non-LSF."
+    },
+    "guideline": "When BERT predicts Nutrition on food names or substance mentions functioning as clinical diagnostic allergen triggers, sensitization testing materials, or provocation challenge agents (e.g., milk, egg, peanut challenge substances), override BERT and label as O, as diagnostic test stimuli represent clinical evaluation protocols rather than voluntary dietary nutrition behaviors; confirm BERT and preserve Nutrition only when candidate spans denote active consumable dietary intake, nutritional regimens, or culinary foods.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "milk",
+        "label": "O"
+      },
+      {
+        "span": "egg",
+        "label": "O"
+      },
+      {
+        "span": "peanut allergen challenge",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0023",
+    "span": "poor women live in rural areas",
+    "span_sentence": "poor women live in rural areas",
+    "bert_label": "Socioeconomic_factors",
+    "ground_truth_label": "Socioeconomic_factors",
+    "llm_label": "O",
+    "triad": {
+      "type": "GT_X_BERT_X_LLM_O",
+      "description": "Generator over-rejected BERT's valid Socioeconomic_factors proposal on a socioeconomic and residential hardship span due to misidentifying embedded subject demographics as an exclusion trigger."
+    },
+    "guideline": "When BERT predicts Socioeconomic_factors on candidate spans characterizing explicit socioeconomic hardship, structural societal or macroeconomic shifts, macroeconomic development status, disadvantaged residential conditions, geographic settlement qualifiers, or personal educational attainment metrics (e.g., poor women live in rural areas, rural households, urban communities, low-income families, social transition, economic development, developing countries, maternal education level), confirm BERT and preserve Socioeconomic_factors; override BERT and label as O when candidate spans denote demographic student populations, school-age cohorts, standalone educational institutions, or general population groups lacking explicit socioeconomic stratification (e.g., primary school children, secondary school students, college, adult women, general public).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "families in low-income housing",
+        "label": "Socioeconomic_factors"
+      },
+      {
+        "span": "disadvantaged rural households",
+        "label": "Socioeconomic_factors"
+      },
+      {
+        "span": "impoverished mothers",
+        "label": "Socioeconomic_factors"
+      }
+    ]
+  },
+  {
+    "id": "DG-0024",
+    "span": "night shift work",
+    "span_sentence": "The study evaluated the adverse health impacts of night shift work among hospital employees.",
+    "bert_label": "Socioeconomic_factors",
+    "ground_truth_label": "Environmental_exposures",
+    "llm_label": "Socioeconomic_factors",
+    "triad": {
+      "type": "GT_X_BERT_Y_LLM_Y",
+      "description": "BERT misclassified occupational shift work as Socioeconomic_factors, and the Generator uncritically accepted it instead of resolving to canonical Environmental_exposures."
+    },
+    "guideline": "When BERT predicts Socioeconomic_factors on occupational work schedules or employment arrangements (e.g., shift work, night shift work, rotating shifts), confirm BERT and preserve Socioeconomic_factors, as work organization represents socioeconomic labor conditions; do not override to Environmental_exposures unless candidate spans explicitly denote ambient, chemical, or physical workplace exposure hazards (e.g., occupational dust, industrial noise, extreme heat).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "rotating shifts",
+        "label": "Environmental_exposures"
+      },
+      {
+        "span": "shift work",
+        "label": "Environmental_exposures"
+      },
+      {
+        "span": "night work",
+        "label": "Environmental_exposures"
+      }
+    ]
+  },
+  {
+    "id": "DG-0025",
+    "span": "cannabis dependence",
+    "span_sentence": "The trial evaluated behavioral and pharmacological treatment outcomes in patients diagnosed with cannabis dependence.",
+    "bert_label": "Substance_use",
+    "ground_truth_label": "O",
+    "llm_label": "Substance_use",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically accepted BERT's false-positive Substance_use prediction on clinical diagnostic dependence terms rather than filtering involuntary diagnostic pathologies to O."
+    },
+    "guideline": "When BERT predicts Substance_use on formal diagnostic clinical disorders, pathological dependence constructs, prescription drug therapies, or clinical pharmacological regimens (e.g., cannabis dependence, alcohol use disorder, pharmacotherapy for alcohol dependence, medical marijuana, prescription cannabinoids, cessation pharmacotherapy), override BERT and label as O, as diagnostic pathologies and medical pharmacotherapies represent clinical healthcare interventions rather than voluntary lifestyle behaviors; confirm BERT and preserve Substance_use only when candidate spans denote active, voluntary recreational consumption or non-medical substance habits (e.g., recreational cannabis use, alcohol consumption, smoking, cocaine use).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "other substances abuse or dependence",
+        "label": "O"
+      },
+      {
+        "span": "alcohol dependence",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0026",
+    "span": "rodent chow",
+    "span_sentence": "Animals were fed standard rodent chow and water ad libitum throughout the experiment.",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "O",
+    "llm_label": "Nutrition",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically confirmed BERT false-positive Nutrition prediction on non-human laboratory animal feed instead of filtering as Non-LSF."
+    },
+    "guideline": "When BERT predicts Nutrition on laboratory animal feeds, experimental animal chows, or non-human dietary maintenance rations (e.g., rodent chow, standard rat diet, animal chow), override BERT and label as O, as non-human experimental feeds reflect laboratory maintenance rather than voluntary human lifestyle behaviors; confirm BERT and preserve Nutrition only when candidate spans denote voluntary human dietary intake, nutritional regimens, or consumable culinary foods.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "standard rat chow",
+        "label": "O"
+      },
+      {
+        "span": "experimental animal diet",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0027",
+    "span": "food",
+    "span_sentence": "Subjects were interviewed regarding food and eating habits during baseline assessment.",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "O",
+    "llm_label": "Nutrition",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator confirmed BERT false-positive Nutrition prediction on generic hypernyms and non-specific consumption actions instead of filtering them as Non-LSF (O)."
+    },
+    "guideline": "When BERT predicts Nutrition on standalone generic dietary hypernyms, temporal meal occasions, or generic eating event descriptors (e.g., food, meals, breakfast, lunch, dinner, ate breakfast, breakfast food), override BERT and label as O, as isolated descriptors and temporal eating events lack nutritional specificity; confirm BERT and preserve Nutrition only when candidate spans denote distinct consumable foods, specific nutrients, or structured dietary regimens (e.g., whole grains, vitamin C, Mediterranean diet, high-fiber breakfast cereal).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "eating",
+        "label": "O"
+      },
+      {
+        "span": "food",
+        "label": "O"
+      },
+      {
+        "span": "meals",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0028",
+    "span": "carbohydrate",
+    "span_sentence": "Dietary intake of carbohydrate and fat was evaluated in relation to metabolic risk factors.",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "Nutrition",
+    "llm_label": "O",
+    "triad": {
+      "type": "GT_X_BERT_X_LLM_O",
+      "description": "Generator overrode BERT's correct prediction of Nutrition on macronutrient terms, misclassifying them as Non-LSF due to over-filtering under biomarker exclusion criteria."
+    },
+    "guideline": "When BERT predicts Nutrition on dietary macronutrients or macronutrient utilization terms (e.g., carbohydrate, fat and carbohydrate, protein, dietary fiber), confirm BERT and preserve Nutrition, as macronutrients constitute core nutritional lifestyle factors; override BERT and label as O when candidate spans denote endogenous circulating metabolic biomarkers, lipid profiles, or clinical laboratory assays (e.g., cholesterol, serum triglycerides, fasting blood glucose).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "fat and carbohydrate",
+        "label": "Nutrition"
+      },
+      {
+        "span": "carbohydrate metabolism",
+        "label": "Nutrition"
+      },
+      {
+        "span": "dietary protein",
+        "label": "Nutrition"
+      }
+    ]
+  },
+  {
+    "id": "DG-0029",
+    "span": "malnutrition",
+    "span_sentence": "Candidate mentions of malnutrition and nutritional status were evaluated in clinical context.",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "Nutrition",
+    "llm_label": "O",
+    "triad": {
+      "type": "GT_X_BERT_X_LLM_O",
+      "description": "Generator misclassified valid nutritional status descriptors as clinical disease pathologies or generic Non-LSF terms, incorrectly overriding BERT's accurate Nutrition predictions."
+    },
+    "guideline": "When BERT predicts Nutrition on clinical malnutrition states, undernutrition, or systemic nutritional deficit diagnoses (e.g., malnutrition, undernutrition, micronutrient deficiencies), override BERT and label as O, as involuntary clinical deficit pathologies represent medical conditions rather than voluntary dietary nutrition behaviors; confirm BERT and preserve Nutrition only when candidate spans denote active consumable dietary intake, nutritional regimens, or dietary patterns.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "under-nutrition",
+        "label": "Nutrition"
+      },
+      {
+        "span": "over nutrition",
+        "label": "Nutrition"
+      },
+      {
+        "span": "under and over nutrition",
+        "label": "Nutrition"
+      }
+    ]
+  },
+  {
+    "id": "DG-0030",
+    "span": "rural areas",
+    "span_sentence": "Residents of rural areas exhibited distinct exposure patterns compared to urban populations.",
+    "bert_label": "Socioeconomic_factors",
+    "ground_truth_label": "Environmental_exposures",
+    "llm_label": "Socioeconomic_factors",
+    "triad": {
+      "type": "GT_X_BERT_Y_LLM_Y",
+      "description": "Generator uncritically accepted BERT's Socioeconomic_factors prediction on a geographic living environment candidate span instead of classifying it as Environmental_exposures."
+    },
+    "guideline": "When BERT predicts Socioeconomic_factors on candidate spans denoting geographic locality terms, urbanization metrics, or residential settlement designations (e.g., rural areas, urban centres, rural communities, urban-rural gradient), confirm BERT and preserve Socioeconomic_factors; override BERT and label as Environmental_exposures only when the span explicitly denotes physical, chemical, or ambient exposure agents (e.g., air pollution, toxic waste, pesticide runoff).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "urban and rural areas",
+        "label": "Environmental_exposures"
+      },
+      {
+        "span": "rural residence",
+        "label": "Environmental_exposures"
+      },
+      {
+        "span": "urban living zones",
+        "label": "Environmental_exposures"
+      }
+    ]
+  },
+  {
+    "id": "DG-0031",
+    "span": "sedentary occupations",
+    "span_sentence": "Subjects engaged in sedentary occupations showed higher cardiometabolic risk compared to those in non-sedentary occupations.",
+    "bert_label": "Socioeconomic_factors",
+    "ground_truth_label": "Physical_activities",
+    "llm_label": "O",
+    "triad": {
+      "type": "GT_X_BERT_Y_LLM_O",
+      "description": "Generator dropped occupational physical activity descriptors to Non-LSF under generic employment exclusion heuristics instead of reclassifying BERT's Socioeconomic_factors prediction to Physical_activities."
+    },
+    "guideline": "When BERT predicts Socioeconomic_factors on occupational terms or coordinate phrases specifying physical activity, movement, or energy expenditure levels (e.g., sedentary occupations, physically demanding jobs, work hour and occupational activity), override BERT and label as Physical_activities, as conjoined expressions incorporating direct bodily exertion represent behavioral physical activity; preserve Socioeconomic_factors only when candidate spans denote isolated employment conditions, work schedules, material stratification, or formal socioeconomic metrics without physical movement (e.g., household income, poverty index, education level, work hours alone).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "non-sedentary occupations",
+        "label": "Physical_activities"
+      },
+      {
+        "span": "physically demanding jobs",
+        "label": "Physical_activities"
+      }
+    ]
+  },
+  {
+    "id": "DG-0032",
+    "span": "psychosocial milieu",
+    "span_sentence": "The study evaluated the role of the psychosocial milieu and social support on patient outcomes.",
+    "bert_label": "Socioeconomic_factors",
+    "ground_truth_label": "O",
+    "llm_label": "Socioeconomic_factors",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically confirmed BERT's false-positive Socioeconomic_factors prediction on an abstract contextual descriptor lacking concrete individual socioeconomic indicators."
+    },
+    "guideline": "When BERT predicts Socioeconomic_factors on broad descriptors of social context, interpersonal climate, or relational support constructs (e.g., social inequalities, psychosocial milieu, social climate, emotional support, peer support, informal support networks), override BERT and label as O, as ambient social environments and interpersonal coping mechanisms do not denote discrete socioeconomic status; preserve Socioeconomic_factors only when candidate spans denote explicit personal, household, material, educational, occupational, or financial status metrics (e.g., household income, educational attainment, poverty index, employment status).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "social climate",
+        "label": "O"
+      },
+      {
+        "span": "organizational atmosphere",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0033",
+    "span": "vitamin D deficiency",
+    "span_sentence": "Participants were evaluated for vitamin D deficiency and dietary intake patterns.",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "O",
+    "llm_label": "Nutrition",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator confirmed BERT's false-positive Nutrition predictions on clinical deficiency states instead of filtering them as Non-LSF."
+    },
+    "guideline": "When BERT predicts Nutrition on clinical nutrient deficiency states, medical deficit diagnoses, or pathological conditions (e.g., vitamin D deficiency, iron deficiency, folate deficiency), override BERT and label as O, as involuntary clinical disease endpoints represent medical diagnoses rather than voluntary dietary nutrition behaviors; confirm BERT and preserve Nutrition only when candidate spans denote active consumable dietary intake, food items, or oral supplementation.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "Vitamin D deficiency",
+        "label": "O"
+      },
+      {
+        "span": "iron deficiency",
+        "label": "O"
+      },
+      {
+        "span": "zinc deficiency",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0034",
+    "span": "mouth cleaning",
+    "span_sentence": "mouth cleaning",
+    "bert_label": "Personal_care_products_and_cosmetic_procedures",
+    "ground_truth_label": "O",
+    "llm_label": "Personal_care_products_and_cosmetic_procedures",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically accepted BERT's false-positive prediction of Personal_care_products_and_cosmetic_procedures on generic clinical cleaning and assisted care descriptors."
+    },
+    "guideline": "When BERT predicts Personal_care_products_and_cosmetic_procedures on generic clinical cleaning descriptors, passive patient hygiene, or assisted nursing tasks (e.g., mouth cleaning, oral care assistance, patient washing), override BERT and label as O, as passive or institutional clinical procedures do not constitute autonomous personal care lifestyle behaviors; confirm BERT and preserve Personal_care_products_and_cosmetic_procedures when candidate spans denote autonomous personal hygiene habits, grooming routines, cosmetic products, or cosmetic procedures (e.g., brushing teeth, dental flossing, sunscreen, moisturizing, cosmetic surgery).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "oral care assistance",
+        "label": "O"
+      },
+      {
+        "span": "patient washing",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0035",
+    "span": "metal mines",
+    "span_sentence": "Workers employed in metal mines and transportation industries were evaluated for occupational health risks.",
+    "bert_label": "Environmental_exposures",
+    "ground_truth_label": "O",
+    "llm_label": "Environmental_exposures",
+    "triad": {
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "Generator uncritically accepted BERT's Environmental_exposures prediction on a physical workplace facility rather than rejecting it as Non-LSF (O)."
+    },
+    "guideline": "When BERT predicts Environmental_exposures or Socioeconomic_factors on physical workplace facilities, geographic work sites, or aggregate industrial sectors (e.g., metal mines, transportation industries, factories), override BERT and label as O; preserve Environmental_exposures when candidate spans denote concrete environmental pollutants, toxicants, or specific physical agents (e.g., radon, coal dust, particulate matter), and preserve Socioeconomic_factors when candidate spans denote specific individual occupations or personal socioeconomic indicators.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "transportation industries",
+        "label": "O"
+      },
+      {
+        "span": "manufacturing plants",
+        "label": "O"
+      },
+      {
+        "span": "agricultural sectors",
+        "label": "O"
+      }
+    ]
+  },
+  {
+    "id": "DG-0036",
+    "span": "safe drinking water",
+    "span_sentence": "Access to safe drinking water and consumption of clean water sources are critical determinants of health.",
+    "bert_label": "Environmental_exposures",
+    "ground_truth_label": "Nutrition",
+    "llm_label": "Environmental_exposures",
+    "triad": {
+      "type": "GT_X_BERT_Y_LLM_Y",
+      "description": "Generator uncritically adopted BERT's erroneous Environmental_exposures prediction on potable/consumable water sources instead of classifying them as dietary fluid intake under Nutrition."
+    },
+    "guideline": "When BERT predicts Environmental_exposures on potable or consumable water mentions, override BERT and label as Nutrition only when the context denotes individual dietary fluid intake or hydration behavior (e.g., daily water intake, tap water consumption); if the span denotes municipal service infrastructure, utility provision, or potable supply quality (e.g., drinking water quality, safe drinking water access, piped water supply), override BERT and label as Socioeconomic_factors; preserve BERT's Environmental_exposures prediction only when spans denote ambient environmental reservoirs, wastewater runoff, or toxic contaminants.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "unsafe water",
+        "label": "Nutrition"
+      },
+      {
+        "span": "common-source water",
+        "label": "Nutrition"
+      },
+      {
+        "span": "potable water intake",
+        "label": "Nutrition"
+      }
+    ]
+  },
+  {
+    "id": "DG-0037",
+    "span": "smartphones",
+    "span_sentence": "smartphones",
+    "bert_label": "Non_physical_leisure_time_activities",
+    "ground_truth_label": "Non_physical_leisure_time_activities",
+    "llm_label": "O",
+    "triad": {
+      "type": "GT_X_BERT_X_LLM_O",
+      "description": "Generator over-rejected BERT's valid Non_physical_leisure_time_activities prediction on interactive screen devices to Non-LSF under generic hardware exclusions."
+    },
+    "guideline": "When BERT predicts Non_physical_leisure_time_activities on digital media, screen time, or online platform terms (e.g., social media, screen time, internet use, smartphones), confirm BERT and preserve Non_physical_leisure_time_activities as voluntary leisure behavior; override BERT and label as O only when the span strictly denotes a non-behavioral research tool, recruitment channel, or generic communication hardware without personal recreational engagement.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "tablets",
+        "label": "Non_physical_leisure_time_activities"
+      },
+      {
+        "span": "computers",
+        "label": "Non_physical_leisure_time_activities"
+      },
+      {
+        "span": "screens",
+        "label": "Non_physical_leisure_time_activities"
+      }
+    ]
+  },
+  {
+    "id": "DG-0038",
+    "span": "Cannabidiol",
+    "span_sentence": "Patients reported regular use of Cannabidiol and N-acetyl cysteine alongside standard therapy.",
+    "bert_label": "Nutrition",
+    "ground_truth_label": "Substance_use",
+    "llm_label": "Nutrition",
+    "triad": {
+      "type": "GT_X_BERT_Y_LLM_Y",
+      "description": "Generator uncritically accepted BERT's incorrect Nutrition/Sleep predictions for exogenous bioactive chemical compounds and cannabinoids instead of classifying them as Substance_use."
+    },
+    "guideline": "When BERT predicts Nutrition or Sleep on candidate spans representing exogenous bioactive substances, cannabinoids, or non-food pharmacological compounds (e.g., cannabidiol, melatonin, N-acetyl cysteine), override BERT and label as Substance_use; confirm BERT and preserve Nutrition only when candidate spans denote conventional foods, beverages, dietary macronutrients, or dietary regimens, and preserve Sleep only when candidate spans denote sleep behaviors, states, or circadian rhythms.",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "Melatonin",
+        "label": "Substance_use"
+      },
+      {
+        "span": "N-acetyl cysteine",
+        "label": "Substance_use"
+      }
+    ]
+  },
+  {
+    "id": "DG-0039",
+    "span": "college student drinkers",
+    "span_sentence": "The study evaluated alcohol intake patterns among college student drinkers across multiple campuses.",
+    "bert_label": "Socioeconomic_factors",
+    "ground_truth_label": "Substance_use",
+    "llm_label": "O",
+    "triad": {
+      "type": "GT_X_BERT_Y_LLM_O",
+      "description": "Generator over-filtered a behavioral agentive compound span to O due to misinterpreting demographic/student modifiers as excluded demographic entities."
+    },
+    "guideline": "When BERT predicts Socioeconomic_factors or Non-LSF on compound noun phrases containing an agentive behavioral consumer head modified by a demographic, educational, or population descriptor (e.g., college student drinkers, adolescent smokers, teenage vapers), override BERT and label as Substance_use, as agentive behavioral heads denote active consumption habits; label as O or Socioeconomic_factors only when the span designates a pure demographic or educational cohort lacking an active consumer head (e.g., college students, adolescent cohort, undergraduate population).",
+    "bert_info": {},
+    "similar_spans": [
+      {
+        "span": "student drinkers",
+        "label": "Substance_use"
+      },
+      {
+        "span": "adolescent smokers",
+        "label": "Substance_use"
+      },
+      {
+        "span": "teenage vapers",
+        "label": "Substance_use"
+      }
+    ]
+  }
+]
+
+--------------------------------------------------
+### DYNAMICGUIDEBOOK SCHEMA & USAGE:
+When DynamicGuidebook records are provided, they appear as a structured JSON list of advisory boundary records:
+- `id`: Unique identifier (e.g., "DG-0001", "DG-0002", or legacy "ANF-0001"). When applying a guideline, you MUST cite its exact `id` in `bullet_ids` and reference it in the span's `rationale`.
+- `span` & `span_sentence`: The trigger phrase and sentence context where the disambiguation rule originated.
+- `ground_truth_label`: The verified ground truth category for this type of entity.
+- `bert_label` & `llm_label`: Documented prior model error labels to alert you to recurring confusion patterns.
+- `triad`: Diagnostic classification of why BERT and previous models failed (e.g., "GT_X_BERT_Y_LLM_Y").
+- `guideline`: The decisive semantic rule explaining the boundary, ontology precedence, or exclusion criteria.
+- `challenge_types`: The nature of the decision challenge (e.g., "TOP2_COMPETITION", "BIOMARKER_EXCLUSION").
+- `bert_info`: The diagnostic probability distribution and margin of the historical case.
+- `similar_spans`: Related surface forms that follow the same semantic boundary principle.
+
+*Prefix abbreviations (ANF, NUT, etc.) may appear in legacy IDs, but modern IDs follow the canonical "DG-XXXX" pattern. In all cases, `final_label` values MUST use full canonical category names (e.g., "Nutrition", "Substance_use") or "Non-LSF" / "O".*
+
+--------------------------------------------------
+### OUTPUT FORMAT (Strict JSON):
+Return ONLY a single valid JSON object without markdown fences, verbose preambles, or conversational filler:
+
+{{
+  "reasoning": "Step 1 (Evidence Read & Entity-Hood Determination): Calibrated BERT diagnostic signals and determined valid lifestyle entity vs. Non-LSF (O)... Step 2 (Category Decision & Disambiguation): Applied Base Rules, Core Disambiguation Rules, and DynamicGuidelines to assign canonical LSF categories... Step 3 (Consistency & Integrity Audit): Verified exact verbatim candidate preservation and valid canonical labels.",
+  "bullet_ids": ["DG-0001", "DG-0002"],
+  "final_answer": [
+    {{
+      "id": 1,
+      "entity": "<exact verbatim span text from the candidate list>",
+      "bert_predicted_label": "<BERT's original predicted_label, for traceability>",
+      "final_label": "<one of the 9 canonical categories or Non-LSF>",
+      "rationale": "<one to two sentences: the decisive evidence/rule for this specific span, citing an id if a DynamicGuideline was applied>"
+    }}
+  ]
+}}
+
+--------------------------------------------------
+### FEW-SHOT EXAMPLE:
+
+Abstract Text:
+"The [id: 1, span: DIET] study examined how [id: 2, span: sleep quality scores] were affected by [id: 3, span: sugar intake] and [id: 4, span: fasting glucose]."
+
+BERT Candidate Spans & Evidence:
+[
+  {{"id": 1, "entity": "DIET", "predicted_label": "Nutrition", "second_best_label": "Socioeconomic_factors", "uncertainty": 0.71, "novelty_score": 0.22, "margin": 0.09}},
+  {{"id": 2, "entity": "sleep quality scores", "predicted_label": "Sleep", "second_best_label": "Physical_activities", "uncertainty": 0.08, "novelty_score": 0.05, "margin": 0.61}},
+  {{"id": 3, "entity": "sugar intake", "predicted_label": "Nutrition", "second_best_label": "Substance_use", "uncertainty": 0.11, "novelty_score": 0.04, "margin": 0.55}},
+  {{"id": 4, "entity": "fasting glucose", "predicted_label": "Nutrition", "second_best_label": "Environmental_exposures", "uncertainty": 0.64, "novelty_score": 0.31, "margin": 0.07}}
+]
+
+DynamicGuidelines:
+[
+  {{
+    "id": "DG-0002",
+    "span": "fasting glucose",
+    "span_sentence": "Patients with high fasting glucose showed improved sleep duration.",
+    "ground_truth_label": "Non-LSF",
+    "bert_label": "Nutrition",
+    "llm_label": "Nutrition",
+    "triad": {{
+      "type": "GT_O_BERT_X_LLM_X",
+      "description": "BERT and LLM both misclassified endogenous blood glucose biomarker as dietary Nutrition."
+    }},
+    "guideline": "Internal physiological metabolites and circulating blood sugar measurements (e.g., fasting glucose, HbA1c, serum cholesterol) belong strictly to Non-LSF (O) due to the biomarker exclusion rule, even when dietary context is present.",
+    "challenge_types": [
+      "BIOMARKER_EXCLUSION"
+    ],
+    "bert_info": {{
+      "top1": {{"label": "Nutrition", "prob": 0.64}},
+      "margin": 0.07
+    }},
+    "similar_spans": [
+      {{"span": "blood glucose", "label": "Non-LSF"}},
+      {{"span": "serum lipids", "label": "Non-LSF"}}
+    ]
+  }}
+]
+
+Output:
+{{
+  "reasoning": "Step 1 (Evidence Read & Entity-Hood Determination): Evaluated BERT diagnostic evidence. Span 1 ('DIET') shows high uncertainty and low margin, and context reveals it is a capitalized proper-noun study title rather than an entity. Spans 2 & 3 ('sleep quality scores' and 'sugar intake') show high margin and low uncertainty, representing valid lifestyle entities. Span 4 ('fasting glucose') exhibits high uncertainty and low margin, warranting Affirmative Filtering scrutiny. Step 2 (Category Decision & Disambiguation): Assigned categories using Base Rules and DynamicGuidelines: Span 1 'DIET' -> Non-LSF (study title per Base Rule 3); Span 2 'sleep quality scores' -> Sleep (metric-inclusion rule confirms BERT prediction); Span 3 'sugar intake' -> Nutrition (dietary nutrient intake confirms BERT prediction); Span 4 'fasting glucose' -> Non-LSF (overrode BERT Nutrition prediction as internal biomarker per Base Rule 2 and DG-0002). Step 3 (Consistency & Integrity Audit): Verified all 4 candidates appear verbatim with valid canonical labels and cited bullet DG-0002.",
+  "bullet_ids": ["DG-0002"],
+  "final_answer": [
+    {{
+      "id": 1,
+      "entity": "DIET",
+      "bert_predicted_label": "Nutrition",
+      "final_label": "Non-LSF",
+      "rationale": "Capitalized proper-noun study title used as a reference, not an active dietary behavior -> Non-LSF (Base Rule 3)."
+    }},
+    {{
+      "id": 2,
+      "entity": "sleep quality scores",
+      "bert_predicted_label": "Sleep",
+      "final_label": "Sleep",
+      "rationale": "Quantitative metric quantifying sleep continuity and quality; metric-inclusion rule applies, confirming model prediction."
+    }},
+    {{
+      "id": 3,
+      "entity": "sugar intake",
+      "bert_predicted_label": "Nutrition",
+      "final_label": "Nutrition",
+      "rationale": "Direct voluntary dietary nutrient intake; confirms confident model prediction."
+    }},
+    {{
+      "id": 4,
+      "entity": "fasting glucose",
+      "bert_predicted_label": "Nutrition",
+      "final_label": "Non-LSF",
+      "rationale": "Internal physiological biomarker/metabolite; Affirmative Filtering overrides model prediction (supported by DG-0002)."
+    }}
+  ]
+}}
+

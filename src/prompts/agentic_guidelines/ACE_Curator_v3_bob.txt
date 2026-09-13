@@ -69,11 +69,12 @@ For rules that do not fit a specific LSF category, use one of these sections:
 | context_scope_handling | CSH | Context-dependent labeling decisions (resolving ambiguity between an active LSF category and Non-LSF / O) |
 | entity_relationship_rules | ERR | Rules defining how entities relate to each other |
 
-### 2.5 Content Scope (BERT-Aware)
-A rule's content must establish a clear semantic heuristic that actively overrides or confirms a specific BERT failure mode. You MUST include BERT's predicted_label or evidence state in the rule's trigger condition if it helps contextualize the error.
-- **Trigger Condition Form:** Frame the condition explicitly linking BERT's proposal to the semantic disambiguation: "When BERT predicts [Predicted Category / Non-LSF] on [Semantic Pattern or Head], override BERT and label as [Correct Category / O]."
-- **Example:** "When BERT predicts Nutrition but the term refers to an internal biomarker (e.g., fasting glucose), override BERT and label as O."
-- **Focus on Actionable Arbitration:** The rule must give the Generator a definitive heuristic to resolve BERT's false alarms, confusion between categories, or dropped valid entities.
+### 2.5 Content Scope (Cognitive & Semantic Reasoning Guidance)
+A rule's content must establish a generalizable semantic reasoning principle that analyzes the failure mode and guides the Generator's analytical thinking process.
+- **Cognitive Guidance Focus:** Frame the rule around the conceptual boundary and distinguishing criteria (e.g., voluntary behavior vs. involuntary physiological biomarker / clinical syndrome / demographic study sample) so the model knows what contextual cues in the abstract to evaluate.
+- **Avoid Rigid Templates & Direct Imperatives:** Rules should NOT use rigid formulaic templates such as "When BERT predicts X, label as Y" or direct commands like "Label X as Y". Instead, formulate durable principles that guide how to reason through contextual evidence.
+- **Example:** "Endogenous biochemical assays and internal physiological metabolites (e.g., fasting glucose, serum lipid concentrations) reflect involuntary metabolic states rather than voluntary dietary behaviors. In nutritional contexts, distinguish between external dietary consumption and internal biological measurements, recognizing that biological assays are non-lifestyle physiological biomarkers regardless of dietary proximity."
+- **Focus on Actionable Arbitration:** The rule must provide the Generator with clear contextual disambiguation logic to resolve false alarms, category confusion, or dropped valid entities.
 
 ---
 

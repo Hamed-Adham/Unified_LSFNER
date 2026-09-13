@@ -99,15 +99,8 @@ class Reflector:
         
         try:
             parsed = json.loads(response)
-            parsed["raw_response"] = response
+            if isinstance(parsed, dict):
+                parsed["raw_response"] = response
             return parsed
         except json.JSONDecodeError:
-            return {
-                "reasoning": "",
-                "error_identification": "",
-                "root_cause_analysis": "",
-                "correct_approach": "",
-                "key_insight": response,
-                "bullet_tags": [],
-                "raw_response": response
-            }
+            return []

@@ -29,7 +29,7 @@ PROMPTS_DIR = PROJECT_ROOT / "src" / "prompts" / "agentic_guidelines"
 
 def _retry_agent_call(fn, *args, max_retries: int = 3, base_delay: float = 2.0, **kwargs):
     """Executes an agent call with exponential backoff for transient LLM/gateway errors."""
-    last_err = None
+    last_err: Optional[Exception] = None
     for attempt in range(1, max_retries + 1):
         try:
             return fn(*args, **kwargs)
@@ -38,7 +38,9 @@ def _retry_agent_call(fn, *args, max_retries: int = 3, base_delay: float = 2.0, 
             if attempt < max_retries:
                 delay = base_delay * (2 ** (attempt - 1))
                 time.sleep(delay)
-    raise last_err
+    if last_err is not None:
+        raise last_err
+    raise RuntimeError("No attempts were executed in _retry_agent_call.")
 
 
 def clean_json_string(raw_str: str) -> str:
@@ -51,6 +53,63 @@ def clean_json_string(raw_str: str) -> str:
     return cleaned
 
 
+def build_anchored_abstract(abstract: str, candidate_spans: List[Dict[str, Any]]) -> str:
+    """
+    Inserts candidate span anchors into the abstract text using format:
+    [id: {id}, span: ...]
+    Supports nested and overlapping spans using boundary offsets or string searching.
+    """
+    events = []  # list of (pos, event_type, priority, id, tag)
+    # event_type: 0 for close, 1 for open (so at same pos, close comes before open)
+    # For open at same pos: longer span (larger span_len) should open first -> priority = -span_len
+    # For close at same pos: shorter span (smaller span_len) should close first -> priority = span_len
+
+    for idx, c in enumerate(candidate_spans, 1):
+        cid = c.get("id", idx)
+        s_text = c.get("span_text", c.get("entity", ""))
+        if not s_text:
+            continue
+
+        start_char = None
+        end_char = None
+        if "boundaries" in c and isinstance(c["boundaries"], dict):
+            start_char = c["boundaries"].get("start_char")
+            end_char = c["boundaries"].get("end_char")
+        if start_char is None or end_char is None:
+            start_char = c.get("start_char")
+            end_char = c.get("end_char")
+
+        # Fallback to search in abstract if offsets not provided or invalid
+        if start_char is None or end_char is None or start_char < 0 or end_char > len(abstract) or abstract[start_char:end_char] != s_text:
+            found = abstract.find(s_text)
+            if found != -1:
+                start_char = found
+                end_char = found + len(s_text)
+            else:
+                continue
+
+        span_len = end_char - start_char
+        # Close event: type 0, priority = span_len (shorter span closes first)
+        events.append((end_char, 0, span_len, cid, "]"))
+        # Open event: type 1, priority = -span_len (longer span opens first)
+        events.append((start_char, 1, -span_len, cid, f"[id: {cid}, span: "))
+
+    # Sort events by position ascending, event_type ascending (0=close before 1=open), priority ascending
+    events.sort(key=lambda x: (x[0], x[1], x[2]))
+
+    out = []
+    curr_pos = 0
+    for pos, etype, prio, cid, tag in events:
+        if pos > curr_pos:
+            out.append(abstract[curr_pos:pos])
+            curr_pos = pos
+        out.append(tag)
+    if curr_pos < len(abstract):
+        out.append(abstract[curr_pos:])
+
+    return "".join(out)
+
+
 def format_candidate_alignment_text(
     candidate_spans: List[Dict[str, Any]],
     generator_output: Dict[str, Any],
@@ -58,29 +117,35 @@ def format_candidate_alignment_text(
 ) -> str:
     """
     Builds the Candidate Span Alignment table matching the Reflector prompt format:
-    [Span Text] [Tab] [Ground_Truth] [Tab] [BERT_LABEL] [Tab] [GENERATOR_LABEL] [Tab] [Outcome_Class]
+    ID [Tab] [Span Text] [Tab] [Ground_Truth] [Tab] [BERT_LABEL] [Tab] [GENERATOR_LABEL] [Tab] [Outcome_Class]
     """
+    ans_by_id = {}
     ans_by_text = {}
     for a in generator_output.get("final_answer", []):
+        if "id" in a:
+            ans_by_id[a["id"]] = a
         ans_by_text[a.get("entity", "").strip().lower()] = a
 
     if use_outcome_class:
         alignment_rows = [
-            "Span Text\tGround_Truth\tBERT_LABEL\tGENERATOR_LABEL\tOutcome_Class"
+            "ID\tSpan Text\tGround_Truth\tBERT_LABEL\tGENERATOR_LABEL\tOutcome_Class"
         ]
     else:
         alignment_rows = [
-            "Span Text\tGround_Truth_Tag\tFinal_Label\tBERT_Predicted_Label\tComparison_Label"
+            "ID\tSpan Text\tGround_Truth_Tag\tFinal_Label\tBERT_Predicted_Label\tComparison_Label"
         ]
 
-    for idx, c in enumerate(candidate_spans):
+    for idx, c in enumerate(candidate_spans, 1):
+        cid = c.get("id", idx)
         s_text = c.get("span_text", c.get("entity", ""))
         gt_tag = canonicalize_label(c.get("gt_label", "O"), use_new_labels=True)
         bert_pred = canonicalize_label(c.get("predicted_label", c.get("spanner_label", "O")), use_new_labels=True)
 
-        ans = ans_by_text.get(s_text.strip().lower())
-        if not ans and idx < len(generator_output.get("final_answer", [])):
-            ans = generator_output.get("final_answer")[idx]
+        ans = ans_by_id.get(cid)
+        if not ans:
+            ans = ans_by_text.get(s_text.strip().lower())
+        if not ans and idx - 1 < len(generator_output.get("final_answer", [])):
+            ans = generator_output.get("final_answer")[idx - 1]
 
         final_lbl = canonicalize_label(ans.get("final_label", bert_pred) if ans else bert_pred, use_new_labels=True)
 
@@ -92,9 +157,9 @@ def format_candidate_alignment_text(
         )
 
         if use_outcome_class:
-            alignment_rows.append(f"{s_text}\t{gt_tag}\t{bert_pred}\t{final_lbl}\t{comp}")
+            alignment_rows.append(f"{cid}\t{s_text}\t{gt_tag}\t{bert_pred}\t{final_lbl}\t{comp}")
         else:
-            alignment_rows.append(f"{s_text}\t{gt_tag}\t{final_lbl}\t{bert_pred}\t{comp}")
+            alignment_rows.append(f"{cid}\t{s_text}\t{gt_tag}\t{final_lbl}\t{bert_pred}\t{comp}")
 
     return "\n".join(alignment_rows)
 
@@ -129,9 +194,11 @@ class BertizedGenerator:
         """
         Executes Generator reasoning on BERT candidate spans.
         """
-        # Format candidate spans with BERT evidence for prompt
+        # Format candidate spans with BERT evidence for prompt & assign IDs
         cand_list = []
-        for c in candidate_spans:
+        for idx, c in enumerate(candidate_spans, 1):
+            cid = c.get("id", idx)
+            c["id"] = cid
             s_text = c.get("span_text", c.get("entity", ""))
             p_lbl = c.get("predicted_label", c.get("spanner_label", "O"))
             s_lbl = c.get("second_best_label", "O")
@@ -139,6 +206,7 @@ class BertizedGenerator:
             nov = float(c.get("novelty_score", c.get("novelty", 0.0)))
             margin = float(c.get("margin", 0.0))
             cand_list.append({
+                "id": cid,
                 "entity": s_text,
                 "predicted_label": p_lbl,
                 "second_best_label": s_lbl,
@@ -147,10 +215,11 @@ class BertizedGenerator:
                 "margin": round(margin, 4)
             })
 
+        anchored_abstract = build_anchored_abstract(abstract, candidate_spans)
         candidate_spans_str = json.dumps(cand_list, indent=2)
         guidelines_str = dynamicGuidelines.strip() if dynamicGuidelines and dynamicGuidelines.strip() else "No dynamicGuidelines available"
 
-        prompt = self.template.replace("{abstract}", abstract) \
+        prompt = self.template.replace("{abstract}", anchored_abstract) \
                               .replace("{candidate_spans_str}", candidate_spans_str) \
                               .replace('{dynamicGuidebook if dynamicGuidebook else (dynamicGuidelines if dynamicGuidelines else "No dynamicGuidebook available")}', guidelines_str) \
                               .replace('{dynamicGuidelines if dynamicGuidelines else "No dynamicGuidelines available"}', guidelines_str) \
@@ -182,24 +251,29 @@ class BertizedGenerator:
         # Standardize final_answer items
         standardized_answers = []
         if isinstance(final_ans, list):
-            for item in final_ans:
+            for idx, item in enumerate(final_ans):
                 if isinstance(item, dict):
+                    cid = item.get("id")
                     ent_text = item.get("entity", "").strip()
                     bert_lbl = item.get("bert_predicted_label", item.get("predicted_label", "O"))
                     final_lbl = canonicalize_label(item.get("final_label", "O"), use_new_labels=True)
                     rationale = item.get("rationale", "")
-                    standardized_answers.append({
+                    ans_entry = {
                         "entity": ent_text,
                         "bert_predicted_label": bert_lbl,
                         "final_label": final_lbl,
                         "rationale": rationale
-                    })
+                    }
+                    if cid is not None:
+                        ans_entry["id"] = cid
+                    standardized_answers.append(ans_entry)
 
         return {
             "reasoning": reasoning,
             "bullet_ids": bullet_ids,
             "final_answer": standardized_answers,
-            "raw_response": response
+            "raw_response": response,
+            "anchored_abstract": anchored_abstract
         }
 
 
@@ -231,8 +305,12 @@ class BertizedReflector:
     ) -> Dict[str, Any]:
         """
         Executes Reflector diagnosis by building the Candidate Span Alignment table.
-        Format: [Span Text] [Tab] [Ground_Truth] [Tab] [BERT_LABEL] [Tab] [GENERATOR_LABEL] [Tab] [Outcome_Class]
+        Format: ID [Tab] [Span Text] [Tab] [Ground_Truth] [Tab] [BERT_LABEL] [Tab] [GENERATOR_LABEL] [Tab] [Outcome_Class]
         """
+        anchored_abstract = generator_output.get("anchored_abstract")
+        if not anchored_abstract:
+            anchored_abstract = build_anchored_abstract(abstract, candidate_spans)
+
         if alignment_text is None:
             use_legacy = ("Comparison_Label" in self.template and "Outcome_Class" not in self.template)
             alignment_text = format_candidate_alignment_text(
@@ -244,7 +322,8 @@ class BertizedReflector:
         used_bullet_ids = generator_output.get("bullet_ids", [])
         bullet_ids_str = json.dumps(used_bullet_ids) if used_bullet_ids else "None"
 
-        prompt = self.template.replace("{alignment_text}", alignment_text) \
+        prompt = self.template.replace("{abstract}", anchored_abstract) \
+                              .replace("{alignment_text}", alignment_text) \
                               .replace('{predicted.get("reasoning", "")}', generator_output.get("reasoning", "")) \
                               .replace('{predicted.get("bullet_ids", "")}', bullet_ids_str)
 

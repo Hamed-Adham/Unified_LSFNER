@@ -1,0 +1,190 @@
+```json
+{
+  "reasoning": "Step 1 (Evidence Read & Entity-Hood Determination): Assessed BERT predictions, uncertainties, novelty scores, and margins against abstract context and boundary rules. Spans representing discrete behavioral and socioeconomic entities (e.g., 'smoking', 'social class', 'physical activity at work', 'sedentary work', 'occupational activity') were identified as true lifestyle entities. Spans that represent multi-category conjoined phrases spanning multiple domains, boundary fragments across sentence periods, or standalone generic workplace terms were evaluated for Affirmative Filtering to Non-LSF. Step 2 (Category Decision & Disambiguation): Assigned canonical categories based on core definitions and DynamicGuidelines. 'work' as a standalone generic employment noun is classified as Non-LSF per DG-0011. Mentions specifying physical movement or lack thereof in the workplace ('physical activity at work', 'sedentary work', 'occupational activity', 'physically active work', 'energy expenditure during work', 'moderate and high activity') are assigned to Physical_activities per DG-0031. Specific substance use and socioeconomic status terms are confirmed under Substance_use and Socioeconomic_factors respectively. Conjoined spans conflating multiple distinct LSF categories across commas or sentence boundaries (e.g., 'smoking and social class', 'social class. Social class', 'smoking, and social class', 'smoking habits, and social class', 'social class, physically active work') are rejected as Non-LSF. Step 3 (Consistency & Integrity Audit): Confirmed all 26 candidate spans are retained with verbatim text intact and assigned valid canonical labels or Non-LSF.",
+  "bullet_ids": ["DG-0011", "DG-0031", "DG-0010"],
+  "final_answer": [
+    {
+      "id": 1,
+      "entity": "work",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Non-LSF",
+      "rationale": "Standalone generic employment noun without explicit individual socioeconomic status stratification is rejected as Non-LSF (DG-0011)."
+    },
+    {
+      "id": 2,
+      "entity": "smoking",
+      "bert_predicted_label": "Substance_use",
+      "final_label": "Substance_use",
+      "rationale": "Direct voluntary tobacco consumption behavior, confirming model prediction."
+    },
+    {
+      "id": 3,
+      "entity": "smoking",
+      "bert_predicted_label": "Substance_use",
+      "final_label": "Substance_use",
+      "rationale": "Direct voluntary tobacco consumption behavior, confirming model prediction."
+    },
+    {
+      "id": 4,
+      "entity": "social class",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Socioeconomic_factors",
+      "rationale": "Explicit indicator of socioeconomic stratification and social standing, confirming model prediction."
+    },
+    {
+      "id": 5,
+      "entity": "smoking habits",
+      "bert_predicted_label": "Substance_use",
+      "final_label": "Substance_use",
+      "rationale": "Direct voluntary tobacco use behavior, confirming model prediction."
+    },
+    {
+      "id": 6,
+      "entity": "social class",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Socioeconomic_factors",
+      "rationale": "Explicit indicator of socioeconomic stratification and social standing, confirming model prediction."
+    },
+    {
+      "id": 7,
+      "entity": "social class",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Socioeconomic_factors",
+      "rationale": "Explicit indicator of socioeconomic stratification and social standing, confirming model prediction."
+    },
+    {
+      "id": 8,
+      "entity": "Social class",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Socioeconomic_factors",
+      "rationale": "Explicit indicator of socioeconomic stratification and social standing, confirming model prediction."
+    },
+    {
+      "id": 9,
+      "entity": "social class",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Socioeconomic_factors",
+      "rationale": "Explicit indicator of socioeconomic stratification and social standing, confirming model prediction."
+    },
+    {
+      "id": 10,
+      "entity": "high activity",
+      "bert_predicted_label": "Physical_activities",
+      "final_label": "Physical_activities",
+      "rationale": "Quantified level of physical exertion and bodily movement, confirming model prediction."
+    },
+    {
+      "id": 11,
+      "entity": "sedentary work",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Physical_activities",
+      "rationale": "Occupational movement and energy expenditure level; correctly resolved to Physical_activities per DG-0031."
+    },
+    {
+      "id": 12,
+      "entity": "social class",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Socioeconomic_factors",
+      "rationale": "Explicit indicator of socioeconomic stratification and social standing, confirming model prediction."
+    },
+    {
+      "id": 13,
+      "entity": "occupational activity",
+      "bert_predicted_label": "Physical_activities",
+      "final_label": "Physical_activities",
+      "rationale": "Bodily exertion and physical movement performed during work, confirming model prediction (DG-0031)."
+    },
+    {
+      "id": 14,
+      "entity": "sedentary work",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Physical_activities",
+      "rationale": "Occupational movement and energy expenditure level; correctly resolved to Physical_activities per DG-0031."
+    },
+    {
+      "id": 15,
+      "entity": "physically active work",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Physical_activities",
+      "rationale": "Occupational term specifying physical exertion and movement; classified as Physical_activities per DG-0031."
+    },
+    {
+      "id": 16,
+      "entity": "Physical activity at work",
+      "bert_predicted_label": "Physical_activities",
+      "final_label": "Physical_activities",
+      "rationale": "Direct bodily physical exertion in an occupational setting, confirming model prediction."
+    },
+    {
+      "id": 17,
+      "entity": "physical activity at work",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Physical_activities",
+      "rationale": "Direct bodily physical exertion in an occupational setting; overridden to Physical_activities per DG-0031."
+    },
+    {
+      "id": 18,
+      "entity": "energy expenditure during work",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Physical_activities",
+      "rationale": "Quantified metric of bodily energy expenditure and occupational physical movement; resolved to Physical_activities per DG-0031."
+    },
+    {
+      "id": 19,
+      "entity": "smoking and social class",
+      "bert_predicted_label": "Substance_use",
+      "final_label": "Non-LSF",
+      "rationale": "Conjoined phrase spanning two distinct LSF categories (Substance_use and Socioeconomic_factors); rejected as Non-LSF."
+    },
+    {
+      "id": 20,
+      "entity": "physical activity at work",
+      "bert_predicted_label": "Physical_activities",
+      "final_label": "Physical_activities",
+      "rationale": "Direct bodily physical exertion in an occupational setting, confirming model prediction."
+    },
+    {
+      "id": 21,
+      "entity": "moderate and high activity",
+      "bert_predicted_label": "Physical_activities",
+      "final_label": "Physical_activities",
+      "rationale": "Quantified physical activity levels, confirming model prediction."
+    },
+    {
+      "id": 22,
+      "entity": "social class. Social class",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Non-LSF",
+      "rationale": "Malformed candidate span traversing a sentence-ending punctuation boundary; rejected as Non-LSF."
+    },
+    {
+      "id": 23,
+      "entity": "smoking, and social class",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Non-LSF",
+      "rationale": "Multi-concept coordinate phrase spanning distinct categories across punctuation; rejected as Non-LSF."
+    },
+    {
+      "id": 24,
+      "entity": "smoking habits, and social class",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Non-LSF",
+      "rationale": "Multi-concept coordinate phrase spanning distinct categories across punctuation; rejected as Non-LSF."
+    },
+    {
+      "id": 25,
+      "entity": "social class, physically active work",
+      "bert_predicted_label": "Socioeconomic_factors",
+      "final_label": "Non-LSF",
+      "rationale": "Multi-concept coordinate phrase spanning Socioeconomic_factors and Physical_activities; rejected as Non-LSF."
+    },
+    {
+      "id": 26,
+      "entity": "high activity compared with sedentary work",
+      "bert_predicted_label": "Physical_activities",
+      "final_label": "Physical_activities",
+      "rationale": "Multi-token comparative span entirely anchored by homogeneous physical activity and sedentary levels, maintaining entity status under Physical_activities (DG-0010)."
+    }
+  ]
+}
+```

@@ -133,10 +133,10 @@ Guidance:
 --------------------------------------------------
 ### INPUT DATA:
 
-[1] Abstract Text (context only — do not extract new spans beyond the candidates below):
+[1] Abstract Text (with embedded candidate span anchors [id: X, span: ...]):
 {abstract}
 
-[2] BERT Candidate Spans & Evidence:
+[2] BERT Candidate Spans & Evidence (each candidate span has an 'id' matching its inline anchor in the abstract):
 {candidate_spans_str}
 
 [3] DynamicGuidebook (General corpus-level semantic boundary principles and diagnostic guidebooks to assist your judgment):
@@ -166,6 +166,7 @@ Return ONLY a single valid JSON object without markdown fences, verbose preamble
   "bullet_ids": ["DG-0001", "DG-0002"],
   "final_answer": [
     {{
+      "id": 1,
       "entity": "<exact verbatim span text from the candidate list>",
       "bert_predicted_label": "<BERT's original predicted_label, for traceability>",
       "final_label": "<one of the 9 canonical categories or Non-LSF>",
@@ -178,14 +179,14 @@ Return ONLY a single valid JSON object without markdown fences, verbose preamble
 ### FEW-SHOT EXAMPLE:
 
 Abstract Text:
-"The DIET study examined how sleep quality scores were affected by sugar intake and fasting glucose."
+"The [id: 1, span: DIET] study examined how [id: 2, span: sleep quality scores] were affected by [id: 3, span: sugar intake] and [id: 4, span: fasting glucose]."
 
 BERT Candidate Spans & Evidence:
 [
-  {{"entity": "DIET", "predicted_label": "Nutrition", "second_best_label": "Socioeconomic_factors", "uncertainty": 0.71, "novelty_score": 0.22, "margin": 0.09}},
-  {{"entity": "sleep quality scores", "predicted_label": "Sleep", "second_best_label": "Physical_activities", "uncertainty": 0.08, "novelty_score": 0.05, "margin": 0.61}},
-  {{"entity": "sugar intake", "predicted_label": "Nutrition", "second_best_label": "Substance_use", "uncertainty": 0.11, "novelty_score": 0.04, "margin": 0.55}},
-  {{"entity": "fasting glucose", "predicted_label": "Nutrition", "second_best_label": "Environmental_exposures", "uncertainty": 0.64, "novelty_score": 0.31, "margin": 0.07}}
+  {{"id": 1, "entity": "DIET", "predicted_label": "Nutrition", "second_best_label": "Socioeconomic_factors", "uncertainty": 0.71, "novelty_score": 0.22, "margin": 0.09}},
+  {{"id": 2, "entity": "sleep quality scores", "predicted_label": "Sleep", "second_best_label": "Physical_activities", "uncertainty": 0.08, "novelty_score": 0.05, "margin": 0.61}},
+  {{"id": 3, "entity": "sugar intake", "predicted_label": "Nutrition", "second_best_label": "Substance_use", "uncertainty": 0.11, "novelty_score": 0.04, "margin": 0.55}},
+  {{"id": 4, "entity": "fasting glucose", "predicted_label": "Nutrition", "second_best_label": "Environmental_exposures", "uncertainty": 0.64, "novelty_score": 0.31, "margin": 0.07}}
 ]
 
 DynamicGuidelines:
@@ -218,28 +219,32 @@ DynamicGuidelines:
 
 Output:
 {{
-  "reasoning": "Step 1 (Evidence Read & Entity-Hood Determination): Evaluated BERT diagnostic evidence. 'DIET' shows high uncertainty and low margin, and context reveals it is a capitalized proper-noun study title rather than an entity. 'sleep quality scores' and 'sugar intake' show high margin and low uncertainty, representing valid lifestyle entities. 'fasting glucose' exhibits high uncertainty and low margin, warranting Affirmative Filtering scrutiny. Step 2 (Category Decision & Disambiguation): Assigned categories using Base Rules and DynamicGuidelines: 'DIET' -> Non-LSF (study title per Base Rule 3); 'sleep quality scores' -> Sleep (metric-inclusion rule confirms BERT prediction); 'sugar intake' -> Nutrition (dietary nutrient intake confirms BERT prediction); 'fasting glucose' -> Non-LSF (overrode BERT Nutrition prediction as internal biomarker per Base Rule 2 and DG-0002). Step 3 (Consistency & Integrity Audit): Verified all 4 candidates appear verbatim with valid canonical labels and cited bullet DG-0002.",
+  "reasoning": "Step 1 (Evidence Read & Entity-Hood Determination): Evaluated BERT diagnostic evidence. Span 1 ('DIET') shows high uncertainty and low margin, and context reveals it is a capitalized proper-noun study title rather than an entity. Spans 2 & 3 ('sleep quality scores' and 'sugar intake') show high margin and low uncertainty, representing valid lifestyle entities. Span 4 ('fasting glucose') exhibits high uncertainty and low margin, warranting Affirmative Filtering scrutiny. Step 2 (Category Decision & Disambiguation): Assigned categories using Base Rules and DynamicGuidelines: Span 1 'DIET' -> Non-LSF (study title per Base Rule 3); Span 2 'sleep quality scores' -> Sleep (metric-inclusion rule confirms BERT prediction); Span 3 'sugar intake' -> Nutrition (dietary nutrient intake confirms BERT prediction); Span 4 'fasting glucose' -> Non-LSF (overrode BERT Nutrition prediction as internal biomarker per Base Rule 2 and DG-0002). Step 3 (Consistency & Integrity Audit): Verified all 4 candidates appear verbatim with valid canonical labels and cited bullet DG-0002.",
   "bullet_ids": ["DG-0002"],
   "final_answer": [
     {{
+      "id": 1,
       "entity": "DIET",
       "bert_predicted_label": "Nutrition",
       "final_label": "Non-LSF",
       "rationale": "Capitalized proper-noun study title used as a reference, not an active dietary behavior -> Non-LSF (Base Rule 3)."
     }},
     {{
+      "id": 2,
       "entity": "sleep quality scores",
       "bert_predicted_label": "Sleep",
       "final_label": "Sleep",
       "rationale": "Quantitative metric quantifying sleep continuity and quality; metric-inclusion rule applies, confirming model prediction."
     }},
     {{
+      "id": 3,
       "entity": "sugar intake",
       "bert_predicted_label": "Nutrition",
       "final_label": "Nutrition",
       "rationale": "Direct voluntary dietary nutrient intake; confirms confident model prediction."
     }},
     {{
+      "id": 4,
       "entity": "fasting glucose",
       "bert_predicted_label": "Nutrition",
       "final_label": "Non-LSF",
@@ -247,3 +252,4 @@ Output:
     }}
   ]
 }}
+

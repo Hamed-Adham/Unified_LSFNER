@@ -91,7 +91,9 @@ Having the Generator's reasoning trace, the candidate-span alignment data, and t
 
 ## [1] Abstract Text (with embedded candidate span anchors [id: X, span: ...]):
 The abstract text below contains all BERT-proposed candidate spans embedded directly in context as `[id: X, span: ...]`. Each numerical `id` corresponds directly to the candidate span's `ID` row in the Candidate Span Alignment table below.
-{abstract}
+[id: 16, span: Physical activity at work] and duodenal ulcer risk. 
+To determine whether the [id: 4, span: social class] differences in duodenal ulcer frequency may be explained by differences in [id: 17, span: physical activity at work], the [id: 18, span: energy expenditure during [id: 1, span: work]], [id: 24, span: [id: 5, span: smoking habits], and [id: 6, span: social class]] were compared in 76 recently diagnosed duodenal ulcer patients and in age and sex matched community controls. As anticipated, the relative risk of duodenal ulcer showed significant associations with [id: 19, span: [id: 2, span: smoking] and [id: 22, span: [id: 7, span: social class]]. [id: 8, span: Social class]] and [id: 20, span: physical activity at work] were associated with one another. After adjusting for age, sex, [id: 23, span: [id: 3, span: smoking], and [id: 25, span: [id: 9, span: social class]], [id: 15, span: physically active work]] was still associated with duodenal ulcer, with relative risks for [id: 21, span: moderate and [id: 26, span: [id: 10, span: high activity]] compared with [id: 11, span: sedentary work]] being 1.3 (0.6-3.0) and 3.6 (1.3-7.8) respectively. Within each [id: 12, span: social class] stratum, the relative risk of having a duodenal ulcer was greater in those with a high level of [id: 13, span: occupational activity] than in those undertaking [id: 14, span: sedentary work]. 
+
 
 ## [2] Candidate Span Alignment (.txt):
 A tabular text where each line represents one BERT-proposed candidate span (with `ID` matching the anchor `[id: X, span: ...]` in the abstract above) and contains ID, Span Text, Ground_Truth, BERT_LABEL, GENERATOR_LABEL (the Generator's decision — matches Generator's output field of the same name), and Outcome_Class, separated by tabs.
@@ -111,13 +113,39 @@ Definitions for Outcome_Class column (Triad: Ground Truth [GT] -> BERT's predict
 - GT_X_BERT_Y_LLM_Z: Both BERT and the LLM labeled the span as different incorrect LSF categories, and neither matched the Ground Truth LSF category.
 - GT_X_BERT_Y_LLM_Y: BERT proposed an incorrect LSF category, and the Generator uncritically adopted it instead of correcting to Ground Truth.
 
-{alignment_text}
+ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Outcome_Class
+1	work	O	Socioeconomic_factors	Non-LSF	GT_O_BERT_X_LLM_O
+2	smoking	Substance_use	Substance_use	Substance_use	GT_X_BERT_X_LLM_X
+3	smoking	Substance_use	Substance_use	Substance_use	GT_X_BERT_X_LLM_X
+4	social class	Socioeconomic_factors	Socioeconomic_factors	Socioeconomic_factors	GT_X_BERT_X_LLM_X
+5	smoking habits	Substance_use	Substance_use	Substance_use	GT_X_BERT_X_LLM_X
+6	social class	Socioeconomic_factors	Socioeconomic_factors	Socioeconomic_factors	GT_X_BERT_X_LLM_X
+7	social class	Socioeconomic_factors	Socioeconomic_factors	Socioeconomic_factors	GT_X_BERT_X_LLM_X
+8	Social class	Socioeconomic_factors	Socioeconomic_factors	Socioeconomic_factors	GT_X_BERT_X_LLM_X
+9	social class	Socioeconomic_factors	Socioeconomic_factors	Socioeconomic_factors	GT_X_BERT_X_LLM_X
+10	high activity	O	Physical_activities	Physical_activities	GT_O_BERT_X_LLM_X
+11	sedentary work	Physical_activities	Socioeconomic_factors	Physical_activities	GT_X_BERT_Y_LLM_X
+12	social class	Socioeconomic_factors	Socioeconomic_factors	Socioeconomic_factors	GT_X_BERT_X_LLM_X
+13	occupational activity	Physical_activities	Physical_activities	Physical_activities	GT_X_BERT_X_LLM_X
+14	sedentary work	Physical_activities	Socioeconomic_factors	Physical_activities	GT_X_BERT_Y_LLM_X
+15	physically active work	Physical_activities	Socioeconomic_factors	Physical_activities	GT_X_BERT_Y_LLM_X
+16	Physical activity at work	Physical_activities	Physical_activities	Physical_activities	GT_X_BERT_X_LLM_X
+17	physical activity at work	Physical_activities	Socioeconomic_factors	Physical_activities	GT_X_BERT_Y_LLM_X
+18	energy expenditure during work	O	Socioeconomic_factors	Physical_activities	GT_O_BERT_X_LLM_Y
+19	smoking and social class	Socioeconomic_factors	Substance_use	Non-LSF	GT_X_BERT_Y_LLM_O
+20	physical activity at work	Physical_activities	Physical_activities	Physical_activities	GT_X_BERT_X_LLM_X
+21	moderate and high activity	O	Physical_activities	Physical_activities	GT_O_BERT_X_LLM_X
+22	social class. Social class	Socioeconomic_factors	Socioeconomic_factors	Non-LSF	GT_X_BERT_X_LLM_O
+23	smoking, and social class	Socioeconomic_factors	Socioeconomic_factors	Non-LSF	GT_X_BERT_X_LLM_O
+24	smoking habits, and social class	Socioeconomic_factors	Socioeconomic_factors	Non-LSF	GT_X_BERT_X_LLM_O
+25	social class, physically active work	Socioeconomic_factors	Socioeconomic_factors	Non-LSF	GT_X_BERT_X_LLM_O
+26	high activity compared with sedentary work	Physical_activities	Physical_activities	Physical_activities	GT_X_BERT_X_LLM_X
 
 ## [3] Generator's Reasoning Trace:
-{predicted.get("reasoning", "")}
+Step 1 (Evidence Read & Entity-Hood Determination): Assessed BERT predictions, uncertainties, novelty scores, and margins against abstract context and boundary rules. Spans representing discrete behavioral and socioeconomic entities (e.g., 'smoking', 'social class', 'physical activity at work', 'sedentary work', 'occupational activity') were identified as true lifestyle entities. Spans that represent multi-category conjoined phrases spanning multiple domains, boundary fragments across sentence periods, or standalone generic workplace terms were evaluated for Affirmative Filtering to Non-LSF. Step 2 (Category Decision & Disambiguation): Assigned canonical categories based on core definitions and DynamicGuidelines. 'work' as a standalone generic employment noun is classified as Non-LSF per DG-0011. Mentions specifying physical movement or lack thereof in the workplace ('physical activity at work', 'sedentary work', 'occupational activity', 'physically active work', 'energy expenditure during work', 'moderate and high activity') are assigned to Physical_activities per DG-0031. Specific substance use and socioeconomic status terms are confirmed under Substance_use and Socioeconomic_factors respectively. Conjoined spans conflating multiple distinct LSF categories across commas or sentence boundaries (e.g., 'smoking and social class', 'social class. Social class', 'smoking, and social class', 'smoking habits, and social class', 'social class, physically active work') are rejected as Non-LSF. Step 3 (Consistency & Integrity Audit): Confirmed all 26 candidate spans are retained with verbatim text intact and assigned valid canonical labels or Non-LSF.
 
 ## [4] DynamicGuidelines Used by Generator:
-{predicted.get("bullet_ids", "")}
+["DG-0011", "DG-0031", "DG-0010"]
 
 ---
 
