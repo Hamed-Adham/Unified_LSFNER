@@ -164,7 +164,9 @@ class BulletOps:
                 # Build rich guideline payload
                 rule_text = op.get("guideline") or op.get("content") or ""
                 span = op.get("span") or op.get("erroneous_token") or ""
-                gt_label = op.get("ground_truth_label") or op.get("gt_label") or op.get("section") or ""
+                gt_label = op.get("ground_truth_label") or op.get("gt_label") or ""
+                if gt_label.lower() in ("annotation_fundamentals", "context_scope_handling", "entity_relationship_rules", "general", "general_ner"):
+                    gt_label = "O"
                 bert_label = op.get("bert_label") or ""
                 llm_label = op.get("llm_label") or ""
                 
@@ -177,6 +179,11 @@ class BulletOps:
                             "reason": f"Semantically similar to existing guideline {similar[0]['id']} (sim={similar[0]['similarity']:.2f})"
                         })
                         continue
+
+                similar_spans = op.get("similar_spans", [])
+                for s in similar_spans:
+                    if isinstance(s, dict) and s.get("label", "").lower() in ("annotation_fundamentals", "context_scope_handling", "entity_relationship_rules", "general", "general_ner"):
+                        s["label"] = "O"
 
                 new_guideline = {
                     "id": op.get("id") or self.store.next_id(),
@@ -191,8 +198,7 @@ class BulletOps:
                     }),
                     "guideline": rule_text,
                     "challenge_types": op.get("challenge_types", ["DISAMBIGUATION_RULE"]),
-                    "bert_info": op.get("bert_info", {}),
-                    "similar_spans": op.get("similar_spans", []),
+                    "similar_spans": similar_spans,
                     "usage_metrics": {
                         "helpful": 0, "harmful": 0, "neutral": 0, "usage_count": 0, "modification_count": 0
                     },
@@ -216,11 +222,11 @@ class BulletOps:
         return results
 
     # Legacy compatibility wrappers
-    def add_bullet(self, section_name, content, file_name=None, root_cause="", error_examples=None):
+    def add_bullet(self, category, content, file_name=None, root_cause="", error_examples=None):
         return self.add_guideline({
             "span": error_examples[0].get("erroneous_token", "") if error_examples else "",
             "span_sentence": error_examples[0].get("sentence", "") if error_examples else "",
-            "ground_truth_label": section_name,
+            "ground_truth_label": category,
             "guideline": content,
             "triad": {"type": "LEGACY_ADD", "description": root_cause}
         })

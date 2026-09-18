@@ -92,7 +92,6 @@ def run_test():
             "llm_label": g.get("llm_label", ""),
             "triad": g.get("triad", {}),
             "guideline": g.get("guideline", ""),
-            "bert_info": g.get("bert_info", {}),
             "similar_spans": g.get("similar_spans", [])
         })
     guidelines_str = json.dumps(gen_guidelines_view, indent=2, ensure_ascii=False)
@@ -111,7 +110,7 @@ def run_test():
         cand_list.append({
             "id": cid,
             "entity": c.get("span_text", c.get("entity", "")),
-            "predicted_label": c.get("predicted_label", "O"),
+            "bert_predicted_label": c.get("bert_predicted_label", c.get("predicted_label", "O")),
             "second_best_label": c.get("second_best_label", "O"),
             "uncertainty": round(float(c.get("uncertainty", 0.0)), 4),
             "novelty_score": round(float(c.get("novelty_score", 0.0)), 4),
@@ -140,11 +139,14 @@ def run_test():
 
     # Robust local parse for display if raw text had template formatting
     raw_gen_text = gen_result.get("raw_response", "")
-    if not gen_result.get("final_answer") and raw_gen_text:
+    gen_ans = gen_result.get("llm_answer", gen_result.get("final_answer", []))
+    if not gen_ans and raw_gen_text:
         try:
             cleaned = raw_gen_text.replace("{{", "{").replace("}}", "}")
             p_obj = json.loads(cleaned)
-            gen_result["final_answer"] = p_obj.get("final_answer", [])
+            gen_ans = p_obj.get("llm_answer", p_obj.get("final_answer", []))
+            gen_result["llm_answer"] = gen_ans
+            gen_result["final_answer"] = gen_ans
             if not gen_result.get("reasoning"):
                 gen_result["reasoning"] = p_obj.get("reasoning", "")
             if not gen_result.get("bullet_ids"):
@@ -155,9 +157,10 @@ def run_test():
     print("\n--- Generator Output Summary ---")
     print(f"Reasoning length: {len(gen_result.get('reasoning', ''))} chars")
     print(f"Bullet IDs cited: {gen_result.get('bullet_ids', [])}")
-    print(f"Classified entities: {len(gen_result.get('final_answer', []))}")
-    for item in gen_result.get("final_answer", []):
-        print(f"  * [id: {item.get('id', '?')}] [{item.get('entity')}] -> BERT: {item.get('bert_predicted_label')} | Final: {item.get('final_label')}")
+    print(f"Classified entities: {len(gen_ans)}")
+    for item in gen_ans:
+        p_label = item.get("llm_predicted_label", item.get("final_label"))
+        print(f"  * [id: {item.get('id', '?')}] [{item.get('entity')}] -> BERT: {item.get('bert_predicted_label')} | LLM: {p_label}")
 
     # 6. Build Candidate Alignment & Run Reflector
     print("\n[Step 2] Building Candidate Span Alignment & Running BertizedReflector (ACE_Reflector_v3)...")
@@ -202,7 +205,7 @@ def run_test():
             print(f"    - Error Identification: {diag.get('error_identification', '')}")
             print(f"    - Root Cause: {diag.get('root_cause_analysis', '')}")
             print(f"    - Correct Approach: {diag.get('correct_approach', '')}")
-            print(f"    - Key Insight: {diag.get('key_insight', '')} (Section: {diag.get('key_insight_section', '')})")
+            print(f"    - Key Insight: {diag.get('key_insight', '')}")
             print(f"    - Bullet Tags: {diag.get('bullet_tags', [])}")
     else:
         print(f"Reasoning length: {len(ref_result.get('reasoning', ''))} chars")
@@ -210,7 +213,7 @@ def run_test():
         print(f"Error Identification: {ref_result.get('error_identification', '')}")
         print(f"Root Cause: {ref_result.get('root_cause_analysis', '')}")
         print(f"Correct Approach: {ref_result.get('correct_approach', '')}")
-        print(f"Key Insight: {ref_result.get('key_insight', '')} (Section: {ref_result.get('key_insight_section', '')})")
+        print(f"Key Insight: {ref_result.get('key_insight', '')}")
         print(f"Bullet Tags: {ref_result.get('bullet_tags', [])}")
 
     # 7. Save structured results
@@ -221,7 +224,8 @@ def run_test():
         "generator_result": {
             "reasoning": gen_result.get("reasoning", ""),
             "bullet_ids": gen_result.get("bullet_ids", []),
-            "final_answer": gen_result.get("final_answer", [])
+            "llm_answer": gen_result.get("llm_answer", gen_result.get("final_answer", [])),
+            "final_answer": gen_result.get("final_answer", gen_result.get("llm_answer", []))
         },
         "alignment_table": alignment_text,
         "reflector_result": ref_result

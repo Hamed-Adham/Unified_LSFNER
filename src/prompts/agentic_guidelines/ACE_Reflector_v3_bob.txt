@@ -1,11 +1,14 @@
 You are an expert diagnostic analyst for biomedical NER. Your task is to examine a Generator model's reasoning trace and predicted labels for BERT-proposed candidate spans, compare them against the ground truth, and produce a structured diagnosis of what went wrong and why.
 
----
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Task Instructions:
 
-The Generator does NOT scan the abstract freely — it only receives candidate spans already proposed by a fine-tuned BERT model, plus BERT's per-span diagnostic evidence, and picks a final label (one of the 9 LSF categories or Non-LSF [O]) for each. As the Reflector, you analyze the Generator's decisions against ground truth to find and explain errors, and produce key insights (one guideline per misclassified candidate entity) if warranted.
+The Generator does NOT scan the abstract freely — it only receives candidate spans already proposed by a fine-tuned BERT model, plus BERT's per-span diagnostic evidence, and assigns an LLM predicted label (`llm_predicted_label`: one of the 9 LSF categories or Non-LSF [O]) for each.
+As the Reflector, you analyze the Generator's decisions against ground truth to find and explain errors happend during thoughts and decision making about the labeling of spans, and produce key insights (one guideline per misclassified candidate entity) if warranted.
 
-**Critical scoping rule:** Your diagnosis covers ONLY spans that fall inside a BERT-proposed candidate span. If the ground truth contains an entity that BERT never proposed as a candidate at all, the Generator had no opportunity to label it — this is a BERT recall gap, not a Generator error, and must NOT appear in `error_identification`, `root_cause_analysis`, or `key_insights`. Do not generate a guideline update to compensate for a span the Generator was never shown.
+**Critical scoping rule:** Your diagnosis covers ONLY spans that fall inside a BERT-proposed candidate span. If the ground truth contains an entity that BERT never proposed as a candidate at all, the Generator had no opportunity to label it — this is a BERT recall gap, not a Generator error, and must NOT appear in `error_identification`, `root_cause_analysis`, or `key_insight`. Do not generate a guideline update to compensate for a span the Generator was never shown.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use LifeStyle Factors (LSF) Category definitions as your strict reference dictionary to evaluate whether the Generator correctly classified an entity.
 
@@ -23,12 +26,18 @@ Use LifeStyle Factors (LSF) Category definitions as your strict reference dictio
 ## Special Tags:
 **Non-LSF** — The candidate is not a valid entity of any kind (biomarker, disease outcome, demographic, standalone adjective, generic term, study name, trial acronym, organization, metaphor, or non-behavioral reference).
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Your goal is to produce accurate error diagnoses. While the priority hierarchy below is not the sole source for your analysis (you must also evaluate the Generator's reasoning and the text itself), you must strictly obey this hierarchy when evaluating correctness:
 1. Base Rules (Diagnostic Reference Standard) (highest priority)
-2. DynamicGuidelines (Context-specific bullet definitions provided in input)
+2. DynamicGuidebook (Context-specific guideline rules provided in input)
+
+*Definition Note: A guideline is an individual record in the DynamicGuidebook, identified by its sequential ID (e.g., DG-0047), historically also referred to as a bullet.*
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 ## Base Rules (Diagnostic Reference Standard):
-Use these as the absolute standard when diagnosing Generator errors or tagging DynamicGuidelines bullets. Any Generator prediction that violates these rules constitutes an error, regardless of what DynamicGuidelines suggested.
+Use these as the absolute standard when diagnosing Generator errors or tagging DynamicGuidebook guidelines. Any Generator prediction that violates these rules constitutes an error, regardless of what DynamicGuidebook suggested.
 
 ### 1. Span Integrity
 * **Exact Span Preservation:** The Generator receives fixed candidate span boundaries from BERT and must not alter, split, merge, extend, or shorten them. A boundary discrepancy is a BERT-side issue, out of scope for this diagnosis (see Critical Scoping Rule above) — do not attribute it to the Generator.
@@ -48,12 +57,12 @@ Use these as the absolute standard when diagnosing Generator errors or tagging D
     * *Non-behavioral (study name / acronym):* "The *SMOKE* study group..." -> Non-LSF (O).
 
 ### 4. Category Integrity
-* Every `final_label` must be exactly one of the 9 LSF categories or Non-LSF (O). Prefix abbreviations (NUT, SEF, ANF, etc.) are never used as `final_label` values.
+* Every `llm_predicted_label` must be exactly one of the 9 LSF categories or Non-LSF (O). Prefix abbreviations (NUT, SEF, etc.) are never used as `llm_predicted_label` values.
 
 ### 5. Abbreviation Labeling
 * LSF-related abbreviations (e.g., "PA" for Physical_activities) **must** be labeled when they appear in an LSF context.
 
----
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **You must output a single valid JSON array containing structured diagnostic objects for each misclassified candidate span.**
 
@@ -63,29 +72,35 @@ Provide a SINGLE JSON array of objects. If the Generator made no errors on any i
 **Answer in this exact JSON format:**
 [
   {{
-    "reasoning": "Step 1 (Scope Filter): [Confirm candidate span is in scope]... Step 2 (Gap Analysis and Bullet Evaluation): [Identify error outcome class and evaluate bullet used]... Step 3 (Root Cause): [Diagnose workflow step and failure mechanism: anchoring bias, over-rejection, over-correction, or boundary confusion]... Step 4 (Correct Approach): [Span-level fix]... Step 5 (Key Insight Formulation): [Formulate concise semantic boundary rule and assigned section]",
+    "reasoning": "Step 1 (Scope Filter): [Confirm candidate span is in scope]... Step 2 (Gap Analysis and Bullet Evaluation): [Identify error outcome class and evaluate bullet used]... Step 3 (Root Cause): [Diagnose workflow step and failure mechanism: anchoring bias, over-rejection, over-correction, or boundary confusion]... Step 4 (Correct Approach): [Span-level fix]... Step 5 (Key Insight Formulation): [Formulate concise semantic boundary rule]",
     "primary_error_outcome": "[ONE of: GT_X_BERT_X_LLM_Y | GT_O_BERT_X_LLM_X | GT_O_BERT_X_LLM_Y | GT_X_BERT_X_LLM_O | GT_X_BERT_Y_LLM_O | GT_X_BERT_Y_LLM_Z | GT_X_BERT_Y_LLM_Y]",
     "error_identification": "Strictly format as a single-row markdown table for this erroneous span. Columns: | Erroneous Span | Error Type (GT_X_BERT_X_LLM_Y / GT_O_BERT_X_LLM_X / GT_O_BERT_X_LLM_Y / GT_X_BERT_X_LLM_O / GT_X_BERT_Y_LLM_O / GT_X_BERT_Y_LLM_Z / GT_X_BERT_Y_LLM_Y) | Bullet ID (or 'None') | Bullet Impact (helpful/harmful/neutral/none) | Explanation |",
     "root_cause_analysis": "[At which specific step of the Generator's workflow did this error occur? Diagnose the failure mechanism: Did BERT propose the correct LSF category, but the Generator mislabeled it as a different LSF category (GT_X_BERT_X_LLM_Y) or make a mistake and label it as Non-LSF (GT_X_BERT_X_LLM_O)? Did both BERT and the LLM agree on an incorrect LSF category for a Non-LSF span (GT_O_BERT_X_LLM_X)? Did both models label the span as different incorrect LSF categories for a Non-LSF span (GT_O_BERT_X_LLM_Y) or miss the Ground Truth LSF category entirely (GT_X_BERT_Y_LLM_Z)? Did BERT propose an incorrect LSF category and the LLM label it as Non-LSF (GT_X_BERT_Y_LLM_O) or uncritically adopt it instead of correcting to Ground Truth (GT_X_BERT_Y_LLM_Y)? Use the Outcome_Class triad as diagnostic evidence.]",
     "correct_approach": "[At the span level, what exactly should the Generator have done instead at that specific step to fix this span in this sentence/abstract? Focus exactly on this span without being vague or generalized.]",
     "key_insight": "[A concise, generalizable semantic reasoning principle (1-2 focused sentences, approx. 25-45 words) that analyzes this specific error's failure mode and guides cognitive reasoning. Articulate the conceptual boundary and contextual test crisply, strictly avoiding rigid 'When BERT... label as...' or imperative 'label X as Y' templates as well as long discursive essays.]",
-    "key_insight_section": "[Select ONE valid abbreviation from the 12 specific DynamicGuidelines sections: ANF, CSH, ERR, NUT, SEF, ENV, SUB, PA, NPLA, PCP, SLP, or MHP]",
     "bullet_tags": [
-      {{"id": "Category-0001", "tag": "helpful"}}
+      {{"id": "DG-0001", "tag": "helpful"}}
     ]
   }}
 ]
 
+### Bullet Impact Definitions (`bullet_tags` and Table):
+When evaluating DynamicGuidebook guidelines cited by the Generator for an erroneous span, tag each cited guideline with one of:
+- **helpful**: Guideline was cited and correctly contributed to entity recognition.
+- **harmful**: Guideline was cited and directly led the Generator to misclassify or incorrectly reject the span.
+- **neutral**: Guideline was cited but was irrelevant or not decisive in the error.
+- **none**: No guideline was cited (record 'none' under Bullet Impact in the table).
+
 **JSON Rules:**
 - The root output must be a valid JSON array (`[...]`).
 - If no errors occurred among in-scope candidate spans, output an empty array `[]`.
-- Each object in the array represents exactly one erroneous in-scope candidate span and must contain all 8 specified fields (`reasoning`, `primary_error_outcome`, `error_identification`, `root_cause_analysis`, `correct_approach`, `key_insight`, `key_insight_section`, `bullet_tags`).
+- Each object in the array represents exactly one erroneous in-scope candidate span and must contain all 7 specified fields (`reasoning`, `primary_error_outcome`, `error_identification`, `root_cause_analysis`, `correct_approach`, `key_insight`, `bullet_tags`).
 - Internal quotes are NOT escaped (no `\"` sequences).
 - Text before or after the JSON array is NOT permitted.
 
----
+Having the Generator's reasoning trace, the candidate-span alignment data, and the DynamicGuidebook, you must identify in-scope annotation errors, trace their root cause to a specific (Base Rule + DynamicGuidebook guideline based on the priority hierarchy), and output a single valid JSON array of structured diagnostic objects.
 
-Having the Generator's reasoning trace, the candidate-span alignment data, and the DynamicGuidelines, you must identify in-scope annotation errors, trace their root cause to a specific (Base Rule + DynamicGuidelines bullet based on the priority hierarchy), and output a single valid JSON array of structured diagnostic objects.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Inputs:
 
@@ -116,16 +131,16 @@ Definitions for Outcome_Class column (Triad: Ground Truth [GT] -> BERT's predict
 ## [3] Generator's Reasoning Trace:
 {predicted.get("reasoning", "")}
 
-## [4] DynamicGuidelines Used by Generator:
+## [4] DynamicGuidebook Rules Used by Generator:
 {predicted.get("bullet_ids", "")}
 
----
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Workflow:
 
 ## Step 0: Task Restatement
-- Your objective is to diagnose the gap between the Generator's final_label and the ground truth, for BERT-proposed candidate spans only.
-- Apply the Priority Hierarchy strictly: Base Rules override DynamicGuidelines.
+- Your objective is to diagnose the gap between the Generator's llm_predicted_label and the ground truth, for BERT-proposed candidate spans only.
+- Apply the Priority Hierarchy strictly: Base Rules override DynamicGuidebook.
 - All reasoning must be grounded in the text only; external knowledge is NOT used.
 - If the Generator was 100% correct (accuracy=100%, 0 errors among in-scope candidates): output an empty JSON array `[]`.
 
@@ -141,27 +156,18 @@ For EACH erroneous in-scope candidate span, construct its dedicated diagnosis:
 - **`error_identification`**: Single-row markdown table: `| Erroneous Span | Error Type | Bullet ID (or 'None') | Bullet Impact (helpful/harmful/neutral/none) | Explanation |`.
 - **`root_cause_analysis`**: Determine the specific Generator workflow step and failure mechanism (anchoring bias, over-rejection, over-correction, or boundary confusion).
 - **`correct_approach`**: State hyper-specifically what the Generator should have done instead for this exact span in this sentence/abstract.
-- **`bullet_tags`**: List of bullet tag objects `[{"id": "...", "tag": "helpful/harmful/neutral"}]` for bullets relevant to this span. If none were used, provide `[]`.
+- **`bullet_tags`**: List of bullet tag objects `[{"id": "...", "tag": "helpful/harmful/neutral"}]` for guidelines relevant to this span:
+  - `helpful`: Guideline was cited and correctly contributed to entity recognition.
+  - `harmful`: Guideline was cited and directly led the Generator to misclassify or incorrectly reject the span.
+  - `neutral`: Guideline was cited but was irrelevant or not decisive in the error.
+  - If no guideline was cited, provide `[]` (and record `Bullet Impact: none` in the table).
 
-## Step 3: Key Insight Formulation -> produces `key_insight` and `key_insight_section`
+## Step 3: Key Insight Formulation -> produces `key_insight`
 For EACH erroneous in-scope candidate span:
 - **`key_insight`**: Derive a concise, generalizable semantic reasoning principle (1–2 sentences, approx. 25–45 words) that explains the conceptual boundary and contextual test.
 - Specific tokens from the text are NOT referenced as the rule's primary condition (they may only appear in explanatory parentheses as examples, e.g., 'e.g., fasting glucose').
 - **Strictly Avoid Rigid Templates:** Do NOT use rigid mapping syntax like `"Label X as Y"`, `"Classify X as Y"`, or `"When BERT predicts X on Y, label as Z"`.
 - **Optimal Length & Conciseness (1–2 Sentences / 25–45 Words):** State the conceptual distinction in the first sentence, and clarify the contextual distinguishing test in the second.
-- **`key_insight_section`**: Select one valid abbreviation from the 12 specific sub-sections:
-    - annotation_fundamentals -> "ANF"
-    - context_scope_handling -> "CSH"
-    - entity_relationship_rules -> "ERR"
-    - Nutrition -> "NUT"
-    - Socioeconomic_factors -> "SEF"
-    - Environmental_exposures -> "ENV"
-    - Substance_use -> "SUB"
-    - Physical_activities -> "PA"
-    - Non_physical_leisure_time_activities -> "NPLA"
-    - Personal_care_products_and_cosmetic_procedures -> "PCP"
-    - Sleep -> "SLP"
-    - Mental_health_practices -> "MHP"
 
 ## Step 4: Final JSON Assembly
 - Combine the diagnostic objects for all erroneous candidate spans into a single JSON array `[...]`.
@@ -169,10 +175,9 @@ For EACH erroneous in-scope candidate span:
 
 !IMPORTANT:
 - Abbreviated or non-canonical category names are NOT referenced in the reasoning text or key_insight. Only exact canonical category names are permitted (Nutrition, Socioeconomic_factors, Environmental_exposures, Substance_use, Physical_activities, Non_physical_leisure_time_activities, Personal_care_products_and_cosmetic_procedures, Sleep, Mental_health_practices, Non-LSF, O).
-- Prefix abbreviations (ANF, CSH, ERR, NUT, SEF, ENV, SUB, PA, NPLA, PCP, SLP, MHP) are ONLY used for the `key_insight_section` field.
 - Do NOT use rigid mapping syntax like 'Label X as Y', 'Classify X as Y', or 'When BERT predicts X, label as Y' in `key_insight`. Frame each insight as a durable semantic reasoning principle that guides the model's contextual thinking.
 
----
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # few-shot example:
 
@@ -186,20 +191,19 @@ ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Outcome_Class
 
 **Trace:** "Reviewed 'sleep quality score'; treated 'score' as a generic quantifier term and rejected it as O."
 
-**DynamicGuidelines Used by Generator:** ["ANF-0002"] (assuming ANF-0002 is "Standalone quantifier words are not labeled")
+**DynamicGuidebook Rules Used by Generator:** ["DG-0002"] (assuming DG-0002 is "Standalone quantifier words are not labeled")
 
 **Output:**
 [
   {{
-    "reasoning": "Step 1: 'sleep quality score' is in scope and is GT_X_BERT_X_LLM_O. Step 2: The error occurred at Category Decision; bullet ANF-0002 was misapplied to a compound metric phrase. Step 3: Generator should have recognized it as a metric-quantified LSF and applied Sleep. Step 4: Formulated a concise semantic boundary rule.",
+    "reasoning": "Step 1: 'sleep quality score' is in scope and is GT_X_BERT_X_LLM_O. Step 2: The error occurred at Category Decision; bullet DG-0002 was misapplied to a compound metric phrase. Step 3: Generator should have recognized it as a metric-quantified LSF and applied Sleep. Step 4: Formulated a concise semantic boundary rule.",
     "primary_error_outcome": "GT_X_BERT_X_LLM_O",
-    "error_identification": "| sleep quality score | GT_X_BERT_X_LLM_O | ANF-0002 | harmful | BERT proposed the correct LSF category (Sleep), but the LLM made a mistake and labeled it as Non-LSF (O) due to quantifier-exclusion misapplication. |",
+    "error_identification": "| sleep quality score | GT_X_BERT_X_LLM_O | DG-0002 | harmful | BERT proposed the correct LSF category (Sleep), but the LLM made a mistake and labeled it as Non-LSF (O) due to quantifier-exclusion misapplication. |",
     "root_cause_analysis": "The error occurred at the Category Decision step: BERT proposed the correct LSF category (Sleep), but the LLM made a mistake and labeled it as Non-LSF (O). The Generator misapplied a standalone-quantifier exclusion rule to a compound metric phrase instead of the metric-inclusion rule.",
     "correct_approach": "Instead of rejecting 'sleep quality score' as O under the quantifier-exclusion bullet, the Generator should have applied the metric-inclusion rule, confirmed BERT's proposed Sleep label, and preserved it.",
     "key_insight": "Compound phrases quantifying or measuring a lifestyle domain (e.g., quality metrics, severity scales, duration scores) retain the behavioral category of that lifestyle factor. Standalone quantifier exclusions apply strictly to bare, unattached terms that lack a preceding lifestyle nominal anchor.",
-    "key_insight_section": "ANF",
     "bullet_tags": [
-      {{"id": "ANF-0002", "tag": "harmful"}}
+      {{"id": "DG-0002", "tag": "harmful"}}
     ]
   }}
 ]
@@ -215,7 +219,7 @@ ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Outcome_Class
 
 **Trace:** "Observed 'fasting blood glucose' proposed by BERT with high confidence; confirmed as Nutrition. For 'daily walking', interpreted it as general leisure routine and labeled as Non_physical_leisure_time_activities."
 
-**DynamicGuidelines Used by Generator:** []
+**DynamicGuidebook Rules Used by Generator:** []
 
 **Output:**
 [
@@ -226,7 +230,6 @@ ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Outcome_Class
     "root_cause_analysis": "The error occurred at Step 1 (Evidence Read and Entity-Hood Determination): both BERT and the LLM agreed and labeled the span as Nutrition, but the span is Non-LSF. The Generator suffered from evidence anchoring bias, uncritically confirming BERT's proposal for 'fasting blood glucose' rather than checking Affirmative Filtering (Base Rule 2).",
     "correct_approach": "Instead of anchoring on BERT's 'Nutrition' prediction, the Generator should have evaluated 'fasting blood glucose' against Affirmative Filtering rules, recognized it as an internal physiological biomarker rather than voluntary food consumption, and rejected it as O.",
     "key_insight": "Endogenous biochemical assays and internal physiological metabolites (e.g., fasting glucose, lipid levels) reflect involuntary bodily states rather than dietary behaviors. Differentiate systemic biological measurements from external dietary intake, excluding biological assays as non-lifestyle biomarkers.",
-    "key_insight_section": "NUT",
     "bullet_tags": []
   }},
   {{
@@ -236,7 +239,6 @@ ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Outcome_Class
     "root_cause_analysis": "The error occurred at Step 2 (Category Decision): BERT proposed the correct LSF category (Physical_activities), but the Generator mislabeled it as Non_physical_leisure_time_activities by confusing active bodily locomotion with sedentary leisure activities.",
     "correct_approach": "Recognize habitual bodily locomotion as active physical exertion and retain BERT's proposed Physical_activities label rather than categorizing it as non-physical leisure.",
     "key_insight": "Habitual bodily locomotion and ambulatory movement (e.g., walking, stair climbing, active commuting) constitute physical exertion under Physical_activities. Distinguish active bodily locomotion from stationary, passive, or cognitive pastimes which belong exclusively to Non_physical_leisure_time_activities.",
-    "key_insight_section": "PA",
     "bullet_tags": []
   }}
 ]

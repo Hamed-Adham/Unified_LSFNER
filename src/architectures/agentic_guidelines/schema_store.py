@@ -176,9 +176,7 @@ class GuidebookStore:
 
     def iter_bullets(self):
         """Legacy compatibility alias for iter_guidelines."""
-        for g in self.iter_guidelines():
-            cat = g.get("ground_truth_label") or g.get("bert_label") or "General"
-            yield g, "LSF categories", cat
+        yield from self.iter_guidelines()
 
 
 # Backward compatibility alias

@@ -187,8 +187,8 @@ class DynamicGuidebookManager:
 
     get_dynamicGuidelines_for_curator_md = get_dynamicGuidebook_for_curator_md
 
-    def search_similar_bullets(self, query_text, n_results=5, section_name=None):
-        return self.vectors.find_similar(query_text, category=section_name, n_results=n_results)
+    def search_similar_bullets(self, query_text, n_results=5, category=None):
+        return self.vectors.find_similar(query_text, category=category, n_results=n_results)
 
     def update_bullet_metrics(self, bullet_ids, *, helpful_delta=0, harmful_delta=0, usage_delta=0):
         return self.ops.update_bullet_metrics(

@@ -19,15 +19,13 @@ class Formatter:
             "challenge_types": g.get("challenge_types", []),
             "guideline": g.get("guideline", g.get("content", ""))
         }
-        if "bert_info" in g:
-            view["bert_info"] = g["bert_info"]
         return view
 
     @staticmethod
     def to_generator_view(g: Dict[str, Any]) -> Dict[str, Any]:
         """
         Projects a dynamic guideline into the Generator ACE view.
-        Includes triad, bert_info, and similar_spans for deep guideline calibration.
+        Includes triad and similar_spans for deep guideline calibration.
         """
         view = {
             "id": g.get("id", g.get("bullet_id", "")),
@@ -39,8 +37,6 @@ class Formatter:
             "triad": g.get("triad", {}),
             "guideline": g.get("guideline", g.get("content", ""))
         }
-        if "bert_info" in g:
-            view["bert_info"] = g["bert_info"]
         if "similar_spans" in g:
             view["similar_spans"] = g["similar_spans"]
         return view
@@ -78,6 +74,13 @@ class Formatter:
         elif format == "guidebook_json":
             return json.dumps(store.guidebook, indent=2, ensure_ascii=False)
 
+        elif format == "curator":
+            return self._get_selected_guidelines(store, query_text=query_text, n_results=n_similar)
+
+        elif format == "curator_json":
+            guidelines = self._get_selected_guidelines(store, query_text=query_text, n_results=n_similar)
+            return json.dumps([self.to_curator_view(g) for g in guidelines], indent=2, ensure_ascii=False)
+
         elif format == "md_generator":
             return self._to_md_generator(store)
 
@@ -109,23 +112,27 @@ class Formatter:
         return all_guidelines[:n_results] if query_text else all_guidelines
 
     def _to_md_generator(self, store) -> str:
-        """Legacy markdown projection for generator."""
+        """Markdown projection for generator from flat guidebook."""
         lines = []
         for g in store.iter_guidelines():
             gid = g.get("id", g.get("bullet_id", "DG"))
             rule = g.get("guideline", g.get("content", ""))
             span = g.get("span", "")
-            cat = g.get("ground_truth_label") or g.get("bert_label") or "General"
+            gt_lbl = g.get("ground_truth_label", "")
+            bert_lbl = g.get("bert_label", "")
+            label_tag = f"GT: {gt_lbl} | BERT: {bert_lbl}" if (gt_lbl or bert_lbl) else ""
             
-            header = f"- **{gid}** [{cat}]"
+            header = f"- **{gid}**"
+            if label_tag:
+                header += f" [{label_tag}]"
             if span:
-                header += f" (Target: '{span}')"
+                header += f" (Trigger: '{span}')"
             lines.append(f"{header}: {rule}")
             
         return "\n".join(lines) if lines else "No dynamicGuidelines available"
 
     def _to_md_curator(self, store, query_text: Optional[str] = None, n_similar: int = 3) -> str:
-        """Legacy markdown projection for curator."""
+        """Markdown projection for curator."""
         lines = []
         for g in self._get_selected_guidelines(store, query_text=query_text, n_results=n_similar):
             gid = g.get("id", g.get("bullet_id", "DG"))
@@ -151,12 +158,6 @@ class Formatter:
                 
         return "\n\n".join(lines) if lines else "No dynamicGuidelines available"
 
-    def _to_flat(self, store) -> Dict[str, List[str]]:
-        """Legacy flat dictionary grouped by category."""
-        flat = {}
-        for g in store.iter_guidelines():
-            cat = g.get("ground_truth_label") or g.get("bert_label") or "General"
-            gid = g.get("id", g.get("bullet_id", "DG"))
-            rule = g.get("guideline", g.get("content", ""))
-            flat.setdefault(cat, []).append(f"{gid}: {rule}")
-        return flat
+    def _to_flat(self, store) -> List[Dict[str, Any]]:
+        """Flat list of all active guideline records."""
+        return list(store.iter_guidelines())
