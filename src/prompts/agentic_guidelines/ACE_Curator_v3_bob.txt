@@ -79,7 +79,7 @@ The Reflection input provides an array of diagnostic objects (one for each erron
 - If the array is empty `[]` or contains 0 diagnosed errors (or all `key_insight`s are `"None"`): The Generator made no errors on in-scope spans. Output Safe-Fail JSON immediately (`"operations": []`) and **STOP**.
 - Otherwise, iterate through each candidate diagnostic member in the array. Each member contains:
   - `span` and sentence context
-  - `primary_error_outcome` (e.g., `GT_X_BERT_Y_LLM_Y`)
+  - `primary_outcome` (e.g., `GT_X_BERT_Y_LLM_Y`)
   - `root_cause_analysis`
   - `correct_approach`
   - `key_insight`: candidate semantic boundary principle to evaluate.
@@ -163,7 +163,7 @@ Use this when insight is redundant, contradicts BASE RULES, fails the Step 3 gen
         "TOP2_COMPETITION"
       ],
       "similar_spans": [
-        {{"span": "<example surface form 1>", "label": "LSF_CATEGORY_OR_O"}}
+        {{"span": "<example surface form 1>", "ground_truth_label": "LSF_CATEGORY_OR_O"}}
       ]
     }}
   ]

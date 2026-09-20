@@ -4,15 +4,9 @@ from src.common.llm_client import generate_llm_response as call_llm
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
-FILE_PATH = PROJECT_ROOT / "src" / "prompts" / "agentic_guidelines" / "Curator.txt"
+FILE_PATH = PROJECT_ROOT / "src" / "prompts" / "agentic_guidelines" / "history" / "Curator.txt"
 if not FILE_PATH.exists():
-    FILE_PATH = PROJECT_ROOT / "src" / "prompts" / "Curator.txt"
-if not FILE_PATH.exists():
-    FILE_PATH = PROJECT_ROOT / "prompts" / "Curator.txt"
-if not FILE_PATH.exists():
-    FILE_PATH = PROJECT_ROOT / "data" / "promtps" / "Curator.txt"
-if not FILE_PATH.exists():
-    FILE_PATH = PROJECT_ROOT.parent / "LSF-NER-main" / "data" / "promtps" / "Curator.txt"
+    FILE_PATH = PROJECT_ROOT / "src" / "prompts" / "agentic_guidelines" / "Curator.txt"
 
 class Curator:
     def __init__(self, model_name, file_format, backend="lmstudio"):

@@ -1,10 +1,10 @@
 """
 BERTized Agentic Context Engineering (ACE) Pipeline.
 Coordinates 3 specialized agents operating in a post-BERT candidate proposal setting:
-  1. Generator (ACE_Generator_v2): Refines SpanNER candidate labels using dynamic guidelines and BERT evidence.
-  2. Reflector (ACE_Reflector_v2): Diagnoses Generator errors exclusively on in-scope BERT candidate spans,
-     tracing root causes and deriving key insights.
-  3. Curator (ACE_Curator_v2): Screens insights against Base Rules and genericity tests, formulating ADD/MODIFY operations.
+  1. Generator (ACE_Generator_v3_bob): Refines SpanNER candidate labels using dynamic guidelines and BERT evidence.
+  2. Reflector (ACE_Reflector_v3_bob): Diagnoses Generator errors exclusively on in-scope BERT candidate spans,
+     tracing root causes and attributing guideline effectiveness.
+  3. Curator (ACE_Curator_v3_per_span / ACE_Curator_v3_bob): Screens insights against Base Rules and genericity tests, formulating ADD/MODIFY operations.
 Managed by DynamicGuidelinesManager for persistent vector-indexed guideline storage and automated pruning.
 """
 
@@ -46,12 +46,15 @@ def _retry_agent_call(fn, *args, max_retries: int = 3, base_delay: float = 2.0, 
 
 
 def clean_json_string(raw_str: str) -> str:
-    """Strips markdown code fences and cleans trailing commas for robust JSON parsing."""
+    """Strips markdown code fences and cleans trailing commas or double curlies for robust JSON parsing."""
     cleaned = raw_str.strip()
     if "```" in cleaned:
         match = re.search(r'```(?:json)?\s*([\s\S]*?)\s*```', cleaned)
         if match:
             cleaned = match.group(1).strip()
+    if "{{" in cleaned or "}}" in cleaned:
+        cleaned = re.sub(r'\{\{+', '{', cleaned)
+        cleaned = re.sub(r'\}\}+', '}', cleaned)
     return cleaned
 
 
@@ -131,11 +134,11 @@ def format_candidate_alignment_text(
 
     if use_outcome_class:
         alignment_rows = [
-            "ID\tSpan Text\tGround_Truth\tBERT_LABEL\tGENERATOR_LABEL\tOutcome_Class"
+            "ID\tSpan Text\tGround_Truth\tBERT_LABEL\tGENERATOR_LABEL\tBullet_IDs\tOutcome_Class"
         ]
     else:
         alignment_rows = [
-            "ID\tSpan Text\tGround_Truth_Tag\tFinal_Label\tBERT_Predicted_Label\tComparison_Label"
+            "ID\tSpan Text\tGround_Truth_Tag\tFinal_Label\tBERT_Predicted_Label\tBullet_IDs\tComparison_Label"
         ]
 
     for idx, c in enumerate(candidate_spans, 1):
@@ -153,6 +156,15 @@ def format_candidate_alignment_text(
         raw_final = ans.get("llm_predicted_label", ans.get("final_label", bert_pred)) if ans else bert_pred
         final_lbl = canonicalize_label(raw_final, use_new_labels=True)
 
+        # Extract per-span bullet_ids
+        raw_bids = ans.get("bullet_ids", ans.get("guidelines_ids", [])) if ans else []
+        if isinstance(raw_bids, str):
+            raw_bids = [raw_bids] if raw_bids.startswith("DG-") else re.findall(r"DG-\d{4}", raw_bids)
+        elif not isinstance(raw_bids, list):
+            raw_bids = []
+        clean_bids = list(dict.fromkeys([str(g).strip() for g in raw_bids if g and str(g).strip().startswith("DG-")]))
+        bids_str = json.dumps(clean_bids)
+
         comp = classify_10_outcome_str(
             gt_label=gt_tag,
             spanner_label=bert_pred,
@@ -161,17 +173,15 @@ def format_candidate_alignment_text(
         )
 
         if use_outcome_class:
-            alignment_rows.append(f"{cid}\t{s_text}\t{gt_tag}\t{bert_pred}\t{final_lbl}\t{comp}")
+            alignment_rows.append(f"{cid}\t{s_text}\t{gt_tag}\t{bert_pred}\t{final_lbl}\t{bids_str}\t{comp}")
         else:
-            alignment_rows.append(f"{cid}\t{s_text}\t{gt_tag}\t{final_lbl}\t{bert_pred}\t{comp}")
+            alignment_rows.append(f"{cid}\t{s_text}\t{gt_tag}\t{final_lbl}\t{bert_pred}\t{bids_str}\t{comp}")
 
     return "\n".join(alignment_rows)
 
 
-import csv
-
 # ==============================================================================
-# 1. BertizedGenerator (ACE_Generator_v2)
+# 1. BertizedGenerator (ACE_Generator_v3_bob)
 # ==============================================================================
 class BertizedGenerator:
     """
@@ -183,7 +193,7 @@ class BertizedGenerator:
         self.model_name = model_name
         self.backend = backend
         self.max_tokens = max_tokens
-        default_prompt = PROMPTS_DIR / "ACE_Generator_v3_bob.txt" if (PROMPTS_DIR / "ACE_Generator_v3_bob.txt").exists() else PROMPTS_DIR / "ACE_Generator_v2.txt"
+        default_prompt = PROMPTS_DIR / "ACE_Generator_v3_bob.txt"
         file_path = Path(prompt_path) if prompt_path else default_prompt
         with open(file_path, "r", encoding="utf-8") as f:
             self.template = f.read()
@@ -245,6 +255,9 @@ class BertizedGenerator:
                 os.makedirs(os.path.dirname(save_output_path), exist_ok=True)
                 with open(save_output_path, "w", encoding="utf-8") as f:
                     f.write(response)
+                prompt_path = save_output_path.replace("_generator.txt", "_generator_prompt.txt")
+                with open(prompt_path, "w", encoding="utf-8") as f:
+                    f.write(prompt)
 
             # Parse JSON output
             clean_resp = clean_json_string(response)
@@ -254,7 +267,7 @@ class BertizedGenerator:
                 # Fallback regex extraction
                 reasoning_match = re.search(r'"reasoning"\s*:\s*"([^"]*)"', clean_resp)
                 reasoning = reasoning_match.group(1) if reasoning_match else clean_resp
-                bullets = re.findall(r'"([A-Z]{2,4}-\d{4})"', clean_resp)
+                bullets = re.findall(r'"(DG-\d{4})"', clean_resp)
                 parsed = {"reasoning": reasoning, "bullet_ids": bullets, "llm_answer": [], "final_answer": []}
 
             if isinstance(parsed, list):
@@ -289,23 +302,46 @@ class BertizedGenerator:
                             use_new_labels=True
                         )
                         rationale = item.get("rationale", "")
+
+                        # Standardize per-span bullet_ids
+                        raw_bids = item.get("bullet_ids")
+                        if raw_bids is None:
+                            raw_bids = item.get("guidelines_ids")
+                        if raw_bids is None:
+                            if "bullet_id" in item and item["bullet_id"]:
+                                raw_bids = [item["bullet_id"]] if isinstance(item["bullet_id"], str) else item["bullet_id"]
+                            else:
+                                raw_bids = re.findall(r"DG-\d{4}", rationale)
+                        elif isinstance(raw_bids, str):
+                            raw_bids = [raw_bids] if raw_bids.startswith("DG-") else re.findall(r"DG-\d{4}", raw_bids)
+                        elif not isinstance(raw_bids, list):
+                            raw_bids = []
+                        clean_bids = list(dict.fromkeys([str(g).strip() for g in raw_bids if g and str(g).strip().startswith("DG-")]))
+
                         ans_entry = {
                             "entity": ent_text,
                             "bert_predicted_label": bert_lbl,
                             "llm_predicted_label": final_lbl,
                             "final_label": final_lbl,
+                            "bullet_ids": clean_bids,
+                            "guidelines_ids": clean_bids,  # backward-compatible alias
                             "rationale": rationale
                         }
                         if cid is not None:
                             ans_entry["id"] = cid
                         standardized_answers.append(ans_entry)
 
+            # Union of all per-span bullet_ids for Python-side metric updates, logs, and traces
+            span_bids = [bid for a in standardized_answers for bid in a.get("bullet_ids", [])]
+            combined_bullet_ids = list(dict.fromkeys(bullet_ids + span_bids))
+
             result = {
                 "reasoning": reasoning,
-                "bullet_ids": bullet_ids,
+                "bullet_ids": combined_bullet_ids,
                 "llm_answer": standardized_answers,
                 "final_answer": standardized_answers,
                 "raw_response": response,
+                "prompt": prompt,
                 "anchored_abstract": anchored_abstract
             }
 
@@ -317,7 +353,7 @@ class BertizedGenerator:
                     "total": last_call_metadata.get("total_tokens", 0)
                 },
                 metadata={
-                    "bullet_ids": bullet_ids,
+                    "bullet_ids": combined_bullet_ids,
                     "classified_count": len(standardized_answers),
                     "latency_seconds": last_call_metadata.get("latency_seconds", 0.0)
                 }
@@ -327,7 +363,7 @@ class BertizedGenerator:
 
 
 # ==============================================================================
-# 2. BertizedReflector (ACE_Reflector_v2)
+# 2. BertizedReflector (ACE_Reflector_v3_bob)
 # ==============================================================================
 class BertizedReflector:
     """
@@ -338,7 +374,7 @@ class BertizedReflector:
         self.model_name = model_name
         self.backend = backend
         self.max_tokens = max_tokens
-        default_prompt = PROMPTS_DIR / "ACE_Reflector_v3_bob.txt" if (PROMPTS_DIR / "ACE_Reflector_v3_bob.txt").exists() else PROMPTS_DIR / "ACE_Reflector_v2.txt"
+        default_prompt = PROMPTS_DIR / "ACE_Reflector_v3_bob.txt"
         file_path = Path(prompt_path) if prompt_path else default_prompt
         with open(file_path, "r", encoding="utf-8") as f:
             self.template = f.read()
@@ -354,18 +390,17 @@ class BertizedReflector:
     ) -> Dict[str, Any]:
         """
         Executes Reflector diagnosis by building the Candidate Span Alignment table.
-        Format: ID [Tab] [Span Text] [Tab] [Ground_Truth] [Tab] [BERT_LABEL] [Tab] [GENERATOR_LABEL] [Tab] [Outcome_Class]
+        Format: ID [Tab] [Span Text] [Tab] [Ground_Truth] [Tab] [BERT_LABEL] [Tab] [GENERATOR_LABEL] [Tab] [Bullet_IDs] [Tab] [Outcome_Class]
         """
         anchored_abstract = generator_output.get("anchored_abstract")
         if not anchored_abstract:
             anchored_abstract = build_anchored_abstract(abstract, candidate_spans)
 
         if alignment_text is None:
-            use_legacy = ("Comparison_Label" in self.template and "Outcome_Class" not in self.template)
             alignment_text = format_candidate_alignment_text(
                 candidate_spans=candidate_spans,
                 generator_output=generator_output,
-                use_outcome_class=not use_legacy
+                use_outcome_class=True
             )
 
         used_bullet_ids = generator_output.get("bullet_ids", [])
@@ -376,89 +411,125 @@ class BertizedReflector:
                               .replace('{predicted.get("reasoning", "")}', generator_output.get("reasoning", "")) \
                               .replace('{predicted.get("bullet_ids", "")}', bullet_ids_str)
 
-        response = call_llm(prompt, self.model_name, "Reflector", self.backend, max_tokens=self.max_tokens)
+        tracker = get_langfuse_tracker()
+        with tracker.trace_agent(
+            agent_name="ACE-Reflector",
+            model_name=self.model_name,
+            prompt=prompt,
+            metadata={"backend": self.backend}
+        ) as ref_obs:
+            response = call_llm(prompt, self.model_name, "Reflector", self.backend, max_tokens=self.max_tokens)
 
-        if save_output_path:
-            os.makedirs(os.path.dirname(save_output_path), exist_ok=True)
-            with open(save_output_path, "w", encoding="utf-8") as f:
-                f.write(response)
+            if save_output_path:
+                os.makedirs(os.path.dirname(save_output_path), exist_ok=True)
+                with open(save_output_path, "w", encoding="utf-8") as f:
+                    f.write(response)
+                prompt_path = save_output_path.replace("_reflector.txt", "_reflector_prompt.txt")
+                with open(prompt_path, "w", encoding="utf-8") as f:
+                    f.write(prompt)
 
-        clean_resp = clean_json_string(response)
-        try:
-            parsed = json.loads(clean_resp)
-        except Exception:
-            parsed = {
-                "reasoning": clean_resp,
-                "error_identification": "None",
-                "root_cause_analysis": "None",
-                "correct_approach": "None",
-                "key_insight": "None",
-                "bullet_tags": []
-            }
-
-        # Normalize parsed into a standardized dictionary
-        if isinstance(parsed, list):
-            if not parsed:
-                # 0 errors diagnosed: Generator was 100% accurate on in-scope candidates
+            clean_resp = clean_json_string(response)
+            try:
+                parsed = json.loads(clean_resp)
+            except Exception:
                 parsed = {
-                    "reasoning": "No errors diagnosed on in-scope candidate spans.",
+                    "reasoning": clean_resp,
                     "error_identification": "None",
                     "root_cause_analysis": "None",
                     "correct_approach": "None",
                     "key_insight": "None",
-                    "bullet_tags": [],
-                    "diagnostic_items": []
+                    "bullet_tags": []
+                }
+
+            # Normalize parsed into a standardized dictionary
+            if isinstance(parsed, list):
+                if not parsed:
+                    # 0 errors diagnosed: Generator was 100% accurate on in-scope candidates
+                    parsed = {
+                        "reasoning": "No errors diagnosed on in-scope candidate spans.",
+                        "error_identification": "None",
+                        "root_cause_analysis": "None",
+                        "correct_approach": "None",
+                        "key_insight": "None",
+                        "bullet_tags": [],
+                        "diagnostic_items": []
+                    }
+                else:
+                    all_bullet_tags = []
+                    key_insights = []
+                    root_causes = []
+                    reasonings = []
+                    error_identifications = []
+                    correct_approaches = []
+
+                    for item in parsed:
+                        if isinstance(item, dict):
+                            if "bullet_tags" in item and isinstance(item["bullet_tags"], list):
+                                all_bullet_tags.extend(item["bullet_tags"])
+                            k_ins = str(item.get("key_insight", "")).strip()
+                            if k_ins and k_ins.lower() not in ("none", "null"):
+                                key_insights.append(k_ins)
+                            r_cause = str(item.get("root_cause_analysis", "")).strip()
+                            if r_cause and r_cause.lower() not in ("none", "null"):
+                                root_causes.append(r_cause)
+                            rsn = str(item.get("reasoning", "")).strip()
+                            if rsn and rsn.lower() not in ("none", "null"):
+                                reasonings.append(rsn)
+                            e_id = str(item.get("error_identification", "")).strip()
+                            if e_id and e_id.lower() not in ("none", "null"):
+                                error_identifications.append(e_id)
+                            c_app = str(item.get("correct_approach", "")).strip()
+                            if c_app and c_app.lower() not in ("none", "null"):
+                                correct_approaches.append(c_app)
+
+                    parsed = {
+                        "reasoning": " | ".join(reasonings) if reasonings else clean_resp,
+                        "error_identification": "\n".join(error_identifications) if error_identifications else "None",
+                        "root_cause_analysis": " | ".join(root_causes) if root_causes else "None",
+                        "correct_approach": " | ".join(correct_approaches) if correct_approaches else "None",
+                        "key_insight": " | ".join(key_insights) if key_insights else "None",
+                        "bullet_tags": all_bullet_tags,
+                        "diagnostic_items": parsed
+                    }
+            elif not isinstance(parsed, dict):
+                parsed = {
+                    "reasoning": str(parsed),
+                    "error_identification": "None",
+                    "root_cause_analysis": "None",
+                    "correct_approach": "None",
+                    "key_insight": "None",
+                    "bullet_tags": []
                 }
             else:
-                all_bullet_tags = []
-                key_insights = []
-                root_causes = []
-                reasonings = []
-                error_identifications = []
-                correct_approaches = []
+                if "bullet_tags" not in parsed or not isinstance(parsed["bullet_tags"], list):
+                    parsed["bullet_tags"] = []
 
-                for item in parsed:
-                    if isinstance(item, dict):
-                        if "bullet_tags" in item and isinstance(item["bullet_tags"], list):
-                            all_bullet_tags.extend(item["bullet_tags"])
-                        if item.get("key_insight"):
-                            key_insights.append(str(item["key_insight"]))
-                        if item.get("root_cause_analysis"):
-                            root_causes.append(str(item["root_cause_analysis"]))
-                        if item.get("reasoning"):
-                            reasonings.append(str(item["reasoning"]))
-                        if item.get("error_identification"):
-                            error_identifications.append(str(item["error_identification"]))
-                        if item.get("correct_approach"):
-                            correct_approaches.append(str(item["correct_approach"]))
+            if isinstance(parsed, dict):
+                parsed["prompt"] = prompt
+                parsed["raw_response"] = response
 
-                parsed = {
-                    "reasoning": " | ".join(reasonings) if reasonings else clean_resp,
-                    "error_identification": "\n".join(error_identifications) if error_identifications else "None",
-                    "root_cause_analysis": " | ".join(root_causes) if root_causes else "None",
-                    "correct_approach": " | ".join(correct_approaches) if correct_approaches else "None",
-                    "key_insight": " | ".join(key_insights) if key_insights else "None",
-                    "bullet_tags": all_bullet_tags,
-                    "diagnostic_items": parsed
+            ref_obs.update(
+                output=parsed,
+                usage_details={
+                    "input": last_call_metadata.get("prompt_tokens", 0),
+                    "output": last_call_metadata.get("completion_tokens", 0),
+                    "total": last_call_metadata.get("total_tokens", 0)
+                },
+                metadata={
+                    "error_identification": parsed.get("error_identification", "None"),
+                    "root_cause_analysis": parsed.get("root_cause_analysis", "None"),
+                    "correct_approach": parsed.get("correct_approach", "None"),
+                    "key_insight": parsed.get("key_insight", "None"),
+                    "bullet_tags_count": len(parsed.get("bullet_tags", [])),
+                    "latency_seconds": last_call_metadata.get("latency_seconds", 0.0)
                 }
-        elif not isinstance(parsed, dict):
-            parsed = {
-                "reasoning": str(parsed),
-                "error_identification": "None",
-                "root_cause_analysis": "None",
-                "correct_approach": "None",
-                "key_insight": "None",
-                "bullet_tags": []
-            }
-        else:
-            if "bullet_tags" not in parsed or not isinstance(parsed["bullet_tags"], list):
-                parsed["bullet_tags"] = []
+            )
 
-        return parsed
+            return parsed
 
 
 # ==============================================================================
-# 3. BertizedCurator (ACE_Curator_v2)
+# 3. BertizedCurator (ACE_Curator_v3)
 # ==============================================================================
 class BertizedCurator:
     """
@@ -484,12 +555,8 @@ class BertizedCurator:
         else:
             if curator_mode == "per_span":
                 file_path = PROMPTS_DIR / "ACE_Curator_v3_per_span.txt"
-                if not file_path.exists():
-                    file_path = PROMPTS_DIR / "ACE_Curator_v3_bob.txt"
             else:
                 file_path = PROMPTS_DIR / "ACE_Curator_v3_bob.txt"
-                if not file_path.exists():
-                    file_path = PROMPTS_DIR / "ACE_Curator_v2.txt"
 
         self.prompt_path = str(file_path)
         with open(file_path, "r", encoding="utf-8") as f:
@@ -507,25 +574,25 @@ class BertizedCurator:
         # Extract diagnostic items array from reflection
         diag_items = reflection.get("diagnostic_items", []) if isinstance(reflection, dict) else (reflection if isinstance(reflection, list) else [])
 
-        # Check if there are any valid diagnosed errors
-        has_valid_items = False
+        # Filter for actionable error items (ignoring successful items with key_insight == "None")
+        actionable_items = []
         if isinstance(diag_items, list) and len(diag_items) > 0:
             for item in diag_items:
                 if isinstance(item, dict) and item.get("key_insight") and item.get("key_insight").strip().lower() not in ("none", "null", ""):
-                    has_valid_items = True
-                    break
+                    actionable_items.append(item)
         elif isinstance(reflection, dict):
             k_ins = reflection.get("key_insight", "None")
-            has_valid_items = bool(k_ins and k_ins.strip().lower() not in ("none", "null", ""))
+            if k_ins and k_ins.strip().lower() not in ("none", "null", ""):
+                actionable_items.append(reflection)
 
-        if not has_valid_items:
+        if not actionable_items:
             return {
                 "reasoning": "Safe-Fail: Reflector diagnosed no erroneous spans or valid key_insights to curate.",
                 "operations": []
             }
 
-        # Format reflection as the clean diagnostic array
-        reflection_payload = diag_items if (isinstance(diag_items, list) and len(diag_items) > 0) else reflection
+        # Format reflection with actionable error items only
+        reflection_payload = actionable_items
         reflection_str = json.dumps(reflection_payload, indent=2)
 
         guidelines_str = dynamicGuidelines.strip() if dynamicGuidelines and dynamicGuidelines.strip() else "No dynamicGuidelines available"
@@ -536,41 +603,68 @@ class BertizedCurator:
                               .replace("{json.dumps(reflection, indent=2)}", reflection_str) \
                               .replace("{reflection}", reflection_str)
 
-        response = call_llm(prompt, self.model_name, "Curator", self.backend, max_tokens=self.max_tokens)
+        tracker = get_langfuse_tracker()
+        with tracker.trace_agent(
+            agent_name="ACE-Curator",
+            model_name=self.model_name,
+            prompt=prompt,
+            metadata={"backend": self.backend, "curator_mode": self.curator_mode}
+        ) as cur_obs:
+            response = call_llm(prompt, self.model_name, "Curator", self.backend, max_tokens=self.max_tokens)
 
-        if save_output_path:
-            os.makedirs(os.path.dirname(save_output_path), exist_ok=True)
-            with open(save_output_path, "w", encoding="utf-8") as f:
-                f.write(response)
+            if save_output_path:
+                os.makedirs(os.path.dirname(save_output_path), exist_ok=True)
+                with open(save_output_path, "w", encoding="utf-8") as f:
+                    f.write(response)
+                prompt_path = save_output_path.replace("_curator.txt", "_curator_prompt.txt")
+                with open(prompt_path, "w", encoding="utf-8") as f:
+                    f.write(prompt)
 
-        clean_resp = clean_json_string(response)
-        try:
-            parsed = json.loads(clean_resp)
-        except Exception:
-            parsed = {
-                "reasoning": clean_resp,
-                "operations": []
-            }
+            clean_resp = clean_json_string(response)
+            try:
+                parsed = json.loads(clean_resp)
+            except Exception:
+                parsed = {
+                    "reasoning": clean_resp,
+                    "operations": []
+                }
 
-        if isinstance(parsed, list):
-            parsed = {
-                "reasoning": "Curator output parsed from list.",
-                "operations": parsed
-            }
-        elif not isinstance(parsed, dict):
-            parsed = {
-                "reasoning": str(parsed),
-                "operations": []
-            }
+            if isinstance(parsed, list):
+                parsed = {
+                    "reasoning": "Curator output parsed from list.",
+                    "operations": parsed
+                }
+            elif not isinstance(parsed, dict):
+                parsed = {
+                    "reasoning": str(parsed),
+                    "operations": []
+                }
 
-        if "operations" not in parsed or not isinstance(parsed["operations"], list):
-            parsed["operations"] = []
+            if "operations" not in parsed or not isinstance(parsed["operations"], list):
+                parsed["operations"] = []
 
-        # Enforce at most 1 operation if operating in per_abstract mode
-        if self.curator_mode == "per_abstract" and len(parsed["operations"]) > 1:
-            parsed["operations"] = parsed["operations"][:1]
+            # Enforce at most 1 operation if operating in per_abstract mode
+            if self.curator_mode == "per_abstract" and len(parsed["operations"]) > 1:
+                parsed["operations"] = parsed["operations"][:1]
 
-        return parsed
+            if isinstance(parsed, dict):
+                parsed["prompt"] = prompt
+                parsed["raw_response"] = response
+
+            cur_obs.update(
+                output=parsed,
+                usage_details={
+                    "input": last_call_metadata.get("prompt_tokens", 0),
+                    "output": last_call_metadata.get("completion_tokens", 0),
+                    "total": last_call_metadata.get("total_tokens", 0)
+                },
+                metadata={
+                    "operations_count": len(parsed.get("operations", [])),
+                    "latency_seconds": last_call_metadata.get("latency_seconds", 0.0)
+                }
+            )
+
+            return parsed
 
 
 # ==============================================================================
@@ -689,140 +783,166 @@ class BertizedACEPipeline:
           4. Manager updates dynamicGuidelines store & bullet metrics with immediate persistence.
         Applies selective candidate gating if enable_gating_train is True.
         """
-        # Output paths
-        gen_out = os.path.join(save_outputs_dir, f"{file_name}_generator.txt") if save_outputs_dir else None
-        ref_out = os.path.join(save_outputs_dir, f"{file_name}_reflector.txt") if save_outputs_dir else None
-        cur_out = os.path.join(save_outputs_dir, f"{file_name}_curator.txt") if save_outputs_dir else None
-
-        # Determine target spans based on gating configuration
-        if self.enable_gating_train:
-            escalated_cands, confident_cands = self.gating.filter_candidates(candidate_spans)
-            if not escalated_cands:
-                # Fast-path safe-fail: zero ambiguous spans escalated
-                predicted = {
-                    "reasoning": "Gating bypass: all candidate spans classified with high SpanNER confidence.",
-                    "bullet_ids": [],
-                    "llm_answer": [],
-                    "final_answer": [],
-                    "raw_response": "{}",
-                    "anchored_abstract": abstract,
-                    "escalated_count": 0
-                }
-                reflection = {
-                    "reasoning": "Gating bypass: zero candidate spans escalated.",
-                    "error_identification": "None",
-                    "root_cause_analysis": "None",
-                    "correct_approach": "None",
-                    "key_insight": "None",
-                    "bullet_tags": []
-                }
-                curator_output = {
-                    "reasoning": "Gating bypass: zero candidate spans escalated.",
-                    "operations": []
-                }
-                return predicted, reflection, curator_output
-
-            target_cands = escalated_cands
-            anchored_abstract = build_gated_anchored_abstract(
-                abstract=abstract,
-                escalated_spans=escalated_cands,
-                confident_spans=confident_cands,
-                include_confident=self.gating.include_confident_as_readonly
-            )
-        else:
-            target_cands = candidate_spans
-            anchored_abstract = build_anchored_abstract(abstract, candidate_spans)
-
-        # 1. Generator Step (Instant intra-batch visibility: reads fresh guidelines right before run)
-        with self._lock:
-            curr_guidelines_md = self.manager.get_dynamicGuidelines_for_generator_md()
-
-        predicted = _retry_agent_call(
-            self.generator.run,
+        tracker = get_langfuse_tracker()
+        with tracker.trace_abstract(
+            doc_id=file_name,
             abstract=abstract,
-            candidate_spans=target_cands,
-            dynamicGuidelines=curr_guidelines_md,
-            save_output_path=gen_out,
-            anchored_abstract=anchored_abstract
-        )
-        predicted["escalated_count"] = len(target_cands)
+            candidate_spans=candidate_spans,
+            mode="train",
+            metadata={"gating_enabled": self.enable_gating_train}
+        ) as abstract_span:
+            # Output paths
+            gen_out = os.path.join(save_outputs_dir, f"{file_name}_generator.txt") if save_outputs_dir else None
+            ref_out = os.path.join(save_outputs_dir, f"{file_name}_reflector.txt") if save_outputs_dir else None
+            cur_out = os.path.join(save_outputs_dir, f"{file_name}_curator.txt") if save_outputs_dir else None
 
-        # Track bullet usage under lock
-        used_bullets = predicted.get("bullet_ids", [])
-        if used_bullets:
-            with self._lock:
-                self.manager.increment_usage_counts(used_bullets)
+            # Determine target spans based on gating configuration
+            if self.enable_gating_train:
+                escalated_cands, confident_cands = self.gating.filter_candidates(candidate_spans)
+                if not escalated_cands:
+                    # Fast-path safe-fail: zero ambiguous spans escalated
+                    predicted = {
+                        "reasoning": "Gating bypass: all candidate spans classified with high SpanNER confidence.",
+                        "bullet_ids": [],
+                        "llm_answer": [],
+                        "final_answer": [],
+                        "raw_response": "{}",
+                        "anchored_abstract": abstract,
+                        "escalated_count": 0
+                    }
+                    reflection = {
+                        "reasoning": "Gating bypass: zero candidate spans escalated.",
+                        "error_identification": "None",
+                        "root_cause_analysis": "None",
+                        "correct_approach": "None",
+                        "key_insight": "None",
+                        "bullet_tags": []
+                    }
+                    curator_output = {
+                        "reasoning": "Gating bypass: zero candidate spans escalated.",
+                        "operations": []
+                    }
+                    abstract_span.update(output={"bypass": True, "escalated_count": 0})
+                    return predicted, reflection, curator_output
 
-        # 2. Reflector Step (Evaluates on target candidate spans)
-        reflection = _retry_agent_call(
-            self.reflector.run,
-            abstract=abstract,
-            candidate_spans=target_cands,
-            generator_output=predicted,
-            save_output_path=ref_out
-        )
-
-        # Defensive guard for reflection
-        if not isinstance(reflection, dict):
-            if isinstance(reflection, list):
-                all_tags = [t for it in reflection if isinstance(it, dict) for t in it.get("bullet_tags", [])]
-                reflection = {
-                    "reasoning": "Converted list",
-                    "bullet_tags": all_tags,
-                    "key_insight": "None" if not reflection else (reflection[0].get("key_insight", "None") if isinstance(reflection[0], dict) else "None")
-                }
-            else:
-                reflection = {"reasoning": str(reflection), "bullet_tags": [], "key_insight": "None"}
-
-        # Apply bullet tag metrics (helpful/harmful) under lock
-        bullet_tags = reflection.get("bullet_tags", [])
-        if isinstance(bullet_tags, list):
-            with self._lock:
-                for b in bullet_tags:
-                    if isinstance(b, dict) and "id" in b and "tag" in b:
-                        b_id = b["id"]
-                        tag = b["tag"].lower()
-                        if tag == "helpful":
-                            self.manager.update_bullet_metrics([b_id], helpful_delta=1)
-                        elif tag == "harmful":
-                            self.manager.update_bullet_metrics([b_id], harmful_delta=1)
-
-        # 3. Curator Step (Fetch candidate guidelines under lock)
-        if self.curator_mode == "per_span" and reflection.get("diagnostic_items"):
-            insights = [it.get("key_insight") for it in reflection["diagnostic_items"] if it.get("key_insight") and it.get("key_insight").strip().lower() not in ("none", "null", "")]
-            query_text = " ".join(insights) if insights else (reflection.get("key_insight") or abstract)
-        else:
-            query_text = reflection.get("key_insight") or reflection.get("root_cause_analysis") or abstract
-
-        with self._lock:
-            curator_guidelines_md = self.manager.get_dynamicGuidelines_for_curator_md(query_text=query_text)
-
-        curator_output = _retry_agent_call(
-            self.curator.run,
-            dynamicGuidelines=curator_guidelines_md,
-            reflection=reflection,
-            save_output_path=cur_out
-        )
-
-        # Defensive guard for curator_output
-        if not isinstance(curator_output, dict):
-            if isinstance(curator_output, list):
-                curator_output = {"reasoning": "Converted list", "operations": curator_output}
-            else:
-                curator_output = {"reasoning": str(curator_output), "operations": []}
-
-        # 4. Process Curator Operations into Manager under lock & persist immediately
-        if curator_output.get("operations"):
-            with self._lock:
-                self.manager.process_curator_operations(
-                    curator_output=curator_output,
+                target_cands = escalated_cands
+                anchored_abstract = build_gated_anchored_abstract(
                     abstract=abstract,
-                    reflection=reflection,
-                    file_name=file_name
+                    escalated_spans=escalated_cands,
+                    confident_spans=confident_cands,
+                    include_confident=self.gating.include_confident_as_readonly
                 )
-                self.manager.save_dynamicGuidebook(backup=False)
+            else:
+                target_cands = candidate_spans
+                anchored_abstract = build_anchored_abstract(abstract, candidate_spans)
 
-        return predicted, reflection, curator_output
+            # 1. Generator Step (Instant intra-batch visibility: reads fresh guidelines right before run)
+            with self._lock:
+                curr_guidelines_md = self.manager.get_dynamicGuidelines_for_generator_md()
+
+            predicted = _retry_agent_call(
+                self.generator.run,
+                abstract=abstract,
+                candidate_spans=target_cands,
+                dynamicGuidelines=curr_guidelines_md,
+                save_output_path=gen_out,
+                anchored_abstract=anchored_abstract
+            )
+            predicted["escalated_count"] = len(target_cands)
+
+            # Track bullet usage under lock (per-span citations)
+            span_bullets = [
+                bid
+                for item in predicted.get("llm_answer", predicted.get("final_answer", []))
+                for bid in (item.get("bullet_ids") if item.get("bullet_ids") is not None else item.get("guidelines_ids", []))
+                if bid
+            ]
+            used_bullets = span_bullets if span_bullets else predicted.get("bullet_ids", [])
+            if used_bullets:
+                with self._lock:
+                    self.manager.increment_usage_counts(used_bullets)
+
+            # 2. Reflector Step (Evaluates on target candidate spans)
+            reflection = _retry_agent_call(
+                self.reflector.run,
+                abstract=abstract,
+                candidate_spans=target_cands,
+                generator_output=predicted,
+                save_output_path=ref_out
+            )
+
+            # Defensive guard for reflection
+            if not isinstance(reflection, dict):
+                if isinstance(reflection, list):
+                    all_tags = [t for it in reflection if isinstance(it, dict) for t in it.get("bullet_tags", [])]
+                    reflection = {
+                        "reasoning": "Converted list",
+                        "bullet_tags": all_tags,
+                        "key_insight": "None" if not reflection else (reflection[0].get("key_insight", "None") if isinstance(reflection[0], dict) else "None")
+                    }
+                else:
+                    reflection = {"reasoning": str(reflection), "bullet_tags": [], "key_insight": "None"}
+
+            # Apply bullet tag metrics (helpful/harmful/neutral) under lock
+            bullet_tags = reflection.get("bullet_tags", [])
+            if isinstance(bullet_tags, list):
+                with self._lock:
+                    for b in bullet_tags:
+                        if isinstance(b, dict) and "id" in b and "tag" in b:
+                            b_id = b["id"]
+                            b_ids = b_id if isinstance(b_id, list) else [b_id]
+                            tag = str(b.get("tag", "")).strip().lower()
+                            if tag == "helpful":
+                                self.manager.update_bullet_metrics(b_ids, helpful_delta=1)
+                            elif tag == "harmful":
+                                self.manager.update_bullet_metrics(b_ids, harmful_delta=1)
+                            elif tag == "neutral":
+                                self.manager.update_bullet_metrics(b_ids, neutral_delta=1)
+
+            # 3. Curator Step (Fetch candidate guidelines under lock)
+            if self.curator_mode == "per_span" and reflection.get("diagnostic_items"):
+                insights = [it.get("key_insight") for it in reflection["diagnostic_items"] if it.get("key_insight") and it.get("key_insight").strip().lower() not in ("none", "null", "")]
+                query_text = " ".join(insights) if insights else (reflection.get("key_insight") or abstract)
+            else:
+                query_text = reflection.get("key_insight") or reflection.get("root_cause_analysis") or abstract
+
+            with self._lock:
+                curator_guidelines_md = self.manager.get_dynamicGuidelines_for_curator_md(query_text=query_text)
+
+            curator_output = _retry_agent_call(
+                self.curator.run,
+                dynamicGuidelines=curator_guidelines_md,
+                reflection=reflection,
+                save_output_path=cur_out
+            )
+
+            # Defensive guard for curator_output
+            if not isinstance(curator_output, dict):
+                if isinstance(curator_output, list):
+                    curator_output = {"reasoning": "Converted list", "operations": curator_output}
+                else:
+                    curator_output = {"reasoning": str(curator_output), "operations": []}
+
+            # 4. Process Curator Operations into Manager under lock & persist immediately
+            if curator_output.get("operations"):
+                with self._lock:
+                    self.manager.process_curator_operations(
+                        curator_output=curator_output,
+                        abstract=abstract,
+                        reflection=reflection,
+                        file_name=file_name
+                    )
+                    self.manager.save_dynamicGuidebook(backup=False)
+
+            abstract_span.update(output={
+                "predicted_entities_count": len(predicted.get("llm_answer", predicted.get("final_answer", []))),
+                "bullet_ids": predicted.get("bullet_ids", []),
+                "key_insight": reflection.get("key_insight", "None"),
+                "curator_operations_count": len(curator_output.get("operations", []))
+            })
+            tracker.flush()
+
+            return predicted, reflection, curator_output
 
     def predict_abstract(
         self,
@@ -838,129 +958,148 @@ class BertizedACEPipeline:
         """
         gen_out = os.path.join(save_outputs_dir, f"{file_name}_generator.txt") if save_outputs_dir else None
 
-        if self.enable_gating_test:
-            escalated_cands, confident_cands = self.gating.filter_candidates(candidate_spans)
-
-            # Fast-path: 0 spans escalated to LLM
-            if not escalated_cands:
-                final_predictions = []
-                for c in confident_cands:
-                    s_text = c.get("span_text", c.get("entity", ""))
-                    s_lbl = canonicalize_label(c.get("bert_predicted_label", c.get("predicted_label", c.get("spanner_label", "O"))), use_new_labels=True)
-                    final_predictions.append({
-                        "span_text": s_text,
-                        "start_char": c.get("start_char", 0),
-                        "end_char": c.get("end_char", 0),
-                        "label": s_lbl,
-                        "spanner_label": s_lbl,
-                        "ace_label": s_lbl,
-                        "uncertainty": float(c.get("uncertainty", c.get("u_score", 0.0))),
-                        "novelty": float(c.get("novelty_score", c.get("novelty", 0.0))),
-                        "margin": float(c.get("margin", 0.0)),
-                        "rationale": "High-confidence SpanNER prediction (bypassed LLM escalation)",
-                        "source": "SpanNER Confident Baseline (Gating Fast-Path)",
-                        "escalated_to_llm": False
-                    })
-                final_predictions.sort(key=lambda x: (x["start_char"], x["end_char"]))
-                return final_predictions
-
-            target_cands = escalated_cands
-            anchored_abstract = build_gated_anchored_abstract(
-                abstract=abstract,
-                escalated_spans=escalated_cands,
-                confident_spans=confident_cands,
-                include_confident=self.gating.include_confident_as_readonly
-            )
-        else:
-            target_cands = candidate_spans
-            confident_cands = []
-            anchored_abstract = build_anchored_abstract(abstract, candidate_spans)
-
-        with self._lock:
-            curr_guidelines_md = self.manager.get_dynamicGuidelines_for_generator_md()
-
-        predicted = _retry_agent_call(
-            self.generator.run,
+        tracker = get_langfuse_tracker()
+        with tracker.trace_abstract(
+            doc_id=file_name,
             abstract=abstract,
-            candidate_spans=target_cands,
-            dynamicGuidelines=curr_guidelines_md,
-            save_output_path=gen_out,
-            anchored_abstract=anchored_abstract
-        )
+            candidate_spans=candidate_spans,
+            mode="eval",
+            metadata={"gating_enabled": self.enable_gating_test}
+        ) as abstract_span:
+            if self.enable_gating_test:
+                escalated_cands, confident_cands = self.gating.filter_candidates(candidate_spans)
 
-        ans_by_id = {}
-        ans_by_text = {}
-        pred_answers = predicted.get("llm_answer", predicted.get("final_answer", []))
-        for a in pred_answers:
-            if "id" in a:
-                ans_by_id[a["id"]] = a
-            ans_by_text[a.get("entity", "").strip().lower()] = a
+                # Fast-path: 0 spans escalated to LLM
+                if not escalated_cands:
+                    final_predictions = []
+                    for c in confident_cands:
+                        s_text = c.get("span_text", c.get("entity", ""))
+                        s_lbl = canonicalize_label(c.get("bert_predicted_label", c.get("predicted_label", c.get("spanner_label", "O"))), use_new_labels=True)
+                        final_predictions.append({
+                            "span_text": s_text,
+                            "start_char": c.get("start_char", 0),
+                            "end_char": c.get("end_char", 0),
+                            "label": s_lbl,
+                            "spanner_label": s_lbl,
+                            "ace_label": s_lbl,
+                            "uncertainty": float(c.get("uncertainty", c.get("u_score", 0.0))),
+                            "novelty": float(c.get("novelty_score", c.get("novelty", 0.0))),
+                            "margin": float(c.get("margin", 0.0)),
+                            "rationale": "High-confidence SpanNER prediction (bypassed LLM escalation)",
+                            "source": "SpanNER Confident Baseline (Gating Fast-Path)",
+                            "escalated_to_llm": False
+                        })
+                    final_predictions.sort(key=lambda x: (x["start_char"], x["end_char"]))
+                    abstract_span.update(output={"predicted_entities_count": len(final_predictions), "escalated_count": 0})
+                    return final_predictions
 
-        # 1. Process escalated candidate predictions
-        escalated_predictions = []
-        for idx, c in enumerate(target_cands):
-            cid = c.get("id")
-            s_text = c.get("span_text", c.get("entity", ""))
-            ans = ans_by_id.get(cid) if cid is not None else None
-            if not ans:
-                ans = ans_by_text.get(s_text.strip().lower())
-            if not ans and idx < len(pred_answers):
-                ans = pred_answers[idx]
-
-            s_lbl = canonicalize_label(c.get("bert_predicted_label", c.get("predicted_label", c.get("spanner_label", "O"))), use_new_labels=True)
-            raw_target = ans.get("llm_predicted_label", ans.get("final_label", s_lbl)) if ans else s_lbl
-            raw_final_lbl = canonicalize_label(raw_target, use_new_labels=True)
-            rationale = ans.get("rationale", "") if ans else "SpanNER Proposer Baseline"
-
-            # Apply Margin Safeguard Veto
-            final_lbl, veto_triggered, veto_reason = self.gating.apply_margin_veto(c, raw_final_lbl)
-            final_lbl = canonicalize_label(final_lbl, use_new_labels=True)
-
-            if veto_triggered:
-                source = f"SpanNER Margin Veto ({veto_reason})"
-                rationale = f"Veto applied: {veto_reason}. Original LLM: {raw_final_lbl}. {rationale}"
+                target_cands = escalated_cands
+                anchored_abstract = build_gated_anchored_abstract(
+                    abstract=abstract,
+                    escalated_spans=escalated_cands,
+                    confident_spans=confident_cands,
+                    include_confident=self.gating.include_confident_as_readonly
+                )
             else:
-                used_b = predicted.get("bullet_ids", [])
-                source = f"ACE Generator (Bullets: {', '.join(used_b) or 'Base Rules'})"
+                target_cands = candidate_spans
+                confident_cands = []
+                anchored_abstract = build_anchored_abstract(abstract, candidate_spans)
 
-            escalated_predictions.append({
-                "span_text": s_text,
-                "start_char": c.get("start_char", 0),
-                "end_char": c.get("end_char", 0),
-                "label": final_lbl,
-                "spanner_label": s_lbl,
-                "ace_label": raw_final_lbl,
-                "uncertainty": float(c.get("uncertainty", c.get("u_score", 0.0))),
-                "novelty": float(c.get("novelty_score", c.get("novelty", 0.0))),
-                "margin": float(c.get("margin", 0.0)),
-                "rationale": rationale,
-                "source": source,
-                "escalated_to_llm": True
-            })
+            with self._lock:
+                curr_guidelines_md = self.manager.get_dynamicGuidelines_for_generator_md()
 
-        # 2. Process confident candidate pass-through predictions
-        confident_predictions = []
-        for c in confident_cands:
-            s_text = c.get("span_text", c.get("entity", ""))
-            s_lbl = canonicalize_label(c.get("bert_predicted_label", c.get("predicted_label", c.get("spanner_label", "O"))), use_new_labels=True)
-            confident_predictions.append({
-                "span_text": s_text,
-                "start_char": c.get("start_char", 0),
-                "end_char": c.get("end_char", 0),
-                "label": s_lbl,
-                "spanner_label": s_lbl,
-                "ace_label": s_lbl,
-                "uncertainty": float(c.get("uncertainty", c.get("u_score", 0.0))),
-                "novelty": float(c.get("novelty_score", c.get("novelty", 0.0))),
-                "margin": float(c.get("margin", 0.0)),
-                "rationale": "High-confidence SpanNER prediction (gated without LLM escalation)",
-                "source": "SpanNER Confident Baseline (Gating Retained)",
-                "escalated_to_llm": False
-            })
+            predicted = _retry_agent_call(
+                self.generator.run,
+                abstract=abstract,
+                candidate_spans=target_cands,
+                dynamicGuidelines=curr_guidelines_md,
+                save_output_path=gen_out,
+                anchored_abstract=anchored_abstract
+            )
 
-        all_predictions = escalated_predictions + confident_predictions
-        all_predictions.sort(key=lambda x: (x["start_char"], x["end_char"]))
-        return all_predictions
+            ans_by_id = {}
+            ans_by_text = {}
+            pred_answers = predicted.get("llm_answer", predicted.get("final_answer", []))
+            for a in pred_answers:
+                if "id" in a:
+                    ans_by_id[a["id"]] = a
+                ans_by_text[a.get("entity", "").strip().lower()] = a
+
+            # 1. Process escalated candidate predictions
+            escalated_predictions = []
+            for idx, c in enumerate(target_cands):
+                cid = c.get("id")
+                s_text = c.get("span_text", c.get("entity", ""))
+                ans = ans_by_id.get(cid) if cid is not None else None
+                if not ans:
+                    ans = ans_by_text.get(s_text.strip().lower())
+                if not ans and idx < len(pred_answers):
+                    ans = pred_answers[idx]
+
+                s_lbl = canonicalize_label(c.get("bert_predicted_label", c.get("predicted_label", c.get("spanner_label", "O"))), use_new_labels=True)
+                raw_target = ans.get("llm_predicted_label", ans.get("final_label", s_lbl)) if ans else s_lbl
+                raw_final_lbl = canonicalize_label(raw_target, use_new_labels=True)
+                rationale = ans.get("rationale", "") if ans else "SpanNER Proposer Baseline"
+
+                # Apply Margin Safeguard Veto
+                final_lbl, veto_triggered, veto_reason = self.gating.apply_margin_veto(c, raw_final_lbl)
+                final_lbl = canonicalize_label(final_lbl, use_new_labels=True)
+
+                span_bids = ans.get("bullet_ids", []) if ans else []
+                if veto_triggered:
+                    source = f"SpanNER Margin Veto ({veto_reason})"
+                    rationale = f"Veto applied: {veto_reason}. Original LLM: {raw_final_lbl}. {rationale}"
+                else:
+                    used_b = span_bids or predicted.get("bullet_ids", [])
+                    source = f"ACE Generator (Bullets: {', '.join(used_b) or 'Base Rules'})"
+
+                escalated_predictions.append({
+                    "span_text": s_text,
+                    "start_char": c.get("start_char", 0),
+                    "end_char": c.get("end_char", 0),
+                    "label": final_lbl,
+                    "spanner_label": s_lbl,
+                    "ace_label": raw_final_lbl,
+                    "uncertainty": float(c.get("uncertainty", c.get("u_score", 0.0))),
+                    "novelty": float(c.get("novelty_score", c.get("novelty", 0.0))),
+                    "margin": float(c.get("margin", 0.0)),
+                    "rationale": rationale,
+                    "source": source,
+                    "escalated_to_llm": True,
+                    "generator_prompt": predicted.get("prompt", ""),
+                    "generator_raw_response": predicted.get("raw_response", ""),
+                    "generator_reasoning": predicted.get("reasoning", ""),
+                    "generator_bullet_ids": predicted.get("bullet_ids", []),
+                    "bullet_ids": span_bids
+                })
+
+            # 2. Process confident candidate pass-through predictions
+            confident_predictions = []
+            for c in confident_cands:
+                s_text = c.get("span_text", c.get("entity", ""))
+                s_lbl = canonicalize_label(c.get("bert_predicted_label", c.get("predicted_label", c.get("spanner_label", "O"))), use_new_labels=True)
+                confident_predictions.append({
+                    "span_text": s_text,
+                    "start_char": c.get("start_char", 0),
+                    "end_char": c.get("end_char", 0),
+                    "label": s_lbl,
+                    "spanner_label": s_lbl,
+                    "ace_label": s_lbl,
+                    "uncertainty": float(c.get("uncertainty", c.get("u_score", 0.0))),
+                    "novelty": float(c.get("novelty_score", c.get("novelty", 0.0))),
+                    "margin": float(c.get("margin", 0.0)),
+                    "rationale": "High-confidence SpanNER prediction (gated without LLM escalation)",
+                    "source": "SpanNER Confident Baseline (Gating Retained)",
+                    "escalated_to_llm": False,
+                    "generator_bullet_ids": [],
+                    "bullet_ids": []
+                })
+
+            all_predictions = escalated_predictions + confident_predictions
+            all_predictions.sort(key=lambda x: (x["start_char"], x["end_char"]))
+            abstract_span.update(output={"predicted_entities_count": len(all_predictions)})
+            tracker.flush()
+            return all_predictions
 
     def train_batch_parallel(
         self,

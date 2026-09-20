@@ -175,7 +175,7 @@ Guidance:
 - **Step 2: Category Decision & Disambiguation**:
   Apply Base Rules, Core Disambiguation Rules, Category Inclusions/Exclusions, and relevant DynamicGuidebook entries (citing their DG IDs). Remember that DynamicGuidebook records are general, high-level advisory principles; use them as helpful guides to inform and assist your own contextual analysis rather than forcing them rigidly. Assign one of the 9 canonical categories for (A), or `Non-LSF` (`O`) for (B). Where `margin` is low, weigh competing labels explicitly.
 - **Step 3: Consistency & Integrity Audit**:
-  Verify every candidate span appears exactly once in `llm_answer` with verbatim text unchanged. Confirm all labels are valid canonical names or `Non-LSF` (`O`) (no prefix codes). Ensure all DynamicGuidebook records used are listed in `bullet_ids` and cited in rationales.
+  Verify every candidate span appears exactly once in `llm_answer` with verbatim text unchanged. Confirm all labels are valid canonical names or `Non-LSF` (`O`) (no prefix codes). Ensure all DynamicGuidebook records used for each span are listed in its `bullet_ids` list and cited in rationales.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -194,7 +194,7 @@ Guidance:
 
 ### DYNAMICGUIDEBOOK SCHEMA & USAGE:
 When DynamicGuidebook records are provided, they appear as a structured JSON list of advisory boundary records (also referred to as guidelines or bullets):
-- `id`: Unique identifier (canonical "DG-XXXX" pattern). When applying a guideline, you MUST cite its exact `id` in `bullet_ids` and reference it in the span's `rationale`.
+- `id`: Unique identifier (canonical "DG-XXXX" pattern). When applying a guideline to a span, you MUST cite its exact `id` in that span's `bullet_ids` list and reference it in the span's `rationale`.
 - `span` & `span_sentence`: The trigger phrase and sentence context where the disambiguation rule originated.
 - `ground_truth_label`: The verified ground truth category for this type of entity.
 - `bert_label` & `llm_label`: Documented prior model error labels to alert you to recurring confusion patterns.
@@ -210,19 +210,19 @@ When DynamicGuidebook records are provided, they appear as a structured JSON lis
 ### OUTPUT FORMAT (Strict JSON):
 Return ONLY a single valid JSON object without markdown fences, verbose preambles, or conversational filler:
 
-{{
+{
   "reasoning": "Step 1 (Evidence Read & Entity-Hood Determination): Calibrated BERT diagnostic signals and determined valid lifestyle entity vs. Non-LSF (O)... Step 2 (Category Decision & Disambiguation): Applied Base Rules, Core Disambiguation Rules, and DynamicGuidebook to assign canonical LSF categories... Step 3 (Consistency & Integrity Audit): Verified exact verbatim candidate preservation and valid canonical labels.",
-  "bullet_ids": ["DG-0001", "DG-0002"],
   "llm_answer": [
-    {{
+    {
       "id": 1,
       "entity": "<exact verbatim span text from the candidate list>",
       "bert_predicted_label": "<BERT's original predicted_label, for traceability>",
       "llm_predicted_label": "<one of the 9 canonical categories or Non-LSF>",
+      "bullet_ids": ["<DG-XXXX if applied, or empty list [] if none>"],
       "rationale": "<one to two sentences: the decisive evidence/rule for this specific span, citing an id if a DynamicGuidebook guideline was applied>"
-    }}
+    }
   ]
-}}
+}
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -233,68 +233,71 @@ Abstract Text:
 
 BERT Candidate Spans & Evidence:
 [
-  {{"id": 1, "entity": "DIET", "bert_predicted_label": "Nutrition", "second_best_label": "Socioeconomic_factors", "uncertainty": 0.71, "novelty_score": 0.22, "margin": 0.09}},
-  {{"id": 2, "entity": "sleep quality scores", "bert_predicted_label": "Sleep", "second_best_label": "Physical_activities", "uncertainty": 0.08, "novelty_score": 0.05, "margin": 0.61}},
-  {{"id": 3, "entity": "sugar intake", "bert_predicted_label": "Nutrition", "second_best_label": "Substance_use", "uncertainty": 0.11, "novelty_score": 0.04, "margin": 0.55}},
-  {{"id": 4, "entity": "fasting glucose", "bert_predicted_label": "Nutrition", "second_best_label": "Environmental_exposures", "uncertainty": 0.64, "novelty_score": 0.31, "margin": 0.07}}
+  {"id": 1, "entity": "DIET", "bert_predicted_label": "Nutrition", "second_best_label": "Socioeconomic_factors", "uncertainty": 0.71, "novelty_score": 0.22, "margin": 0.09},
+  {"id": 2, "entity": "sleep quality scores", "bert_predicted_label": "Sleep", "second_best_label": "Physical_activities", "uncertainty": 0.08, "novelty_score": 0.05, "margin": 0.61},
+  {"id": 3, "entity": "sugar intake", "bert_predicted_label": "Nutrition", "second_best_label": "Substance_use", "uncertainty": 0.11, "novelty_score": 0.04, "margin": 0.55},
+  {"id": 4, "entity": "fasting glucose", "bert_predicted_label": "Nutrition", "second_best_label": "Environmental_exposures", "uncertainty": 0.64, "novelty_score": 0.31, "margin": 0.07}
 ]
 
 DynamicGuidebook:
 [
-  {{
+  {
     "id": "DG-0002",
     "span": "fasting glucose",
     "span_sentence": "Patients with high fasting glucose showed improved sleep duration.",
     "ground_truth_label": "Non-LSF",
     "bert_label": "Nutrition",
     "llm_label": "Nutrition",
-    "triad": {{
+    "triad": {
       "type": "GT_O_BERT_X_LLM_X",
       "description": "BERT and LLM both misclassified endogenous blood glucose biomarker as dietary Nutrition."
-    }},
+    },
     "guideline": "Internal physiological metabolites and circulating blood sugar measurements (e.g., fasting glucose, HbA1c, serum cholesterol) belong strictly to Non-LSF (O) due to the biomarker exclusion rule, even when dietary context is present.",
     "challenge_types": [
       "BIOMARKER_EXCLUSION"
     ],
     "similar_spans": [
-      {{"span": "blood glucose", "label": "Non-LSF"}},
-      {{"span": "serum lipids", "label": "Non-LSF"}}
+      {"span": "blood glucose", "ground_truth_label": "Non-LSF"},
+      {"span": "serum lipids", "ground_truth_label": "Non-LSF"}
     ]
-  }}
+  }
 ]
 
 Output:
-{{
+{
   "reasoning": "Step 1 (Evidence Read & Entity-Hood Determination): Evaluated BERT diagnostic evidence. Span 1 ('DIET') shows high uncertainty and low margin, and context reveals it is a capitalized proper-noun study title rather than an entity. Spans 2 & 3 ('sleep quality scores' and 'sugar intake') show high margin and low uncertainty, representing valid lifestyle entities. Span 4 ('fasting glucose') exhibits high uncertainty and low margin, warranting Affirmative Filtering scrutiny. Step 2 (Category Decision & Disambiguation): Assigned categories using Base Rules and DynamicGuidebook: Span 1 'DIET' -> Non-LSF (study title per Base Rule 3); Span 2 'sleep quality scores' -> Sleep (metric-inclusion rule confirms BERT prediction); Span 3 'sugar intake' -> Nutrition (dietary nutrient intake confirms BERT prediction); Span 4 'fasting glucose' -> Non-LSF (overrode BERT Nutrition prediction as internal biomarker per Base Rule 2 and DG-0002). Step 3 (Consistency & Integrity Audit): Verified all 4 candidates appear verbatim with valid canonical labels and cited bullet DG-0002.",
-  "bullet_ids": ["DG-0002"],
   "llm_answer": [
-    {{
+    {
       "id": 1,
       "entity": "DIET",
       "bert_predicted_label": "Nutrition",
       "llm_predicted_label": "Non-LSF",
+      "bullet_ids": [],
       "rationale": "Capitalized proper-noun study title used as a reference, not an active dietary behavior -> Non-LSF (Base Rule 3)."
-    }},
-    {{
+    },
+    {
       "id": 2,
       "entity": "sleep quality scores",
       "bert_predicted_label": "Sleep",
       "llm_predicted_label": "Sleep",
+      "bullet_ids": [],
       "rationale": "Quantitative metric quantifying sleep continuity and quality; metric-inclusion rule applies, confirming model prediction."
-    }},
-    {{
+    },
+    {
       "id": 3,
       "entity": "sugar intake",
       "bert_predicted_label": "Nutrition",
       "llm_predicted_label": "Nutrition",
+      "bullet_ids": [],
       "rationale": "Direct voluntary dietary nutrient intake; confirms confident model prediction."
-    }},
-    {{
+    },
+    {
       "id": 4,
       "entity": "fasting glucose",
       "bert_predicted_label": "Nutrition",
       "llm_predicted_label": "Non-LSF",
+      "bullet_ids": ["DG-0002"],
       "rationale": "Internal physiological biomarker/metabolite; Affirmative Filtering overrides model prediction (supported by DG-0002)."
-    }}
+    }
   ]
-}}
+}

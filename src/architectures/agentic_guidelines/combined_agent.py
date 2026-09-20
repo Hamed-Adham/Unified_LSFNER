@@ -6,15 +6,9 @@ from src.common.llm_client import generate_llm_response as call_llm
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
-FILE_PATH = PROJECT_ROOT / "src" / "prompts" / "agentic_guidelines" / "reflector_curator_prompt.txt"
+FILE_PATH = PROJECT_ROOT / "src" / "prompts" / "agentic_guidelines" / "history" / "reflector_curator_prompt.txt"
 if not FILE_PATH.exists():
-    FILE_PATH = PROJECT_ROOT / "src" / "prompts" / "reflector_curator_prompt.txt"
-if not FILE_PATH.exists():
-    FILE_PATH = PROJECT_ROOT / "prompts" / "reflector_curator_prompt.txt"
-if not FILE_PATH.exists():
-    FILE_PATH = PROJECT_ROOT / "data" / "promtps" / "reflector_curator_prompt.txt"
-if not FILE_PATH.exists():
-    FILE_PATH = PROJECT_ROOT.parent / "LSF-NER-main" / "data" / "promtps" / "reflector_curator_prompt.txt"
+    FILE_PATH = PROJECT_ROOT / "src" / "prompts" / "agentic_guidelines" / "reflector_curator_prompt.txt"
 
 
 class ReflectorCuratorCombined:

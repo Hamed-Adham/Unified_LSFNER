@@ -103,28 +103,43 @@ class BulletOps:
         """Unified method for updating guideline metrics in JSON and ChromaDB."""
         if not bullet_ids:
             return {"success": True, "updated_count": 0}
-            
-        ids_set = {bullet_ids} if isinstance(bullet_ids, str) else set(bullet_ids)
+
+        from collections import Counter
+        if isinstance(bullet_ids, str):
+            id_counts = {bullet_ids: 1}
+        elif isinstance(bullet_ids, dict):
+            id_counts = {str(k): int(v) for k, v in bullet_ids.items() if k and v}
+        elif isinstance(bullet_ids, (list, tuple)):
+            flat_ids = []
+            for item in bullet_ids:
+                if isinstance(item, (list, tuple)):
+                    flat_ids.extend([str(x) for x in item if x])
+                elif item:
+                    flat_ids.append(str(item))
+            id_counts = Counter(flat_ids)
+        else:
+            id_counts = {str(bullet_ids): 1}
+
         updated_count = 0
         updated_metadatas = []
         updated_ids = []
 
-        for gid in ids_set:
+        for gid, count in id_counts.items():
             g = self.store.get_by_id(gid)
             if g:
                 metrics = g.setdefault("usage_metrics", {
                     "helpful": 0, "harmful": 0, "neutral": 0, "usage_count": 0, "modification_count": 0
                 })
                 if helpful_delta:
-                    metrics["helpful"] = metrics.get("helpful", 0) + helpful_delta
+                    metrics["helpful"] = metrics.get("helpful", 0) + (helpful_delta * count)
                 if harmful_delta:
-                    metrics["harmful"] = metrics.get("harmful", 0) + harmful_delta
+                    metrics["harmful"] = metrics.get("harmful", 0) + (harmful_delta * count)
                 if neutral_delta:
-                    metrics["neutral"] = metrics.get("neutral", 0) + neutral_delta
+                    metrics["neutral"] = metrics.get("neutral", 0) + (neutral_delta * count)
                 if usage_delta:
-                    metrics["usage_count"] = metrics.get("usage_count", 0) + usage_delta
+                    metrics["usage_count"] = metrics.get("usage_count", 0) + (usage_delta * count)
 
-                updated_count += 1
+                updated_count += count
                 if self.vectors:
                     updated_ids.append(gid)
                     updated_metadatas.append(self.vectors._make_metadata(g))
@@ -182,8 +197,13 @@ class BulletOps:
 
                 similar_spans = op.get("similar_spans", [])
                 for s in similar_spans:
-                    if isinstance(s, dict) and s.get("label", "").lower() in ("annotation_fundamentals", "context_scope_handling", "entity_relationship_rules", "general", "general_ner"):
-                        s["label"] = "O"
+                    if isinstance(s, dict):
+                        lbl_val = s.get("ground_truth_label", s.get("label", ""))
+                        if lbl_val.lower() in ("annotation_fundamentals", "context_scope_handling", "entity_relationship_rules", "general", "general_ner"):
+                            lbl_val = "O"
+                        s["ground_truth_label"] = lbl_val
+                        if "label" in s:
+                            del s["label"]
 
                 new_guideline = {
                     "id": op.get("id") or self.store.next_id(),

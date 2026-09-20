@@ -4,15 +4,9 @@ from src.common.llm_client import generate_llm_response as call_llm
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
-FILE_PATH = PROJECT_ROOT / "src" / "prompts" / "agentic_guidelines" / "Reflector.txt"
+FILE_PATH = PROJECT_ROOT / "src" / "prompts" / "agentic_guidelines" / "history" / "Reflector.txt"
 if not FILE_PATH.exists():
-    FILE_PATH = PROJECT_ROOT / "src" / "prompts" / "Reflector.txt"
-if not FILE_PATH.exists():
-    FILE_PATH = PROJECT_ROOT / "prompts" / "Reflector.txt"
-if not FILE_PATH.exists():
-    FILE_PATH = PROJECT_ROOT / "data" / "promtps" / "Reflector.txt"
-if not FILE_PATH.exists():
-    FILE_PATH = PROJECT_ROOT.parent / "LSF-NER-main" / "data" / "promtps" / "Reflector.txt"
+    FILE_PATH = PROJECT_ROOT / "src" / "prompts" / "agentic_guidelines" / "Reflector.txt"
 
 
 class Reflector:

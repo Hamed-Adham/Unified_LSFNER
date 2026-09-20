@@ -64,20 +64,20 @@ Use these as the absolute standard when diagnosing Generator errors or tagging D
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-**You must output a single valid JSON array containing structured diagnostic objects for each misclassified candidate span.**
+**You must output a single valid JSON array containing structured diagnostic objects for each evaluated candidate span (actionable errors, and successful spans where bullets were cited).**
 
 # Output format:
-Provide a SINGLE JSON array of objects. If the Generator made no errors on any in-scope candidate span, output an empty array `[]`. Markdown formatting, wrapping text, and escaped quotes are NOT permitted.
+Provide a SINGLE JSON array of objects. If the Generator made no errors and cited no bullets on successful spans among in-scope candidates, output an empty array `[]`. Markdown formatting, wrapping text, and escaped quotes are NOT permitted.
 
 **Answer in this exact JSON format:**
 [
   {{
-    "reasoning": "Step 1 (Scope Filter): [Confirm candidate span is in scope]... Step 2 (Gap Analysis and Bullet Evaluation): [Identify error outcome class and evaluate bullet used]... Step 3 (Root Cause): [Diagnose workflow step and failure mechanism: anchoring bias, over-rejection, over-correction, or boundary confusion]... Step 4 (Correct Approach): [Span-level fix]... Step 5 (Key Insight Formulation): [Formulate concise semantic boundary rule]",
-    "primary_error_outcome": "[ONE of: GT_X_BERT_X_LLM_Y | GT_O_BERT_X_LLM_X | GT_O_BERT_X_LLM_Y | GT_X_BERT_X_LLM_O | GT_X_BERT_Y_LLM_O | GT_X_BERT_Y_LLM_Z | GT_X_BERT_Y_LLM_Y]",
-    "error_identification": "Strictly format as a single-row markdown table for this erroneous span. Columns: | Erroneous Span | Error Type (GT_X_BERT_X_LLM_Y / GT_O_BERT_X_LLM_X / GT_O_BERT_X_LLM_Y / GT_X_BERT_X_LLM_O / GT_X_BERT_Y_LLM_O / GT_X_BERT_Y_LLM_Z / GT_X_BERT_Y_LLM_Y) | Bullet ID (or 'None') | Bullet Impact (helpful/harmful/neutral/none) | Explanation |",
-    "root_cause_analysis": "[At which specific step of the Generator's workflow did this error occur? Diagnose the failure mechanism: Did BERT propose the correct LSF category, but the Generator mislabeled it as a different LSF category (GT_X_BERT_X_LLM_Y) or make a mistake and label it as Non-LSF (GT_X_BERT_X_LLM_O)? Did both BERT and the LLM agree on an incorrect LSF category for a Non-LSF span (GT_O_BERT_X_LLM_X)? Did both models label the span as different incorrect LSF categories for a Non-LSF span (GT_O_BERT_X_LLM_Y) or miss the Ground Truth LSF category entirely (GT_X_BERT_Y_LLM_Z)? Did BERT propose an incorrect LSF category and the LLM label it as Non-LSF (GT_X_BERT_Y_LLM_O) or uncritically adopt it instead of correcting to Ground Truth (GT_X_BERT_Y_LLM_Y)? Use the Outcome_Class triad as diagnostic evidence.]",
-    "correct_approach": "[At the span level, what exactly should the Generator have done instead at that specific step to fix this span in this sentence/abstract? Focus exactly on this span without being vague or generalized.]",
-    "key_insight": "[A concise, generalizable semantic reasoning principle (1-2 focused sentences, approx. 25-45 words) that analyzes this specific error's failure mode and guides cognitive reasoning. Articulate the conceptual boundary and contextual test crisply, strictly avoiding rigid 'When BERT... label as...' or imperative 'label X as Y' templates as well as long discursive essays.]",
+    "reasoning": "Step 1 (Scope Filter): [Confirm candidate span is in scope]... Step 2 (Gap Analysis and Bullet Evaluation): [Identify outcome class and evaluate bullet used]... Step 3 (Root Cause): [Diagnose workflow step and failure mechanism: anchoring bias, over-rejection, over-correction, or boundary confusion]... Step 4 (Correct Approach): [Span-level fix]... Step 5 (Key Insight Formulation): [Formulate concise semantic boundary rule] (Note: For successful spans with bullets cited, set to \"None\")",
+    "primary_outcome": "[Triad: GT_X_BERT_X_LLM_Y | GT_O_BERT_X_LLM_X | GT_O_BERT_X_LLM_Y | GT_X_BERT_X_LLM_O | GT_X_BERT_Y_LLM_O | GT_X_BERT_Y_LLM_Z | GT_X_BERT_Y_LLM_Y | GT_X_BERT_Y_LLM_X | GT_O_BERT_X_LLM_O | GT_X_BERT_X_LLM_X]",
+    "error_identification": "Strictly format as a single-row markdown table for an erroneous span: | Erroneous Span | Error Type | Bullet IDs | Bullet Impact (harmful/neutral/none) | Explanation |. (For successful spans with bullets cited, set to \"None\")",
+    "root_cause_analysis": "Diagnose failure mechanism for erroneous spans (anchoring bias, over-rejection, over-correction, or boundary confusion). (For successful spans with bullets cited, set to \"None\")",
+    "correct_approach": "Span-level fix stating what the Generator should have done instead. (For successful spans with bullets cited, set to \"None\")",
+    "key_insight": "A concise, generalizable semantic reasoning principle (1-2 sentences, approx. 25-45 words) for erroneous spans. (For successful spans with bullets cited, set to \"None\")",
     "bullet_tags": [
       {{"id": "DG-0001", "tag": "helpful"}}
     ]
@@ -85,20 +85,21 @@ Provide a SINGLE JSON array of objects. If the Generator made no errors on any i
 ]
 
 ### Bullet Impact Definitions (`bullet_tags` and Table):
-When evaluating DynamicGuidebook guidelines cited by the Generator for an erroneous span, tag each cited guideline with one of:
-- **helpful**: Guideline was cited and correctly contributed to entity recognition.
+When evaluating DynamicGuidebook guidelines cited by the Generator for an evaluated span, tag each cited guideline with one of:
+- **helpful**: Guideline was cited and correctly contributed to entity recognition or category selection.
 - **harmful**: Guideline was cited and directly led the Generator to misclassify or incorrectly reject the span.
-- **neutral**: Guideline was cited but was irrelevant or not decisive in the error.
+- **neutral**: Guideline was cited but was irrelevant or not decisive in the outcome.
 - **none**: No guideline was cited (record 'none' under Bullet Impact in the table).
 
 **JSON Rules:**
 - The root output must be a valid JSON array (`[...]`).
-- If no errors occurred among in-scope candidate spans, output an empty array `[]`.
-- Each object in the array represents exactly one erroneous in-scope candidate span and must contain all 7 specified fields (`reasoning`, `primary_error_outcome`, `error_identification`, `root_cause_analysis`, `correct_approach`, `key_insight`, `bullet_tags`).
+- If no errors occurred and no bullets were cited on successful spans among in-scope candidates, output an empty array `[]`.
+- Each object in the array represents exactly one evaluated in-scope candidate span and must contain all 7 specified fields (`reasoning`, `primary_outcome`, `error_identification`, `root_cause_analysis`, `correct_approach`, `key_insight`, `bullet_tags`).
+- For successful spans where bullets were cited, set `reasoning`, `error_identification`, `root_cause_analysis`, `correct_approach`, and `key_insight` to `"None"`, and populate `bullet_tags` with `helpful` or `neutral`.
 - Internal quotes are NOT escaped (no `\"` sequences).
 - Text before or after the JSON array is NOT permitted.
 
-Having the Generator's reasoning trace, the candidate-span alignment data, and the DynamicGuidebook, you must identify in-scope annotation errors, trace their root cause to a specific (Base Rule + DynamicGuidebook guideline based on the priority hierarchy), and output a single valid JSON array of structured diagnostic objects.
+Having the Generator's reasoning trace, the candidate-span alignment data, and the DynamicGuidebook, you must audit evaluated candidate spans, diagnose error root causes, attribute guideline effectiveness, and output a single valid JSON array of structured diagnostic objects.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -109,8 +110,8 @@ The abstract text below contains all BERT-proposed candidate spans embedded dire
 {abstract}
 
 ## [2] Candidate Span Alignment (.txt):
-A tabular text where each line represents one BERT-proposed candidate span (with `ID` matching the anchor `[id: X, span: ...]` in the abstract above) and contains ID, Span Text, Ground_Truth, BERT_LABEL, GENERATOR_LABEL (the Generator's decision — matches Generator's output field of the same name), and Outcome_Class, separated by tabs.
-ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Outcome_Class
+A tabular text where each line represents one BERT-proposed candidate span (with `ID` matching the anchor `[id: X, span: ...]` in the abstract above) and contains ID, Span Text, Ground_Truth, BERT_LABEL, GENERATOR_LABEL (the Generator's decision — matches Generator's output field of the same name), Bullet_IDs (JSON list of DynamicGuidebook bullet IDs cited by Generator for this span, e.g. ["DG-0002"] or []), and Outcome_Class, separated by tabs.
+ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Bullet_IDs	Outcome_Class
 
 Definitions for Outcome_Class column (Triad: Ground Truth [GT] -> BERT's prediction [BERT] -> Generator's prediction [LLM]):
 
@@ -139,30 +140,48 @@ Definitions for Outcome_Class column (Triad: Ground Truth [GT] -> BERT's predict
 # Workflow:
 
 ## Step 0: Task Restatement
-- Your objective is to diagnose the gap between the Generator's llm_predicted_label and the ground truth, for BERT-proposed candidate spans only.
+- Your objective is to audit candidate spans proposed by BERT:
+  (1) Diagnose the gap between the Generator's prediction and ground truth for actionable erroneous spans, and
+  (2) Attribute the effectiveness (`helpful` or `neutral`) of DynamicGuidebook bullets cited on successful spans.
 - Apply the Priority Hierarchy strictly: Base Rules override DynamicGuidebook.
 - All reasoning must be grounded in the text only; external knowledge is NOT used.
-- If the Generator was 100% correct (accuracy=100%, 0 errors among in-scope candidates): output an empty JSON array `[]`.
+- If there are 0 actionable errors and 0 successful spans that cited bullets: output an empty JSON array `[]`.
 
-## Step 1: Gap Analysis -> Identify Actionable Erroneous Spans
-- Identify all in-scope candidate spans where `Outcome_Class` is an actionable error:
-  `GT_X_BERT_X_LLM_Y`, `GT_O_BERT_X_LLM_X`, `GT_O_BERT_X_LLM_Y`, `GT_X_BERT_X_LLM_O`, `GT_X_BERT_Y_LLM_O`, `GT_X_BERT_Y_LLM_Z`, or `GT_X_BERT_Y_LLM_Y`.
-- Spans where the Generator was correct (`GT_X_BERT_X_LLM_X`, `GT_X_BERT_Y_LLM_X`, `GT_O_BERT_X_LLM_O`) or out-of-scope spans are excluded from the output.
+## Step 1: Scope Filter -> Identify Evaluated Spans
+- In-Scope Spans to evaluate:
+  1. **Actionable Erroneous Spans**: Any candidate span where `Outcome_Class` is an error triad:
+     `GT_X_BERT_X_LLM_Y`, `GT_O_BERT_X_LLM_X`, `GT_O_BERT_X_LLM_Y`, `GT_X_BERT_X_LLM_O`, `GT_X_BERT_Y_LLM_O`, `GT_X_BERT_Y_LLM_Z`, or `GT_X_BERT_Y_LLM_Y`.
+  2. **Successful Spans with Bullets Cited**: Any candidate span where `Outcome_Class` is a success triad (`GT_X_BERT_Y_LLM_X`, `GT_O_BERT_X_LLM_O`, or `GT_X_BERT_X_LLM_X`) AND `Bullet_IDs` is NOT empty (i.e. contains at least one cited bullet ID).
+- Out-of-Scope Spans:
+  - Spans where the Generator was correct (`GT_X_BERT_X_LLM_X`, `GT_X_BERT_Y_LLM_X`, `GT_O_BERT_X_LLM_O`) and NO bullets were cited (`Bullet_IDs` is `[]` or `None`). These are completely excluded from the output.
 
-## Step 2: Per-Span Diagnostic Investigation -> produces `reasoning`, `primary_error_outcome`, `error_identification`, `root_cause_analysis`, `correct_approach`, and `bullet_tags`
-For EACH erroneous in-scope candidate span, construct its dedicated diagnosis:
+## Step 2: Per-Span Diagnostic Investigation -> produces `reasoning`, `primary_outcome`, `error_identification`, `root_cause_analysis`, `correct_approach`, and `bullet_tags`
+For EACH evaluated in-scope candidate span, construct its output item:
+
+### Case A: Erroneous Candidate Span (Outcome_Class is an error triad):
 - **`reasoning`**: State the scope check, outcome class triad, workflow step diagnosis, and corrective reasoning.
-- **`primary_error_outcome`**: Set to the specific error outcome triad for this span (`GT_X_BERT_X_LLM_Y`, `GT_O_BERT_X_LLM_X`, `GT_O_BERT_X_LLM_Y`, `GT_X_BERT_X_LLM_O`, `GT_X_BERT_Y_LLM_O`, `GT_X_BERT_Y_LLM_Z`, or `GT_X_BERT_Y_LLM_Y`).
-- **`error_identification`**: Single-row markdown table: `| Erroneous Span | Error Type | Bullet ID (or 'None') | Bullet Impact (helpful/harmful/neutral/none) | Explanation |`.
+- **`primary_outcome`**: Set to the specific error outcome triad for this span (`GT_X_BERT_X_LLM_Y`, `GT_O_BERT_X_LLM_X`, `GT_O_BERT_X_LLM_Y`, `GT_X_BERT_X_LLM_O`, `GT_X_BERT_Y_LLM_O`, `GT_X_BERT_Y_LLM_Z`, or `GT_X_BERT_Y_LLM_Y`).
+- **`error_identification`**: Single-row markdown table: `| Erroneous Span | Error Type | Bullet IDs | Bullet Impact (harmful/neutral/none) | Explanation |`.
 - **`root_cause_analysis`**: Determine the specific Generator workflow step and failure mechanism (anchoring bias, over-rejection, over-correction, or boundary confusion).
 - **`correct_approach`**: State hyper-specifically what the Generator should have done instead for this exact span in this sentence/abstract.
-- **`bullet_tags`**: List of bullet tag objects `[{"id": "...", "tag": "helpful/harmful/neutral"}]` for guidelines relevant to this span:
-  - `helpful`: Guideline was cited and correctly contributed to entity recognition.
+- **`key_insight`**: Formulate a concise, generalizable semantic reasoning principle per Step 3 below.
+- **`bullet_tags`**: List of bullet tag objects `[{"id": "...", "tag": "harmful" | "neutral"}]` for bullets cited in this span:
   - `harmful`: Guideline was cited and directly led the Generator to misclassify or incorrectly reject the span.
   - `neutral`: Guideline was cited but was irrelevant or not decisive in the error.
-  - If no guideline was cited, provide `[]` (and record `Bullet Impact: none` in the table).
+  - If no guideline was cited for this span, provide `[]` (and record `Bullet Impact: none` in the table).
 
-## Step 3: Key Insight Formulation -> produces `key_insight`
+### Case B: Successful Candidate Span with Bullets Cited (Outcome_Class is a success triad):
+- **`reasoning`**: `"None"`
+- **`primary_outcome`**: Set to the specific success outcome triad for this span (`GT_X_BERT_Y_LLM_X`, `GT_O_BERT_X_LLM_O`, or `GT_X_BERT_X_LLM_X`).
+- **`error_identification`**: `"None"`
+- **`root_cause_analysis`**: `"None"`
+- **`correct_approach`**: `"None"`
+- **`key_insight`**: `"None"`
+- **`bullet_tags`**: List of bullet tag objects `[{"id": "...", "tag": "helpful" | "neutral"}]` for bullets cited in this span:
+  - `helpful`: Guideline was cited and directly helped the Generator arrive at the correct entity decision or canonical category.
+  - `neutral`: Guideline was cited but was peripheral or not decisive (Base Rules alone were sufficient).
+
+## Step 3: Key Insight Formulation -> produces `key_insight` (Erroneous Spans Only)
 For EACH erroneous in-scope candidate span:
 - **`key_insight`**: Derive a concise, generalizable semantic reasoning principle (1–2 sentences, approx. 25–45 words) that explains the conceptual boundary and contextual test.
 - Specific tokens from the text are NOT referenced as the rule's primary condition (they may only appear in explanatory parentheses as examples, e.g., 'e.g., fasting glucose').
@@ -170,35 +189,36 @@ For EACH erroneous in-scope candidate span:
 - **Optimal Length & Conciseness (1–2 Sentences / 25–45 Words):** State the conceptual distinction in the first sentence, and clarify the contextual distinguishing test in the second.
 
 ## Step 4: Final JSON Assembly
-- Combine the diagnostic objects for all erroneous candidate spans into a single JSON array `[...]`.
-- If there are 0 errors, output `[]`.
+- Combine the diagnostic/attribution objects for all evaluated candidate spans into a single JSON array `[...]`.
+- If there are 0 evaluated spans, output `[]`.
 
 !IMPORTANT:
 - Abbreviated or non-canonical category names are NOT referenced in the reasoning text or key_insight. Only exact canonical category names are permitted (Nutrition, Socioeconomic_factors, Environmental_exposures, Substance_use, Physical_activities, Non_physical_leisure_time_activities, Personal_care_products_and_cosmetic_procedures, Sleep, Mental_health_practices, Non-LSF, O).
 - Do NOT use rigid mapping syntax like 'Label X as Y', 'Classify X as Y', or 'When BERT predicts X, label as Y' in `key_insight`. Frame each insight as a durable semantic reasoning principle that guides the model's contextual thinking.
+- Use `primary_outcome` across all items (replaces legacy `primary_error_outcome`).
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # few-shot example:
 
-## Example 1: Single Error Case (GT_X_BERT_X_LLM_O)
+## Example 1: Single Error Case with Harmful Guideline (GT_X_BERT_X_LLM_O)
 **Abstract Text:**
 "The [id: 1, span: sleep quality score] was recorded for each subject."
 
 **Candidate Span Alignment:**
-ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Outcome_Class
-1	sleep quality score	Sleep	Sleep	O	GT_X_BERT_X_LLM_O
+ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Bullet_IDs	Outcome_Class
+1	sleep quality score	Sleep	Sleep	O	["DG-0002"]	GT_X_BERT_X_LLM_O
 
-**Trace:** "Reviewed 'sleep quality score'; treated 'score' as a generic quantifier term and rejected it as O."
+**Trace:** "Reviewed 'sleep quality score'; treated 'score' as a generic quantifier term per DG-0002 and rejected it as O."
 
-**DynamicGuidebook Rules Used by Generator:** ["DG-0002"] (assuming DG-0002 is "Standalone quantifier words are not labeled")
+**DynamicGuidebook Rules Used by Generator:** ["DG-0002"] (DG-0002: "Standalone quantifier words are not labeled")
 
 **Output:**
 [
   {{
     "reasoning": "Step 1: 'sleep quality score' is in scope and is GT_X_BERT_X_LLM_O. Step 2: The error occurred at Category Decision; bullet DG-0002 was misapplied to a compound metric phrase. Step 3: Generator should have recognized it as a metric-quantified LSF and applied Sleep. Step 4: Formulated a concise semantic boundary rule.",
-    "primary_error_outcome": "GT_X_BERT_X_LLM_O",
-    "error_identification": "| sleep quality score | GT_X_BERT_X_LLM_O | DG-0002 | harmful | BERT proposed the correct LSF category (Sleep), but the LLM made a mistake and labeled it as Non-LSF (O) due to quantifier-exclusion misapplication. |",
+    "primary_outcome": "GT_X_BERT_X_LLM_O",
+    "error_identification": "| sleep quality score | GT_X_BERT_X_LLM_O | [\"DG-0002\"] | harmful | BERT proposed the correct LSF category (Sleep), but the LLM made a mistake and labeled it as Non-LSF (O) due to quantifier-exclusion misapplication. |",
     "root_cause_analysis": "The error occurred at the Category Decision step: BERT proposed the correct LSF category (Sleep), but the LLM made a mistake and labeled it as Non-LSF (O). The Generator misapplied a standalone-quantifier exclusion rule to a compound metric phrase instead of the metric-inclusion rule.",
     "correct_approach": "Instead of rejecting 'sleep quality score' as O under the quantifier-exclusion bullet, the Generator should have applied the metric-inclusion rule, confirmed BERT's proposed Sleep label, and preserved it.",
     "key_insight": "Compound phrases quantifying or measuring a lifestyle domain (e.g., quality metrics, severity scales, duration scores) retain the behavioral category of that lifestyle factor. Standalone quantifier exclusions apply strictly to bare, unattached terms that lack a preceding lifestyle nominal anchor.",
@@ -208,37 +228,39 @@ ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Outcome_Class
   }}
 ]
 
-## Example 2: Multi-error case (Both GT_O_BERT_X_LLM_X and GT_X_BERT_X_LLM_Y in the same abstract)
+## Example 2: Dual Case (One Erroneous Span + One Successful Span with Helpful Guideline)
 **Abstract Text:**
-"Subjects had elevated [id: 1, span: fasting blood glucose] despite regular [id: 2, span: daily walking]."
+"Subjects had elevated [id: 1, span: fasting blood glucose] despite adequate [id: 2, span: fiber intake]."
 
 **Candidate Span Alignment:**
-ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Outcome_Class
-1	fasting blood glucose	O	Nutrition	Nutrition	GT_O_BERT_X_LLM_X
-2	daily walking	Physical_activities	Physical_activities	Non_physical_leisure_time_activities	GT_X_BERT_X_LLM_Y
+ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Bullet_IDs	Outcome_Class
+1	fasting blood glucose	O	Nutrition	Nutrition	[]	GT_O_BERT_X_LLM_X
+2	fiber intake	Nutrition	Nutrition	Nutrition	["DG-0015"]	GT_X_BERT_X_LLM_X
 
-**Trace:** "Observed 'fasting blood glucose' proposed by BERT with high confidence; confirmed as Nutrition. For 'daily walking', interpreted it as general leisure routine and labeled as Non_physical_leisure_time_activities."
+**Trace:** "Observed 'fasting blood glucose' proposed by BERT with high confidence; confirmed as Nutrition. For 'fiber intake', applied guideline DG-0015 to confirm dietary fiber as Nutrition."
 
-**DynamicGuidebook Rules Used by Generator:** []
+**DynamicGuidebook Rules Used by Generator:** ["DG-0015"]
 
 **Output:**
 [
   {{
-    "reasoning": "Step 1: 'fasting blood glucose' is in scope and is GT_O_BERT_X_LLM_X. Step 2: Error at Step 1 (Evidence Read & Entity-Hood Determination) due to anchoring bias on BERT's proposal. Step 3: Apply Affirmative Filtering (Base Rule 2) to exclude metabolic biomarkers. Step 4: Formulated concise boundary principle.",
-    "primary_error_outcome": "GT_O_BERT_X_LLM_X",
-    "error_identification": "| fasting blood glucose | GT_O_BERT_X_LLM_X | None | none | Both BERT and the LLM agreed on Nutrition, but the span is Non-LSF (an internal metabolic biomarker). |",
+    "reasoning": "Step 1: 'fasting blood glucose' is an in-scope error (GT_O_BERT_X_LLM_X). Step 2: Error at Step 1 (Evidence Read & Entity-Hood Determination) due to anchoring bias on BERT's proposal. Step 3: Apply Affirmative Filtering (Base Rule 2) to exclude metabolic biomarkers. Step 4: Formulated concise boundary principle.",
+    "primary_outcome": "GT_O_BERT_X_LLM_X",
+    "error_identification": "| fasting blood glucose | GT_O_BERT_X_LLM_X | [] | none | Both BERT and the LLM agreed on Nutrition, but the span is Non-LSF (an internal metabolic biomarker). |",
     "root_cause_analysis": "The error occurred at Step 1 (Evidence Read and Entity-Hood Determination): both BERT and the LLM agreed and labeled the span as Nutrition, but the span is Non-LSF. The Generator suffered from evidence anchoring bias, uncritically confirming BERT's proposal for 'fasting blood glucose' rather than checking Affirmative Filtering (Base Rule 2).",
     "correct_approach": "Instead of anchoring on BERT's 'Nutrition' prediction, the Generator should have evaluated 'fasting blood glucose' against Affirmative Filtering rules, recognized it as an internal physiological biomarker rather than voluntary food consumption, and rejected it as O.",
     "key_insight": "Endogenous biochemical assays and internal physiological metabolites (e.g., fasting glucose, lipid levels) reflect involuntary bodily states rather than dietary behaviors. Differentiate systemic biological measurements from external dietary intake, excluding biological assays as non-lifestyle biomarkers.",
     "bullet_tags": []
   }},
   {{
-    "reasoning": "Step 1: 'daily walking' is in scope and is GT_X_BERT_X_LLM_Y. Step 2: Error at Step 2 (Category Decision) where physical exertion was confused with sedentary leisure. Step 3: Recognize active bodily locomotion and retain Physical_activities. Step 4: Formulated concise boundary principle.",
-    "primary_error_outcome": "GT_X_BERT_X_LLM_Y",
-    "error_identification": "| daily walking | GT_X_BERT_X_LLM_Y | None | none | BERT proposed Physical_activities, but the Generator mislabeled it as Non_physical_leisure_time_activities. |",
-    "root_cause_analysis": "The error occurred at Step 2 (Category Decision): BERT proposed the correct LSF category (Physical_activities), but the Generator mislabeled it as Non_physical_leisure_time_activities by confusing active bodily locomotion with sedentary leisure activities.",
-    "correct_approach": "Recognize habitual bodily locomotion as active physical exertion and retain BERT's proposed Physical_activities label rather than categorizing it as non-physical leisure.",
-    "key_insight": "Habitual bodily locomotion and ambulatory movement (e.g., walking, stair climbing, active commuting) constitute physical exertion under Physical_activities. Distinguish active bodily locomotion from stationary, passive, or cognitive pastimes which belong exclusively to Non_physical_leisure_time_activities.",
-    "bullet_tags": []
+    "reasoning": "None",
+    "primary_outcome": "GT_X_BERT_X_LLM_X",
+    "error_identification": "None",
+    "root_cause_analysis": "None",
+    "correct_approach": "None",
+    "key_insight": "None",
+    "bullet_tags": [
+      {{"id": "DG-0015", "tag": "helpful"}}
+    ]
   }}
 ]

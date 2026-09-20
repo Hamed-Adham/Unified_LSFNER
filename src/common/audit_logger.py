@@ -1308,3 +1308,158 @@ def export_pipeline_run_artifacts(
     }
 
 
+def log_bertized_ace_abstract_audit(
+    doc_id: str,
+    text: str,
+    gt_ents: List[Dict[str, Any]],
+    preds: List[Dict[str, Any]],
+    abstracts_dir: str,
+    timestamp_str: str = "",
+    architecture_str: str = "BERTized ACE (Generator_v2 + Curated Playbook, 16k tokens)",
+    generator_prompt: str = "",
+    generator_raw_response: str = "",
+    reflector_prompt: str = "",
+    reflector_raw_response: str = "",
+    curator_prompt: str = "",
+    curator_raw_response: str = "",
+    is_test_mode: bool = True,
+    use_new_labels: bool = True
+) -> str:
+    """
+    Generates and saves the full 5-stage abstract audit report for BERTized ACE:
+      1. Raw Abstract Text & Ground Truth Entities
+      2. Audit Matrix (Candidate Spans -> Generator Arbitration)
+      3. Stage 1: ACE Generator (Input Prompt & Raw LLM Output)
+      4. Stage 2: ACE Reflector (Input Prompt & Raw LLM Output, or Inactive note)
+      5. Stage 3: ACE Curator (Input Prompt & Raw LLM Output, or Inactive note)
+    """
+    if not timestamp_str:
+        timestamp_str = get_timestamp_str()
+
+    # Auto-extract generator prompt and response from preds if not passed
+    if not generator_prompt:
+        for p in preds:
+            if p.get("generator_prompt"):
+                generator_prompt = p["generator_prompt"]
+                break
+    if not generator_raw_response:
+        for p in preds:
+            if p.get("generator_raw_response"):
+                generator_raw_response = p["generator_raw_response"]
+                break
+
+    lines = [
+        "=" * 100,
+        f"📄 ABSTRACT AUDIT REPORT: [DOC_ID: {doc_id}]",
+        f"Architecture: {architecture_str}",
+        f"Timestamp   : {timestamp_str}",
+        "=" * 100,
+        "",
+        "1. RAW ABSTRACT TEXT & GROUND TRUTH ENTITIES",
+        "-" * 100,
+        text.strip(),
+        "",
+        f"Ground Truth Entities ({len(gt_ents)} entities):"
+    ]
+
+    for i, g in enumerate(gt_ents, 1):
+        g_txt = g.get("text", "")
+        lines.append(f"  • [T{i}] ({g.get('start_char', 0)}, {g.get('end_char', 0)}): '{g_txt}' -> {g.get('label', 'O')}")
+
+    lines.extend([
+        "",
+        "2. AUDIT MATRIX (Candidate Spans -> Generator Arbitration)",
+        "-" * 100,
+        f"{'Span Text':<30} | {'Char Range':<12} | {'Ground Truth':<22} | {'SpanNER Label':<22} | {'Final Label':<22} | {'Escalated?':<12} | Outcome",
+        "-" * 145
+    ])
+
+    for p in preds:
+        st_c, end_c = p.get("start_char", 0), p.get("end_char", 0)
+        span_t = p.get("span_text", p.get("entity", ""))
+        gt_raw = match_gt_label(span_t, st_c, end_c, gt_ents)
+        gt_lbl = canonicalize_label(gt_raw, use_new_labels=use_new_labels)
+        s_lbl = canonicalize_label(p.get("spanner_label", p.get("predicted_label", "O")), use_new_labels=use_new_labels)
+        f_lbl = canonicalize_label(p.get("label", "O"), use_new_labels=use_new_labels)
+        is_esc = p.get("escalated_to_llm", False)
+        esc_tag = "Escalated" if is_esc else "Gated/Local"
+        outcome = classify_10_outcome_str(gt_label=gt_lbl, spanner_label=s_lbl, final_label=f_lbl, escalated=is_esc)
+        lines.append(f"{span_t:<30} | {st_c:>5}-{end_c:<5} | {gt_lbl:<22} | {s_lbl:<22} | {f_lbl:<22} | {esc_tag:<12} | {outcome}")
+
+    # 3. STAGE 1: ACE GENERATOR
+    lines.extend([
+        "",
+        "3. STAGE 1: ACE GENERATOR (INPUT & OUTPUT)",
+        "-" * 100
+    ])
+    if generator_prompt or generator_raw_response:
+        if generator_prompt:
+            lines.append("--- [GENERATOR INPUT PROMPT] ---")
+            lines.append(generator_prompt.strip())
+            lines.append("-" * 100)
+            lines.append("")
+        if generator_raw_response:
+            lines.append("--- [GENERATOR RAW LLM OUTPUT] ---")
+            lines.append(generator_raw_response.strip())
+            lines.append("-" * 100)
+    else:
+        has_esc = any(p.get("escalated_to_llm", False) for p in preds)
+        if not has_esc:
+            lines.append("[ZERO CANDIDATE SPANS ESCALATED TO GENERATOR]")
+            lines.append("All candidate spans met the local gating confidence threshold and were resolved locally by SpanNER proposer.")
+        else:
+            lines.append("(No Generator prompt/response recorded)")
+
+    # 4. STAGE 2: ACE REFLECTOR (Included only in Training Mode)
+    if not is_test_mode:
+        lines.extend([
+            "",
+            "4. STAGE 2: ACE REFLECTOR (INPUT & OUTPUT)",
+            "-" * 100
+        ])
+        if reflector_prompt or reflector_raw_response:
+            if reflector_prompt:
+                lines.append("--- [REFLECTOR INPUT PROMPT] ---")
+                lines.append(reflector_prompt.strip())
+                lines.append("-" * 100)
+                lines.append("")
+            if reflector_raw_response:
+                lines.append("--- [REFLECTOR RAW LLM OUTPUT] ---")
+                lines.append(reflector_raw_response.strip())
+                lines.append("-" * 100)
+        else:
+            lines.append("[ZERO ERRORS DIAGNOSED BY REFLECTOR]")
+            lines.append("No candidate errors met the reflection criteria.")
+
+    # 5. STAGE 3: ACE CURATOR (Included only in Training Mode)
+    if not is_test_mode:
+        lines.extend([
+            "",
+            "5. STAGE 3: ACE CURATOR (INPUT & OUTPUT)",
+            "-" * 100
+        ])
+        if curator_prompt or curator_raw_response:
+            if curator_prompt:
+                lines.append("--- [CURATOR INPUT PROMPT] ---")
+                lines.append(curator_prompt.strip())
+                lines.append("-" * 100)
+                lines.append("")
+            if curator_raw_response:
+                lines.append("--- [CURATOR RAW LLM OUTPUT] ---")
+                lines.append(curator_raw_response.strip())
+                lines.append("-" * 100)
+        else:
+            lines.append("[ZERO CURATOR OPERATIONS]")
+            lines.append("No guideline updates or additions were formulated.")
+
+    lines.append("")
+
+    os.makedirs(abstracts_dir, exist_ok=True)
+    out_file = os.path.join(abstracts_dir, f"{doc_id}.txt")
+    with open(out_file, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
+    return out_file
+
+
+

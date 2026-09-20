@@ -190,11 +190,12 @@ class DynamicGuidebookManager:
     def search_similar_bullets(self, query_text, n_results=5, category=None):
         return self.vectors.find_similar(query_text, category=category, n_results=n_results)
 
-    def update_bullet_metrics(self, bullet_ids, *, helpful_delta=0, harmful_delta=0, usage_delta=0):
+    def update_bullet_metrics(self, bullet_ids, *, helpful_delta=0, harmful_delta=0, neutral_delta=0, usage_delta=0):
         return self.ops.update_bullet_metrics(
             bullet_ids,
             helpful_delta=helpful_delta,
             harmful_delta=harmful_delta,
+            neutral_delta=neutral_delta,
             usage_delta=usage_delta
         )
 

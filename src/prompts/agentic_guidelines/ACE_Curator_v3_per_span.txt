@@ -9,7 +9,7 @@ Your role is the **CURATOR agent** in an ACE pipeline operating in **Per-Span Mu
 - **BASE RULES**: Immutable structural and category constraints that define valid LSF labeling scope. They can NOT be overridden under any circumstances.
 - **dynamicGuidebook**: Rules already accepted and in production. Provided as structured rich JSON records containing `id` ("DG-XXXX"), `span`, `span_sentence`, `ground_truth_label`, `bert_label`, `llm_label`, `triad`, `guideline`, `challenge_types`, `similar_spans`, `usage_metrics`, and `history`.
 - **Guideline (or Bullet)**: A guideline is an individual record in the DynamicGuidebook, identified by its sequential ID (e.g., "DG-0047"), historically also referred to as a bullet.
-- **REFLECTION**: Evidence-based error analysis derived from comparing the Generator's labels for BERT-proposed candidate spans against ground truth; includes a collection of per-span diagnostic items (`diagnostic_items`), each containing `error_identification`, `primary_error_outcome`, `root_cause_analysis`, `correct_approach`, and `key_insight`.
+- **REFLECTION**: Evidence-based error analysis derived from comparing the Generator's labels for BERT-proposed candidate spans against ground truth; includes a collection of per-span diagnostic items (`diagnostic_items`), each containing `error_identification`, `primary_outcome`, `root_cause_analysis`, `correct_approach`, and `key_insight`.
 - **Contradiction**: Exists if applying both rules could yield **different labels for the same span** in any plausible context; contradicting rules are NOT permitted.
 - **Overlap & Redundancy**: An insight overlaps an existing guideline if it enforces the **same labeling decision under the same conditions**, even if phrased differently. Overlapping rules are NOT added.
 - **ADD vs MODIFY**: ADD introduces a new guideline; MODIFY refines an existing harmful, incomplete, or overly broad guideline by referencing its `id`.
@@ -78,7 +78,7 @@ The Reflection input provides an array of diagnostic objects (ranging from 0 to 
 - **Empty / Safe-Fail Check**: If the Reflection array is empty `[]`, contains 0 items, or all candidate `key_insight` values are `"None"`: output Safe-Fail JSON immediately with an empty operations list: `{"reasoning": "No errors diagnosed by Reflector.", "operations": []}` and **STOP**.
 - **Iteration**: Otherwise, iterate through each candidate diagnostic member in the array. Each member contains:
   - `span` and sentence context
-  - `primary_error_outcome` (e.g., `GT_X_BERT_Y_LLM_Y`)
+  - `primary_outcome` (e.g., `GT_X_BERT_Y_LLM_Y`)
   - `root_cause_analysis`
   - `correct_approach`
   - `key_insight`: candidate semantic boundary principle to evaluate.
@@ -155,8 +155,8 @@ Reflection (Diagnosed Candidate Errors):
         "TOP2_COMPETITION"
       ],
       "similar_spans": [
-        {{"span": "<example surface form 1>", "label": "LSF_CATEGORY_OR_O"}},
-        {{"span": "<example surface form 2>", "label": "LSF_CATEGORY_OR_O"}}
+        {{"span": "<example surface form 1>", "ground_truth_label": "LSF_CATEGORY_OR_O"}},
+        {{"span": "<example surface form 2>", "ground_truth_label": "LSF_CATEGORY_OR_O"}}
       ]
     }},
     {{

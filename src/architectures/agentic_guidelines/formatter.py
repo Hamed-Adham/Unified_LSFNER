@@ -37,6 +37,8 @@ class Formatter:
             "triad": g.get("triad", {}),
             "guideline": g.get("guideline", g.get("content", ""))
         }
+        if "challenge_types" in g:
+            view["challenge_types"] = g["challenge_types"]
         if "similar_spans" in g:
             view["similar_spans"] = g["similar_spans"]
         return view

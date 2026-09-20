@@ -22,6 +22,7 @@ from src.architectures.agentic_guidelines.bertized_ace import (
     BertizedReflector,
     format_candidate_alignment_text
 )
+from src.common.langfuse_tracker import get_langfuse_tracker
 
 def run_test():
     print("=" * 70)
@@ -97,9 +98,13 @@ def run_test():
     guidelines_str = json.dumps(gen_guidelines_view, indent=2, ensure_ascii=False)
     print(f"Loaded Dynamic Guidelines (Read-Only: {len(gen_guidelines_view)} rules, {len(guidelines_str.splitlines())} lines)")
 
-    # 5. Initialize & Run Generator
-    print("\n[Step 1] Initializing & Running BertizedGenerator (ACE_Generator_v3)...")
-    generator = BertizedGenerator(model_name=model_name, backend=backend)
+    tracker = get_langfuse_tracker()
+    trace_cm = tracker.trace_abstract(doc_id=doc_id, abstract=abstract_text, candidate_spans=candidate_spans, mode="test")
+    trace_cm.__enter__()
+    try:
+        # 5. Initialize & Run Generator
+        print("\n[Step 1] Initializing & Running BertizedGenerator (ACE_Generator_v3)...")
+        generator = BertizedGenerator(model_name=model_name, backend=backend)
     
     # Save populated Generator prompt
     from src.architectures.agentic_guidelines.bertized_ace import build_anchored_abstract
