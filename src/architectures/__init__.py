@@ -8,24 +8,53 @@ Contains 5 dedicated subfolders per architecture type:
 - agentic_guidelines: Pure LLM Self-Reflective Annotation & Dynamic Guideline Curation
 """
 
-from src.architectures.hybrid_linkner import SpanNERModel, LinkNERPipeline, LOFNoveltyDetector
-from src.architectures.dinasor_dingen import Dinasor, DinGenerator, SpanNER_DinGenPipeline
-from src.architectures.gating_nn import GatingDatasetBuilder, GatingNNPipeline
-from src.architectures.ablation_engine import AblationEngine, PersistentLLMDecisionCache
-from src.architectures.agentic_guidelines import (
-    Generator,
-    Reflector,
-    Curator,
-    ReflectorCuratorCombined,
-    DynamicGuidebookManager,
-    DynamicGuidelinesManager,
-    GuidebookStore,
-    SchemaStore,
-    AgenticNERPipeline,
-    BertizedACEPipeline,
-    BertizedGenerator,
-    BertizedReflector,
-    BertizedCurator
+try:
+    from src.architectures.hybrid_linkner import SpanNERModel, LinkNERPipeline, LOFNoveltyDetector
+except ImportError:
+    SpanNERModel = LinkNERPipeline = LOFNoveltyDetector = None
+
+try:
+    from src.architectures.dinasor_dingen import Dinasor, DinGenerator, SpanNER_DinGenPipeline
+except ImportError:
+    Dinasor = DinGenerator = SpanNER_DinGenPipeline = None
+
+try:
+    from src.architectures.gating_nn import GatingDatasetBuilder, GatingNNPipeline
+except ImportError:
+    GatingDatasetBuilder = GatingNNPipeline = None
+
+try:
+    from src.architectures.ablation_engine import AblationEngine, PersistentLLMDecisionCache
+except ImportError:
+    AblationEngine = PersistentLLMDecisionCache = None
+
+try:
+    from src.architectures.agentic_guidelines import (
+        Generator,
+        Reflector,
+        Curator,
+        ReflectorCuratorCombined,
+        DynamicGuidebookManager,
+        DynamicGuidelinesManager,
+        GuidebookStore,
+        SchemaStore,
+        AgenticNERPipeline,
+        BertizedACEPipeline,
+        BertizedGenerator,
+        BertizedReflector,
+        BertizedCurator
+    )
+except ImportError:
+    Generator = Reflector = Curator = ReflectorCuratorCombined = None
+    DynamicGuidebookManager = DynamicGuidelinesManager = None
+    GuidebookStore = SchemaStore = AgenticNERPipeline = None
+    BertizedACEPipeline = BertizedGenerator = BertizedReflector = BertizedCurator = None
+
+from src.architectures.JeBert import (
+    JeBertPipeline,
+    JeBertGating,
+    JeBertJevEvaluator,
+    JeBertArbitrator,
 )
 
 __all__ = [
@@ -51,6 +80,10 @@ __all__ = [
     "BertizedACEPipeline",
     "BertizedGenerator",
     "BertizedReflector",
-    "BertizedCurator"
+    "BertizedCurator",
+    "JeBertPipeline",
+    "JeBertGating",
+    "JeBertJevEvaluator",
+    "JeBertArbitrator",
 ]
 

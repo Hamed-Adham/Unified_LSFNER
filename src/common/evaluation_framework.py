@@ -694,3 +694,144 @@ def derive_pipeline_stage_predictions(
     return spanner_only, linkner, dingen
 
 
+def evaluate_ner_dual_view(
+    predicted_entities: List[List[Dict[str, Any]]],
+    ground_truth_entities: List[List[Dict[str, Any]]],
+    candidate_proposals: Optional[List[List[Dict[str, Any]]]] = None,
+    system_name: str = "JeBert",
+    use_new_labels: bool = True,
+) -> Dict[str, Any]:
+    """
+    Standardized Dual-View Evaluation Benchmark:
+    View 1: Candidate Arbitration Benchmark (Decision Accuracy on Proposed Mentions)
+    View 2: Global End-to-End Dataset Benchmark (Standard Academic Gold Set Recovery)
+    """
+    results: Dict[str, Any] = {}
+
+    # --------------------------------------------------------------------------
+    # VIEW 1: Candidate Arbitration Benchmark (if candidate proposals provided)
+    # --------------------------------------------------------------------------
+    if candidate_proposals:
+        def match_gt(span_text: str, s_c: int, e_c: int, gts: List[Dict[str, Any]]) -> str:
+            norm_s = normalize_text(span_text)
+            for g in gts:
+                g_text = normalize_text(g.get("text", g.get("span_text", "")))
+                g_s = g.get("start_char", g.get("start", -1))
+                g_e = g.get("end_char", g.get("end", -1))
+                if (s_c == g_s and e_c == g_e) or (norm_s == g_text and abs(s_c - g_s) <= 2):
+                    return canonicalize_label(g.get("label", "O"), use_new_labels=use_new_labels)
+            return "O"
+
+        all_records = []
+        for doc_idx, (preds, cands) in enumerate(zip(predicted_entities, candidate_proposals)):
+            gts = ground_truth_entities[doc_idx] if doc_idx < len(ground_truth_entities) else []
+            pred_map = {}
+            for p in preds:
+                key = (p.get("start_char", 0), p.get("end_char", 0))
+                pred_map[key] = p
+
+            for c in cands:
+                key = (c.get("start_char", 0), c.get("end_char", 0))
+                p = pred_map.get(key, c)
+                s_lbl = canonicalize_label(
+                    c.get("bert_predicted_label", c.get("spanner_label", c.get("predicted_label", "O"))),
+                    use_new_labels=use_new_labels,
+                )
+                f_lbl = canonicalize_label(
+                    p.get("final_label", p.get("label", s_lbl)),
+                    use_new_labels=use_new_labels,
+                )
+                gt_lbl = match_gt(c.get("span_text", ""), key[0], key[1], gts)
+                all_records.append({
+                    "span": c.get("span_text", ""),
+                    "spanner_label": s_lbl,
+                    "hybrid_label": f_lbl,
+                    "ground_truth": gt_lbl,
+                })
+
+        classes = sorted(list(
+            set(r["ground_truth"] for r in all_records if r["ground_truth"] != "O")
+            | set(r["hybrid_label"] for r in all_records if r["hybrid_label"] != "O")
+            | set(r["spanner_label"] for r in all_records if r["spanner_label"] != "O")
+        ))
+
+        per_class_table = []
+        tot_s_tp = tot_s_fp = tot_s_fn = 0
+        tot_h_tp = tot_h_fp = tot_h_fn = 0
+        s_f1_list, h_f1_list = [], []
+
+        for cls in classes:
+            s_tp = sum(1 for r in all_records if r["spanner_label"] == cls and r["ground_truth"] == cls)
+            s_fp = sum(1 for r in all_records if r["spanner_label"] == cls and r["ground_truth"] != cls)
+            s_fn = sum(1 for r in all_records if r["ground_truth"] == cls and r["spanner_label"] != cls)
+
+            h_tp = sum(1 for r in all_records if r["hybrid_label"] == cls and r["ground_truth"] == cls)
+            h_fp = sum(1 for r in all_records if r["hybrid_label"] == cls and r["ground_truth"] != cls)
+            h_fn = sum(1 for r in all_records if r["ground_truth"] == cls and r["hybrid_label"] != cls)
+
+            s_p, s_r, s_f1 = calc_prf(s_tp, s_fp, s_fn)
+            h_p, h_r, h_f1 = calc_prf(h_tp, h_fp, h_fn)
+
+            tot_s_tp += s_tp
+            tot_s_fp += s_fp
+            tot_s_fn += s_fn
+            tot_h_tp += h_tp
+            tot_h_fp += h_fp
+            tot_h_fn += h_fn
+
+            s_f1_list.append(s_f1)
+            h_f1_list.append(h_f1)
+            delta = (h_f1 - s_f1) * 100
+            delta_str = f"+{delta:.2f}%" if delta >= 0 else f"{delta:.2f}%"
+            per_class_table.append((cls, s_f1, h_f1, delta_str, h_tp, h_fp, h_fn))
+
+        s_mic_p, s_mic_r, s_mic_f1 = calc_prf(tot_s_tp, tot_s_fp, tot_s_fn)
+        h_mic_p, h_mic_r, h_mic_f1 = calc_prf(tot_h_tp, tot_h_fp, tot_h_fn)
+        s_mac_f1 = float(sum(s_f1_list) / len(s_f1_list)) if s_f1_list else 0.0
+        h_mac_f1 = float(sum(h_f1_list) / len(h_f1_list)) if h_f1_list else 0.0
+
+        print("=" * 114)
+        print("🏆 VIEW 1: CANDIDATE-LEVEL ARBITRATION BENCHMARK (Decision Accuracy on Proposed Mentions)")
+        print(f"   Evaluates decision accuracy on candidate mentions (SpanNER Proposer -> {system_name})")
+        print("=" * 114)
+        print(f"{'Class Name':<48} | {'SpanNER F1':<10} | {f'{system_name} F1':<14} | {'Delta':<8} | {'TP':<5} | {'FP':<5} | {'FN':<5}")
+        print("-" * 114)
+        for cls, s_f1, h_f1, d_str, tp, fp, fn in per_class_table:
+            print(f"{cls:<48} | {s_f1*100:8.2f}% | {h_f1*100:10.2f}% | {d_str:<8} | {tp:<5} | {fp:<5} | {fn:<5}")
+        print("-" * 114)
+        print(f"Candidate Micro Precision : {h_mic_p*100:.2f}%  (SpanNER: {s_mic_p*100:.2f}%, Delta: {(h_mic_p-s_mic_p)*100:+.2f}%)")
+        print(f"Candidate Micro Recall    : {h_mic_r*100:.2f}%  (SpanNER: {s_mic_r*100:.2f}%, Delta: {(h_mic_r-s_mic_r)*100:+.2f}%)")
+        print(f"Candidate Micro F1-Score  : {h_mic_f1*100:.2f}%  (SpanNER: {s_mic_f1*100:.2f}%, Delta: {(h_mic_f1-s_mic_f1)*100:+.2f}%)")
+        print(f"Candidate Macro F1-Score  : {h_mac_f1*100:.2f}%  (SpanNER: {s_mac_f1*100:.2f}%, Delta: {(h_mac_f1-s_mac_f1)*100:+.2f}%)")
+
+        results["view1_candidate_arbitration"] = {
+            "micro_p": h_mic_p,
+            "micro_r": h_mic_r,
+            "micro_f1": h_mic_f1,
+            "macro_f1": h_mac_f1,
+            "spanner_micro_f1": s_mic_f1,
+            "spanner_macro_f1": s_mac_f1,
+            "per_class": per_class_table,
+        }
+
+    # --------------------------------------------------------------------------
+    # VIEW 2: Global End-to-End Dataset Benchmark
+    # --------------------------------------------------------------------------
+    doc_metrics_list = []
+    for preds, gts in zip(predicted_entities, ground_truth_entities):
+        m = evaluate_doc_4_formulations(preds, gts, use_new_labels=use_new_labels)
+        doc_metrics_list.append(m)
+
+    v2_results = aggregate_4_formulations(doc_metrics_list)
+    results["view2_end_to_end"] = v2_results
+
+    summary_box = format_4_formulations_summary_box(
+        spanner_results=v2_results,
+        system_name=system_name,
+    )
+    print("\n" + summary_box)
+
+    return results
+
+
+
