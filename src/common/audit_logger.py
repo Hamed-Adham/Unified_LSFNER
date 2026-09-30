@@ -1462,4 +1462,95 @@ def log_bertized_ace_abstract_audit(
     return out_file
 
 
+def log_jebert_abstract_audit(
+    doc_id: str,
+    text: str,
+    gt_ents: List[Dict[str, Any]],
+    preds: List[Dict[str, Any]],
+    abstracts_dir: str,
+    timestamp_str: str = "",
+    architecture_str: str = "JeBert (SpanNER + Jev System One + Gating + Arbitrator)",
+    arbitrator_mode: str = "ace_generator",
+    use_new_labels: bool = True,
+) -> str:
+    """
+    Generates and saves the structured abstract audit report for JeBert:
+      1. Raw Abstract Text & Ground Truth Entities
+      2. Dual-Model Audit Matrix (Candidate Spans -> SpanNER vs Jev vs Final Arbitration vs Veto)
+      3. Gating Decisions & Arbitration Breakdown (Consensus Fast-Path, Escalated Arbitrations, Vetoes)
+    """
+    if not timestamp_str:
+        timestamp_str = get_timestamp_str()
+
+    lines = [
+        "=" * 100,
+        f"📄 ABSTRACT AUDIT REPORT: [DOC_ID: {doc_id}]",
+        f"Architecture: {architecture_str}",
+        f"Timestamp   : {timestamp_str}",
+        "=" * 100,
+        "",
+        "1. RAW ABSTRACT TEXT & GROUND TRUTH ENTITIES",
+        "-" * 100,
+        text.strip(),
+        "",
+        f"Ground Truth Entities ({len(gt_ents)} entities):"
+    ]
+
+    for i, g in enumerate(gt_ents, 1):
+        g_txt = g.get("text", "")
+        lines.append(f"  • [T{i}] ({g.get('start_char', 0)}, {g.get('end_char', 0)}): '{g_txt}' -> {g.get('label', 'O')}")
+
+    lines.extend([
+        "",
+        "2. DUAL-MODEL AUDIT MATRIX (SpanNER vs Jev -> Gating -> Final Arbitration)",
+        "-" * 100,
+        f"{'Span Text':<28} | {'Char Range':<10} | {'Ground Truth':<20} | {'SpanNER Label':<20} | {'Jev Label':<20} | {'Final Label':<20} | {'Gating':<10} | Outcome",
+        "-" * 145
+    ])
+
+    consensus_cnt = 0
+    escalated_cnt = 0
+    veto_cnt = 0
+
+    for p in preds:
+        st_c, end_c = p.get("start_char", 0), p.get("end_char", 0)
+        span_t = p.get("span_text", p.get("entity", ""))
+        gt_raw = match_gt_label(span_t, st_c, end_c, gt_ents)
+        gt_lbl = canonicalize_label(gt_raw, use_new_labels=use_new_labels)
+        s_lbl = canonicalize_label(p.get("spanner_label", p.get("predicted_label", "O")), use_new_labels=use_new_labels)
+        j_lbl = canonicalize_label(p.get("jev_label", "O"), use_new_labels=use_new_labels)
+        f_lbl = canonicalize_label(p.get("final_label", p.get("label", "O")), use_new_labels=use_new_labels)
+        is_esc = p.get("escalated_to_llm", False)
+        gating_str = "Escalated" if is_esc else "Consensus"
+        if is_esc:
+            escalated_cnt += 1
+        else:
+            consensus_cnt += 1
+        if "VETO" in str(p.get("source", "")).upper():
+            veto_cnt += 1
+
+        outcome = classify_10_outcome_str(gt_label=gt_lbl, spanner_label=s_lbl, final_label=f_lbl, escalated=is_esc)
+        lines.append(f"{span_t:<28} | {st_c:>4}-{end_c:<5} | {gt_lbl:<20} | {s_lbl:<20} | {j_lbl:<20} | {f_lbl:<20} | {gating_str:<10} | {outcome}")
+
+    lines.extend([
+        "",
+        "3. GATING & ARBITRATION SUMMARY",
+        "-" * 100,
+        f"  • Total Candidate Spans       : {len(preds)}",
+        f"  • Consensus Fast-Path (0 Cost): {consensus_cnt} spans",
+        f"  • Escalated to Arbitrator     : {escalated_cnt} spans",
+        f"  • Margin Safeguard Vetoes     : {veto_cnt} spans",
+        f"  • Arbitrator Mode             : {arbitrator_mode}",
+        ""
+    ])
+
+    os.makedirs(abstracts_dir, exist_ok=True)
+    out_file = os.path.join(abstracts_dir, f"{doc_id}.txt")
+    with open(out_file, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
+    return out_file
+
+
+
 
