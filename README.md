@@ -1,6 +1,6 @@
 # Unified Hybrid ALinkNER: Production-Grade Framework
 
-A unified, modular framework combining neural span representations ([SpanNER](src/architectures/hybrid_linkner/spanner_model.py) and [TwoStageSpanNER](src/architectures/hybrid_linkner/two_stage_spanner_model.py)), uncertainty-novelty unreliability gating, 10-outcome escalation diagnostic auditing, multi-agent reflection ([Dinasor](src/architectures/dinasor_dingen/dinasor_agent.py) and [LangGraph](src/graphs/)), and dynamic self-curated annotation guidelines ([BERTized ACE](src/architectures/agentic_guidelines/bertized_ace.py)).
+A unified, modular framework combining neural span representations ([SpanNER](src/architectures/hybrid_linkner/spanner_model.py) and [TwoStageSpanNER](src/architectures/hybrid_linkner/two_stage_spanner_model.py)), uncertainty-novelty unreliability gating, 10-outcome escalation diagnostic auditing, multi-agent reflection ([Dinasor](src/architectures/dinasor_dingen/dinasor_agent.py) and [LangGraph](src/graphs/)), dynamic self-curated annotation guidelines ([BERTized ACE](src/architectures/agentic_guidelines/bertized_ace.py)), and dual-model hybrid intelligence ([JeBert](src/architectures/JeBert/pipeline.py)).
 
 ---
 
@@ -16,7 +16,8 @@ Unified_LSFNER/
 │   ├── 04_dinasor_dingen_pipeline_graph.ipynb # LangGraph stateful multi-agent pipeline
 │   ├── 05_ablation_sweeps_and_pareto.ipynb    # 6-stage hyperparameter sweeps & Pareto engine
 │   ├── 06_agentic_guideline_curation_ner.ipynb# Pure LLM guideline curation loop
-│   └── 07_bertized_ace.ipynb                  # BERTized ACE dynamic guidebook optimization
+│   ├── 07_bertized_ace.ipynb                  # BERTized ACE dynamic guidebook optimization
+│   └── 08_jebert.ipynb                        # JeBert dual-model pipeline & dual-view evaluation
 │
 ├── scripts/                                   # Centralized CLI tools & standalone utilities
 │   ├── benchmark_spanner_models.py            # Single-stage vs Two-stage SpanNER benchmarking
@@ -35,6 +36,7 @@ Unified_LSFNER/
 │   │   ├── label_mapping.py                   # Canonical 20-class <-> 10-class mappings
 │   │   ├── dataset_utils.py                   # BRAT <-> BIO formatters, sentence splitters
 │   │   ├── evaluation.py                      # Exact / Partial PRF metrics & IAA scoring
+│   │   ├── evaluation_framework.py            # Dual-view benchmarking (CoNLL Strict, ACE Nested, MUC-7, Mention)
 │   │   ├── audit_logger.py                    # 10-outcome escalation diagnostic logger
 │   │   └── weave_wrapper.py                   # W&B / Weave tracking integration
 │   │
@@ -73,18 +75,26 @@ Unified_LSFNER/
 │   │   │   ├── sweep_engine.py                # Operators, weights, uncertainty, novelty, tau sweeps
 │   │   │   └── decision_cache.py              # PersistentLLMDecisionCache (0-cost reproducibility)
 │   │   │
-│   │   └── agentic_guidelines/                # Architecture 5: BERTized ACE & Dynamic Guideline Curation
-│   │       ├── bertized_ace.py                # BERTized ACE iterative curation & optimization loop
-│   │       ├── bullet_ops.py                  # Atomic bullet CRUD operations (ADD, MODIFY, DELETE, MERGE, SPLIT)
-│   │       ├── schema_store.py                # Structured JSON schema storage & validation
-│   │       ├── vector_store.py                # ChromaDB vector index for dynamic guideline retrieval
-│   │       ├── formatter.py                   # Dynamic guideline serialization & prompt formatting
-│   │       ├── manager.py                     # DynamicGuidelinesManager orchestrator
-│   │       ├── generator.py                   # Entity extractor from guidelines
-│   │       ├── reflector.py                   # Discrepancy identifier vs gold labels
-│   │       ├── curator.py                     # Guideline rule synthesizer & pruner
-│   │       ├── combined_agent.py              # ReflectorCuratorCombined single-pass agent
-│   │       └── pipeline.py                    # AgenticNERPipeline train/test orchestrator
+│   │   ├── agentic_guidelines/                # Architecture 5: BERTized ACE & Dynamic Guideline Curation
+│   │   │   ├── bertized_ace.py                # BERTized ACE iterative curation & optimization loop
+│   │   │   ├── bullet_ops.py                  # Atomic bullet CRUD operations (ADD, MODIFY, DELETE, MERGE, SPLIT)
+│   │   │   ├── schema_store.py                # Structured JSON schema storage & validation
+│   │   │   ├── vector_store.py                # ChromaDB vector index for dynamic guideline retrieval
+│   │   │   ├── formatter.py                   # Dynamic guideline serialization & prompt formatting
+│   │   │   ├── manager.py                     # DynamicGuidelinesManager orchestrator
+│   │   │   ├── generator.py                   # Entity extractor from guidelines
+│   │   │   ├── reflector.py                   # Discrepancy identifier vs gold labels
+│   │   │   ├── curator.py                     # Guideline rule synthesizer & pruner
+│   │   │   ├── combined_agent.py              # ReflectorCuratorCombined single-pass agent
+│   │   │   └── pipeline.py                    # AgenticNERPipeline train/test orchestrator
+│   │   │
+│   │   └── JeBert/                            # Architecture 6: Dual-Model Hybrid NER (SpanNER + Jev System One + Gating + LLM Arbitration)
+│   │       ├── client.py                      # Resilient TypeSafeClient with automatic retry & rate-limiting
+│   │       ├── jev_generator.py               # JevGenerator multi-rule relative ratio assignment & classification
+│   │       ├── gating.py                      # JeBertGating engine with 5 gating policies & margin veto safeguard
+│   │       ├── jev_evaluator.py               # JeBertJevEvaluator (unbiased evaluation without neural label bias)
+│   │       ├── arbitrator.py                  # JeBertArbitrator (ACE Generator, Discovery, and Dinasor-DinGen modes)
+│   │       └── pipeline.py                    # JeBertPipeline end-to-end inference orchestrator
 │   │
 │   └── prompts/                               # Markdown & Text Prompt Assets (Organized per Architecture)
 │       ├── agentic_guidelines/                # Prompts for BERTized ACE & Guideline Curation
@@ -144,6 +154,17 @@ A self-improving guideline curation system that optimizes medical entity annotat
 - **Hybrid Search**: Leverages ChromaDB vector indexing and JSON schema hierarchy to inject only relevant guideline rules into prompts.
 - **Dynamic Checkpoint Backups**: Automatically snapshots guideline evolution states during training iterations.
 
+### 4. JeBert Dual-Model Architecture & Intelligent Gating
+A high-throughput, cost-efficient dual-model architecture pairing dense neural representations with an independent semantic prior:
+- **Decoupled Semantic Prior (TypeSafe System One)**: Evaluates candidate spans without inheriting SpanNER's bias via [JeBertJevEvaluator](src/architectures/JeBert/jev_evaluator.py), dynamically matching guideline rules using relative ratio scoring.
+- **Dual-Model Gating Engine**: [JeBertGating](src/architectures/JeBert/gating.py) splits spans into fast-path consensus (0 LLM cost) vs. genuine discrepancies, high-uncertainty spans, and outlier novelty.
+- **Margin Safeguard Veto**: Protects confident neural top-1 predictions (high margin between top-1 and top-2) from erroneous overrides by downstream arbiters.
+- **Tri-Mode Escalation Arbitration**: [JeBertArbitrator](src/architectures/JeBert/arbitrator.py) resolves escalated candidate spans via:
+  1. *ACE Generator*: Single-pass dual-hypothesis arbitration conditioned on curated domain guidelines.
+  2. *Discovery Pass*: Simultaneously arbitrates escalated spans and scans the abstract for missed spans omitted by candidate proposal.
+  3. *Dinasor-DinGen*: Two-call reflective hint extraction and conditioned classification.
+- **Dual-View Benchmark Evaluation**: [evaluation_framework.py](src/common/evaluation_framework.py) reports simultaneous metrics across Strict CoNLL (Exact Span + Label), ACE Nested, MUC-7 Relaxed, and Boundary Mention recall.
+
 ---
 
 ## 🚀 Quickstart & Usage
@@ -158,6 +179,7 @@ Execute notebooks in workflow order:
 - **`05_ablation_sweeps_and_pareto.ipynb`**: 6-stage hyperparameter sweeps and Pareto frontier analysis.
 - **`06_agentic_guideline_curation_ner.ipynb`**: Baseline agentic guideline curation.
 - **`07_bertized_ace.ipynb`**: BERTized ACE optimization loop with bullet-level CRUD refinement.
+- **`08_jebert.ipynb`**: JeBert dual-model pipeline execution and comprehensive multi-tier benchmarking.
 
 ### 2. Python Script Imports
 
@@ -189,9 +211,42 @@ from src.architectures.agentic_guidelines import (
     DynamicGuidelinesManager,
     BERTizedACEOptimizer,
 )
+
+# Architecture 6: JeBert Dual-Model Hybrid Pipeline
+from src.architectures.JeBert import (
+    JeBertPipeline,
+    JeBertGating,
+    JeBertJevEvaluator,
+    JeBertArbitrator,
+    JevGenerator,
+    TypeSafeClient,
+)
 ```
 
-### 3. CLI Utilities
+### 3. Running JeBert Inference
+
+```python
+from src.architectures.JeBert import JeBertPipeline
+
+# Initialize the end-to-end JeBert pipeline
+pipeline = JeBertPipeline(
+    jev_mode="two_stage",                      # 'two_stage' (rule assignment + classification), 'mode1', 'mode2', 'mode3'
+    gating_mode="discrepancy",                 # 'discrepancy', 'uncertainty_novelty', 'all_escalate', 'margin_uncertainty', 'none'
+    arbitrator_mode="ace_generator",           # 'ace_generator', 'discovery', 'dinasor_dingen', 'none'
+    enable_gating=True,
+    enable_llm_arbitration=True,
+    enable_margin_safeguard_veto=True,
+    margin_threshold=0.50,
+)
+
+# Predict entities on a biomedical abstract with candidate spans
+predicted_entities = pipeline.predict_abstract(
+    abstract=abstract_text,
+    candidate_spans=candidate_spans,
+)
+```
+
+### 4. CLI Utilities
 
 - **Benchmark SpanNER Variants**:
   ```bash
