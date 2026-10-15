@@ -134,7 +134,7 @@ class Formatter:
         return "\n".join(lines) if lines else "No dynamicGuidelines available"
 
     def _to_md_curator(self, store, query_text: Optional[str] = None, n_similar: int = 3) -> str:
-        """Markdown projection for curator."""
+        """Markdown projection for curator including existing positive and negative examples."""
         lines = []
         for g in self._get_selected_guidelines(store, query_text=query_text, n_results=n_similar):
             gid = g.get("id", g.get("bullet_id", "DG"))
@@ -157,6 +157,30 @@ class Formatter:
             if "similar_spans" in g and g["similar_spans"]:
                 spans_str = ", ".join(s.get("span", "") for s in g["similar_spans"])
                 lines.append(f"- **Similar Spans**: {spans_str}")
+
+            ex_data = store.get_examples_for_guideline(gid) if hasattr(store, "get_examples_for_guideline") else {}
+            pos_exs = ex_data.get("positive", [])
+            neg_exs = ex_data.get("negative", [])
+            
+            if pos_exs:
+                lines.append(f"- **Existing Positive Examples ({len(pos_exs)}/5)**:")
+                for ex in pos_exs:
+                    s_snippet = ex.get('sentence', '')
+                    if len(s_snippet) > 120:
+                        s_snippet = s_snippet[:120] + "..."
+                    lines.append(f"  * [POS] Span: '{ex.get('span', '')}' | GT: {ex.get('ground_truth_label', '')} | BERT: {ex.get('bert_label', '')} | Sentence: \"{s_snippet}\"")
+            else:
+                lines.append("- **Existing Positive Examples (0/5)**: None")
+                
+            if neg_exs:
+                lines.append(f"- **Existing Negative Examples ({len(neg_exs)}/5)**:")
+                for ex in neg_exs:
+                    s_snippet = ex.get('sentence', '')
+                    if len(s_snippet) > 120:
+                        s_snippet = s_snippet[:120] + "..."
+                    lines.append(f"  * [NEG] Span: '{ex.get('span', '')}' | GT: {ex.get('ground_truth_label', '')} | BERT: {ex.get('bert_label', '')} | Gen: {ex.get('generator_label', '')} | Sentence: \"{s_snippet}\"")
+            else:
+                lines.append("- **Existing Negative Examples (0/5)**: None")
                 
         return "\n\n".join(lines) if lines else "No dynamicGuidelines available"
 

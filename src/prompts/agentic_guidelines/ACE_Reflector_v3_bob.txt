@@ -155,12 +155,17 @@ Definitions for Outcome_Class column (Triad: Ground Truth [GT] -> BERT's predict
 - Out-of-Scope Spans:
   - Spans where the Generator was correct (`GT_X_BERT_X_LLM_X`, `GT_X_BERT_Y_LLM_X`, `GT_O_BERT_X_LLM_O`) and NO bullets were cited (`Bullet_IDs` is `[]` or `None`). These are completely excluded from the output.
 
-## Step 2: Per-Span Diagnostic Investigation -> produces `reasoning`, `primary_outcome`, `error_identification`, `root_cause_analysis`, `correct_approach`, and `bullet_tags`
-For EACH evaluated in-scope candidate span, construct its output item:
+## Step 2: Per-Span Diagnostic Investigation -> produces structured per-span diagnostic items
+For EACH evaluated in-scope candidate span, construct its output item containing all metadata and diagnostic fields:
 
 ### Case A: Erroneous Candidate Span (Outcome_Class is an error triad):
-- **`reasoning`**: State the scope check, outcome class triad, workflow step diagnosis, and corrective reasoning.
+- **`span`**: Exact candidate span text from the alignment table.
+- **`sentence`**: Exact sentence from the abstract where the candidate span occurs.
+- **`ground_truth_label`**: Exact `Ground_Truth` label from the alignment table.
+- **`bert_label`**: Exact `BERT_LABEL` from the alignment table.
+- **`generator_label`**: Exact `GENERATOR_LABEL` from the alignment table.
 - **`primary_outcome`**: Set to the specific error outcome triad for this span (`GT_X_BERT_X_LLM_Y`, `GT_O_BERT_X_LLM_X`, `GT_O_BERT_X_LLM_Y`, `GT_X_BERT_X_LLM_O`, `GT_X_BERT_Y_LLM_O`, `GT_X_BERT_Y_LLM_Z`, or `GT_X_BERT_Y_LLM_Y`).
+- **`reasoning`**: State the scope check, outcome class triad, workflow step diagnosis, and corrective reasoning.
 - **`error_identification`**: Single-row markdown table: `| Erroneous Span | Error Type | Bullet IDs | Bullet Impact (harmful/neutral/none) | Explanation |`.
 - **`root_cause_analysis`**: Determine the specific Generator workflow step and failure mechanism (anchoring bias, over-rejection, over-correction, or boundary confusion).
 - **`correct_approach`**: State hyper-specifically what the Generator should have done instead for this exact span in this sentence/abstract.
@@ -171,8 +176,13 @@ For EACH evaluated in-scope candidate span, construct its output item:
   - If no guideline was cited for this span, provide `[]` (and record `Bullet Impact: none` in the table).
 
 ### Case B: Successful Candidate Span with Bullets Cited (Outcome_Class is a success triad):
-- **`reasoning`**: `"None"`
+- **`span`**: Exact candidate span text from the alignment table.
+- **`sentence`**: Exact sentence from the abstract where the candidate span occurs.
+- **`ground_truth_label`**: Exact `Ground_Truth` label from the alignment table.
+- **`bert_label`**: Exact `BERT_LABEL` from the alignment table.
+- **`generator_label`**: Exact `GENERATOR_LABEL` from the alignment table.
 - **`primary_outcome`**: Set to the specific success outcome triad for this span (`GT_X_BERT_Y_LLM_X`, `GT_O_BERT_X_LLM_O`, or `GT_X_BERT_X_LLM_X`).
+- **`reasoning`**: `"None"`
 - **`error_identification`**: `"None"`
 - **`root_cause_analysis`**: `"None"`
 - **`correct_approach`**: `"None"`
@@ -216,8 +226,13 @@ ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Bullet_IDs	Outcome_Class
 **Output:**
 [
   {{
-    "reasoning": "Step 1: 'sleep quality score' is in scope and is GT_X_BERT_X_LLM_O. Step 2: The error occurred at Category Decision; bullet DG-0002 was misapplied to a compound metric phrase. Step 3: Generator should have recognized it as a metric-quantified LSF and applied Sleep. Step 4: Formulated a concise semantic boundary rule.",
+    "span": "sleep quality score",
+    "sentence": "The sleep quality score was recorded for each subject.",
+    "ground_truth_label": "Sleep",
+    "bert_label": "Sleep",
+    "generator_label": "O",
     "primary_outcome": "GT_X_BERT_X_LLM_O",
+    "reasoning": "Step 1: 'sleep quality score' is in scope and is GT_X_BERT_X_LLM_O. Step 2: The error occurred at Category Decision; bullet DG-0002 was misapplied to a compound metric phrase. Step 3: Generator should have recognized it as a metric-quantified LSF and applied Sleep. Step 4: Formulated a concise semantic boundary rule.",
     "error_identification": "| sleep quality score | GT_X_BERT_X_LLM_O | [\"DG-0002\"] | harmful | BERT proposed the correct LSF category (Sleep), but the LLM made a mistake and labeled it as Non-LSF (O) due to quantifier-exclusion misapplication. |",
     "root_cause_analysis": "The error occurred at the Category Decision step: BERT proposed the correct LSF category (Sleep), but the LLM made a mistake and labeled it as Non-LSF (O). The Generator misapplied a standalone-quantifier exclusion rule to a compound metric phrase instead of the metric-inclusion rule.",
     "correct_approach": "Instead of rejecting 'sleep quality score' as O under the quantifier-exclusion bullet, the Generator should have applied the metric-inclusion rule, confirmed BERT's proposed Sleep label, and preserved it.",
@@ -244,8 +259,13 @@ ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Bullet_IDs	Outcome_Class
 **Output:**
 [
   {{
-    "reasoning": "Step 1: 'fasting blood glucose' is an in-scope error (GT_O_BERT_X_LLM_X). Step 2: Error at Step 1 (Evidence Read & Entity-Hood Determination) due to anchoring bias on BERT's proposal. Step 3: Apply Affirmative Filtering (Base Rule 2) to exclude metabolic biomarkers. Step 4: Formulated concise boundary principle.",
+    "span": "fasting blood glucose",
+    "sentence": "Subjects had elevated fasting blood glucose despite adequate fiber intake.",
+    "ground_truth_label": "O",
+    "bert_label": "Nutrition",
+    "generator_label": "Nutrition",
     "primary_outcome": "GT_O_BERT_X_LLM_X",
+    "reasoning": "Step 1: 'fasting blood glucose' is an in-scope error (GT_O_BERT_X_LLM_X). Step 2: Error at Step 1 (Evidence Read & Entity-Hood Determination) due to anchoring bias on BERT's proposal. Step 3: Apply Affirmative Filtering (Base Rule 2) to exclude metabolic biomarkers. Step 4: Formulated concise boundary principle.",
     "error_identification": "| fasting blood glucose | GT_O_BERT_X_LLM_X | [] | none | Both BERT and the LLM agreed on Nutrition, but the span is Non-LSF (an internal metabolic biomarker). |",
     "root_cause_analysis": "The error occurred at Step 1 (Evidence Read and Entity-Hood Determination): both BERT and the LLM agreed and labeled the span as Nutrition, but the span is Non-LSF. The Generator suffered from evidence anchoring bias, uncritically confirming BERT's proposal for 'fasting blood glucose' rather than checking Affirmative Filtering (Base Rule 2).",
     "correct_approach": "Instead of anchoring on BERT's 'Nutrition' prediction, the Generator should have evaluated 'fasting blood glucose' against Affirmative Filtering rules, recognized it as an internal physiological biomarker rather than voluntary food consumption, and rejected it as O.",
@@ -253,8 +273,13 @@ ID	Span Text	Ground_Truth	BERT_LABEL	GENERATOR_LABEL	Bullet_IDs	Outcome_Class
     "bullet_tags": []
   }},
   {{
-    "reasoning": "None",
+    "span": "fiber intake",
+    "sentence": "Subjects had elevated fasting blood glucose despite adequate fiber intake.",
+    "ground_truth_label": "Nutrition",
+    "bert_label": "Nutrition",
+    "generator_label": "Nutrition",
     "primary_outcome": "GT_X_BERT_X_LLM_X",
+    "reasoning": "None",
     "error_identification": "None",
     "root_cause_analysis": "None",
     "correct_approach": "None",

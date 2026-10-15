@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import shutil
 from datetime import datetime
@@ -17,11 +18,15 @@ class GuidebookStore:
         self.guidebook_file_path = str(guidebook_file_path)
         self.backup_directory = str(Path(self.guidebook_file_path).parent / "backup")
         
+        examples_path = Path(self.guidebook_file_path).parent / f"{Path(self.guidebook_file_path).stem}_examples.json"
+        self.examples_file_path = str(examples_path)
+        
         os.makedirs(os.path.dirname(self.guidebook_file_path), exist_ok=True)
         os.makedirs(self.backup_directory, exist_ok=True)
         
         self._max_id_num = 0
         self.guidebook: Dict[str, Any] = {"guidebook": []}
+        self.examples: Dict[str, Any] = {"examples": {}}
         self._guidelines_by_id: Dict[str, Dict[str, Any]] = {}
 
     # --- Backward-compatibility properties ---
@@ -32,6 +37,7 @@ class GuidebookStore:
     @dynamicGuidelines_file_path.setter
     def dynamicGuidelines_file_path(self, val: str):
         self.guidebook_file_path = str(val)
+        self.examples_file_path = str(Path(val).parent / f"{Path(val).stem}_examples.json")
 
     @property
     def dg_backup_directory(self) -> str:
@@ -46,7 +52,7 @@ class GuidebookStore:
         self.guidebook = val
 
     def load(self):
-        """Loads guidebook from JSON, supporting flat {"guidebook": [...]}, {"guidelines": [...]}, or raw list."""
+        """Loads guidebook and examples from JSON."""
         try:
             with open(self.guidebook_file_path, "r", encoding='utf-8') as f:
                 data = json.load(f)
@@ -74,8 +80,149 @@ class GuidebookStore:
             print(f"Warning: error reading {self.guidebook_file_path}: {e}. Initializing empty store.")
             self.guidebook = {"guidebook": []}
 
+        self.load_examples()
         self._rebuild_index()
         self.save(backup=False)
+
+    def load_examples(self):
+        """Loads positive/negative examples from JSON."""
+        try:
+            if os.path.exists(self.examples_file_path):
+                with open(self.examples_file_path, "r", encoding='utf-8') as f:
+                    data = json.load(f)
+                if isinstance(data, dict):
+                    if "examples" in data and isinstance(data["examples"], dict):
+                        self.examples = data
+                    else:
+                        self.examples = {"examples": data}
+                else:
+                    self.examples = {"examples": {}}
+            else:
+                self.examples = {"examples": {}}
+        except Exception as e:
+            print(f"Warning: error reading examples from {self.examples_file_path}: {e}")
+            self.examples = {"examples": {}}
+
+    def save_examples(self, backup: bool = True) -> bool:
+        """Saves dynamicGuidebook examples JSON with timestamped backup."""
+        if backup and os.path.exists(self.examples_file_path):
+            try:
+                ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+                backup_name = f"dynamicGuidebook_examples_backup_{ts}.json"
+                backup_path = os.path.join(self.backup_directory, backup_name)
+                shutil.copy2(self.examples_file_path, backup_path)
+            except Exception:
+                pass
+
+        try:
+            with open(self.examples_file_path, "w", encoding='utf-8') as f:
+                json.dump(self.examples, f, indent=2, ensure_ascii=False)
+            return True
+        except Exception as e:
+            print(f"Failed to save dynamicGuidebook examples: {e}")
+            return False
+
+    @staticmethod
+    def is_similar_span(span_a: str, span_b: str, jaccard_threshold: float = 0.5) -> bool:
+        """
+        Evaluates whether two spans are semantically or lexically near-duplicates.
+        Checks:
+        1. Exact case-insensitive match
+        2. Substring inclusion (e.g. 'passive smoking' in 'active and passive smoking')
+        3. Word set token Jaccard overlap >= jaccard_threshold
+        """
+        a = str(span_a).strip().lower()
+        b = str(span_b).strip().lower()
+        if not a or not b:
+            return False
+        if a == b:
+            return True
+        if a in b or b in a:
+            return True
+        
+        words_a = set(re.findall(r'\w+', a))
+        words_b = set(re.findall(r'\w+', b))
+        if words_a and words_b:
+            intersection = words_a.intersection(words_b)
+            union = words_a.union(words_b)
+            if union and (len(intersection) / len(union)) >= jaccard_threshold:
+                return True
+        return False
+
+    def add_example(
+        self,
+        guideline_id: str,
+        example_type: str,
+        example_data: Dict[str, Any],
+        max_examples: int = 5,
+        save_now: bool = True
+    ) -> bool:
+        """
+        Adds a positive or negative example for a specific guideline ID with:
+        - Capacity limit (strictly maximum `max_examples` per positive/negative list, default 5).
+        - Strict similarity and deduplication filtering to ensure distinct examples.
+        example_type: 'positive' (helpful) or 'negative' (harmful).
+        """
+        ex_map = self.examples.setdefault("examples", {})
+        g_entry = ex_map.setdefault(guideline_id, {"positive": [], "negative": []})
+        
+        target_list = g_entry.setdefault(example_type, [])
+        
+        # 1. Capacity limit check: if already reached max capacity, reject new additions
+        if len(target_list) >= max_examples:
+            return False
+
+        # 2. Strict span similarity and deduplication filter
+        span_text = str(example_data.get("span", "")).strip().lower()
+        if not span_text:
+            return False
+
+        for existing in target_list:
+            ex_span = str(existing.get("span", "")).strip().lower()
+            if self.is_similar_span(span_text, ex_span):
+                return False  # Similar/duplicate span already exists
+
+        target_list.append(example_data)
+        if save_now:
+            self.save_examples(backup=False)
+        return True
+
+    def get_examples_for_guideline(self, guideline_id: str) -> Dict[str, List[Dict[str, Any]]]:
+        """Retrieves positive and negative examples for a specific guideline."""
+        return self.examples.get("examples", {}).get(guideline_id, {"positive": [], "negative": []})
+
+    def prune_and_deduplicate_all_examples(self, max_per_type: int = 5) -> int:
+        """
+        Prunes all existing guideline example lists to ensure strict non-similarity and max capacity.
+        Returns total number of pruned/removed duplicate entries.
+        """
+        ex_map = self.examples.setdefault("examples", {})
+        removed_count = 0
+        for gid, g_entry in ex_map.items():
+            for ex_type in ("positive", "negative"):
+                items = g_entry.get(ex_type, [])
+                distinct_items = []
+                for it in items:
+                    it_span = str(it.get("span", "")).strip().lower()
+                    if not it_span:
+                        removed_count += 1
+                        continue
+                    is_dup = False
+                    for kept in distinct_items:
+                        kept_span = str(kept.get("span", "")).strip().lower()
+                        if self.is_similar_span(it_span, kept_span):
+                            is_dup = True
+                            break
+                    if is_dup:
+                        removed_count += 1
+                    elif len(distinct_items) < max_per_type:
+                        distinct_items.append(it)
+                    else:
+                        removed_count += 1
+                g_entry[ex_type] = distinct_items
+        if removed_count > 0:
+            self.save_examples(backup=False)
+        return removed_count
 
     def _iter_legacy_dict(self, data: Dict[str, Any]) -> Generator[Dict[str, Any], None, None]:
         """Unpacks legacy nested dictionary into flat items."""
@@ -110,7 +257,7 @@ class GuidebookStore:
         self._max_id_num = max_num
 
     def save(self, backup: bool = True) -> bool:
-        """Saves dynamicGuidebook JSON with timestamped backup."""
+        """Saves dynamicGuidebook and examples JSON with timestamped backup."""
         if backup and os.path.exists(self.guidebook_file_path):
             try:
                 ts = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -123,6 +270,7 @@ class GuidebookStore:
         try:
             with open(self.guidebook_file_path, "w", encoding='utf-8') as f:
                 json.dump(self.guidebook, f, indent=2, ensure_ascii=False)
+            self.save_examples(backup=backup)
             return True
         except Exception as e:
             print(f"Failed to save dynamicGuidebook: {e}")
@@ -154,6 +302,10 @@ class GuidebookStore:
         })
         guideline.setdefault("history", [])
 
+        # Ensure guideline entry exists in examples store
+        ex_map = self.examples.setdefault("examples", {})
+        ex_map.setdefault(gid, {"positive": [], "negative": []})
+
         records = self.guidebook.setdefault("guidebook", [])
         if gid not in self._guidelines_by_id:
             records.append(guideline)
@@ -179,5 +331,7 @@ class GuidebookStore:
         yield from self.iter_guidelines()
 
 
-# Backward compatibility alias
+# Backward compatibility aliases
 SchemaStore = GuidebookStore
+DynamicGuidebookStore = GuidebookStore
+DynamicGuidelinesStore = GuidebookStore

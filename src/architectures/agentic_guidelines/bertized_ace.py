@@ -735,6 +735,11 @@ class BertizedACEPipeline:
 
     save_guidelines = save_guidebook
 
+    def save_examples(self, backup: bool = True) -> bool:
+        """Saves current dynamic guidebook positive/negative examples JSON to disk."""
+        with self._lock:
+            return self.manager.save_examples(backup=backup)
+
     def export_guidelines_markdown(self, output_path: str) -> str:
         """Exports human-readable Markdown summary of all active dynamic guidelines."""
         with self._lock:
@@ -883,7 +888,11 @@ class BertizedACEPipeline:
                 else:
                     reflection = {"reasoning": str(reflection), "bullet_tags": [], "key_insight": "None"}
 
-            # Apply bullet tag metrics (helpful/harmful/neutral) under lock
+            # Apply bullet tag metrics (helpful/harmful/neutral) and sync examples under lock
+            diag_items = reflection.get("diagnostic_items", [])
+            if not diag_items and isinstance(reflection, dict) and reflection.get("error_identification") and reflection.get("error_identification") != "None":
+                diag_items = [reflection]
+
             bullet_tags = reflection.get("bullet_tags", [])
             if isinstance(bullet_tags, list):
                 with self._lock:
@@ -898,6 +907,100 @@ class BertizedACEPipeline:
                                 self.manager.update_bullet_metrics(b_ids, harmful_delta=1)
                             elif tag == "neutral":
                                 self.manager.update_bullet_metrics(b_ids, neutral_delta=1)
+
+                    # Automated fallback: populate positive/negative examples from reflection diagnostic items
+                    if isinstance(diag_items, list):
+                        for d_item in diag_items:
+                            if isinstance(d_item, dict):
+                                d_tags = d_item.get("bullet_tags", [])
+                                for bt in d_tags:
+                                    if isinstance(bt, dict):
+                                        g_id = bt.get("id")
+                                        g_tag = str(bt.get("tag", "")).strip().lower()
+                                        if g_id and g_tag in ("helpful", "harmful"):
+                                            ex_type = "positive" if g_tag == "helpful" else "negative"
+                                            
+                                            span_val = d_item.get("span", "")
+                                            sent_val = d_item.get("sentence", d_item.get("span_sentence", ""))
+                                            err_id_str = str(d_item.get("error_identification", "")).strip()
+                                            expl_val = d_item.get("explanation", d_item.get("root_cause_analysis", ""))
+                                            
+                                            if err_id_str and "|" in err_id_str:
+                                                parts = [p.strip() for p in err_id_str.split("|") if p.strip()]
+                                                if parts:
+                                                    if not span_val and len(parts) >= 1:
+                                                        span_val = parts[0]
+                                                    if (not expl_val or expl_val == "None") and len(parts) >= 5:
+                                                        expl_val = parts[4]
+                                                    elif (not expl_val or expl_val == "None") and len(parts) >= 4:
+                                                        expl_val = parts[-1]
+
+                                            # If span is still empty, search in generator predicted answers by cited bullet ID
+                                            if not span_val:
+                                                for ans in predicted.get("llm_answer", predicted.get("final_answer", [])):
+                                                    if isinstance(ans, dict):
+                                                        b_ids = ans.get("bullet_ids") or ans.get("guidelines_ids", []) or []
+                                                        if g_id in b_ids:
+                                                            span_val = ans.get("span_text", ans.get("entity", ans.get("span", "")))
+                                                            break
+                                            
+                                            # Match against target_cands for ground truth, BERT, and generator labels
+                                            matched_cand = None
+                                            if span_val:
+                                                for cand in target_cands:
+                                                    c_text = cand.get("span_text", cand.get("entity", ""))
+                                                    if c_text and c_text.strip().lower() == span_val.strip().lower():
+                                                        matched_cand = cand
+                                                        break
+
+                                            if not sent_val and span_val and span_val in abstract:
+                                                sentences = re.split(r'(?<=[.!?])\s+', abstract)
+                                                for s in sentences:
+                                                    if span_val in s:
+                                                        sent_val = s.strip()
+                                                        break
+                                                if not sent_val:
+                                                    sent_val = abstract
+
+                                            gt_lbl = d_item.get("ground_truth_label") or d_item.get("gt_label") or ""
+                                            if not gt_lbl and matched_cand:
+                                                gt_lbl = matched_cand.get("gt_label", "")
+
+                                            bert_lbl = d_item.get("bert_label") or ""
+                                            if not bert_lbl and matched_cand:
+                                                bert_lbl = matched_cand.get("predicted_label", matched_cand.get("spanner_label", ""))
+
+                                            gen_lbl = d_item.get("generator_label") or d_item.get("llm_label") or ""
+                                            if not gen_lbl and span_val:
+                                                for ans in predicted.get("llm_answer", predicted.get("final_answer", [])):
+                                                    if isinstance(ans, dict):
+                                                        a_text = ans.get("span_text", ans.get("entity", ans.get("span", "")))
+                                                        if a_text and a_text.strip().lower() == span_val.strip().lower():
+                                                            gen_lbl = ans.get("label", ans.get("generator_label", ""))
+                                                            break
+                                            if not gen_lbl and matched_cand:
+                                                gen_lbl = matched_cand.get("predicted_label", "")
+
+                                            outcome_tr = d_item.get("primary_outcome", d_item.get("triad", ""))
+                                            if not outcome_tr:
+                                                outcome_tr = "GT_X_BERT_X_LLM_X" if ex_type == "positive" else "GT_X_BERT_Y_LLM_Y"
+
+                                            if not expl_val or expl_val == "None":
+                                                if ex_type == "positive":
+                                                    expl_val = f"Guideline {g_id} successfully confirmed {gt_lbl or 'correct label'}."
+                                                else:
+                                                    expl_val = f"Guideline {g_id} was cited and misfired on '{span_val}'."
+
+                                            ex_data = {
+                                                "span": span_val,
+                                                "sentence": sent_val,
+                                                "ground_truth_label": gt_lbl,
+                                                "bert_label": bert_lbl,
+                                                "generator_label": gen_lbl,
+                                                "outcome_triad": outcome_tr,
+                                                "explanation": expl_val
+                                            }
+                                            self.manager.add_guideline_example(g_id, ex_type, ex_data)
 
             # 3. Curator Step (Fetch candidate guidelines under lock)
             if self.curator_mode == "per_span" and reflection.get("diagnostic_items"):
@@ -924,7 +1027,7 @@ class BertizedACEPipeline:
                     curator_output = {"reasoning": str(curator_output), "operations": []}
 
             # 4. Process Curator Operations into Manager under lock & persist immediately
-            if curator_output.get("operations"):
+            if curator_output.get("operations") or curator_output.get("example_updates") or curator_output.get("examples"):
                 with self._lock:
                     self.manager.process_curator_operations(
                         curator_output=curator_output,

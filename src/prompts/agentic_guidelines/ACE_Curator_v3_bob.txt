@@ -110,8 +110,18 @@ From the qualified candidates, formulate at most ONE operation for this abstract
   - Set `ground_truth_label` to the target canonical LSF Category from §2.3 (e.g., "Sleep", "Nutrition").
   - If the rule establishes a negative boundary exclusion (e.g., rejecting an endogenous biomarker or demographic covariate misclassified by BERT), set `ground_truth_label` to `"O"`. Do NOT use sections or supercategories.
 
-### STEP 6: Format Output
-Generate the final JSON output following the formats in Section 5. Create at most 1 **ADD** or **MODIFY** operation only if every prior gate was cleared; otherwise Safe-Fail with `"operations": []`.
+### STEP 6: Curate Guideline Examples (Positive & Negative Attribution)
+Examine all evaluated candidate spans in the Reflection input alongside the existing examples listed under each guideline in "Current DynamicGuidebook":
+- **Capacity & Diversity Constraints**:
+  - Each guideline maintains a strict maximum capacity of **5 positive** and **5 negative** examples (`N/5`).
+  - **Deduplication / Strict Similarity Filter**: NEVER emit an example if its span or a near-identical / duplicate phrase (substring, token overlap) is already listed in the guideline's existing examples. Every example must provide distinct, informative value.
+  - If a guideline already has 5 examples in the target category (`5/5`) or the proposed example is duplicate/similar, do NOT emit an example update for it.
+- **Negative Examples (Harmful Usages)**: When a guideline (`DG-XXXX`) was cited and flagged as `harmful` in `bullet_tags` or in `error_identification` (where applying the rule misled the Generator into an incorrect category or wrongful rejection), formulate a `negative` example record for that guideline ID capturing the span, sentence, GT label, BERT label, Generator label, outcome triad, and diagnostic explanation.
+- **Positive Examples (Helpful Usages)**: When a guideline (`DG-XXXX`) was cited and flagged as `helpful` in `bullet_tags` (where applying the rule helped the Generator preserve the correct LSF category or drop a false alarm), formulate a `positive` example record for that guideline ID.
+- These example updates populate the companion `dynamicGuidebook_examples.json` database.
+
+### STEP 7: Format Output
+Generate the final JSON output following the formats in Section 5. Create at most 1 **ADD** or **MODIFY** operation and **example_updates** only if supported by reflection evidence; otherwise Safe-Fail with `"operations": [], "example_updates": []`.
 
 ---
 
@@ -140,12 +150,13 @@ Reflection:
 Use this when insight is redundant, contradicts BASE RULES, fails the Step 3 genericity test, or you're uncertain:
 {{
   "reasoning": "No valid non-redundant update supported by reflection. [Explain why, citing which specific test failed: BASE RULE violation, pattern test, necessity test, restatement test, stability test, or overlap]",
-  "operations": []
+  "operations": [],
+  "example_updates": []
 }}
 
-### ADD Operation Format
+### ADD / MODIFY Operation Format
 {{
-  "reasoning": "Summary of workflow steps executed, including explicit confirmation that all four Step 3 tests passed, and why ADD was chosen.",
+  "reasoning": "Summary of workflow steps executed, including explicit confirmation that all four Step 3 tests passed, and why ADD/MODIFY and examples were chosen.",
   "operations": [
     {{
       "type": "ADD",
@@ -165,6 +176,30 @@ Use this when insight is redundant, contradicts BASE RULES, fails the Step 3 gen
       "similar_spans": [
         {{"span": "<example surface form 1>", "ground_truth_label": "LSF_CATEGORY_OR_O"}}
       ]
+    }}
+  ],
+  "example_updates": [
+    {{
+      "guideline_id": "DG-XXXX",
+      "type": "negative",
+      "span": "<erroneous span text where guideline misfired>",
+      "sentence": "<sentence context>",
+      "ground_truth_label": "LSF_CATEGORY_OR_O",
+      "bert_label": "<BERT label>",
+      "generator_label": "<Generator label>",
+      "outcome_triad": "<Triad error outcome e.g. GT_X_BERT_X_LLM_O>",
+      "explanation": "<Explanation from error_identification of why applying this guideline was harmful>"
+    }},
+    {{
+      "guideline_id": "DG-YYYY",
+      "type": "positive",
+      "span": "<correctly classified span text>",
+      "sentence": "<sentence context>",
+      "ground_truth_label": "LSF_CATEGORY_OR_O",
+      "bert_label": "<BERT label>",
+      "generator_label": "<Generator label>",
+      "outcome_triad": "<Triad success outcome e.g. GT_X_BERT_X_LLM_X>",
+      "explanation": "<Explanation of how this guideline successfully confirmed the correct category>"
     }}
   ]
 }}

@@ -127,6 +127,10 @@ class DynamicGuidebookManager:
         return self.store.guidebook_file_path
 
     @property
+    def examples_file_path(self) -> str:
+        return self.store.examples_file_path
+
+    @property
     def chroma_persist_directory(self) -> str:
         return self.vectors.persist_directory
 
@@ -137,6 +141,22 @@ class DynamicGuidebookManager:
     @property
     def dynamicGuidelines(self) -> Dict[str, Any]:
         return self.store.guidebook
+
+    @property
+    def examples(self) -> Dict[str, Any]:
+        return self.store.examples
+
+    def add_guideline_example(self, guideline_id: str, example_type: str, example_data: Dict[str, Any]) -> bool:
+        """Adds positive/negative example to a guideline in the store."""
+        return self.store.add_example(guideline_id, example_type, example_data)
+
+    def get_examples_for_guideline(self, guideline_id: str) -> Dict[str, List[Dict[str, Any]]]:
+        """Gets positive/negative examples for a specific guideline."""
+        return self.store.get_examples_for_guideline(guideline_id)
+
+    def save_examples(self, backup: bool = True) -> bool:
+        """Saves examples to JSON file."""
+        return self.store.save_examples(backup=backup)
 
     @property
     def bullets_added_since_pruning(self):

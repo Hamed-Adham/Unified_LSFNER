@@ -239,7 +239,54 @@ class BulletOps:
                 else:
                     results["errors"].append({"operation": op, "message": "Missing ID or guideline text for MODIFY"})
 
+        # Process explicit example updates if emitted by Curator
+        example_updates = curator_output.get("example_updates") or curator_output.get("examples", [])
+        if isinstance(example_updates, list):
+            for ex in example_updates:
+                if isinstance(ex, dict):
+                    gid = ex.get("guideline_id") or ex.get("id")
+                    ex_type = str(ex.get("type", ex.get("example_type", "negative"))).lower()
+                    if gid and ex_type in ("positive", "negative"):
+                        ex_data = {
+                            "span": ex.get("span", ""),
+                            "sentence": ex.get("sentence", ex.get("span_sentence", "")),
+                            "ground_truth_label": ex.get("ground_truth_label", ex.get("gt_label", "")),
+                            "bert_label": ex.get("bert_label", ""),
+                            "generator_label": ex.get("generator_label", ex.get("llm_label", "")),
+                            "outcome_triad": ex.get("outcome_triad", ex.get("triad", "")),
+                            "explanation": ex.get("explanation", ex.get("reason", ""))
+                        }
+                        self.store.add_example(gid, ex_type, ex_data, save_now=False)
+        elif isinstance(example_updates, dict):
+            for gid, val in example_updates.items():
+                if isinstance(val, dict):
+                    for ex_type in ("positive", "negative"):
+                        items = val.get(ex_type, [])
+                        if isinstance(items, list):
+                            for ex in items:
+                                if isinstance(ex, dict):
+                                    ex_data = {
+                                        "span": ex.get("span", ""),
+                                        "sentence": ex.get("sentence", ex.get("span_sentence", "")),
+                                        "ground_truth_label": ex.get("ground_truth_label", ex.get("gt_label", "")),
+                                        "bert_label": ex.get("bert_label", ""),
+                                        "generator_label": ex.get("generator_label", ex.get("llm_label", "")),
+                                        "outcome_triad": ex.get("outcome_triad", ex.get("triad", "")),
+                                        "explanation": ex.get("explanation", ex.get("reason", ""))
+                                    }
+                                    self.store.add_example(gid, ex_type, ex_data, save_now=False)
+
+        self.store.save_examples(backup=False)
         return results
+
+    def add_guideline_example(
+        self,
+        guideline_id: str,
+        example_type: str,
+        example_data: Dict[str, Any]
+    ) -> bool:
+        """Adds a positive or negative example to a guideline in the examples store."""
+        return self.store.add_example(guideline_id, example_type, example_data)
 
     # Legacy compatibility wrappers
     def add_bullet(self, category, content, file_name=None, root_cause="", error_examples=None):
